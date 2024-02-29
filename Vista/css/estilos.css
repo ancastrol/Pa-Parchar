@@ -3,11 +3,11 @@ body{
     background-color: #3D3D3D;
     font: "Inter", sans-serif;
     font-size: 10px;
-    color: #000000;
+    color: white;
 }
 
 a{
-   color: #CACACA; 
+   color: white; 
 }
 
 /*Contenedor padre*/
@@ -23,7 +23,7 @@ a{
 header{
     width: 100%;
     background-color: #0D0C0D;
-    color: #CACACA;
+    color: white;
     padding: 0;
 }
 
@@ -50,8 +50,8 @@ button{
 main{
     width: auto;
     height: 100%;
-    background-color: white;
-    color: #000000;
+    background-color: #262626;
+    color: white;
     padding: 0% 0% 0% 0%;
 }
 
@@ -63,9 +63,15 @@ main{
 #parrafoP{
     font-size: 10px;
     padding: 2% 0 0 3%;
+    color: white;
 }
 
 /*eventos "pequeños"*/
+
+#botonEvento{
+    background-color: #0d0c0d00;
+    padding: 0;
+}
 
 #eventoA{
     width: 100%;
@@ -74,10 +80,10 @@ main{
 }
 
 #parrafoE{
-    font-size: 8px;
-    padding: 0% 0% 0% 3%;
+    font-size: 9px;
+    padding: 0% 0% 0% 0%;
+    color: white;
 }
-
 
 #eventos{
     width: 100%;
@@ -88,7 +94,7 @@ main{
 footer{
     width: 100%;
     background-color: #0D0C0D;
-    color: #CACACA;
+    color: white;
     padding: 6% 0% 6% 0%;
 }
 
