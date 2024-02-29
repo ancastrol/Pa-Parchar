@@ -1,0 +1,102 @@
+/*Body*/
+body{
+    background-color: #3D3D3D;
+    font: "Inter", sans-serif;
+    font-size: 10px;
+    color: #000000;
+}
+
+a{
+   color: #CACACA; 
+}
+
+/*Contenedor padre*/
+#container{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    padding: 0 0 0 0;
+}
+
+/*Encabezado*/
+header{
+    width: 100%;
+    background-color: #0D0C0D;
+    color: #CACACA;
+    padding: 0;
+}
+
+#logo{
+    padding-top: 0.5%;
+    padding-left: 5%;
+}
+
+#lupa{
+    left: 13%;
+}
+
+button{
+    margin: 10px;
+    background-color: #0D0C0D;
+    color: #CACACA;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: none;
+}
+
+
+/*Area de trabajo*/
+main{
+    width: auto;
+    height: 100%;
+    background-color: white;
+    color: #000000;
+    padding: 0% 0% 0% 0%;
+}
+
+#imgReco{
+    width: 100%;
+    height: auto;
+}
+
+#parrafoP{
+    font-size: 10px;
+    padding: 2% 0 0 3%;
+}
+
+/*eventos "pequeños"*/
+
+#eventoA{
+    width: 100%;
+    height: 100%;
+    padding: 4%;
+}
+
+#parrafoE{
+    font-size: 8px;
+    padding: 0% 0% 0% 3%;
+}
+
+
+#eventos{
+    width: 100%;
+}
+
+/*Pie de pagina*/
+
+footer{
+    width: 100%;
+    background-color: #0D0C0D;
+    color: #CACACA;
+    padding: 6% 0% 6% 0%;
+}
+
+
+footer.p{
+    font-size: 3px;
+}
+
+footer.a{
+    font-size: 3px;
+}
