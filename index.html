@@ -43,16 +43,13 @@
         <main>
             <div class="row">
                 <div class="col-5">
-                    <img src="/Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
+                    <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
                 </div>
                 <div class="col-7" id = "parrafoDetallado">     
-                    <p><strong>TITULO DEL EVENTO</strong>
-                    <br>
-                    LOREM IPSUM DOLOR SIT AMET /LOREM 
-                    IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                    SIT AMET.(DESCRIPCION)adfgagfafgadfg
-                    adfgadfgafgadfgadfg
-                    </p>
+                    <button><p><strong>COLOCA TITULO</strong>
+                        <br>
+                        describe tu evento
+                        </p></button>
                     <div class="row">
                         <div class="col-2">
                             <p>
@@ -110,6 +107,8 @@
                 var to = d.getElementsByTagName('script')[0];
                 to.parentNode.insertBefore(s, to);
               })();</script><a href="https://1map.com/es/map-embed">1 Map</a></div>
+
+
         </main>
         <!--Footer-->
         <footer class="container_pie" id="footer">
@@ -157,117 +156,200 @@
     </div>
 
     <!--Plantillas-->
-    <template id = "paginaPrincipal">
-        <main id="eventos">
-        <!--Evento recomendado-->
-        <div class="row align-items-center">
-            <div class="col-12">
-                <img src="/Recursos/Img/recomendation.png" alt="" id="imgReco">
-                <p id = "parrafoP"><strong>TITULO DEL EVENTO</strong>
+
+        <!--Pagina principal-->
+
+        <template id = "paginaPrincipal">
+            <main id="eventos">
+
+            <!--Evento recomendado-->
+
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <img src="/Recursos/Img/recomendation.png" alt="" id="imgReco">
+                    <p id = "parrafoP"><strong>TITULO DEL EVENTO</strong>
+                    <br>
+                    LOREM IPSUM DOLOR SIT AMET /LOREM 
+                    IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                    SIT AMET.(DESCRIPCION) 
                 <br>
-                LOREM IPSUM DOLOR SIT AMET /LOREM 
-                IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                SIT AMET.(DESCRIPCION) 
-               <br>
-               XX/XX/XXXX
-                </p>
-            </div>
-        </div>
-        <hr size="8px" color="#D9D9D9"/>
-        <!--Eventos pequeños-->   
-        <div class="row align-items-center">
-            <div class="col-6">
-                <img src="/Recursos/Img/eventoa.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
+                XX/XX/XXXX
                     </p>
                 </div>
             </div>
-            <div class="col-6">
-                <img src="/Recursos/Img/eventob.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
-                    </p>
+            <hr size="8px" color="#D9D9D9"/>
+
+            <!--Eventos pequeños-->   
+
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventoa.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventob.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-6">
-                <img src="/Recursos/Img/eventoc.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
-                    </p>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventoc.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventod.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <img src="/Recursos/Img/eventod.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
-                    </p>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventoe.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="/Recursos/Img/eventof.png" alt="" id="eventoA">
+                    <div class="col-12">
+                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
+                            <br>
+                            LOREM IPSUM DOLOR SIT AMET /LOREM 
+                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                            SIT AMET.(DESCRIPCION) 
+                            <br>
+                            XX/XX/XXXX
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-6">
-                <img src="/Recursos/Img/eventoe.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
+            <hr size="8px" color="#D9D9D9"/>
+            <div class="row justify-content-center">
+                <i class="material-icons">arrow_back</i>
+                <i class="material-icons">fiber_manual_record</i>
+                <i class="material-icons">fiber_manual_record</i>
+                <i class="material-icons">fiber_manual_record</i>
+                <i class="material-icons">arrow_forward</i>
+            </div>
+            <hr size="8px" color="#D9D9D9"/>
+        </template>
+
+        <!--Evento Detallado-->
+
+        <template>
+            <div class="row">
+                <div class="col-5">
+                    <img src="/Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
+                </div>
+                <div class="col-7" id = "parrafoDetallado">     
+                    <p><strong>TITULO DEL EVENTO</strong>
+                    <br>
+                    LOREM IPSUM DOLOR SIT AMET /LOREM 
+                    IPSUM DOLOR . /LOREM IPSUM DOLOR 
+                    SIT AMET.(DESCRIPCION)adfgagfafgadfg
+                    adfgadfgafgadfgadfg
                     </p>
+                    <div class="row">
+                        <div class="col-2">
+                            <p>
+                            FECHA<br>XX/XX/XXXX
+                            </p>
+                        </div>
+                        <div class="col-2" id="linea1">
+                        <hr>
+                        </div>
+                        <div class="col-2">
+                            <p>
+                                HORA<br>00:00:00
+                            </p>
+                        </div>
+                        <div class="col-2" id="linea1">
+                            <hr>
+                        </div>
+                        <div class="col-3">
+                            <p>
+                                LUGAR<br>Movistar Arena
+                            </p>
+                        </div>
+                    </div>   
+                </div>
+                <div class = "col-12" id = "lineUp">
+                    <p id="ACT"><strong>ACT</strong></p>
+                        <li>"Will He" -- Opener</li>
+                        <li>"Demons"</li>
+                        <li>"Yeah Right"</li>
+                        <li>"Head in the Clouds"</li>
+                        <li>"Test Drive"</li>
+                        <li>"I Don't Wanna Waste My Time"</li>
+                        <li>"Attention"</li>
+                        <li>"Wanted U"</li>
+                        <li>"XNXX"</li>
+                        <li>"Can't Get Over You"</li>
+                        <li>"No Fun"</li>
+                        <li>"I'll See You in 40" -- Main Set Closer</li>
+                        <li>Encore</li>
+                        <li>"Slow Dancing in the Dark" - main Set Closer</li>
                 </div>
             </div>
-            <div class="col-6">
-                <img src="/Recursos/Img/eventof.png" alt="" id="eventoA">
-                <div class="col-12">
-                    <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                        <br>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM 
-                        IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                        SIT AMET.(DESCRIPCION) 
-                        <br>
-                        XX/XX/XXXX
-                    </p>
-                </div>
-            </div>
-        </div>
-        <hr size="8px" color="#D9D9D9"/>
-        <div class="row justify-content-center">
-            <i class="material-icons">arrow_back</i>
-            <i class="material-icons">fiber_manual_record</i>
-            <i class="material-icons">fiber_manual_record</i>
-            <i class="material-icons">fiber_manual_record</i>
-            <i class="material-icons">arrow_forward</i>
-        </div>
-        <hr size="8px" color="#D9D9D9"/>
-    </main></template>
+
+            <!--Mapa-->
+
+            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
+                <script>(function () {
+                var setting = {"query":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","width":800,"height":600,"satellite":false,"zoom":15,"placeId":"ChIJ89PYvUqbP44RHozfsJ1vCtk","cid":"0xd90a6f9db0df8c1e","coords":[4.6491577,-74.0772952],"lang":"es","queryString":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","centerCoord":[4.6491577,-74.0772952],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1076808"};
+                var d = document;
+                var s = d.createElement('script');
+                s.src = 'https://1map.com/js/script-for-user.js?embed_id=1076808';
+                s.async = true;
+                s.onload = function (e) {
+                window.OneMap.initMap(setting)
+                };
+                var to = d.getElementsByTagName('script')[0];
+                to.parentNode.insertBefore(s, to);
+            })();</script><a href="https://1map.com/es/map-embed">1 Map</a></div>
+        </template>
 </body>
 </html>
