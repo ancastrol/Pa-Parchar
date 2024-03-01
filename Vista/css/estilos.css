@@ -55,9 +55,47 @@ main{
     padding: 0% 0% 0% 0%;
 }
 
+#imgDetalle{
+    width: 100%;
+    height: auto;
+    margin: 5% 0% 5% 5%;
+
+}
+
+
 #imgReco{
     width: 100%;
     height: auto;
+}
+
+#parrafoDetallado{
+    margin-top: 5%;
+    padding: 0;
+}
+
+hr{
+    height:85%;
+    width: 5%;
+    background-color:#000;
+    margin: 0 0 0 0;
+   }
+
+#linea1{
+    padding-left: 10%;
+}
+
+#lineUp{
+    left: 3%;
+    margin-bottom: 2%;
+}
+
+li{
+    list-style-type: number;
+    padding: 0 1% 1% 1%;
+}
+
+#ACT{
+    margin: 0 0 2% 0;
 }
 
 #parrafoP{
