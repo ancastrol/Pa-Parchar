@@ -1,6 +1,8 @@
 /*Body*/
+
 body{
     width: 100%;
+    height: 100%;
     background-color: #3D3D3D;
     font: "Inter", sans-serif;
     font-size: 10px;
@@ -12,6 +14,7 @@ a{
 }
 
 /*Contenedor padre*/
+
 #container{
     width: 100%;
     height: 100%;
@@ -20,67 +23,139 @@ a{
     padding: 0 0 0 0;
 }
 
-/*Encabezado*/
-header{
+/*Area de trabajo*/
+main{
     width: 100%;
-    background-color: #0D0C0D;
+    height: 100%;
+    background-color: #262626;
     color: white;
-    padding: 0;
-}
-
-#logo{
-    padding-top: 0.9%;
-    padding-left: 16.5%;
-}
-
-#lupa{
     padding: 0;
 }
 
 button{
-    margin: 10px;
+    color: #ffffff;
     background-color: #0d0c0d00;
-    color: #CACACA;
+    border: #0d0c0d00;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Encabezado*/
+
+header{
+    width: 100%;
+    background-color: #0D0C0D;
+}
+
+#botonEncabezado{
+    margin-top: 1%;
+    width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
     font: "Inter", sans-serif;
     font-size: 12px;
-    border: none;
+    border: #0d0c0d00;
 }
 
-
-/*Area de trabajo*/
-main{
-    width: auto;
-    height: 100%;
-    background-color: #262626;
-    color: white;
-    padding: 0% 0% 0% 0%;
-}
-
-/*Sub encabezado*/
-#busquedaRelacionada, p{
-   color: rgb(175, 175, 175);
-   font-size: 10px; 
-   margin: 7dvh 0 0  0;
-}
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Recomendacion*/
+
+
 #botonRecomendacion{
-    background-color: #0d0c0d00;
-    padding: 0 0 0 0;
+    height: 100%;
+    width: 100%;
+
 }
+
 #imgReco{
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    border-radius: 0;
+    margin-bottom: -18%;
 }
 
 #parrafoP{
     font-size: 10px;
     padding: 2% 0 0 3%;
     color: white;
+    margin-bottom: 15%
 }
 
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*eventos "pequeños"*/
+
+#botonEvento{
+    margin-top: 1%;
+    width: 20%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
+}
+
+#eventoA{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+#parrafoE{
+    font-size: 9px;
+    color: white;
+}
+
+#eventos{
+    width: 100%;
+}
+
+#botonSig{
+    background-color: #0d0c0d00;
+    padding: 0;
+    color: #ffffff;
+}
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Pie de pagina*/
+
+footer{
+    width: 100%;
+    background-color: #0D0C0D;
+    color: white;
+    padding: 3% 0% 3% 0%;
+}
+
+footer.p{
+    font-size: 5px;
+}
+
+footer.a{
+    font-size: 5px;
+}
+
+#botonRed{
+    background-color: #0d0c0d00;
+    padding: 0;
+}
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Busqueda*/
+
+#barraBusqueda{
+    width: 100%;
+    font-size: 2.212vh;
+    color: white;
+    height: 3.5vh;
+    background-color: #0d0c0d00;
+    border-color: #0d0c0d00;
+    padding: 0 0 0 1.6%;
+}
+
 #cuadroBusqueda{
     width: 100%;
     width: auto;
@@ -106,55 +181,4 @@ main{
 
 #cuadroBusqueda > :last-child{
     border-bottom: none;
-}
-
-/*eventos "pequeños"*/
-
-#botonEvento{
-    background-color: #0d0c0d00;
-    padding: 0;
-}
-
-#eventoA{
-    width: 100%;
-    height: 100%;
-    padding: 4%;
-    border-radius: 10px;
-}
-
-#parrafoE{
-    font-size: 9px;
-    padding: 0% 0% 0% 0%;
-    color: white;
-}
-
-#eventos{
-    width: 100%;
-}
-
-#botonSig{
-    background-color: #0d0c0d00;
-    padding: 0;
-}
-
-/*Pie de pagina*/
-
-footer{
-    width: 100%;
-    background-color: #0D0C0D;
-    color: white;
-    padding: 3% 0% 3% 0%;
-}
-
-footer.p{
-    font-size: 5px;
-}
-
-footer.a{
-    font-size: 5px;
-}
-
-#botonRed{
-    background-color: #0d0c0d00;
-    padding: 0;
 }
