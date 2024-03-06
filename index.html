@@ -41,55 +41,6 @@
 
         <!--Main-->
         <main>
-            <div class="row">
-                <div class="col-6">
-                    <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
-                </div>
-                <div class="col-6" id = "parrafoDetallado">     
-                    <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
-                        <br>
-                        describe tu evento
-                        </p></button>
-                    <div class="row" id = "especificosEvento">
-                        <div class="col-4">
-                            <button id = "ingresarData">
-                                <p>Fecha
-                                <br>xx/xx/xxxx</p>
-                            </button>
-                        </div>
-                        <div class="col-4">
-                            <button id = "ingresarData">
-                                <p>Hora
-                                <br>00:00:00</p>
-                            </button>   
-                        </div>
-                        <div class="col-4">
-                            <button id = "ingresarData">
-                                <p>Lugar
-                                <br>Ingrese lugar</p>
-                            </button>  
-                        </div>
-                    </div>   
-                </div>
-            </div>
-                <div class="row">
-                    <div class="col-5" id = "compraConjunto">
-                        <p>Adquiere tu boleta aqui</p>
-                        <button id = "compraBtn">
-                            <p>Compra</p>
-                        </button> 
-                    </div>
-                    <div class = "col-6" id = "lineUp">
-                        <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
-                    </div>
-                </div>
-                <!--Mapa-->
-                <div class = "col-11" id="lineUp">
-                    <button id = "ingresarActo"><br>Ingrese la dirección<br></button>
-            </div>
-    
-            
-            
 
         </main>
         <!--Footer-->
@@ -297,8 +248,15 @@
                         </div>
                     </div>   
                 </div>
-                <div class = "col-12" id = "lineUp">
-                    <p id="ACT"><strong>ACTUACIONES</strong></p>
+                <div class="row">
+                    <div class="col-5" id = "compraConjunto">
+                        <p>Adquiere tu boleta aqui</p>
+                        <button id = "compraBtn">
+                            <p id="ACT">Compra</p>
+                        </button> 
+                    </div>
+                    <div class = "col-7" id = "lineUp">
+                        <p id="ACT"><strong>ACTUACIONES</strong></p>
                         <li>"Will He" -- Opener</li>
                         <li>"Demons"</li>
                         <li>"Yeah Right"</li>
@@ -313,15 +271,15 @@
                         <li>"I'll See You in 40" -- Main Set Closer</li>
                         <li>Encore</li>
                         <li>"Slow Dancing in the Dark" - main Set Closer</li>
+                    </div>
                 </div>
-            </div>
 
             <!--Mapa-->
 
             <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
                 <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
                 <script>(function () {
-                var setting = {"query":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","width":800,"height":600,"satellite":false,"zoom":15,"placeId":"ChIJ89PYvUqbP44RHozfsJ1vCtk","cid":"0xd90a6f9db0df8c1e","coords":[4.6491577,-74.0772952],"lang":"es","queryString":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","centerCoord":[4.6491577,-74.0772952],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1076808"};
+                var setting = {"query":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","width":500,"height":300,"satellite":false,"zoom":15,"placeId":"ChIJ89PYvUqbP44RHozfsJ1vCtk","cid":"0xd90a6f9db0df8c1e","coords":[4.6491577,-74.0772952],"lang":"es","queryString":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","centerCoord":[4.6491577,-74.0772952],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1076808"};
                 var d = document;
                 var s = d.createElement('script');
                 s.src = 'https://1map.com/js/script-for-user.js?embed_id=1076808';
@@ -331,7 +289,60 @@
                 };
                 var to = d.getElementsByTagName('script')[0];
                 to.parentNode.insertBefore(s, to);
-            })();</script><a href="https://1map.com/es/map-embed">1 Map</a></div>
+            })();</script><a href="https://1map.com/es/map-embed">1 Map</a>
+        </div>
+        </template>
+
+        <!--Ingresar Evento-->
+
+        <template>
+            <div class="row">
+                <div class="col-6">
+                    <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
+                </div>
+                <div class="col-6" id = "parrafoDetallado">     
+                    <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
+                        <br>
+                        describe tu evento
+                        </p></button>
+                    <div class="row" id = "especificosEvento">
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Fecha
+                                <br>xx/xx/xxxx</p>
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Hora
+                                <br>00:00:00</p>
+                            </button>   
+                        </div>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Lugar
+                                <br>Ingrese lugar</p>
+                            </button>  
+                        </div>
+                    </div>   
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-5" id = "compraConjunto">
+                        <p>Adquiere tu boleta aqui</p>
+                        <button id = "compraBtn">
+                            <p>Compra</p>
+                        </button> 
+                    </div>
+                    <div class = "col-6" id = "registroDetalles">
+                        <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
+                    </div>
+                </div>
+                <!--Mapa-->
+                <div class = "col-11" id="registroDetalles">
+                    <button id = "ingresarActo"><br>Ingrese la dirección<br></button>
+            </div>
+
         </template>
 </body>
 </html>

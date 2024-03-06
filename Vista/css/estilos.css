@@ -65,6 +65,7 @@ main{
 
 }
 
+/*Botones para ingresar descripción*/
 #ingresarDetalle{
     color: #8a8a8a;
     background-color: #d9d9d9;
@@ -77,6 +78,7 @@ main{
     margin-left: -10%;
 }
 
+/*Botones para ingresar datos especificos(fecha/hora/sitio)*/
 #ingresarData{
     color: #8a8a8a;
     background-color: #d9d9d9;
@@ -85,21 +87,29 @@ main{
     font-size: xx-small;
 }
 
+/*contenedor del texto y boton de la zona de compra*/
 #compraConjunto{
     left: 5%;
     margin-bottom: 2%;
     text-align: center;
 }
 
+/*Boton para ingresar información de compra*/
 #compraBtn{
     color: #ffffff;
     background-color: #000000;
     width: 60%;
-    height: 30%;
+    height: 25px;
     border-radius: 8%;
     font-size: x-small;
 }
 
+#registroDetalles{
+    left: 5%;
+    margin-bottom: 2%;
+}
+
+/*Boton para ingresar actuaciones*/
 #ingresarActo{
     color: #8a8a8a;
     background-color: #d9d9d9;
@@ -109,6 +119,7 @@ main{
     margin: 0;
 }
 
+/*Boton para ingresar dirección especifica*/
 #ingresarDireccion{
     height: 100%;
     color: #8a8a8a;
@@ -139,7 +150,7 @@ hr{
 }
 
 #lineUp{
-    left: 5%;
+    left: 10%;
     margin-bottom: 2%;
 }
 
@@ -150,6 +161,7 @@ li{
 
 #ACT{
     margin: 0 0 2% 0;
+    text-align: center;
 }
 
 
