@@ -42,72 +42,46 @@
         <!--Main-->
         <main>
             <div class="row">
-                <div class="col-5">
+                <div class="col-6">
                     <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
                 </div>
-                <div class="col-7" id = "parrafoDetallado">     
-                    <button><p><strong>COLOCA TITULO</strong>
+                <div class="col-6" id = "parrafoDetallado">     
+                    <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
                         <br>
                         describe tu evento
                         </p></button>
-                    <div class="row">
-                        <div class="col-2">
-                            <p>
-                            FECHA<br>XX/XX/XXXX
-                            </p>
+                    <div class="row" id = "especificosEvento">
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Fecha
+                                <br>xx/xx/xxxx</p>
+                            </button>
                         </div>
-                        <div class="col-2" id="linea1">
-                        <hr>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Hora
+                                <br>00:00:00</p>
+                            </button>   
                         </div>
-                        <div class="col-2">
-                            <p>
-                                HORA<br>00:00:00
-                            </p>
-                        </div>
-                        <div class="col-2" id="linea1">
-                            <hr>
-                        </div>
-                        <div class="col-3">
-                            <p>
-                                LUGAR<br>Movistar Arena
-                            </p>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Lugar
+                                <br>Ingrese lugar</p>
+                            </button>  
                         </div>
                     </div>   
                 </div>
                 <div class = "col-12" id = "lineUp">
-                    <p id="ACT"><strong>ACT</strong></p>
-                        <li>"Will He" -- Opener</li>
-                        <li>"Demons"</li>
-                        <li>"Yeah Right"</li>
-                        <li>"Head in the Clouds"</li>
-                        <li>"Test Drive"</li>
-                        <li>"I Don't Wanna Waste My Time"</li>
-                        <li>"Attention"</li>
-                        <li>"Wanted U"</li>
-                        <li>"XNXX"</li>
-                        <li>"Can't Get Over You"</li>
-                        <li>"No Fun"</li>
-                        <li>"I'll See You in 40" -- Main Set Closer</li>
-                        <li>Encore</li>
-                        <li>"Slow Dancing in the Dark" - main Set Closer</li>
+                    <p id="ACT"><strong>ACTUACIONES</strong></p>
+                        <button id = "ingresarActo">Añada la lista de actuaciones del evento</button>
                 </div>
+                <!--Mapa-->
+                <div class = "col-12">
+                        <button id = "ingresarDireccion">Direccion del evento</button>
+                </div>
+    
             </div>
-            <!--Mapa-->
-            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
-                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
-                <script>(function () {
-                var setting = {"query":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","width":800,"height":600,"satellite":false,"zoom":15,"placeId":"ChIJ89PYvUqbP44RHozfsJ1vCtk","cid":"0xd90a6f9db0df8c1e","coords":[4.6491577,-74.0772952],"lang":"es","queryString":"Movistar Arena, Diagonal 61c, Bogotá, Colombia","centerCoord":[4.6491577,-74.0772952],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1076808"};
-                var d = document;
-                var s = d.createElement('script');
-                s.src = 'https://1map.com/js/script-for-user.js?embed_id=1076808';
-                s.async = true;
-                s.onload = function (e) {
-                  window.OneMap.initMap(setting)
-                };
-                var to = d.getElementsByTagName('script')[0];
-                to.parentNode.insertBefore(s, to);
-              })();</script><a href="https://1map.com/es/map-embed">1 Map</a></div>
-
+            
 
         </main>
         <!--Footer-->
@@ -316,7 +290,7 @@
                     </div>   
                 </div>
                 <div class = "col-12" id = "lineUp">
-                    <p id="ACT"><strong>ACT</strong></p>
+                    <p id="ACT"><strong>ACTUACIONES</strong></p>
                         <li>"Will He" -- Opener</li>
                         <li>"Demons"</li>
                         <li>"Yeah Right"</li>

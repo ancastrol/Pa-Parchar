@@ -65,6 +65,41 @@ main{
 
 }
 
+#ingresarDetalle{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 80%;
+    border-radius: 8%;
+}
+
+#especificosEvento{
+    margin-right: 0%;
+    margin-left: -10%;
+}
+
+#ingresarData{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 100%;
+    border-radius: 8%;
+    font-size: xx-small;
+}
+
+#ingresarActo{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 90%;
+    height: 100%;
+    border-radius: 8%; 
+    margin: 0;
+}
+
+#ingresarDireccion{
+    height: 100%;
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-radius: 8%;
+}
 
 #imgReco{
     width: 100%;
@@ -80,7 +115,7 @@ main{
 hr{
     height:85%;
     width: 5%;
-    background-color:#000;
+    background-color:#ffffff;
     margin: 0 0 0 0;
    }
 
@@ -101,6 +136,7 @@ li{
 #ACT{
     margin: 0 0 2% 0;
 }
+
 
 #parrafoP{
     font-size: 10px;
