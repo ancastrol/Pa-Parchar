@@ -41,9 +41,63 @@
 
         <!--Main-->
         <main>
+            <div class="row">
+                <div class="col-6">
+                    <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
+                </div>
+                <div class="col-6" id = "parrafoDetallado">     
+                    <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
+                        <br>
+                        describe tu evento
+                        </p></button>
+                    <div class="row" id = "especificosEvento">
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Fecha
+                                <br>xx/xx/xxxx</p>
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Hora
+                                <br>00:00:00</p>
+                            </button>   
+                        </div>
+                        <div class="col-4">
+                            <button id = "ingresarData">
+                                <p>Lugar
+                                <br>Ingrese lugar</p>
+                            </button>  
+                        </div>
+                    </div>   
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-5" id = "compraConjunto">
+                        <p>Adquiere tu boleta aqui</p>
+                        <button id = "compraBtn">
+                            <p>Compra</p>
+                        </button> 
+                    </div>
+                    <div class = "col-6" id = "registroDetalles">
+                        <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
+                    </div>
+                </div>
+                <!--Mapa-->
+                <div class = "col-11" id="registroDetalles">
+                    <button id = "ingresarActo"><br>Ingrese la dirección<br></button>
+                </div>
 
-        </main>
+                <section class="modal">
+                    <div class="modal_container">
+                        <h2  class="modal_title">Coloca la dirección de compra</h2>
+                        <input type="text" id="agregarUrl">
+                        <button class="modal_close">Enviar</button>
+                    </div>
+                </section>
+
         <!--Footer-->
+
         <footer class="container_pie" id="footer">
             <div class="row justify-content-center">
                 <div class="col-3">
@@ -89,125 +143,6 @@
     </div>
 
     <!--Plantillas-->
-
-        <!--Pagina principal-->
-
-        <template id = "paginaPrincipal">
-            <main id="eventos">
-
-            <!--Evento recomendado-->
-
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <img src="/Recursos/Img/recomendation.png" alt="" id="imgReco">
-                    <p id = "parrafoP"><strong>TITULO DEL EVENTO</strong>
-                    <br>
-                    LOREM IPSUM DOLOR SIT AMET /LOREM 
-                    IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                    SIT AMET.(DESCRIPCION) 
-                <br>
-                XX/XX/XXXX
-                    </p>
-                </div>
-            </div>
-            <hr size="8px" color="#D9D9D9"/>
-
-            <!--Eventos pequeños-->   
-
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventoa.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventob.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventoc.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventod.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventoe.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <img src="/Recursos/Img/eventof.png" alt="" id="eventoA">
-                    <div class="col-12">
-                        <p id = parrafoE><strong>TITULO DEL EVENTO</strong>
-                            <br>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM 
-                            IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                            SIT AMET.(DESCRIPCION) 
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <hr size="8px" color="#D9D9D9"/>
-            <div class="row justify-content-center">
-                <i class="material-icons">arrow_back</i>
-                <i class="material-icons">fiber_manual_record</i>
-                <i class="material-icons">fiber_manual_record</i>
-                <i class="material-icons">fiber_manual_record</i>
-                <i class="material-icons">arrow_forward</i>
-            </div>
-            <hr size="8px" color="#D9D9D9"/>
-        </template>
 
         <!--Evento Detallado-->
 
@@ -344,5 +279,9 @@
             </div>
 
         </template>
+
+
+
+        <script src="./Vista/js/vista.js"></script>
 </body>
 </html>
