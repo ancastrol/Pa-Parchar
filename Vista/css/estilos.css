@@ -1,3 +1,5 @@
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Body*/
 
 body{
@@ -13,6 +15,8 @@ a{
    color: white; 
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Contenedor padre*/
 
 #container{
@@ -22,6 +26,8 @@ a{
     background-color: white;
     padding: 0 0 0 0;
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Area de trabajo*/
 main{
@@ -37,7 +43,6 @@ button{
     background-color: #0d0c0d00;
     border: #0d0c0d00;
 }
-
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -60,8 +65,38 @@ header{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Recomendacion*/
+/*Menu*/
 
+#menuLateral{
+    width: 40%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 10px;
+    background-color: #0D0C0D;
+    padding: 3%;
+}
+
+#botonCerrarSesion{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 80%;
+}
+
+.text-btn-despl{
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado{
+    display: inline;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Recomendacion*/
 
 #botonRecomendacion{
     height: 100%;
@@ -81,8 +116,6 @@ header{
     color: white;
     margin-bottom: 15%
 }
-
-
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -115,10 +148,16 @@ header{
 }
 
 #botonSig{
+    margin-bottom: 2%;
+    width: 17%;
     background-color: #0d0c0d00;
-    padding: 0;
     color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    border-radius: 10px;
 }
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Pie de pagina*/
@@ -182,3 +221,5 @@ footer.a{
 #cuadroBusqueda > :last-child{
     border-bottom: none;
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
