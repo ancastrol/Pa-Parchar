@@ -9,6 +9,8 @@ body{
 p{
     font: "Inter", sans-serif;
 }
+
+
 a{
    color: white; 
 }
@@ -95,7 +97,7 @@ main{
 }
 
 /*Boton para ingresar información de compra*/
-#compraBtn{
+.compraBtn{
     color: #ffffff;
     background-color: #000000;
     width: 60%;
@@ -112,6 +114,13 @@ main{
     bottom: 0;
     background-color: #111111bd;
     display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
 }
 
 .modal_container{
@@ -146,8 +155,13 @@ main{
     border-radius: 6px;
     display: inline-block;
     font-weight: 300;
+    transition: background-color .3s;
 }
 
+.modal_close:hover{
+    color: #000000;
+    background-color: #fff;
+}
 
 #cerrarModal{
     color: #ffffff;
