@@ -2,13 +2,17 @@ class Vista {
     constructor() {
     }
 
-    abrirModal(pModal) {
-        pModal.style['pointer-events'] = 'none';
+    
+    abrirModal() {
+        let pModal = document.getElementById('modalUrl');
+        pModal.style['pointer-events'] = 'unset';
         pModal.style.opacity = 1;
     }
 
-    cerrarModal(pModal) {
-        pModal.style.pointerEvents = "none";
+
+    cerrarModal() {
+        let pModal = document.getElementById('modalUrl');
+        pModal.style['pointer-events'] = 'none';
         pModal.style.opacity = 0;
     }
 

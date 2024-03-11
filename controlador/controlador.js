@@ -5,14 +5,10 @@ window.onload = function(){
 }
 
 
-function limpiarVista(){
-    alert("SI funciona")
-}
-
 function mostrarModal(){
-    vista.abrirModal(document.querySelector('modalUrl'));
+    vista.abrirModal();
 }
 
 function cerrarModal(){
-    vista.cerrarModal('modalUrl');
+    vista.cerrarModal();
 }

@@ -128,10 +128,6 @@ main{
     pointer-events: none;
 }
 
-.modal--show{
-    opacity: 1;
-    pointer-events: unset;
-}
 
 #modal_container{
     margin:auto;
@@ -141,6 +137,7 @@ main{
     background-color: #ffffff;
     padding: 3em 2.5em;
     display: grid;
+    border-radius: 6px;
     gap: 1em;
     place-items: center;
     grid-auto-columns: 100%;
@@ -174,12 +171,20 @@ main{
 }
 
 #cerrarModal{
-    color: #ffffff;
+    text-decoration: none;
+    color: #fff;
     background-color: #000000;
-    width: 60%;
-    height: 25px;
-    border-radius: 8%;
-    font-size: x-small; 
+    padding: 0.5em 1em;
+    border: 1px solid;
+    border-radius: 100px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#cerrarModal:hover{
+    color: #000000;
+    background-color: #fff;
 }
 
 /*Organizar detalles eventos*/
