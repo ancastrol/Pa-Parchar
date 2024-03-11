@@ -75,9 +75,9 @@
                 <div class="row">
                     <div class="col-5" id = "compraConjunto">
                         <p>Adquiere tu boleta aqui</p>
-                        <a href="#" class = "compraBtn" >
+                        <button id = "compraBtn" onclick="mostrarModal()">
                             <p>Compra</p>
-                        </a> 
+                        </button> 
                     </div>
                     <div class = "col-6" id = "registroDetalles">
                         <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
@@ -89,13 +89,13 @@
                 </div>
 
                 <!--Ventana emergente-->
-                <section class="modal">
-                    <div class="modal_container">
-                        <h2  class="modal_title">Coloca la dirección de compra</h2>
+                <div id="modalUrl">
+                    <div id="modal_container">
+                        <h2  id ="modal_title">Coloca la dirección de compra</h2>
                         <input type="text" id="agregarUrl">
-                        <button class="modal_close">Enviar</button>
+                        <button id="modal_close" onclick="cerrarModal()">Enviar</button>
                     </div>
-                </section>
+                </div>
 
         <!--Footer-->
 
@@ -282,7 +282,7 @@
         </template>
 
 
-
         <script src="./Vista/js/vista.js"></script>
+        <script src ="./controlador/controlador.js"></script>
 </body>
 </html>

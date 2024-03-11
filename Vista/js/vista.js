@@ -1,11 +1,16 @@
-const openModal = document.querySelector('.compraBtn');
-const modal = document.querySelector('.modal');
-const closeModal = document.querySelector('.modal_close');
+class Vista {
+    constructor() {
+    }
 
-openModal.addEventListener('click',()=>{
-    modal.classList.add('.modal--show');
-});
+    abrirModal(pModal) {
+        pModal.style['pointer-events'] = 'none';
+        pModal.style.opacity = 1;
+    }
 
-closeModal.addEventListener('click',()=>{
-    modal.classList.remove('.modal--show');
-});
+    cerrarModal(pModal) {
+        pModal.style.pointerEvents = "none";
+        pModal.style.opacity = 0;
+    }
+
+
+}
