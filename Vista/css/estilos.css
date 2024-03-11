@@ -115,9 +115,12 @@ header{
 
 }
 
-#parrafoRecomendacion{
-    margin-top: 13rem;
+#tituloRecomendado{
+    font-size: 10px;
+}
 
+#parrafoRecomendado{
+    font-size: 9px;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
