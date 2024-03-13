@@ -24,22 +24,28 @@ a{
     padding: 0 0 0 0;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Encabezado*/
+
 header{
     width: 100%;
     background-color: #0D0C0D;
-    color: white;
-    padding: 0;
 }
 
-#logo{
-    padding-top: 0.5%;
-    padding-left: 5%;
+#botonEncabezado{
+    margin-top: 1%;
+    width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
 }
 
-#lupa{
-    left: 13%;
-}
+/*-------------------------------------------------------------------------------------------------------*/
+
+
 
 button{
     margin: 10px;
@@ -285,14 +291,18 @@ footer{
     width: 100%;
     background-color: #0D0C0D;
     color: white;
-    padding: 6% 0% 6% 0%;
+    padding: 3% 0% 3% 0%;
 }
 
-
 footer.p{
-    font-size: 3px;
+    font-size: 5px;
 }
 
 footer.a{
-    font-size: 3px;
+    font-size: 5px;
+}
+
+#botonRed{
+    background-color: #0d0c0d00;
+    padding: 0;
 }
