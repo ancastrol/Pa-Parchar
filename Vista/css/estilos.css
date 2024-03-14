@@ -1,5 +1,10 @@
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Body*/
+
 body{
+    width: 100%;
+    height: 100%;
     background-color: #3D3D3D;
     font: "Inter", sans-serif;
     font-size: 10px;
@@ -15,8 +20,12 @@ a{
    color: white; 
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Contenedor padre*/
-#container {
+
+#container{
+
     width: 100%;
     height: 100%;
     margin: auto;
@@ -26,6 +35,21 @@ a{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+
+/*Area de trabajo*/
+main{
+    width: 100%;
+    height: 100%;
+    background-color: #262626;
+    color: white;
+    padding: 0;
+}
+
+button{
+    color: #ffffff;
+    background-color: #0d0c0d00;
+}
+  
 /*Encabezado*/
 
 header{
@@ -43,35 +67,42 @@ header{
     border: #0d0c0d00;
 }
 
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 
+/*Menu*/
 
-button{
-    margin: 10px;
-    background-color: rgba(0, 0, 139, 0);
-    color: #CACACA;
+#menuLateral{
+    width: 40%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 10px;
+    background-color: #0D0C0D;
+    padding: 3%;
+}
+
+
+#botonCerrarSesion{
+    background-color: #ffffff;
+    color: black;
     font: "Inter", sans-serif;
     font-size: 12px;
-    border: none;
+    border: #4F4F4F;
+    width: 80%;
 }
 
 
-/*Area de trabajo*/
-main{
-    width: auto;
-    height: 100%;
-    background-color: #262626;
-    color: white;
-    padding: 0.2%;
+.text-btn-despl{
+    margin-left: 5px;
+    margin-bottom: 3px;
 }
 
-#imgDetalle{
-    width: 100%;
-    height: auto;
-    margin: 5% 0% 5% 5%;
-
+.btn-listado{
+    display: inline;
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Botones para ingresar descripción*/
 #ingresarDetalle{
@@ -236,20 +267,28 @@ hr{
     margin: 0 0 0 0;
    }
 
-#linea1{
-    padding-left: 10%;
-}
+
+/*Recomendacion*/
+
+
+#eventoRecomendado{
+    background-color: #0d0c0d00;
+    border: #0d0c0d00;
 
 #lineUp{
     left: 10%;
     margin-bottom: 2%;
+
 }
 
-li{
-    list-style-type: number;
-    padding: 0 1% 1% 1%;
+#botonRecomendacion{
+    height: auto;
+    width: 100%;
+    background-color: #0d0c0d00;
 }
 
+  
+  
 #ACT{
     margin: 0 0 2% 0;
     text-align: center;
@@ -257,10 +296,10 @@ li{
 
 
 #parrafoP{
+
     font-size: 10px;
-    padding: 2% 0 0 3%;
-    color: white;
 }
+
 
 #eventoRecomendado{
     background-color: #0d0c0d00;
@@ -363,3 +402,64 @@ footer.a{
     background-color: #0d0c0d00;
     padding: 0;
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Busqueda*/
+
+#barraBusqueda{
+    width: 100%;
+    font-size: 2.212vh;
+    color: white;
+    height: 3.5vh;
+    background-color: #0d0c0d00;
+    border-color: #0d0c0d00;
+    padding: 0 0 0 1.6%;
+}
+
+#cuadroBusqueda{
+    width: 100%;
+    width: auto;
+    background-color: #3D3D3D;
+    font-size: 5%;
+    border-radius: 50px;
+}
+
+#eventoBusqueda{
+    background-color: #0d0c0d00;
+    margin: 0%;
+    padding: 0% 0% 0% 2%;
+    color: white;
+}
+
+.separadorBusqueda{
+    width: 100%;
+    background-color: #3D3D3D;
+    padding: 3px;
+    border-bottom: 2px solid #A6A6A6;
+    text-align: left;
+}
+
+#cuadroBusqueda > :last-child{
+    border-bottom: none;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Listado del Organizador*/
+
+#eventoOrganizador{
+    max-height: 14rem;
+    max-width: 14rem;
+    border-radius: 5px;
+}
+
+#tituloOrganizador{
+    font-size: 12px;
+}
+
+#parrafoOrganizador{
+    font-size: 11px;
+}       
+
+/*-------------------------------------------------------------------------------------------------------*/
