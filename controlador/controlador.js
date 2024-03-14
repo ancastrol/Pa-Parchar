@@ -1,9 +1,9 @@
-let vista = null;
+let vista = new Vista;
 
-window.onload = function(){
-    vista = new Vista();
+function volverInicio(){
+    vista.limpiarContenido('contenido');
+    vista.mostrarPlantilla('paginaPrincipal', 'contenido');
 }
-
 
 function mostrarModal(){
     vista.abrirModal();
