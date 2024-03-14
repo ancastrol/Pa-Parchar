@@ -19,6 +19,7 @@ class Vista {
             dest.appendChild(clon);
         }
     }
+
     
     abrirModal() {
         let pModal = document.getElementById('modalUrl');

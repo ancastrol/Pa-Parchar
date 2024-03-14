@@ -5,6 +5,11 @@ function volverInicio(){
     vista.mostrarPlantilla('paginaPrincipal', 'contenido');
 }
 
+function mostrarDetalleEvento(){
+    vista.limpiarContenido('contenido');
+    vista.mostrarPlantilla('eventoDetallado', 'contenido');
+}
+
 function mostrarModal(){
     vista.abrirModal();
 }
