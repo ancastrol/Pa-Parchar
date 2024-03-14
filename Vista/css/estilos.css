@@ -199,6 +199,7 @@ footer.a{
     background-color: #0d0c0d00;
     padding: 0;
 }
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Busqueda*/
@@ -242,21 +243,21 @@ footer.a{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*eventos del organizador*/
-
-#tusEventos{
-    font-size: 1rem;
-}
-
-#contenedorOrganizador{
-    width: 100%;
-    height: 100%;
-    background-color: #0d0c0d00;
-    padding: 1rem;
-}
+/*Listado del Organizador*/
 
 #eventoOrganizador{
-    max-height: 12rem;
-    max-width: 12rem;
+    max-height: 14rem;
+    max-width: 14rem;
     border-radius: 5px;
 }
+
+#tituloOrganizador{
+    font-size: 12px;
+}
+
+#parrafoOrganizador{
+    font-size: 11px;
+}       
+
+/*-------------------------------------------------------------------------------------------------------*/
+
