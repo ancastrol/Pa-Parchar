@@ -10,6 +10,11 @@ function mostrarDetalleEvento(){
     vista.mostrarPlantilla('eventoDetallado', 'contenido');
 }
 
+function mostrarPantallaBusqueda(){
+    vista.limpiarContenido('contenido');
+    vista.mostrarPlantilla('busqueda', 'contenido');
+}
+
 function mostrarModal(){
     vista.abrirModal();
 }
