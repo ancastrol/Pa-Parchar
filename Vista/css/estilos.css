@@ -1,5 +1,3 @@
-/*-------------------------------------------------------------------------------------------------------*/
-
 /*Body*/
 
 body{
@@ -14,7 +12,6 @@ body{
 p{
     font: "Inter", sans-serif;
 }
-
 
 a{
    color: white; 
@@ -35,8 +32,8 @@ a{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-
 /*Area de trabajo*/
+
 main{
     width: 100%;
     height: 100%;
@@ -67,9 +64,7 @@ header{
     border: #0d0c0d00;
 }
 
-
 /*-------------------------------------------------------------------------------------------------------*/
-
 
 /*Menu*/
 
@@ -151,6 +146,8 @@ header{
     background-color: #fff;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*propiedades ventana emergente*/
 
 #modalUrl{
@@ -164,7 +161,6 @@ header{
     opacity: 0;
     pointer-events: none;
 }
-
 
 #modal_container{
     margin:auto;
@@ -224,6 +220,8 @@ header{
     background-color: #fff;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Organizar detalles eventos*/
 
 #registroDetalles{
@@ -265,15 +263,16 @@ hr{
     width: 5%;
     background-color:#ffffff;
     margin: 0 0 0 0;
-   }
+}
 
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Recomendacion*/
-
 
 #eventoRecomendado{
     background-color: #0d0c0d00;
     border: #0d0c0d00;
+}
 
 #lineUp{
     left: 10%;
@@ -287,19 +286,15 @@ hr{
     background-color: #0d0c0d00;
 }
 
-  
-  
 #ACT{
     margin: 0 0 2% 0;
     text-align: center;
 }
 
-
 #parrafoP{
 
     font-size: 10px;
 }
-
 
 #eventoRecomendado{
     background-color: #0d0c0d00;
