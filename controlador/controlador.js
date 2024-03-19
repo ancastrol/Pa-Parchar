@@ -11,9 +11,9 @@ function mostrarDetalleEvento(){
 }
 
 function mostrarModal(){
-    vista.abrirModal();
+    vista.abrirModal('modalUrl');
 }
 
 function cerrarModal(){
-    vista.cerrarModal();
+    vista.cerrarModal('modalUrl');
 }

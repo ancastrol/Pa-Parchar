@@ -58,6 +58,7 @@ button{
 
 
 /*Area de trabajo*/
+
 main{
     width: auto;
     height: 100%;
@@ -66,19 +67,18 @@ main{
     padding: 0.2%;
 }
 
-#imgDetalle{
-    width: 100%;
-    height: auto;
-    margin: 5% 0% 5% 5%;
-
-}
-
 /*Botones para ingresar descripción*/
 #ingresarDetalle{
     color: #8a8a8a;
     background-color: #d9d9d9;
     width: 80%;
     border-radius: 8%;
+}
+
+#imgDetalle{
+    width: 100%;
+    height: auto;
+    margin: 5% 0% 5% 5%;
 }
 
 #especificosEvento{
@@ -129,6 +129,7 @@ main{
     left: 0;
     bottom: 0;
     background-color: #111111bd;
+    backdrop-filter: blur(2px);
     display: flex;
     opacity: 0;
     pointer-events: none;
@@ -140,7 +141,7 @@ main{
     width: 90%;
     max-width: 600px;
     max-height: 90%;
-    background-color: #ffffff;
+    background-color: #000000;
     padding: 3em 2.5em;
     display: grid;
     border-radius: 6px;
@@ -154,9 +155,22 @@ main{
     color: #000000;
 }
 
+#formAñadirDatos{
+    width: 100%;
+    align-items: center;
+}
+
 #agregarUrl{
     width: 80%;
+    align-self: center;
     max-width: 600px;
+    border-radius: 0.5em;
+    margin: 0 10%;
+}
+
+#textoForm{
+    color: #000000;
+    margin: 1% 10%;
 }
 
 #modal_close{
@@ -192,6 +206,104 @@ main{
     color: #000000;
     background-color: #fff;
 }
+
+#logoLogin{
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+#tituloLogin{
+    margin-bottom: 5%;
+}
+
+#imgSeparadorLogin{
+    width: 50%;
+    height: 25%;
+    margin-top: 5%;
+}
+
+#cerrarLogin{
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#botonIniciarConFacebook{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 5%;
+    border-radius: 3%;
+}
+
+#opcionesInicioSesion{
+    margin: 0%;
+}
+
+#botonIniciarConGoogle{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 5%;
+    border-radius: 3%;
+}
+
+#botonIniciarConApple{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+
+    margin-bottom: 0%;
+    border-radius: 3%;
+}
+
+#botonIniciarSesion{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 7%;
+    border-radius: 3%;
+}
+
+#cuadroCorreo{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#cuadroContraseña{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#terminosLogin{
+    max-width: 70%;
+}
+
 
 /*Organizar detalles eventos*/
 
