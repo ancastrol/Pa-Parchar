@@ -22,8 +22,8 @@ a{
 /*Contenedor padre*/
 
 #container{
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: auto;
     background-color: white;
     padding: 0;
@@ -46,6 +46,7 @@ main{
 button{
     color: #ffffff;
     background-color: #0d0c0d00;
+    border-color: #0d0c0d00 ;
 }
   
 /*-------------------------------------------------------------------------------------------------------*/
@@ -238,6 +239,12 @@ header{
 #registroDetalles{
     left: 5%;
     margin-bottom: 2%;
+}
+
+#imgDetalle{
+    min-width: 13rem;
+    max-width: 25rem;
+    width: auto;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/

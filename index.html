@@ -53,6 +53,81 @@
 
         <main id="contenido">
 
+            <div class="d-flex flex-column" style="padding: 2% 10%;">
+                <div class="d-flex">
+
+                    <div>
+                        <div class="flex-shrink-0 flex-grow-1 align-self-center">
+                            <img src="/Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
+                        </div>
+                        <div class="p-2 flex-grow-1 align-self-center" id="compraConjunto">
+                            <p>Adquiere tu boleta aqui</p>
+                            <button id="compraBtn">
+                                <p id="ACT">Compra</p>
+                            </button> 
+                        </div>
+                    </div>
+
+                    <div class="flex-grow-1 ms-3 d-flex flex-column text-left">
+                        <div class="p-2" id = "parrafoDetallado">  
+                            <h1>
+                                TITULO DEL EVENTO
+                            </h1>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat…
+                            </p>
+                            <div class="d-flex justify-content-around">
+
+                                <div class="p-2 align-self-center">
+                                    <h6>FECHA</h6>
+                                    <p>XX/XX/XXXX</p>
+                                </div>
+
+                                <div class="p-2 align-self-center">
+                                    <h6>HORA</h6>
+                                    <p>00:00:00</p>
+                                </div>
+
+                                <div class="p-2 align-self-center">
+                                    <h6> LUGAR</h6>
+                                    <p>Movistar Arena</p>
+                                </div>
+                            </div>            
+                        </div>
+                            <div style="padding-left: 2%;" id = "lineUp">
+                                <p id="ACT"><h6 style="padding-left: 3.5%;">ACTUACIONES</h6></p>
+                                <li>"Will He" -- Opener</li>
+                                <li>"Demons"</li>
+                                <li>"Yeah Right"</li>
+                                <li>"Head in the Clouds"</li>
+                                <li>"Test Drive"</li>
+                                <li>"I Don't Wanna Waste My Time"</li>
+                                <li>"Attention"</li>
+                                <li>"Wanted U"</li>
+                                <li>"XNXX"</li>
+                                <li>"Can't Get Over You"</li>
+                                <li>"No Fun"</li>
+                                <li>"I'll See You in 40" -- Main Set Closer</li>
+                                <li>Encore</li>
+                                <li>"Slow Dancing in the Dark" - main Set Closer</li>
+                            </div>
+                    </div>
+                </div>
+    
+
+
+            <!--Mapa-->
+    
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                    <a href="https://strandsgame.net/">Strands Game</a>
+                </div>
+                <style>.mapouter{position:relative;text-align:right}.gmap_canvas {overflow:hidden;background:none!important}.gmap_iframe {width:100%!important;height:100%!important;}</style>
+            </div>
+
+            </div>
 
         </main>
 
@@ -454,8 +529,6 @@
             </div>           
 
         </div>
-        
-        <hr size="8px" color="#4F4F4F"/>
 
         <!--Ver más eventos--->
 
@@ -473,7 +546,7 @@
         <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
 
             <div class="p-2 separadorBusqueda">
-                <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)">
+                <input type="text" id="barraBusqueda">
             </div>
 
             <div class="p-2 separadorBusqueda">
@@ -1261,8 +1334,6 @@
 
     </template>
 
-    <!--busqueda relacionada-->
-
     <template id="busquedaRelacionada">
 
         <div class="d-flex flex-column" style="padding: 4%;">                
@@ -2013,18 +2084,23 @@
     <!--Evento Detallado-->
 
     <template id="eventoDetallado">
+
         <div class="row">
+
             <div class="col-5">
                 <img src="/Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
             </div>
-            <div class="col-7" id = "parrafoDetallado">     
-                <p><strong>TITULO DEL EVENTO</strong>
-                <br>
-                LOREM IPSUM DOLOR SIT AMET /LOREM 
-                IPSUM DOLOR . /LOREM IPSUM DOLOR 
-                SIT AMET.(DESCRIPCION)adfgagfafgadfg
-                adfgadfgafgadfgadfg
+            
+            <div class="col-7" id = "parrafoDetallado"> 
+
+                <p>
+                    <strong>
+                        TITULO DEL EVENTO
+                    </strong>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
+
                 <div class="row">
                     <div class="col-2">
                         <p>
@@ -2044,7 +2120,9 @@
                     </div>
                     <div class="col-3">
                         <p>
-                            LUGAR<br>Movistar Arena
+                            LUGAR
+                            <br>
+                            Movistar Arena
                         </p>
                     </div>
                 </div>   

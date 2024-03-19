@@ -2,8 +2,6 @@ class Vista {
     constructor() {
     }
 
-    
-
     /*Limpiar contededor main*/
 
     limpiarContenido(idContenedor){
