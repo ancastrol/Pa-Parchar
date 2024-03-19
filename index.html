@@ -473,7 +473,7 @@
         <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
 
             <div class="p-2 separadorBusqueda">
-                <input type="text" id="barraBusqueda">
+                <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)">
             </div>
 
             <div class="p-2 separadorBusqueda">
@@ -1260,6 +1260,8 @@
         </div>
 
     </template>
+
+    <!--busqueda relacionada-->
 
     <template id="busquedaRelacionada">
 
