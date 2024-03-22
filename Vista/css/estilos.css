@@ -101,7 +101,29 @@ header{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Botones para ingresar descripción*/
+/*Botones para refistrar un evento*/
+
+#ingresoInformacionImput::placeholder{
+    color: black;
+}
+
+#compraBotonAgregarMasActuaciones{
+    text-align: left;
+    color: #ffffff;
+    background-color: #000000;
+    width: auto;
+    height: 2.5rem;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color .3s;
+    margin-left: 1rem;
+}
+
+#compraBotonAgregarMasActuaciones:hover{
+    color: #000000;
+    background-color: #fff;
+}
 
 #ingresarDetalle{
     color: #8a8a8a;
@@ -145,7 +167,7 @@ header{
     color: #ffffff;
     background-color: #000000;
     width: 60%;
-    height: 25px;
+    height: 2rem;
     border: 1px solid;
     border-radius: 6px;
     display: inline-block;
