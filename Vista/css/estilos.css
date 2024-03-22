@@ -22,6 +22,7 @@ body{
     max-height: 100%;
     padding: 0;
     position: relative;
+    background-color: #262626;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -308,9 +309,10 @@ footer.p{
     background-color: #0D0C0D;
     color: white;
     border-radius: 2%;
-    width: 20rem;
+    width: 17rem;
     top: 5rem;
     position: absolute;
+    left: 40%;
 }
 
 #imgTituloRol{
@@ -389,6 +391,7 @@ footer.p{
     width: 20rem;
     top: 5rem;
     position: absolute;
+    left: 42.5%;
 }
 
 #logoLogin{
@@ -502,6 +505,7 @@ footer.p{
     width: 20rem;
     top: 5rem;
     position: absolute;
+    left: 40%;
 }
 
 #fondoDifum{
@@ -617,6 +621,7 @@ footer.p{
     top: 15%;
     left: 40%;
     position: absolute;
+    left: 40%;
 }
 
 #logoCrearPerfilOrganizador{
@@ -698,6 +703,22 @@ footer.p{
     height: 2rem;
     margin-bottom: 7%;
     border-radius: 3%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+#titulos{
+    text-align: center;
+}
+
+#terminosYCondiciones{
+    text-align: start;
+    margin: 5%;
+}
+
+#derechosTerminosYCondiciones{
+    text-align: center;
+    margin: 0 0;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
