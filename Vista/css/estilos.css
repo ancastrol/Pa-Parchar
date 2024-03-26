@@ -1,67 +1,300 @@
 /*Body*/
+
 body{
+    width: 100%;
+    height: 100%;
     background-color: #3D3D3D;
     font: "Inter", sans-serif;
     font-size: 10px;
     color: white;
 }
 
+p{
+    font: "Inter", sans-serif;
+}
+
 a{
    color: white; 
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Contenedor padre*/
+
 #container{
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     margin: auto;
     background-color: white;
-    padding: 0 0 0 0;
+    padding: 0;
+    min-width: 574px;
+
 }
 
-/*Encabezado*/
-header{
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Area de trabajo*/
+
+main{
     width: 100%;
-    background-color: #0D0C0D;
+    height: 100%;
+    background-color: #262626;
     color: white;
     padding: 0;
 }
 
-#logo{
-    padding-top: 0.5%;
-    padding-left: 5%;
-}
-
-#lupa{
-    left: 13%;
-}
-
 button{
-    margin: 10px;
+    color: #ffffff;
+    background-color: #0d0c0d00;
+    border-color: #0d0c0d00 ;
+}
+  
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Encabezado*/
+
+header{
+    width: 100%;
     background-color: #0D0C0D;
-    color: #CACACA;
+}
+
+#botonEncabezado{
+    margin-top: 1%;
+    width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
     font: "Inter", sans-serif;
     font-size: 12px;
-    border: none;
+    border: #0d0c0d00;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
 
-/*Area de trabajo*/
-main{
-    width: auto;
+/*Menu*/
+
+#menuLateral{
+    width: 40%;
     height: 100%;
-    background-color: #262626;
-    color: white;
-    padding: 0% 0% 0% 0%;
+    font: "Inter", sans-serif;
+    font-size: 10px;
+    background-color: #0D0C0D;
+    padding: 3%;
+}
+
+#botonCerrarSesion{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 80%;
+}
+
+.text-btn-despl{
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado{
+    display: inline;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Botones para refistrar un evento*/
+
+#ingresoInformacionImput::placeholder{
+    color: black;
+}
+
+#compraBotonAgregarMasActuaciones{
+    text-align: left;
+    color: #ffffff;
+    background-color: #000000;
+    width: auto;
+    height: 2.5rem;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color .3s;
+    margin-left: 1rem;
+}
+
+#compraBotonAgregarMasActuaciones:hover{
+    color: #000000;
+    background-color: #fff;
+}
+
+#ingresarDetalle{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 80%;
+    border-radius: 8%;
+}
+
+#especificosEvento{
+    margin-right: 0%;
+    margin-left: -10%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Botones para ingresar datos especificos(fecha/hora/sitio)*/
+
+#ingresarData{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 100%;
+    border-radius: 8%;
+    font-size: xx-small;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*contenedor del texto y boton de la zona de compra*/
+
+#compraConjunto{
+    left: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar información de compra*/
+
+#compraBtn{
+    color: #ffffff;
+    background-color: #000000;
+    width: 60%;
+    height: 2rem;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#compraBtn:hover{
+    color: #000000;
+    background-color: #fff;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*propiedades ventana emergente*/
+
+#modalUrl{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal_container{
+    margin:auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #ffffff;
+    padding: 3em 2.5em;
+    display: grid;
+    border-radius: 6px;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+}
+
+#modal_title{
+    font-size: 2rem;
+    color: #000000;
+}
+
+#agregarUrl{
+    width: 80%;
+    max-width: 600px;
+}
+
+#modal_close{
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    padding: 1em 3em;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#modal_close:hover{
+    color: #000000;
+    background-color: #fff;
+}
+
+#cerrarModal{
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    padding: 0.5em 1em;
+    border: 1px solid;
+    border-radius: 100px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#cerrarModal:hover{
+    color: #000000;
+    background-color: #fff;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Organizar detalles eventos*/
+
+#registroDetalles{
+    left: 5%;
+    margin-bottom: 2%;
 }
 
 #imgDetalle{
-    width: 100%;
-    height: auto;
-    margin: 5% 0% 5% 5%;
-
+    width: 25rem;
+    padding-bottom: 7%;
 }
 
+#informacionTexto{
+    padding-left: 5%;
+    
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar actuaciones*/
+#ingresarActo{
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 100%;
+    height: 100%;
+    border-radius: 8%; 
+    margin: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar dirección especifica*/
+
+#ingresarDireccion{
+    height: 100%;
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-radius: 8%;
+}
 
 #imgReco{
     width: 100%;
@@ -70,56 +303,95 @@ main{
 
 #parrafoDetallado{
     margin-top: 5%;
-    padding: 0;
+    margin-right: 0%;
+    padding-left: 0;
 }
 
 hr{
     height:85%;
     width: 5%;
-    background-color:#000;
+    background-color:#ffffff;
     margin: 0 0 0 0;
-   }
+}
 
-#linea1{
-    padding-left: 10%;
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Recomendacion*/
+
+#eventoRecomendado{
+    background-color: #0d0c0d00;
+    border: #0d0c0d00;
 }
 
 #lineUp{
-    left: 3%;
+    left: 10%;
     margin-bottom: 2%;
-}
 
-li{
-    list-style-type: number;
-    padding: 0 1% 1% 1%;
 }
 
 #ACT{
     margin: 0 0 2% 0;
+    text-align: center;
+}
+
+#botonRecomendados{
+    width: 100%;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
 }
 
 #parrafoP{
     font-size: 10px;
-    padding: 2% 0 0 3%;
-    color: white;
 }
+
+#imgReco{
+    width: 100%;
+    height: 20rem;
+
+}
+
+#tituloRecomendado{
+    font-size: 10px;
+}
+
+#parrafoRecomendado{
+    font-size: 9px;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*eventos "pequeños"*/
 
-#botonEvento{
+#cardEvento{
+    width: 10rem;
+    border: #0d0c0d00;
     background-color: #0d0c0d00;
-    padding: 0;
+    margin-top:5%
+}
+
+#botonEvento{
+    max-width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
 }
 
 #eventoA{
-    width: 100%;
-    height: 100%;
-    padding: 4%;
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 5px;
+}
+
+#tituloE{
+    font-size: 10px;
+    color: white;
 }
 
 #parrafoE{
     font-size: 9px;
-    padding: 0% 0% 0% 0%;
     color: white;
 }
 
@@ -127,20 +399,96 @@ li{
     width: 100%;
 }
 
+#botonSig{
+    margin-bottom: 2%;
+    width: 17%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    border-radius: 10px;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
 /*Pie de pagina*/
 
 footer{
     width: 100%;
     background-color: #0D0C0D;
     color: white;
-    padding: 6% 0% 6% 0%;
+    padding: 3% 0% 3% 0%;
 }
 
-
 footer.p{
-    font-size: 3px;
+    font-size: 5px;
 }
 
 footer.a{
-    font-size: 3px;
+    font-size: 5px;
 }
+
+#botonRed{
+    background-color: #0d0c0d00;
+    padding: 0;
+    border-color:#0d0c0d00;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Busqueda*/
+
+#cuadroBusqueda{
+    min-width: 574px;
+    width: 100%;
+    background-color: #0d0c0d00;
+}
+
+#barraBusqueda{
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background-color: #0d0c0d00;
+    border-color: #0d0c0d00;
+    padding-left: 2%;
+}
+
+.separadorBusqueda{
+    width: 100%;
+    background-color: #3D3D3D;
+    border-bottom: 0.1rem solid #A6A6A6;
+}
+
+#eventoBusqueda{
+    background-color: #0d0c0d00;
+    padding-left: 2%;
+    color: rgb(202, 200, 200);
+    width: 100%;
+    font-size: 1rem;
+    border-color: #0d0c0d00;
+}
+
+#cuadroBusqueda > :last-child{
+    border-bottom: none;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Listado del Organizador*/
+
+#eventoOrganizador{
+    max-height: 14rem;
+    max-width: 14rem;
+    border-radius: 5px;
+}
+
+#tituloOrganizador{
+    font-size: 12px;
+}
+
+#parrafoOrganizador{
+    font-size: 11px;
+}       
+
+/*-------------------------------------------------------------------------------------------------------*/
