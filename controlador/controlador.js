@@ -67,3 +67,10 @@ function mostrarModalRol() {
   function cerrarModalRol() {
     vista.cerrarModal("roles");
   }
+
+  function mostrarModalLogin() {
+    vista.abrirModal("modalLogin");
+  }
+  function cerrarModalLogin() {
+    vista.cerrarModal("modalLogin");
+  }
