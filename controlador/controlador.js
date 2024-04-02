@@ -11,22 +11,32 @@ function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
 }
 
-pantallaPrincipalConcuadroSeleccionRol
+pantallaPrincipalConcuadroSeleccionRol;
 
-function mostrarDetalleEvento(){
-    vista.limpiarContenido('contenido');
-    vista.mostrarPlantilla('eventoDetallado', 'contenido');
+function mostrarDetalleEvento() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
 
-function mostrarSeleccionRol(){
-    vista.limpiarContenido('contenido');
-    vista.mostrarPlantilla('pantallaPrincipalCuadroSeleccionRol', 'contenido');
+function mostrarMasEventos() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("MasEventos", "contenido");
+}
+
+function mostrarSeleccionRol() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaPrincipalCuadroSeleccionRol", "contenido");
 }
 
 function mostrarPantallaBusqueda() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("busqueda", "contenido");
 }
+
+function mostrarTerminosCondiciones() {
+    vista.limpiarContenido("contenido");
+    vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
+  }
 
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
@@ -42,7 +52,6 @@ function mostrarBusquedaRelacionada() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("busquedaRelacionada", "contenido");
 }
-
 
 /* modales */
 
@@ -62,22 +71,22 @@ function cerrarModalLateral() {
 }
 
 function mostrarModalRol() {
-    vista.abrirModal("roles");
-  }
-  function cerrarModalRol() {
-    vista.cerrarModal("roles");
-  }
+  vista.abrirModal("roles");
+}
+function cerrarModalRol() {
+  vista.cerrarModal("roles");
+}
 
-  function mostrarModalLogin() {
-    vista.abrirModal("modalLogin");
-  }
-  function cerrarModalLogin() {
-    vista.cerrarModal("modalLogin");
-  }
+function mostrarModalLogin() {
+  vista.abrirModal("modalLogin");
+}
+function cerrarModalLogin() {
+  vista.cerrarModal("modalLogin");
+}
 
-  function mostrarModalCrearCuenta() {
-    vista.abrirModal("modalCrearCuenta");
-  }
-  function cerrarModalCrearCuenta() {
-    vista.cerrarModal("modalCrearCuenta");
-  }
+function mostrarModalCrearCuenta() {
+  vista.abrirModal("modalCrearCuenta");
+}
+function cerrarModalCrearCuenta() {
+  vista.cerrarModal("modalCrearCuenta");
+}

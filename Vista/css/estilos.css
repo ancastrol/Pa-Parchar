@@ -3,7 +3,7 @@
 body{
     width: 100%;
     height: 100%;
-    background-color: #3D3D3D;
+    background-color: #000000;
     font: "Inter", sans-serif;
     font-size: 10px;
     color: white;
@@ -11,6 +11,7 @@ body{
 
 p{
     font: "Inter", sans-serif;
+    margin: 0;
 }
 
 a{
@@ -48,7 +49,59 @@ button{
     background-color: #0d0c0d00;
     border-color: #0d0c0d00 ;
 }
-  
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*eventos "pequeños"*/
+
+#cardEvento{
+    width: 10rem;
+    border: #0d0c0d00;
+    background-color: #0d0c0d00;
+    margin-top:5%
+}
+
+#botonEvento{
+    max-width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
+}
+
+#eventoA{
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 5px;
+}
+
+#tituloE{
+    font-size: 10px;
+    color: white;
+}
+
+#parrafoE{
+    font-size: 9px;
+    color: white;
+}
+
+#eventos{
+    width: 100%;
+}
+
+#botonSig{
+    width: 20%;
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    margin-bottom: 2%;
+    border-radius: 5%;
+}
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Encabezado*/
@@ -66,6 +119,10 @@ header{
     font: "Inter", sans-serif;
     font-size: 12px;
     border: #0d0c0d00;
+}
+
+#logoHeader{
+    width: 13%;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -297,7 +354,7 @@ hr{
 }
 
 #menuLateral{
-    width: 25rem;
+    width: 18%;
     height: 100%;
     font: "Inter", sans-serif;
     font-size: 20px;
@@ -312,6 +369,7 @@ hr{
 
 #logoBarraLateral{
     width: 10rem;
+    margin: 0 0 10% 0;
 }
 
 #parrafoRegistro{
@@ -373,7 +431,7 @@ hr{
     color: white;
     border-radius: 5%;
     width: 20%;
-    height: 50%;
+    height: 70%;
     top: 5%;
     left: 40%;
 }
@@ -396,9 +454,7 @@ hr{
 
 #imgSeparadorRol{
     width: 50%;
-    height: 25%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin: 5% 0;
 }
 
 #cerrarSeleccionRol{
@@ -684,6 +740,11 @@ hr{
     margin-bottom: 5%;
 }
 
+#terminosLogin> a{
+    color: rgb(0, 140, 255);
+}
+
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Recomendacion*/
@@ -860,5 +921,23 @@ footer.a{
 #parrafoOrganizador{
     font-size: 11px;
 }       
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+    /*Terminos y condiciones*/
+
+#titulos{
+    text-align: center;
+}
+
+#terminosYCondiciones{
+    text-align: start;
+    margin: 5%;
+}
+
+#derechosTerminosYCondiciones{
+    text-align: center;
+    margin: 0 0;
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
