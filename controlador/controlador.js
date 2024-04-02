@@ -11,9 +11,16 @@ function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
 }
 
+pantallaPrincipalConcuadroSeleccionRol
+
 function mostrarDetalleEvento(){
     vista.limpiarContenido('contenido');
     vista.mostrarPlantilla('eventoDetallado', 'contenido');
+}
+
+function mostrarSeleccionRol(){
+    vista.limpiarContenido('contenido');
+    vista.mostrarPlantilla('pantallaPrincipalCuadroSeleccionRol', 'contenido');
 }
 
 function mostrarPantallaBusqueda() {
@@ -36,6 +43,9 @@ function mostrarBusquedaRelacionada() {
   vista.mostrarPlantilla("busquedaRelacionada", "contenido");
 }
 
+
+/* modales */
+
 function mostrarModal() {
   vista.abrirModal("modalUrl");
 }
@@ -50,3 +60,10 @@ function mostrarModalLateral() {
 function cerrarModalLateral() {
   vista.cerrarModal("modalLateral");
 }
+
+function mostrarModalRol() {
+    vista.abrirModal("roles");
+  }
+  function cerrarModalRol() {
+    vista.cerrarModal("roles");
+  }

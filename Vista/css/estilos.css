@@ -352,6 +352,82 @@ hr{
     padding: 0 10% 0 0;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+/*Selección de rol*/
+
+#roles{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#seleccionRol{
+    text-align: center;
+    background-color: #0D0C0D;
+    color: white;
+    border-radius: 5%;
+    width: 20%;
+    height: 50%;
+    top: 5%;
+    left: 40%;
+}
+
+#imgTituloRol{
+    width: 40%;
+}
+
+#tituloRol{
+    margin-bottom: 5%;
+}
+
+#especifiqueRol{
+    font-size: 9px;
+    margin-bottom: 5%;
+    color: #aba6a6;
+    border-bottom: #4F4F4F;
+    margin-bottom: 8%;
+}
+
+#imgSeparadorRol{
+    width: 50%;
+    height: 25%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#cerrarSeleccionRol{
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#botonRolUsuario{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 9rem;
+    border-radius: 5%;
+}
+
+#botonRolOrganizador{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 9rem;
+    margin-bottom: 10%;
+    border-radius: 5%;
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
