@@ -429,6 +429,135 @@ hr{
     border-radius: 5%;
 }
 
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+
+/*Creacion de perfil Usuario*/
+
+#modalCrearCuenta{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#creacionPerfilUsuario{
+    text-align: center;
+    background-color: #0D0C0D;
+    color: white;
+    border-radius: 2%;
+    width: 20rem;
+    top: 5rem;
+    position: absolute;
+    left: 40%;
+}
+
+#fondoDifum{
+    height: 100%;
+    width: 100%;
+    background-color: #000000da;
+}
+
+#cerrarCrearPerfilUsuario{
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#logoCrearPerfilUsuario{
+    width: 70%;
+    margin-bottom: 7%;
+}
+
+#tituloCrearPerfilUsuario{
+    margin-bottom: 5%;
+    font: "Inter", sans-serif;
+}
+
+#cuadroNombreUsuario{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#seleccionGeneroCrearPerfilUsuario{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+}
+
+#opcionesGeneroCrearPerfilUsuario{
+    background-color: #0D0C0D;
+    color: white;
+}
+
+#seleccionGeneroCrearPerfilUsuario option[value="GENERO"] {
+    color: #555; 
+}
+
+#seleccionGeneroCrearPerfilUsuario option:not([value="GENERO"]) {
+    color: #fff;
+}
+
+#imgSeparadorCrearPerfilUsuario{
+    width: 50%;
+    height: 25%;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+#cuadroCorreoCrearPerfilUsuario{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#cuadroContraseñaCrearPerfilUsuario{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#cuadroConfirmarContraseñaCrearPerfilUsuario{    
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+    margin-bottom: 5%;
+}
+
+#botonSiguienteCrearPerfilUsuario{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 7%;
+    border-radius: 3%;
+}
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Login*/

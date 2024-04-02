@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button href="#" id="botonCrearcuenta">
+                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
                             CREAR CUENTA
                         </button>
                     </div>
@@ -122,11 +122,67 @@
 
             </div>
 
+            <!--Crear cuenta-->
+            <div class="d-flex justify-content-center" id="modalCrearCuenta">
+
+                <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
+    
+                    <button class="d-flex justify-content-end" id="cerrarCrearPerfilUsuario" onclick="cerrarModalCrearCuenta()">
+                        <i class="material-icons">close</i>
+                    </button>
+    
+                    <div class="d-flex justify-content-center">
+                        <img src="/Recursos/Img/image.png" alt="" id="logoCrearPerfilUsuario">
+                    </div>
+    
+                    <div class="row justify-content-center" id="tituloCrearPerfilUsuario">
+                        <strong class="text-center">DATOS DE CUENTA:</strong>
+                    </div>
+    
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO">
+                    </div>
+    
+                    <select type="text" class="form-select" id="seleccionGeneroCrearPerfilUsuario"
+                        onchange="cambiarColorSelect()">
+                        <option value="0" selected id="opcionesGeneroCrearPerfilUsuario">ROL</option>
+                        <option value="1" id="opcionesGeneroCrearPerfilUsuario">USUARIO</option>
+                        <option value="2" id="opcionesGeneroCrearPerfilUsuario">ORGANIZADOR</option>
+                    </select>
+    
+                    <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
+                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorCrearPerfilUsuario">
+                    </div>
+    
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
+                            placeholder="CORREO ELECTRONICO">
+                    </div>
+    
+                    <div class="mb-3 text-center">
+                        <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilUsuario"
+                            placeholder="CONTRASEÑA">
+                    </div>
+    
+                    <div class="mb-3 text-center">
+                        <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilUsuario"
+                            placeholder=" CONFIRMAR CONTRASEÑA">
+                    </div>
+    
+                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" href="#">
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">SIGUIENTE</strong>
+                    </button>
+    
+                </div>
+    
+            </div>
+
+
             <!--Login-->
             <div id="modalLogin">
                 <div class=" d-flex flex-column align-items-center" id="login">
 
-                    <button class="d-flex justify-content-end" id="cerrarLogin" href="#">
+                    <button class="d-flex justify-content-end" id="cerrarLogin" onclick="cerrarModalLogin()">
                         <i class="material-icons">close</i>
                     </button>
 
@@ -319,7 +375,7 @@
         <!--Evento recomendado-->
 
         <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
+            <div class="z-1 carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
