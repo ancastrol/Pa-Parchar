@@ -366,18 +366,22 @@ footer.p{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+/*Modales*/
 
-#modalurl{
-    position: fixed;
+.modalUrl{
+    position: flex;
+    z-index: 8;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #111111bd;
-    display: flex;
     opacity: 1;
     pointer-events: unset;
 }
+
+
+
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*Login*/
 

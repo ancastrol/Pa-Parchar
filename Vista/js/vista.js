@@ -21,13 +21,13 @@ class Vista {
     }
 
     abrirModal(modal) {
-        let pModal = document.getElementById(modal);
+        let pModal = document.getElementById("modalUrl");
         pModal.style['pointer-events'] = 'unset';
         pModal.style.opacity = 1;
     }
 
     cerrarModal(modal) {
-        let pModal = document.getElementById(modal);
+        let pModal = document.getElementById("modalUrl");
         pModal.style['pointer-events'] = 'none';
         pModal.style.opacity = 0;
     }

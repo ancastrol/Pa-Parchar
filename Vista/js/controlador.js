@@ -37,3 +37,10 @@ function mostrarModal() {
 function cerrarModal() {
   vista.cerrarModal();
 }
+
+function mostrarModalLateral() {
+  vista.abrirModal();
+}
+function cerrarModalLateral() {
+  vista.cerrarModal();
+}
