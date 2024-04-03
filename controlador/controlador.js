@@ -6,17 +6,18 @@ document.body.onload = function () {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
 };
 
+/*Funciones para mostrar las plantillas en el main*/
+
 function volverInicio() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
 }
 
-pantallaPrincipalConcuadroSeleccionRol;
-
 function mostrarDetalleEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
+
 
 function mostrarMasEventos() {
   vista.limpiarContenido("contenido");
@@ -38,6 +39,11 @@ function mostrarTerminosCondiciones() {
     vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
   }
 
+  function mostrarBusquedaRelacionada() {
+    vista.limpiarContenido("contenido");
+    vista.mostrarPlantilla("busquedaRelacionada", "contenido");
+  }
+
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
 function handleKeyPress(event) {
@@ -46,14 +52,24 @@ function handleKeyPress(event) {
   }
 }
 
-/* mostrar plantilla busqueda relacionada */
+/* -------------------------------------------modales-----------------------------------------------*/
 
-function mostrarBusquedaRelacionada() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("busquedaRelacionada", "contenido");
+/*variable que representa si el usuario inicio sesion con TRUE o no con FALSE*/
+let sesion = false;
+
+/*Cambia el estado de la sesion al contrario del que estaba*/
+function sesionIniciada() {
+  sesion = !sesion;
 }
 
-/* modales */
+/*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
+function mostrarModalLateral() {
+  if (sesion == false) {
+    vista.abrirModal("modalLateral");
+  } else {
+    vista.abrirModal("modalLateralSesionIniciada");
+  }
+}
 
 function mostrarModal() {
   vista.abrirModal("modalUrl");
@@ -62,12 +78,12 @@ function cerrarModal() {
   vista.cerrarModal("modalUrl");
 }
 
-function mostrarModalLateral() {
-  vista.abrirModal("modalLateral");
-}
-
 function cerrarModalLateral() {
   vista.cerrarModal("modalLateral");
+}
+
+function cerrarModalLateralSesionIniciada() {
+  vista.cerrarModal("modalLateralSesionIniciada");
 }
 
 function mostrarModalRol() {

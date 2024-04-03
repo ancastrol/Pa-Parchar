@@ -365,6 +365,7 @@ hr{
     color: #ffffff;
     opacity: 1;
     pointer-events: "unset";
+    z-index: 3;
 }
 
 #logoBarraLateral{
@@ -487,8 +488,6 @@ hr{
 
 
 /*-------------------------------------------------------------------------------------------------------*/
-
-
 /*Creacion de perfil Usuario*/
 
 #modalCrearCuenta{
@@ -744,6 +743,72 @@ hr{
     color: rgb(0, 140, 255);
 }
 
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Menu Sesion Iniciada*/
+
+#modalLateralSesionIniciada{
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#menuLateralSesionIniciada{
+    width: 18%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    background-color: #0D0C0D;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: #ffffff;
+    opacity: 1;
+    pointer-events: "unset";
+    z-index: 3;
+}
+
+#opcionesMenu{
+    margin-left: 5%;
+}
+
+#opcionMenu{
+    text-align: center;
+    width: 80%;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 5%;
+    bottom: 5%;
+    border-radius: 5%;
+}
+
+#botonCerrarSesion{
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 80%;
+    margin-top: 20rem;
+    border-radius: 5%;
+}
+
+.text-btn-despl{
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado{
+    display: inline;
+}
+
+
+.botonMenuLateral{
+    padding: 0 10% 0 0;
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
