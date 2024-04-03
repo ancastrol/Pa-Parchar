@@ -24,9 +24,9 @@ function mostrarMasEventos() {
   vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
-function mostrarSeleccionRol() {
+function mostrarBusquedaRelacionada() {
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("pantallaPrincipalCuadroSeleccionRol", "contenido");
+  vista.mostrarPlantilla("busquedaRelacionada", "contenido");
 }
 
 function mostrarPantallaBusqueda() {
@@ -34,15 +34,25 @@ function mostrarPantallaBusqueda() {
   vista.mostrarPlantilla("busqueda", "contenido");
 }
 
+function mostrarPerfil() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaPerfil", "contenido");
+}
+
+function mostrarCalendario() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaCalendario", "contenido");
+}
+
 function mostrarTerminosCondiciones() {
     vista.limpiarContenido("contenido");
     vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
   }
 
-  function mostrarBusquedaRelacionada() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("busquedaRelacionada", "contenido");
-  }
+function mostrarPoliticasPrivacidad(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
+}
 
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
@@ -103,6 +113,31 @@ function cerrarModalLogin() {
 function mostrarModalCrearCuenta() {
   vista.abrirModal("modalCrearCuenta");
 }
+
 function cerrarModalCrearCuenta() {
   vista.cerrarModal("modalCrearCuenta");
+}
+
+function mostrarModalNombre() {
+  vista.abrirModal("contModalNombre");
+}
+
+function cerrarModalNombre() {
+  vista.cerrarModal("contModalNombre");
+}
+
+function mostrarModalEmail() {
+  vista.abrirModal("contModalEmail");
+}
+
+function cerrarModalEmail() {
+  vista.cerrarModal("contModalEmail");
+}
+
+function mostrarModalContraseña() {
+  vista.abrirModal("contModalContraseña");
+}
+
+function cerrarModalContraseña() {
+  vista.cerrarModal("contModalContraseña");
 }
