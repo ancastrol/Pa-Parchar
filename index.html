@@ -3052,68 +3052,137 @@
     <!--Ingresar Evento-->
 
     <template id="ingresarEvento">
-        <div class="row">
-            <div class="col-6">
-                <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
-            </div>
-            <div class="col-6" id = "parrafoDetallado">     
-                <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
-                    <br>
-                    describe tu evento
-                    </p></button>
-                <div class="row" id = "especificosEvento">
-                    <div class="col-4">
-                        <button id = "ingresarData">
-                            <p>Fecha
-                            <br>xx/xx/xxxx</p>
-                        </button>
-                    </div>
-                    <div class="col-4">
-                        <button id = "ingresarData">
-                            <p>Hora
-                            <br>00:00:00</p>
-                        </button>   
-                    </div>
-                    <div class="col-4">
-                        <button id = "ingresarData">
-                            <p>Lugar
-                            <br>Ingrese lugar</p>
-                        </button>  
-                    </div>
-                </div>   
+
+        <!--Ventana emergente-->
+        <div  class="z-3" id="modalUrl">
+            <div id="modal_container">
+                <h2  id ="modal_title">Coloca la dirección de compra</h2>
+                <input type="text" id="agregarUrl">
+                <button id="modal_close" onclick="cerrarModal()">Enviar</button>  
+                <button id="cerrarModal" onclick="cerrarModal()">X</button>
             </div>
         </div>
-            <div class="row">
-                <div class="col-5" id = "compraConjunto">
-                    <p>Añada la información de su evento</p>
-                    <button id = "compraBtn" onclick="mostrarModal()">
-                        <p>Cambiar</p>
-                    </button> 
-                </div>
-                <div class = "col-6" id = "registroDetalles">
-                    <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
-                </div>
-            </div>
-            <!--Mapa-->
-            <div class = "col-11" id="registroDetalles">
-                <button id = "ingresarActo"><br>Ingrese la dirección<br></button>
-            </div>
+
+        <div class="d-flex flex-column" style="padding: 2% 10%;">
+            <div>
+                <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+
+                    <div class="flex-shrink-0">
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                        </button>
+                        <div id="compraConjunto">
+                            <p>Adquiere tu boleta aqui</p>
+                            <button id="compraBtn" onclick="mostrarModal()">
+                                <p id="ACT">LINK DE COMPRA</p>
+                            </button> 
+                        </div>
+                    </div>
+
+                    <div class="flex-grow-1 text-left" id="informacionTexto">
+                        <div id="parrafoDetallado"> 
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control form-control-lg" type="text" placeholder="NOMBRE DEL EVENTO" aria-label=".form-control-lg example" id="ingresoInformacionImput">
+                                <label for="floatingTextarea">NOMBRE DEL EVENTO</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control form-control-lg" type="text-break" placeholder="DESCRIPCIÓN DEL EVENTO" id="ingresoInformacionImput" style="height: 20rem"></textarea>
+                                <label for="floatingTextarea"><h6>DESCRIPCIÓN DEL EVENTO</h6></label>
+                            </div>
+                            
+                            <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
+                            
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="FECHA" aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea"><h6>FECHA</h6></label>
+                                </div>
+
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="HORA" aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea"><h6>HORA</h6></label>
+                                </div>
+
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR" aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea"><h6>LUGAR</h6></label>
+                                </div>
+
+                            </div>            
+                        </div>
+                                   
+                        <br>
+
+                        <div class="text-center mb-3">
+                            <h4>ACTUACIONES</h4>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#">Opener</a></li>
+                              <li><a class="dropdown-item" href="#">Main set closer</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%;">Tipo</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#">Opener</a></li>
+                              <li><a class="dropdown-item" href="#">Main set closer</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#">Opener</a></li>
+                              <li><a class="dropdown-item" href="#">Main set closer</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="flex-shrink-0 mb-3">
+                            <button id="compraBotonAgregarMasActuaciones">
+                                AGREGAR MÁS ACTUACIONES 
+                            </button>
+                        </div>
+
+                        <div class="text-center mb-3">
+                            <h4>ENCORE</h4>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#">Opener</a></li>
+                              <li><a class="dropdown-item" href="#">Main set closer</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="flex-shrink-0 mb-3">
+                            <button id="compraBotonAgregarMasActuaciones">
+                                AGREGAR MÁS ENCORE
+                            </button>
+                        </div>
+                    </div>
+
+        <!--Mapa-->
+
+    </div>
     
-            <!--Ventana emergente-->
-            <div id="modalUrl">
-                <div id="modal_container">
-                    <h2  id ="modal_title">Nombre y descripción</h2>
-                    <input type="text" id="agregarUrl">
-                    <h2  id ="modal_title">Fecha y hora</h2>
-                    <input type="text" id="agregarUrl">
-                    <h2  id ="modal_title">Lugar en que tendra lugar</h2>
-                    <input type="text" id="agregarUrl">
-                    <h2  id ="modal_title">Seleccione banner del evento</h2>
-                    <input type="file" id="agregarArchivo">
-                    <button id="modal_close" onclick="cerrarModal()">Guardar</button>  
-                    <button id="cerrarModal" onclick="cerrarModal()">X</button>
-                </div>
-            </div>
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            <a href="https://strandsgame.net/">Strands Game</a>
+        </div>
+        <style>.mapouter{position:relative;text-align:right;width:auto;height:30rem;}.gmap_canvas {overflow:hidden;background:none!important;width:auto;height:30rem;}.gmap_iframe {width:100%!important;height:30rem!important;}</style>
+    </div>
     </template>
 
     <!--Terminos y condiciones-->

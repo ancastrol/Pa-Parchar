@@ -321,7 +321,7 @@ header{
 
 #registroDetalles{
     left: 5%;
-    margin-bottom: 2%;
+    padding: 0 0 2% 0;
 }
 
 #imgDetalle{

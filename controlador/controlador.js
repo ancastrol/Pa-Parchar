@@ -18,10 +18,14 @@ function mostrarDetalleEvento() {
   vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
 
-
 function mostrarMasEventos() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("MasEventos", "contenido");
+}
+
+function mostrarIngresarEvento() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 }
 
 function mostrarBusquedaRelacionada() {
@@ -44,7 +48,7 @@ function mostrarCalendario() {
   vista.mostrarPlantilla("calendarioTemplate", "contenido");
 }
 
-function mostrarIngresarEvento() {
+function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");
 }
