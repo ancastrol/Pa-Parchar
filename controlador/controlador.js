@@ -41,7 +41,12 @@ function mostrarPerfil() {
 
 function mostrarCalendario() {
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("pantallaCalendario", "contenido");
+  vista.mostrarPlantilla("calendarioTemplate", "contenido");
+}
+
+function mostrarIngresarEvento() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 }
 
 function mostrarTerminosCondiciones() {

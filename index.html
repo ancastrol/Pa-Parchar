@@ -19,7 +19,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!--Calendario-->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -296,14 +299,14 @@
                         <strong class="align-self-center text-btn-despl">PERFIL</strong>
                     </button>
 
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
+                    <button class="d-flex justify-content-center" id="opcionMenu" onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada()">
                         <i class="material-icons">event</i>
-                        <strong class="align-self-center text-btn-despl" onclick="mostrarCalendario()">CALENDARIO</strong>
+                        <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
                     </button>
 
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
+                    <button class="d-flex justify-content-center" id="opcionMenu" onclick="mostrarIngresarEvento(), cerrarModalLateralSesionIniciada()">
                         <i class="material-icons">label_outline</i>
-                        <strong class="align-self-center text-btn-despl">CATEGORIAS</strong>
+                        <strong class="align-self-center text-btn-despl">NUEVO EVENTO</strong>
                     </button>
 
                 </div>
@@ -2968,95 +2971,82 @@
 
     <template id="eventoDetallado">
 
-        <div class="row">
+        <div class="d-flex flex-column" style="padding: 2% 10%;">
+            <div class="d-flex align-content-center" style="padding-bottom: 5%;">
 
-            <div class="col-5">
-                <img src="/Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
-            </div>
-
-            <div class="col-7" id="parrafoDetallado">
-
-                <p>
-                    <strong>
-                        TITULO DEL EVENTO
-                    </strong>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-
-                <div class="row">
-                    <div class="col-2">
-                        <p>
-                            FECHA<br>XX/XX/XXXX
-                        </p>
+                <div class="flex-shrink-0 ">
+                    <div>
+                        <img src="./Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
                     </div>
-                    <div class="col-2" id="linea1">
-                        <hr>
-                    </div>
-                    <div class="col-2">
-                        <p>
-                            HORA<br>00:00:00
-                        </p>
-                    </div>
-                    <div class="col-2" id="linea1">
-                        <hr>
-                    </div>
-                    <div class="col-3">
-                        <p>
-                            LUGAR
-                            <br>
-                            Movistar Arena
-                        </p>
+                    <div id="compraConjunto">
+                        <p>Adquiere tu boleta aqui</p>
+                        <button id="compraBtn">
+                            <p id="ACT">Compra</p>
+                        </button> 
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-5" id="compraConjunto">
-                    <p>Adquiere tu boleta aqui</p>
-                    <button id="compraBtn">
-                        <p id="ACT">Compra</p>
-                    </button>
-                </div>
-                <div class="col-7" id="lineUp">
-                    <p id="ACT"><strong>ACTUACIONES</strong></p>
-                    <li>"Will He" -- Opener</li>
-                    <li>"Demons"</li>
-                    <li>"Yeah Right"</li>
-                    <li>"Head in the Clouds"</li>
-                    <li>"Test Drive"</li>
-                    <li>"I Don't Wanna Waste My Time"</li>
-                    <li>"Attention"</li>
-                    <li>"Wanted U"</li>
-                    <li>"XNXX"</li>
-                    <li>"Can't Get Over You"</li>
-                    <li>"No Fun"</li>
-                    <li>"I'll See You in 40" -- Main Set Closer</li>
-                    <li>Encore</li>
-                    <li>"Slow Dancing in the Dark" - main Set Closer</li>
+
+                <div class="flex-grow-1 text-left" id="informacionTexto">
+                    <div id = "parrafoDetallado">  
+                        <h1>
+                            TITULO DEL EVENTO
+                        </h1>
+                        <p class="d-inline-flex p-2" style="text-align: justify;">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat…
+                        </p>
+                        <div class="d-flex justify-content-around">
+
+                            <div class="align-self-center">
+                                <h6>FECHA</h6>
+                                <p>XX/XX/XXXX</p>
+                            </div>
+
+                            <div class="align-self-center">
+                                <h6>HORA</h6>
+                                <p>00:00:00</p>
+                            </div>
+
+                            <div class="align-self-center">
+                                <h6> LUGAR</h6>
+                                <p>Movistar Arena</p>
+                            </div>
+                        </div>            
+                    </div>
+                        <div style="padding-left: 2%;" id = "lineUp">
+                            <p id="ACT"><h6 style="padding-left: 3.5%;">ACTUACIONES</h6></p>
+                            <li>"Will He" -- Opener</li>
+                            <li>"Demons"</li>
+                            <li>"Yeah Right"</li>
+                            <li>"Head in the Clouds"</li>
+                            <li>"Test Drive"</li>
+                            <li>"I Don't Wanna Waste My Time"</li>
+                            <li>"Attention"</li>
+                            <li>"Wanted U"</li>
+                            <li>"XNXX"</li>
+                            <li>"Can't Get Over You"</li>
+                            <li>"No Fun"</li>
+                            <li>"I'll See You in 40" -- Main Set Closer</li>
+                            <li>Encore</li>
+                            <li>"Slow Dancing in the Dark" - main Set Closer</li>
+                        </div>
                 </div>
             </div>
 
-            <!--Mapa-->
 
-            <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
-                <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div>
-                <script>(function () {
-                        var setting = { "query": "Movistar Arena, Diagonal 61c, Bogotá, Colombia", "width": 500, "height": 300, "satellite": false, "zoom": 15, "placeId": "ChIJ89PYvUqbP44RHozfsJ1vCtk", "cid": "0xd90a6f9db0df8c1e", "coords": [4.6491577, -74.0772952], "lang": "es", "queryString": "Movistar Arena, Diagonal 61c, Bogotá, Colombia", "centerCoord": [4.6491577, -74.0772952], "id": "map-9cd199b9cc5410cd3b1ad21cab2e54d3", "embed_id": "1076808" };
-                        var d = document;
-                        var s = d.createElement('script');
-                        s.src = 'https://1map.com/js/script-for-user.js?embed_id=1076808';
-                        s.async = true;
-                        s.onload = function (e) {
-                            window.OneMap.initMap(setting)
-                        };
-                        var to = d.getElementsByTagName('script')[0];
-                        to.parentNode.insertBefore(s, to);
-                    })();</script><a href="https://1map.com/es/map-embed">1 Map</a>
+
+        <!--Mapa-->
+
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                <a href="https://strandsgame.net/">Strands Game</a>
             </div>
+            <style>.mapouter{position:relative;text-align:right;width:auto;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:auto;height:400px;}.gmap_iframe {width:100%!important;height:30rem!important;}</style>
+        </div>
+
+        </div>
+
     </template>
 
     <!--Ingresar Evento-->
@@ -3064,65 +3054,66 @@
     <template id="ingresarEvento">
         <div class="row">
             <div class="col-6">
-                <button><img src="/Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle"></button>
+                <button><img src="/Recursos/Img/Colocar flayer.png" alt=""id="imgDetalle"></button>
             </div>
-            <div class="col-6" id="parrafoDetallado">
-                <button id="ingresarDetalle">
-                    <p><strong>COLOCA TITULO</strong>
-                        <br>
-                        describe tu evento
-                    </p>
-                </button>
-                <div class="row" id="especificosEvento">
+            <div class="col-6" id = "parrafoDetallado">     
+                <button id = "ingresarDetalle"><p><strong>COLOCA TITULO</strong>
+                    <br>
+                    describe tu evento
+                    </p></button>
+                <div class="row" id = "especificosEvento">
                     <div class="col-4">
-                        <button id="ingresarData">
+                        <button id = "ingresarData">
                             <p>Fecha
-                                <br>xx/xx/xxxx
-                            </p>
+                            <br>xx/xx/xxxx</p>
                         </button>
                     </div>
                     <div class="col-4">
-                        <button id="ingresarData">
+                        <button id = "ingresarData">
                             <p>Hora
-                                <br>00:00:00
-                            </p>
-                        </button>
+                            <br>00:00:00</p>
+                        </button>   
                     </div>
                     <div class="col-4">
-                        <button id="ingresarData">
+                        <button id = "ingresarData">
                             <p>Lugar
-                                <br>Ingrese lugar
-                            </p>
-                        </button>
+                            <br>Ingrese lugar</p>
+                        </button>  
                     </div>
+                </div>   
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-5" id = "compraConjunto">
+                    <p>Añada la información de su evento</p>
+                    <button id = "compraBtn" onclick="mostrarModal()">
+                        <p>Cambiar</p>
+                    </button> 
+                </div>
+                <div class = "col-6" id = "registroDetalles">
+                    <button id = "ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-5" id="compraConjunto">
-                <p>Adquiere tu boleta aqui</p>
-                <button id="compraBtn" onclick="mostrarModal()">
-                    <p>Compra</p>
-                </button>
+            <!--Mapa-->
+            <div class = "col-11" id="registroDetalles">
+                <button id = "ingresarActo"><br>Ingrese la dirección<br></button>
             </div>
-            <div class="col-6" id="registroDetalles">
-                <button id="ingresarActo"><br>añada la lista de actuaciones del evento<br></button>
+    
+            <!--Ventana emergente-->
+            <div id="modalUrl">
+                <div id="modal_container">
+                    <h2  id ="modal_title">Nombre y descripción</h2>
+                    <input type="text" id="agregarUrl">
+                    <h2  id ="modal_title">Fecha y hora</h2>
+                    <input type="text" id="agregarUrl">
+                    <h2  id ="modal_title">Lugar en que tendra lugar</h2>
+                    <input type="text" id="agregarUrl">
+                    <h2  id ="modal_title">Seleccione banner del evento</h2>
+                    <input type="file" id="agregarArchivo">
+                    <button id="modal_close" onclick="cerrarModal()">Guardar</button>  
+                    <button id="cerrarModal" onclick="cerrarModal()">X</button>
+                </div>
             </div>
-        </div>
-        <!--Mapa-->
-        <div class="col-11" id="registroDetalles">
-            <button id="ingresarActo"><br>Ingrese la dirección<br></button>
-        </div>
-
-        <!--Ventana emergente-->
-        <div id="modalUrl">
-            <div id="modal_container">
-                <h2 id="modal_title">Coloca la dirección de compra</h2>
-                <input type="text" id="agregarUrl">
-                <button id="modal_close" onclick="cerrarModal()">Enviar</button>
-                <button id="cerrarModal" onclick="cerrarModal()">X</button>
-            </div>
-        </div>
     </template>
 
     <!--Terminos y condiciones-->
@@ -3236,18 +3227,45 @@
     </template>
 
     <!--Calendario-->
-    <template id="pantallaCalendario">
-        <div id='calendar'>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth'
-                });
-                calendar.render();
-                });
-            </script>
-        </div>
+    <template id="calendarioTemplate">
+        <h1>Calendario</h1>
+        <div id="calendar"></div>
+    
+        <script>
+            function crearCalendario(year, month) {
+                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+                var fecha = new Date(year, month - 1, 1);
+                var diasEnMes = new Date(year, month, 0).getDate();
+                var primerDiaSemana = fecha.getDay();
+    
+                var table = '<table><tr>';
+                for (var i = 0; i < diasSemana.length; i++) {
+                    table += '<th>' + diasSemana[i] + '</th>';
+                }
+                table += '</tr><tr>';
+    
+                var dia = 1;
+                for (var j = 0; j < 42; j++) {
+                    if (j >= primerDiaSemana && dia <= diasEnMes) {
+                        table += '<td>' + dia + '</td>';
+                        dia++;
+                    } else {
+                        table += '<td></td>';
+                    }
+    
+                    if (j % 7 == 6) {
+                        table += '</tr><tr>';
+                    }
+                }
+    
+                table += '</tr></table>';
+                document.getElementById('calendar').innerHTML = table;
+            }
+    
+            // Ejemplo: Mostrar el calendario del mes actual
+            var fechaActual = new Date();
+            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
+        </script>
     </template>
 
     <!--Pagina Principal Sesion Iniciada-->
