@@ -840,6 +840,10 @@ hr{
 
 /*Recomendacion*/
 
+#btnCarrusel{
+    width: 100%;
+}
+
 #eventoRecomendado{
     background-color: #0d0c0d00;
     border: #0d0c0d00;

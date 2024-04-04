@@ -180,7 +180,7 @@
                             placeholder=" CONFIRMAR CONTRASEÑA">
                     </div>
 
-                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" onclick="cerrarModalCrearCuenta(), sesionIniciada()">
+                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" onclick="mostrarPerfil(), cerrarModalCrearCuenta(), sesionIniciada()">
                         <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
                     </button>
 
@@ -312,7 +312,7 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <button href="#" id="botonCerrarSesion" onclick="sesionIniciada(), cerrarModalLateralSesionIniciada()">
+                    <button href="#" id="botonCerrarSesion" onclick="sesionIniciada(), cerrarModalLateralSesionIniciada(), volverInicio()">
                         CERRAR SESIÓN
                     </button>
                 </div>
@@ -437,7 +437,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./Recursos/Img/recomendation.png" class="d-block w-100" alt="" id="imgReco">
+                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img/recomendation.png" class="d-block w-100" alt="" id="imgReco"></button>
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="text-left" id="tituloRecomendado">
                             <strong>TITULO DEL EVENTO</strong>
@@ -450,7 +450,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/Recursos/Img/recomendationa.png" class="d-block w-100" alt="" id="imgReco">
+                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img/recomendationa.png" class="d-block w-100" alt="" id="imgReco"></button>
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="text-left ">
                             <strong>TITULO DEL EVENTO</strong>
@@ -464,7 +464,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco">
+                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco"></button>
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="text-left ">
                             <strong>TITULO DEL EVENTO</strong>
