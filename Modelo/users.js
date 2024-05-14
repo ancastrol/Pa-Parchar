@@ -1,30 +1,33 @@
 class Usuario extends Connect{
     constructor(){
     super();
-    this.id_cliente = 0; //0: No ha realizado login
-    this.name = '';
-    this.email = '';
-    this.password = '';
-    this.tipo = ''; 
+    this.id_usuario = 0; //0: No ha realizado login
+    this.nombre = '';
+    this.correo = '';
+    this.contrasenia = '';
+    this.rol = 0 ;
+    this.imagen_perfil = ''; 
     }
     setData(data){
     this.id = data.id;
-    this.name = data.name;
-    this.email = data.email;
-    this.tipo = data.tipo;
-    this.password = data.password; //Solo para registro
+    this.nombre = data.nombre;
+    this.correo = data.correo;
+    this.rol = data.rol;
+    this.password = data.contrasenia; //Solo para registro
+    this.imagen_perfil = data.imagen_perfil; 
     }
     getData(){
     return {
     id: this.id,
-    name: this.name,
-    email: this.email,
-    tipo: this.tipo
+    nombre: this.nombre,
+    correo: this.correo,
+    rol: this.rol,
+    imagen_perfil: this.imagen_perfil
     };
     }
     //Metodo para verificar login
     login(dataReq, loginCallback){
-    const endpoint = 'clients/login';
+    const endpoint = 'usuario/login';
     const method = 'POST';
     this.connect(dataReq, endpoint, method, loginCallback);
     }
