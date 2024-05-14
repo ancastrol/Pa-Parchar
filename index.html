@@ -164,7 +164,9 @@
                     <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
                         <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorCrearPerfilUsuario">
                     </div>
+                    <form action="">
 
+                    </form>
                     <div class="mb-3">
                         <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
                             placeholder="CORREO ELECTRONICO">
@@ -243,15 +245,17 @@
                         <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorLogin">
                     </div>
 
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO">
-                    </div>
+                    <form id="formLogin">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO" name="correo">
+                        </div>
+    
+                        <div class="mb-3 text-center">
+                            <input type="password" class="form-control" id="cuadroContraseña" placeholder="CONTRASEÑA" name="contrasenia">
+                        </div>
+                    </form>
 
-                    <div class="mb-3 text-center">
-                        <input type="password" class="form-control" id="cuadroContraseña" placeholder="CONTRASEÑA">
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonIniciarSesion" onclick="cerrarModalLogin(), sesionIniciada()">
+                    <button class="d-flex justify-content-center" id="botonIniciarSesion" onclick="iniciarSesion()">
                         <strong class="align-self-center text-btn-despl" id="opcionesMenu">INICIAR SESION</strong>
                     </button>
 

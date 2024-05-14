@@ -77,8 +77,21 @@ function handleKeyPress(event) {
 let sesion = false;
 
 /*Cambia el estado de la sesion al contrario del que estaba*/
-function sesionIniciada() {
-  sesion = !sesion;
+function iniciarSesion() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formLogin")
+  if (data.ok) {
+    //Consultar en la BD si existe
+    
+    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+    sesion = !sesion;
+    vista.cerrarModal("modalLogin");
+    vista.cerrarModal("modalLateralSesionIniciada");
+    
+  } else {
+    //Si no, avisar
+    
+  }
 }
 
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
@@ -101,9 +114,9 @@ function cerrarModalLateral() {
   vista.cerrarModal("modalLateral");
 }
 
-function cerrarModalLateralSesionIniciada() {
-  vista.cerrarModal("modalLateralSesionIniciada");
-}
+// // function cerrarModalLateralSesionIniciada() {
+// //   vista.cerrarModal("modalLateralSesionIniciada");
+// // }
 
 function mostrarModalRol() {
   vista.abrirModal("roles");
@@ -115,9 +128,10 @@ function cerrarModalRol() {
 function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
 }
-function cerrarModalLogin() {
-  vista.cerrarModal("modalLogin");
-}
+
+// function cerrarModalLogin() {
+//   vista.cerrarModal("modalLogin");
+// }
 
 function mostrarModalCrearCuenta() {
   vista.abrirModal("modalCrearCuenta");
