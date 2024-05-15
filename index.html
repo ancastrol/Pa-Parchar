@@ -27,9 +27,7 @@
 
 <body>
 
-
     <!--Contenedor padre-->
-
     <div class="container" id="container">
 
         <!--Header-->
@@ -149,10 +147,7 @@
                     <div class="row justify-content-center" id="tituloCrearPerfilUsuario">
                         <strong class="text-center">DATOS DE CUENTA:</strong>
                     </div>
-
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO">
-                    </div>
+                   
 
                     <select type="text" class="form-select" id="seleccionGeneroCrearPerfilUsuario"
                         onchange="cambiarColorSelect()">
@@ -164,25 +159,29 @@
                     <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
                         <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorCrearPerfilUsuario">
                     </div>
-                    <form action="">
+                    <!--formulario de crear cuenta -->
+                    <form id="formRegistro">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO" name="nombre">
+                        </div> 
 
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
+                                placeholder="CORREO ELECTRONICO" name = "correo">
+                        </div>
+    
+                        <div class="mb-3 text-center">
+                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilUsuario"
+                                placeholder="CONTRASEÑA" name ="contrasenia">
+                        </div>
+    
+                        <div class="mb-3 text-center">
+                            <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilUsuario"
+                                placeholder=" CONFIRMAR CONTRASEÑA" name = "contrasenia">
+                        </div>
                     </form>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
-                            placeholder="CORREO ELECTRONICO">
-                    </div>
 
-                    <div class="mb-3 text-center">
-                        <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilUsuario"
-                            placeholder="CONTRASEÑA">
-                    </div>
-
-                    <div class="mb-3 text-center">
-                        <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilUsuario"
-                            placeholder=" CONFIRMAR CONTRASEÑA">
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" onclick="mostrarPerfil(), cerrarModalCrearCuenta(), sesionIniciada()">
+                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" onclick="registrarUsuario()">
                         <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
                     </button>
 
@@ -426,7 +425,6 @@
     <!--Plantillas-->
 
     <!--Pagina principal-->
-
     <template id="paginaPrincipal">
 
         <!--Evento recomendado-->
@@ -894,6 +892,7 @@
         </div>
     </template>
 
+    <!--Ver Mas eventos-->
     <template id="MasEventos">
 
         <!--Eventos pequeños-->
@@ -1295,14 +1294,16 @@
         </div>
     </template>
 
+    <!--Pagina Busqueda-->
     <template id="busqueda">
         <!---busqueda--->
 
         <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
-
-            <div class="p-2 separadorBusqueda">
-                <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)">
-            </div>
+            <form >
+                <div class="p-2 separadorBusqueda">
+                    <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)" name = "busqueda" >
+                </div>
+            </form>
 
             <div class="p-2 separadorBusqueda">
                 <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
@@ -1333,7 +1334,6 @@
     </template>
 
     <!--lista de eventos-->
-
     <template id="eventosOrganizador">
 
         <div class="d-flex flex-column" style="padding: 4%;">
@@ -2159,7 +2159,6 @@
     </template>
 
     <!--Busqueda relacionada-->
-
     <template id="busquedaRelacionada">
 
         <div class="d-flex flex-column" style="padding: 4%;">
@@ -2972,7 +2971,6 @@
     </template>
 
     <!--Evento Detallado-->
-
     <template id="eventoDetallado">
 
         <div class="d-flex flex-column" style="padding: 2% 10%;">
@@ -3054,25 +3052,28 @@
     </template>
 
     <!--Ingresar Evento-->
-
     <template id="ingresarEvento">
 
         <!--Ventana emergente-->
         <div  class="z-3" id="modalUrl">
             <div id="modal_container">
                 <h2  id ="modal_title">Coloca la dirección de compra</h2>
-                <input type="text" id="agregarUrl">
+                <form>
+                    <input type="text" id="agregarUrl" name = "link_compra">
+                </form>
                 <button id="modal_close" onclick="cerrarModal()">Enviar</button>  
                 <button id="cerrarModal" onclick="cerrarModal()">X</button>
             </div>
         </div>
 
+        <!--Principal ingresar evento-->
         <div class="d-flex flex-column" style="padding: 2% 10%;">
             <div>
                 <div class="d-flex align-content-center" style="padding-bottom: 5%;">
 
                     <div class="flex-shrink-0">
-                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                <form id="formEvento">
+                            <input type="file" id="seleccionar-archivo" style="display: none;" name="ruta_imagen">
                         <button onclick="document.getElementById('seleccionar-archivo').click()">
                             <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
                         </button>
@@ -3081,6 +3082,9 @@
                             <button id="compraBtn" onclick="mostrarModal()">
                                 <p id="ACT">LINK DE COMPRA</p>
                             </button> 
+                            <button id="compraBtn" onclick="guardarEvento()">
+                                <p id="ACT">GUARDAR</p>
+                            </button> 
                         </div>
                     </div>
 
@@ -3088,8 +3092,10 @@
                         <div id="parrafoDetallado"> 
 
                             <div class="form-floating mb-3">
-                                <input class="form-control form-control-lg" type="text" placeholder="NOMBRE DEL EVENTO" aria-label=".form-control-lg example" id="ingresoInformacionImput">
-                                <label for="floatingTextarea">NOMBRE DEL EVENTO</label>
+                                <form>
+                                    <input class="form-control form-control-lg" type="text" placeholder="NOMBRE DEL EVENTO" aria-label=".form-control-lg example" id="ingresoInformacionImput" name="nombre_evento">
+                                </form>
+                                <label for="floatingTextarea"></label>
                             </div>
 
                             <div class="form-floating mb-3">
@@ -3100,18 +3106,24 @@
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
                             
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="FECHA" aria-label=".form-control-lg example">
-                                    <label for="floatingTextarea"><h6>FECHA</h6></label>
+                                    <form>
+                                        <input class="form-control form-control-lg" type="text" placeholder="FECHA" aria-label=".form-control-lg example" name="fecha">
+                                    </form>
+                                    <label for="floatingTextarea"></label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="HORA" aria-label=".form-control-lg example">
-                                    <label for="floatingTextarea"><h6>HORA</h6></label>
+                                    <form>
+                                        <input class="form-control form-control-lg" type="text" placeholder="HORA" aria-label=".form-control-lg example" name="hora">
+                                    </form>
+                                    <label for="floatingTextarea"></label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR" aria-label=".form-control-lg example">
-                                    <label for="floatingTextarea"><h6>LUGAR</h6></label>
+                                    <form>
+                                        <input class="form-control form-control-lg" type="text" placeholder="LUGAR" aria-label=".form-control-lg example" name="lugar">
+                                    </form>
+                                    <label for="floatingTextarea"></label>
                                 </div>
 
                             </div>            
@@ -3124,7 +3136,9 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <form>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button" name="actuaciones">
+                            </form>
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
                             <ul class="dropdown-menu dropdown-menu-end">
                               <li><a class="dropdown-item" href="#">Opener</a></li>
@@ -3133,7 +3147,9 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <form>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" name="actuaciones">
+                            </form>
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%;">Tipo</button>
                             <ul class="dropdown-menu dropdown-menu-end">
                               <li><a class="dropdown-item" href="#">Opener</a></li>
@@ -3142,7 +3158,9 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <form>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" name="actuaciones">
+                            </form>
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
                             <ul class="dropdown-menu dropdown-menu-end">
                               <li><a class="dropdown-item" href="#">Opener</a></li>
@@ -3161,7 +3179,9 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                            <form>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" name="actuaciones">
+                            </form>
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
                             <ul class="dropdown-menu dropdown-menu-end">
                               <li><a class="dropdown-item" href="#">Opener</a></li>
@@ -3175,6 +3195,7 @@
                             </button>
                         </div>
                     </div>
+                </form>
 
         <!--Mapa-->
 
@@ -3854,6 +3875,7 @@
             </div>
     </template>
 
+    <!--Pagina Politica-->
     <template id="pantallaPoliticaPrivacidad">
         <!--Poilitica de Privacidad-->
         <div>
@@ -3948,6 +3970,7 @@
         </div>
     </template>
 
+    <!--Pagina Perfil-->
     <template id="pantallaPerfil">
         
             <!--Pantalla Perfil-->
@@ -3956,7 +3979,9 @@
                 <div class = "p-2 flex-fill bd-highlight" id="lateralIzquierdo">
                     <img src="./Recursos/Img/iconoUser.png" class="d-block w-100" alt="" id="fotoPerfil">
                     <div class ="align-content space-between">
-                        <input type="file">
+                        <form>
+                            <input type="file" name ="imagen_perfil">
+                        </form>
                     </div>
                 </div>
                 
@@ -3991,13 +4016,16 @@
             </div>
              <!--modal Nombre-->
     
-            <div id="contModalNombre">
+            
+             <div id="contModalNombre">
                 <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilNombre">
                     <div class="p-2 bd-highlight" id ="tituloPerfil">
                         <h1 class="modalTitle">TU NOMBRE</h1>
                     </div>
                         <p>Tu nombre es:XXXXXXXXXX</p>
-                        <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" >
+                        <form >
+                            <input type="text" placeholder="Nombre del evento" name="nombre" id="inputPerfil" >
+                        </form>
                     
                     <div class = "d-flex justify-content-around">
                         <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>CANCELAR</h1></button>
@@ -4007,14 +4035,15 @@
             </div>
                
             <!--Modal email -->
-
             <div id="contModalEmail">    
                 <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilEmail">
                     <div class="p-2 bd-highlight" id ="tituloPerfil">
                         <h1>TU EMAIL</h1>
                     </div>
                         <p>Tu email es:XXXX@email.com</p>
-                        <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
+                        <form >
+                            <input type="text" placeholder="Escribe tu email" name="correo" id="inputPerfil">
+                        </form>
                     <div class="d-flex justify-content-around">
                         <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>CANCELAR</h1></button>
                         <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>GUARDAR</h1></button>
@@ -4022,24 +4051,22 @@
                 </div>  
             </div>     
     
-            
-    
-    
             <!--modal contraseña--> 
-                
             <div id="contModalContraseña">
                 <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilContraseña">
                 
                 <div class="p-2 bd-highlight" id ="tituloPerfil">
                     <h1>Contraseña</h1>
                 </div>
-                
-                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
+                <form>
+                    <input type="password" placeholder="Escribre tu contraseña" name="contrasenia" id="inputPerfil">
+                </form>
                 
                 <hr id="lineasHorizantal">
-                
-                        <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
-                        <input type="password" placeholder="Confirma tu contraseña" name="title"  id="inputPerfil"/>
+                <form >                    
+                    <input type="password" placeholder="Confirma tu contraseña" name="contrasenia"  id="inputPerfil"/>
+                    <input type="password" placeholder="Escribre nueva contraseña" name="contrasenia" id="inputPerfil" />
+                </form>
                     
                 <div class="d-flex justify-content-around">
                     <button id ="btnPerfilModal" onclick="cerrarModalContraseña()"><h4>CANCELAR</h1></button>
@@ -4049,9 +4076,6 @@
                 
             </div>
     </template>
-
-
-
 
     <script src="./Vista/js/vista.js"></script>
     <script src="./controlador/controlador.js"></script>

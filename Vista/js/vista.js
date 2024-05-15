@@ -70,6 +70,7 @@ class Vista {
     mensajeDiv.style.width = "80%";
     mensajeDiv.style.right = "10%";
     mensajeDiv.style.bottom = "20%";
+    mensajeDiv.style.alignContent = "center";
     if (ok) {
       mensajeDiv.style.backgroundColor = "green";
     } else {
@@ -79,8 +80,9 @@ class Vista {
     mensajeDiv.style.textAlign = "center";
     mensajeDiv.style.padding = "10px";
     mensajeDiv.style.borderRadius = "10px";
+    mensajeDiv.style.zIndex = "1000";
     // Mostrar el mensaje
-    document.getElementById("container").appendChild(mensajeDiv);
+    document.getElementById("contenido").appendChild(mensajeDiv);
     // Eliminar el mensaje después de 3 segundos
     setTimeout(() => {
       mensajeDiv.remove();

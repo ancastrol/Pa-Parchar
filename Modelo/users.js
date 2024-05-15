@@ -13,7 +13,7 @@ class Usuario extends Connect{
     this.nombre = data.nombre;
     this.correo = data.correo;
     this.rol = data.rol;
-    this.password = data.contrasenia; //Solo para registro
+    this.contrasenia = data.contrasenia; //Solo para registro
     this.imagen_perfil = data.imagen_perfil; 
     }
     getData(){

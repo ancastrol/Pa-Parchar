@@ -90,10 +90,43 @@ function iniciarSesion() {
     
   } else {
     //Si no, avisar
-    
+    vista.mostrarMensaje(data.ok, data.msj);
   }
 }
 
+/*Registrar datos de un usuario nuevo*/
+function registrarUsuario() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formRegistro")
+  if (data.ok) {
+    //Consultar en la BD si existe
+    
+    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+    sesion = !sesion;
+    vista.cerrarModal("modalCrearCuenta");
+    vista.cerrarModal("modalLateralSesionIniciada");
+    
+  } else {
+    //Si no, avisar
+    vista.mostrarMensaje(data.ok, data.msj);
+  }
+}
+
+/*Guardar cambios (trantando de hacerlo general*/
+function guardarEvento() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formEvento")
+  if (data.ok) {
+    //Consultar en la BD si existe
+
+    //mensaje guardado correctamente
+    vista.mostrarMensaje(data.ok, data.msj);
+    
+  } else {
+    //Si no, avisar
+    vista.mostrarMensaje(data.ok, data.msj);
+  }
+}
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 function mostrarModalLateral() {
   if (sesion == false) {
@@ -114,9 +147,9 @@ function cerrarModalLateral() {
   vista.cerrarModal("modalLateral");
 }
 
-// // function cerrarModalLateralSesionIniciada() {
-// //   vista.cerrarModal("modalLateralSesionIniciada");
-// // }
+function cerrarModalLateralSesionIniciada() {
+  vista.cerrarModal("modalLateralSesionIniciada");
+}
 
 function mostrarModalRol() {
   vista.abrirModal("roles");
@@ -129,9 +162,9 @@ function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
 }
 
-// function cerrarModalLogin() {
-//   vista.cerrarModal("modalLogin");
-// }
+function cerrarModalLogin() {
+   vista.cerrarModal("modalLogin");
+}
 
 function mostrarModalCrearCuenta() {
   vista.abrirModal("modalCrearCuenta");
