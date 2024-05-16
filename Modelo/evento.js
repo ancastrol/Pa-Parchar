@@ -11,7 +11,7 @@ class Evento extends Connect{
         this.id_organizador = 0;
     }
 
-    //Metodo para verificar login
+    //Metodo para traer eventos
     consultarEventos(dataReq, eventCallback){
         const endpoint = 'usuario';
         const method = 'GET';
