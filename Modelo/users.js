@@ -31,4 +31,5 @@ class Usuario extends Connect{
     const method = 'POST';
     this.connect(dataReq, endpoint, method, loginCallback);
     }
+    
     }

@@ -1,4 +1,4 @@
-class Empresa extends Connect{
+class Organizer extends Connect{
     constructor(){
     super();
     this.id_usuario = "";
@@ -29,27 +29,28 @@ class Empresa extends Connect{
     };
     }
     //Listar todas las empresas
-    listarEmpresas(callback){
+    listarOrganizadores(callback){
     const endpoint = 'organizer';
     const method = 'GET';
     this.connect({}, endpoint, method, callback);
     }
     //Datos de una empresa, por nit
-    mostrarEmpresa(nit, callback){
+    mostrarOrganizadores(nit, callback){
     const endpoint = 'companies?nit=' + nit;
     const method = 'GET';
     this.connect({}, endpoint, method, callback);
     }
     //Datos de una empresa, por PK
-    consultarEmpresa(id_empresa, callback){
+    consultarOrganizador(id_empresa, callback){
     const endpoint = 'companies/' + id_empresa;
     const method = 'GET';
     this.connect({}, endpoint, method, callback);
     }
     //Edita campos de una empresa por PK
-    editarEmpresa(dataReq, callback){
+    editarOrganizador(dataReq, callback){
     const endpoint = 'companies';
     const method = 'PUT';
     this.connect(dataReq, endpoint, method, callback);
     }
+    
     }

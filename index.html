@@ -494,7 +494,7 @@
 
         <hr size="8px" color="#4F4F4F" />
 
-        <div class="d-flex align-content-between flex-wrap justify-content-around">
+        <div class="d-flex align-content-between flex-wrap justify-content-around" id = "contenidoEventos">
 
             <div class="card " id="cardEvento">
                 <button id="botonEvento" onclick="mostrarDetalleEvento()">
@@ -3082,7 +3082,7 @@
                             <button id="compraBtn" onclick="mostrarModal()">
                                 <p id="ACT">LINK DE COMPRA</p>
                             </button> 
-                            <button id="compraBtn" onclick="guardarEvento()">
+                            <button id="compraBtn" onclick= "guardarEvento()" >
                                 <p id="ACT">GUARDAR</p>
                             </button> 
                         </div>
@@ -4078,6 +4078,11 @@
     </template>
 
     <script src="./Vista/js/vista.js"></script>
+    <script src="./Modelo/connect.js"></script>
+    <script src="./Modelo/evento.js"></script>
+    <script src="./Modelo/users.js"></script>
+    <script src="./Modelo/organizer.js"></script>
+    <script src="./Modelo/client.js"></script>
     <script src="./controlador/controlador.js"></script>
 </body>
 

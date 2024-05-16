@@ -1,5 +1,6 @@
 let vista = new Vista();
-
+let evento = new Evento();
+let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
@@ -11,6 +12,12 @@ document.body.onload = function () {
 function volverInicio() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  //consultar eventos en  BD
+  evento.consultarEventos({}, function(data) {
+    console.log(data);
+    listaEventos = data.data;
+  });
+  //Desplegar tarjetas de eventos en id= "contenidoEventos"
 }
 
 function mostrarDetalleEvento() {
@@ -121,12 +128,14 @@ function guardarEvento() {
 
     //mensaje guardado correctamente
     vista.mostrarMensaje(data.ok, data.msj);
+    mostrarPerfil();
     
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
   }
 }
+
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 function mostrarModalLateral() {
   if (sesion == false) {
