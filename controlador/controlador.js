@@ -119,9 +119,9 @@ function cerrarModalLateral() {
   vista.cerrarModal("modalLateral");
 }
 
-// // function cerrarModalLateralSesionIniciada() {
-// //   vista.cerrarModal("modalLateralSesionIniciada");
-// // }
+function cerrarModalLateralSesionIniciada() {
+vista.cerrarModal("modalLateralSesionIniciada");
+}
 
 function mostrarModalRol() {
   vista.abrirModal("roles");
@@ -134,9 +134,9 @@ function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
 }
 
-// function cerrarModalLogin() {
-//   vista.cerrarModal("modalLogin");
-// }
+function cerrarModalLogin() {
+  vista.cerrarModal("modalLogin");
+}
 
 function mostrarModalCrearCuenta() {
   vista.abrirModal("modalCrearCuenta");
