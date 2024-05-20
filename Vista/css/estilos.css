@@ -6,19 +6,19 @@ body{
     background-color: #000000;
     font: "Inter", sans-serif;
     font-size: 10px;
-    color: white;
+    color: white; 
 }
 
-h1{
+ h1{
     text-align: center;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 0.5em; /* 116.667% */
+    line-height: 0.5em; 
     letter-spacing: -0.57px;
     text-transform: uppercase;
-    margin: 0 0 0 0;
+
     
 }
 h4{
@@ -35,7 +35,7 @@ p{
 
 a{
    color: white; 
-}
+} 
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -44,11 +44,10 @@ a{
 #container{
     max-width: 100%;
     max-height: 100%;
-    margin: auto;
-    background-color: white;
-    padding: 0;
     min-width: 574px;
-
+    padding: 0;
+    /* margin: auto;
+    background-color: white; */
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -60,7 +59,6 @@ main{
     height: 100%;
     background-color: #262626;
     color: white;
-    padding: 0;
 }
 
 button{
@@ -68,58 +66,6 @@ button{
     background-color: #0d0c0d00;
     border-color: #0d0c0d00 ;
 }
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*eventos "pequeños"
-
-#cardEvento{
-    width: 10rem;
-    border: #0d0c0d00;
-    background-color: #0d0c0d00;
-    margin-top:5%
-}
-
-#botonEvento{
-    max-width: 100%;
-    background-color: #0d0c0d00;
-    color: #ffffff;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #0d0c0d00;
-    padding: 0 0 0 0;
-}
-
-#eventoA{
-    max-height: 70%;
-    max-width: 70%;
-    border-radius: 5px;
-}
-
-#tituloE{
-    font-size: 10px;
-    color: white;
-}
-
-#parrafoE{
-    font-size: 9px;
-    color: white;
-}
-
-#eventos{
-    width: 100%;
-}
-
-#botonSig{
-    width: 20%;
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    margin-bottom: 2%;
-    border-radius: 5%;
-}*/
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -131,17 +77,17 @@ header{
 }
 
 #botonEncabezado{
-    margin-top: 1%;
+    margin-top: 5%;
     width: 100%;
     background-color: #0d0c0d00;
-    color: #ffffff;
+    /* color: #ffffff; */
     font: "Inter", sans-serif;
     font-size: 12px;
     border: #0d0c0d00;
 }
 
 #logoHeader{
-    width: 13%;
+    width: 15%;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -366,7 +312,7 @@ header{
 
 hr{
     height:85%;
-    width: 5%;
+    width: 100%;
     background-color:#ffffff;
     margin: 0 0 0 0;
 }
@@ -479,11 +425,6 @@ hr{
     margin-bottom: 8%;
 }
 
-#imgSeparadorRol{
-    width: 50%;
-    margin: 5% 0;
-}
-
 #cerrarSeleccionRol{
     width: 5%;
     margin-left: auto;
@@ -536,7 +477,7 @@ hr{
     width: 20rem;
     top: 5rem;
     position: absolute;
-    left: 40%;
+    left: 42%;
 }
 
 #fondoDifum{
@@ -571,60 +512,8 @@ hr{
     color: #ffffff;
 }
 
-#seleccionGeneroCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-}
-
-#opcionesGeneroCrearPerfilUsuario{
-    background-color: #0D0C0D;
-    color: white;
-}
-
-#seleccionGeneroCrearPerfilUsuario option[value="GENERO"] {
-    color: #555; 
-}
-
-#seleccionGeneroCrearPerfilUsuario option:not([value="GENERO"]) {
-    color: #fff;
-}
-
-#imgSeparadorCrearPerfilUsuario{
-    width: 50%;
-    height: 25%;
-    margin-top: 6%;
-    margin-bottom: 5%;
-}
-
-#cuadroCorreoCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#cuadroContraseñaCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#cuadroConfirmarContraseñaCrearPerfilUsuario{    
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-    margin-bottom: 5%;
+#opcionesRol{
+    color: #000000; 
 }
 
 #botonSiguienteCrearPerfilUsuario{
@@ -637,6 +526,26 @@ hr{
     height: 2rem;
     margin-bottom: 7%;
     border-radius: 3%;
+}
+
+.form-select {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #6C757D;
+}
+
+/* Estilo específico para la opción "ROLES" */
+.form-select .roles-option {
+    color: #6C757D; /* Cambia el color de texto solo para la opción "ROLES" */
+}
+
+/* Estilo para el texto del select cuando está enfocado o seleccionado */
+.form-select:focus,
+.form-select.seleccionado {
+    color: white; /* Cambia el color del texto cuando el select está enfocado o seleccionado */
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -656,30 +565,28 @@ hr{
 }
 
 #login{
-    font-size: small;
+    font-size: 10px;
     text-align: center;
     background-color: #0D0C0D;
     color: white;
     border-radius: 2%;
-    width: 20rem;
-    top: 5rem;
+    width: 20%;
+    top: 10%;
     position: absolute;
-    left: 42.5%;
+    left: 40%;
 }
 
 #logoLogin{
     width: 70%;
-    margin-bottom: 5%;
 }
 
 #tituloLogin{
     margin-bottom: 5%;
 }
 
-#imgSeparadorLogin{
+#imgSeparador{
     width: 50%;
-    height: 25%;
-    margin-top: 5%;
+    margin: 5%;
 }
 
 #cerrarLogin{
@@ -689,45 +596,22 @@ hr{
     margin-top: 2%;
 }
 
-#botonIniciarConFacebook{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
+#cuadroCorreo{
     width: 14rem;
-    height: 2rem;
-    margin-bottom: 5%;
-    border-radius: 3%;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
 }
 
-#opcionesInicioSesion{
-    margin: 0%;
-}
-
-#botonIniciarConGoogle{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
+#cuadroContrasenia{
     width: 14rem;
-    height: 2rem;
-    margin-bottom: 5%;
-    border-radius: 3%;
-}
-
-#botonIniciarConApple{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-
-    margin-bottom: 0%;
-    border-radius: 3%;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
 }
 
 #botonIniciarSesion{
@@ -738,37 +622,25 @@ hr{
     border: #4F4F4F;
     width: 14rem;
     height: 2rem;
-    margin-bottom: 7%;
     border-radius: 3%;
-}
-
-#cuadroCorreo{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #000000;
-}
-
-#cuadroContraseña{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
+    margin-bottom: 2%;
 }
 
 #terminosLogin{
-    max-width: 70%;
-    margin-bottom: 5%;
+    max-width: 65%;
+    margin-bottom: 2%;
 }
 
 #terminosLogin> a{
-    color: rgb(0, 140, 255);
+    color: rgb(163, 159, 255);
+}
+#subTerminosLogin{
+    margin-bottom: 10%;
 }
 
+#subTerminosLogin > a{
+    color: rgb(163, 159, 255);
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -831,7 +703,6 @@ hr{
     display: inline;
 }
 
-
 .botonMenuLateral{
     padding: 0 10% 0 0;
 }
@@ -842,6 +713,7 @@ hr{
 
 #btnCarrusel{
     width: 100%;
+    margin-bottom: 1%;
 }
 
 #eventoRecomendado{
@@ -852,7 +724,6 @@ hr{
 #lineUp{
     left: 10%;
     margin-bottom: 2%;
-
 }
 
 #ACT{
@@ -861,7 +732,7 @@ hr{
 }
 
 #botonRecomendados{
-    width: 100%;
+    width: 80%;
     border: #0d0c0d00;
     padding: 0 0 0 0;
 }
@@ -872,8 +743,7 @@ hr{
 
 #imgReco{
     width: 100%;
-    height: 20rem;
-
+    height: 30rem;
 }
 
 #tituloRecomendado{
@@ -886,13 +756,13 @@ hr{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*eventos "pequeños"*/
+/*eventos pequeños*/
 
 #cardEvento{
-    width: 10rem;
+    width: 15%;
     border: #0d0c0d00;
     background-color: #0d0c0d00;
-    margin-top:5%
+    margin-top: 2%;
 }
 
 #botonEvento{
@@ -921,19 +791,16 @@ hr{
     color: white;
 }
 
-#eventos{
-    width: 100%;
-}
 
 #botonSig{
-    margin-bottom: 2%;
-    width: 10%;
+    width: 15%;
     background-color: #ffffff;
-    color: #000000;
+    color: black;
     font: "Inter", sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     border: #4F4F4F;
-    border-radius: 5px;
+    margin: 1%;
+    border-radius: 5%;
 }
 
 #botonSig:hover{

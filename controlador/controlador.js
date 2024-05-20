@@ -63,6 +63,11 @@ function mostrarPoliticasPrivacidad(){
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
+function cambiarColorSelect() {
+  var select = document.getElementById("seleccioneRol");
+  select.classList.add("seleccionado");
+}
+
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
 function handleKeyPress(event) {
