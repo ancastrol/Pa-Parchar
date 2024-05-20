@@ -727,12 +727,12 @@ hr{
 }
 
 #ACT{
-    margin: 0 0 2% 0;
+    margin: 0 0 0% 0;
     text-align: center;
 }
 
 #botonRecomendados{
-    width: 80%;
+    width: 100%;
     border: #0d0c0d00;
     padding: 0 0 0 0;
 }
