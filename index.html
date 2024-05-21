@@ -147,42 +147,38 @@
                     <div class="row justify-content-center" id="tituloCrearPerfilUsuario">
                         <strong class="text-center">DATOS DE CUENTA:</strong>
                     </div>
-                   
 
-                    <select type="text" class="form-select" id="seleccionGeneroCrearPerfilUsuario"
-                        onchange="cambiarColorSelect()">
-                        <option value="0" selected id="opcionesGeneroCrearPerfilUsuario">ROL</option>
-                        <option value="1" id="opcionesGeneroCrearPerfilUsuario">USUARIO</option>
-                        <option value="2" id="opcionesGeneroCrearPerfilUsuario">ORGANIZADOR</option>
-                    </select>
-
-                    <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
-                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
-                    </div>
                     <!--formulario de crear cuenta -->
                     <form id="formRegistro">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO" name="nombre">
                         </div> 
 
+                        <select type="text" class="form-select" id="seleccioneRol"
+                            onchange="cambiarColorSelect()">
+                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
+                            <option value="1" id="opcionesRol">USUARIO</option>
+                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
+                        </select>
+
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
+                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfil"
                                 placeholder="CORREO ELECTRONICO" name = "correo">
                         </div>
     
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilUsuario"
+                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfil"
                                 placeholder="CONTRASEÑA" name ="contrasenia">
                         </div>
     
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilUsuario"
+                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfil"
                                 placeholder=" CONFIRMAR CONTRASEÑA" name = "contrasenia">
                         </div>
                     </form>
 
                     <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" onclick="registrarUsuario()">
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR CUENTA</strong>
                     </button>
 
                 </div>
@@ -216,11 +212,14 @@
                         </div>
                     </form>
 
-                    <button class="d-flex justify-content-center" id="botonIniciarSesion" onclick="iniciarSesion()">
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">INICIAR SESION</strong>
-                    </button>
+                        <button class="d-flex justify-content-center" id="botonIniciarSesion" onclick="iniciarSesion()">
+                            <strong class="align-self-center text-btn-despl" id="opcionesMenu">INICIAR SESION</strong>
+                        </button>
+                    
 
-                    </button>
+                    <div class="row justify-content-center" >
+                        <p class="overflow-visible" id="subTerminosLogin"><a href="#">¿olvidaste tu contraseña?</a></p>
+                    </div>
 
                     <div class="row justify-content-center">
                         <p class="overflow-visible" id="terminosLogin">Al registrarme o iniciar sesión, acepto los <a
@@ -230,12 +229,9 @@
                         </p>
                     </div>
 
-                    <div class="row justify-content-center">
-                        <p class="overflow-visible" id="terminosLogin"><a href="#">¿olvidaste tu contraseña?</a></p>
-                    </div>
 
-                    <div class="row justify-content-center">
-                        <p class="overflow-visible" id="terminosLogin">¿no tienes cuenta pa’ parchar? <a
+                    <div class="row justify-content-center" >
+                        <p class="overflow-visible" id="subTerminosLogin">¿no tienes cuenta pa’ parchar? <a
                                 href="#" onclick="mostrarModalCrearCuenta(), cerrarModalLogin()">¡regístrate ahora!</a>
                         </p>
                     </div>
