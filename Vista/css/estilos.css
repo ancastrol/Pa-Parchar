@@ -506,7 +506,8 @@ hr{
 }
 
 #cuadroNombreUsuario{
-    width: 14rem;
+    width: 70%;
+    margin: 0 15% 0 15%;
     background-color:#0d0c0d00;
     border-top: #0d0c0d00;
     border-left: #0d0c0d00;
@@ -598,7 +599,8 @@ hr{
 }
 
 #cuadroCorreo{
-    width: 14rem;
+    width: 70%;
+    margin: 0 15% 0 15%;
     background-color:#0d0c0d00;
     border-top: #0d0c0d00;
     border-left: #0d0c0d00;
