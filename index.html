@@ -386,7 +386,7 @@
     <template id="paginaPrincipal">
 
         <!--Evento recomendado-->
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <div id="carouselExampleCaptions" class="carousel slide" id = "contenidoCarrusel">
             <div class="z-1 carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -423,20 +423,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco"></button>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left ">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                        </p>
-                        <p class="text-left">
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">
@@ -452,395 +439,9 @@
 
         <hr size="8px" color="#4F4F4F" />
 
-        <div class="d-flex align-content-between flex-wrap justify-content-around">
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventob.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoc.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventod.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoe.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventof.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventog.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoh.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoi.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoj.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventok.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventol.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventom.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventon.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoo.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventop.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoq.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventor.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventos.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventot.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventou.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventov.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventow.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventox.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
+        <div class="d-flex align-content-between flex-wrap justify-content-around" id = "contenidoEventos">
 
         </div>
-
-        <hr size="10px" color="#4F4F4F"/>
 
         <!--Ver más eventos-->
         <div class="row justify-content-center">
@@ -1250,6 +851,48 @@
                 VER MÁS EVENTOS
             </button>
         </div>
+    </template>
+
+
+    <!--Eventos carrusel-->
+    <template id = "eventosCarrusel">
+        <div class="carousel-item">
+            <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco"></button>
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="text-left ">
+                    <strong>TITULO DEL EVENTO</strong>
+                </h5>
+                <p class="text-left">
+                    LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
+                </p>
+                <p class="text-left">
+                    XX/XX/XXXX
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </template>
+    
+    <!--Card eventos pequeños-->
+    <template id="cardEvento">
+
+        <div class="card" id="cardEvento">
+            <button id="botonEvento">
+                <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
+                <div class="card-body">
+                    <h5 id=tituloE>
+                        <strong>TITULO DEL EVENTO</strong>
+                    </h5>
+                    <p id=parrafoE>
+                        LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
+                        <br>
+                        XX/XX/XXXX
+                    </p>
+                </div>
+            </button>
+        </div>
+
     </template>
 
     <!--Pagina Busqueda-->

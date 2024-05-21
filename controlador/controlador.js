@@ -10,14 +10,18 @@ document.body.onload = function () {
 /*Funciones para mostrar las plantillas en el main*/
 
 function volverInicio() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
   evento.consultarEventos({}, function(data) {
     console.log(data);
     listaEventos = data.data;
   });
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  //Desplegar tarjetas de carrusel en id= "eventos"
   //Desplegar tarjetas de eventos en id= "contenidoEventos"
+  vista.mostrarPlantilla("cardEvento", "contenidoEventos");
+  //cargar eventos en el pantalla
+  
 }
 
 function mostrarDetalleEvento() {
