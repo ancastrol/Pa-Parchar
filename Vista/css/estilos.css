@@ -530,6 +530,15 @@ hr{
     color: #ffffff;
 }
 
+#cuadroConfirmarContraseñaCrearPerfil{
+    width: 14rem;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
 #cuadroNombreUsuario{
     width: 14rem;
     background-color:#0d0c0d00;
