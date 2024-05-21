@@ -99,6 +99,24 @@ function iniciarSesion() {
   }
 }
 
+/*Cambia el estado de la sesion al contrario del que estaba*/
+function crearUsuario() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formLogin")
+  if (data.ok) {
+    //Consultar en la BD si existe
+    
+    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+    sesion = !sesion;
+    vista.cerrarModal("modalLogin");
+    vista.cerrarModal("modalLateralSesionIniciada");
+    
+  } else {
+    //Si no, avisar
+    
+  }
+}
+
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 function mostrarModalLateral() {
   if (sesion == false) {

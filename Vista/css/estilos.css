@@ -358,6 +358,7 @@ hr{
     border: #4F4F4F;
     width: 80%;
     margin-top: auto;
+    border-radius: 5%;
 }
 
 #botonInciarSesion{
@@ -368,6 +369,7 @@ hr{
     border: #4F4F4F;
     width: 80%;
     margin-top: 5%;
+    border-radius: 5%;
 }
 
 .text-btn-despl{
@@ -542,10 +544,9 @@ hr{
     color: #6C757D; /* Cambia el color de texto solo para la opción "ROLES" */
 }
 
-/* Estilo para el texto del select cuando está enfocado o seleccionado */
 .form-select:focus,
 .form-select.seleccionado {
-    color: white; /* Cambia el color del texto cuando el select está enfocado o seleccionado */
+    color: white;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -977,10 +978,12 @@ position: relative;
 #tituloPerfil{
 color: #ffffff;
 background-color: #0D0C0D;
-border-radius: 0.4em;
+font: "Inter", sans-serif;
+margin: 0;
+border-radius: 5%;
 text-align: center;
 padding: 0.7em 0 0.7em ;
-margin: 1em 0 1em 1.5em ;
+margin: 1em 0 1em 1em ;
 width: 9em;
 }
 
@@ -1016,7 +1019,7 @@ text-decoration: none;
 color: #ffffff;
 text-align: center;
 transition: all 0.2s;
-width: 6em;
+width: 10%;
 background-color: #000000;
 }
 
