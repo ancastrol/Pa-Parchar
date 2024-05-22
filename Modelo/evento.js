@@ -16,7 +16,14 @@ class Evento extends Connect{
         const endpoint = 'principal';
         const method = 'GET';
         this.connect(dataReq, endpoint, method, eventCallback);
-        }
+    }
+
+    //Metodo para traer eventos por id
+    consultarEvento(id_evento, eventCallback){
+        const endpoint = 'principal/' + id_evento;
+        const method = 'GET';
+        this.connect({}, endpoint, method, eventCallback);
+    }
 
 
 }

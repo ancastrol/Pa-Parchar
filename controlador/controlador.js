@@ -12,21 +12,25 @@ document.body.onload = function () {
 function volverInicio() {
   //consultar eventos en  BD
   evento.consultarEventos({}, function(data) {
-    console.log(data);
     listaEventos = data.data;
+    console.log(listaEventos);
+
+    //Desplegar tarjetas de eventos en id= "contenidoEventos"
+    vista.mostrarEvento("contenidoEventos", listaEventos);
   });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
-  //Desplegar tarjetas de carrusel en id= "eventos"
-  //Desplegar tarjetas de eventos en id= "contenidoEventos"
-  vista.mostrarPlantilla("cardEvento", "contenidoEventos");
+
   //cargar eventos en el pantalla
-  
 }
 
 function mostrarDetalleEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
+}
+
+function mostrarEventos() {
+  vista.limpiarContenido("contenidoEventos");
 }
 
 function mostrarMasEventos() {
