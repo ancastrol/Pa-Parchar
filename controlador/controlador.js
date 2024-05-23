@@ -4,7 +4,7 @@ let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  volverInicio();
 };
 
 /*Funciones para mostrar las plantillas en el main*/
@@ -29,14 +29,30 @@ function mostrarDetalleEvento() {
   vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
 
-function mostrarEventos() {
-  vista.limpiarContenido("contenidoEventos");
-}
+// function mostrarEventos() {
+//   vista.limpiarContenido("contenidoEventos");
+// }
 
 function mostrarMasEventos() {
+  //consultar eventos en  BD
+  evento.consultarMasEventos({}, function(data) {
+    listaEventos = data.data;
+    console.log(listaEventos);
+
+    //Desplegar tarjetas de eventos en id= "contenidoEventos"
+    vista.mostrarMasEvento("contenidoEventos", listaEventos);
+  });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("MasEventos", "contenido");
+
+  //cargar eventos en el pantalla
 }
+
+function mostrarDetalleEvento() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventoDetallado", "contenido");
+}
+
 
 function mostrarIngresarEvento() {
   vista.limpiarContenido("contenido");

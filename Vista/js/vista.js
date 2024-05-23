@@ -114,46 +114,117 @@ class Vista {
     data.forEach((evento) => {
       let divEvento = document.createElement("div");
       divEvento.classList.add("card");
-
+      divEvento.setAttribute("id", "cardEvento");
+  
       let botonEvento = document.createElement("button");
       botonEvento.setAttribute("id", "botonEvento");
-
+  
       let imagenEvento = document.createElement("img");
-      imagenEvento.classList.add("cardEventImg");
+      imagenEvento.setAttribute("id", "eventoA");
       imagenEvento.src = evento.ruta_imagen;
-      console.log(evento.ruta_imagen);
-
+  
       let bodyCard = document.createElement("div");
       bodyCard.classList.add("card-body");
-      
+  
       let nombre = document.createElement("h5");
-      nombre.textContent = evento.nombre_evento;
-      console.log(evento.nombre_evento);
-
+      nombre.classList.add("nombreEvento");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+  
       let descripcion = document.createElement("p");
-      descripcion.textContent = evento.descripcion;
-      console.log(evento.descripcion);
+      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
+  
+      botonEvento.appendChild(imagenEvento);
+      bodyCard.appendChild(nombre);
+      bodyCard.appendChild(descripcion);
+      botonEvento.appendChild(bodyCard);
+      divEvento.appendChild(botonEvento);
+      contenedor.appendChild(divEvento);
+      botonEvento.addEventListener("click", mostrarDetalleEvento);
+    });
+  }
 
-      let fecha_hora = document.createElement("p");
-      fecha_hora.textContent = evento.fecha_hora;
-      console.log(evento.fecha_hora);
-      
-     //insertar imagen en el boton
-     botonEvento.appendChild(imagenEvento);
 
-     //insertar elementos en la tarjeta (divEvento)
-     divEvento.appendChild(botonEvento); // Agrega el botón como hijo del div de la tarjeta
-     divEvento.appendChild(bodyCard); // Agrega el cuerpo de la tarjeta como hijo del div de la tarjeta
+  //funcion que crea los eventos pequeños en la pagina principal
+  mostrarMasEvento(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
 
-     //insertar elementos en el cuerpo de la tarjeta
-     bodyCard.appendChild(nombre);
-     bodyCard.appendChild(descripcion);
-     bodyCard.appendChild(fecha_hora);
+    console.log(data);
+    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
+    data.forEach((evento) => {
+      let divEvento = document.createElement("div");
+      divEvento.classList.add("card");
+      divEvento.setAttribute("id", "cardEvento");
+  
+      let botonEvento = document.createElement("button");
+      botonEvento.setAttribute("id", "botonEvento");
+  
+      let imagenEvento = document.createElement("img");
+      imagenEvento.setAttribute("id", "eventoA");
+      imagenEvento.src = evento.ruta_imagen;
+  
+      let bodyCard = document.createElement("div");
+      bodyCard.classList.add("card-body");
+  
+      let nombre = document.createElement("h5");
+      nombre.classList.add("nombreEvento");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+  
+      let descripcion = document.createElement("p");
+      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
+  
+      botonEvento.appendChild(imagenEvento);
+      bodyCard.appendChild(nombre);
+      bodyCard.appendChild(descripcion);
+      botonEvento.appendChild(bodyCard);
+      divEvento.appendChild(botonEvento);
+      contenedor.appendChild(divEvento);
+      botonEvento.addEventListener("click", mostrarDetalleEvento);
+    });
+  }
 
-     //insertar tarjeta en el contenedor
-     contenedor.appendChild(divEvento);
+  //funcion que crea los eventos pequeños en la pagina mas eventos
+  mostrarMasEvento(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
 
-     botonEvento.addEventListener("click", mostrarDetalleEvento);
+    console.log(data);
+    
+    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
+    data.forEach((evento) => {
+      let divEvento = document.createElement("div");
+      divEvento.classList.add("card");
+      divEvento.setAttribute("id", "cardEvento");
+  
+      let botonEvento = document.createElement("button");
+      botonEvento.setAttribute("id", "botonEvento");
+  
+      let imagenEvento = document.createElement("img");
+      imagenEvento.setAttribute("id", "eventoA");
+      imagenEvento.src = evento.ruta_imagen;
+  
+      let bodyCard = document.createElement("div");
+      bodyCard.classList.add("card-body");
+  
+      let nombre = document.createElement("h5");
+      nombre.classList.add("nombreEvento");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+  
+      let descripcion = document.createElement("p");
+      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
+  
+      botonEvento.appendChild(imagenEvento);
+      bodyCard.appendChild(nombre);
+      bodyCard.appendChild(descripcion);
+      botonEvento.appendChild(bodyCard);
+      divEvento.appendChild(botonEvento);
+      contenedor.appendChild(divEvento);
+      botonEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
 }
+
+

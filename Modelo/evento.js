@@ -19,8 +19,8 @@ class Evento extends Connect{
     }
 
     //Metodo para traer eventos por id
-    consultarEvento(id_evento, eventCallback){
-        const endpoint = 'principal/' + id_evento;
+    consultarMasEvento(id_evento, eventCallback){
+        const endpoint = 'principal/events' + id_evento;
         const method = 'GET';
         this.connect({}, endpoint, method, eventCallback);
     }
