@@ -11,7 +11,6 @@ body{
 
  h1{
     text-align: center;
-    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -1188,14 +1187,111 @@ z-index: 3;
 
 /*-------------------------Calendario-------------------------------------------------------------------*/
 
-table {
-    border-collapse: collapse;
+.container-calendario{ 
     width: 100%;
-    height: 50rem;
+    height: 100vh;
+    color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-th, td {
-    height: auto;
-    border: 1px solid black;
-    text-align: start;
-    padding: 5px;
+
+.calendario{
+    width: 100%;
+    height: fit-content;
+    background-color:#0D0C0D
+}
+
+.mes{
+    width: 100%;
+    height: 9rem;
+    color: #4F4F4F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1rem;
+}
+
+.mes h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.mes p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'inter', sans-serif;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1em; 
+    letter-spacing: -0.57px;
+
+}
+
+.mes i {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.dias{
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+
+    /* Fonts */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'inter', sans-serif;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1em; 
+    letter-spacing: -0.57px;
+}
+
+.dias div{
+    width: calc(100% / 7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numdias{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 0.2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.numdias div{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: 'inter', sans-serif;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1em; 
+    letter-spacing: -0.57px;
 }
