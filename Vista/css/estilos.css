@@ -548,9 +548,6 @@ hr{
     color: #ffffff;
 }
 
-#seleccioneRol{
-    margin-bottom: 5%; 
-}
 
 #botonSiguienteCrearPerfilUsuario{
     background-color: #ffffff;
@@ -562,6 +559,19 @@ hr{
     height: 2rem;
     margin-bottom: 7%;
     border-radius: 3%;
+}
+
+#seleccioneRol{
+    margin-bottom: 5%; 
+}
+
+#seleccioneRolLogin{
+    width: 70%;
+    margin: 0 15% 5% 15%;
+    background-color:#0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
 }
 
 .form-select {
@@ -579,7 +589,7 @@ hr{
 
 .form-select:focus,
 .form-select.seleccionado {
-    color: white;
+    color: #6C757D;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/

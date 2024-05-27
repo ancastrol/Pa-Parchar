@@ -10,49 +10,49 @@ document.body.onload = function () {
 /*Funciones para mostrar las plantillas en el main*/
 
 function volverInicio() {
+  vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
-  evento.consultarEventos({}, function(data) {
+  evento.consultarEventos({}, function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
     //Desplegar tarjetas de eventos en id= "contenidoEventos"
     vista.mostrarEvento("contenidoEventos", listaEventos);
+    this.mostrarCarrusel();
   });
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
-
   //cargar eventos en el pantalla
 }
 
-function mostrarDetalleEvento() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventoDetallado", "contenido");
-}
+function mostrarCarrusel() {
+  //consultar eventos en  BD
+  evento.consultarEventosCarrusel({}, function (data) {
+    listaEventos = data.data;
+    console.log(listaEventos);
 
-// function mostrarEventos() {
-//   vista.limpiarContenido("contenidoEventos");
-// }
+    //Desplegar tarjetas de eventos en id= "contenidoEventos"
+    vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
+  });
+}
 
 function mostrarMasEventos() {
   //consultar eventos en  BD
-  evento.consultarMasEventos({}, function(data) {
+  evento.consultarMasEventos(function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
     //Desplegar tarjetas de eventos en id= "contenidoEventos"
     vista.mostrarMasEvento("contenidoEventos", listaEventos);
   });
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("MasEventos", "contenido");
 
   //cargar eventos en el pantalla
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
 function mostrarDetalleEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
-
 
 function mostrarIngresarEvento() {
   vista.limpiarContenido("contenido");
@@ -85,11 +85,11 @@ function mostrarCrearEvento() {
 }
 
 function mostrarTerminosCondiciones() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
-  }
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
+}
 
-function mostrarPoliticasPrivacidad(){
+function mostrarPoliticasPrivacidad() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
@@ -110,15 +110,14 @@ let sesion = false;
 /*Cambia el estado de la sesion al contrario del que estaba*/
 function iniciarSesion() {
   //Leer datos de formuario y validar
-  let data = vista.getForm("formLogin")
+  let data = vista.getForm("formLogin");
   if (data.ok) {
     //Consultar en la BD si existe
-    
-    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -128,15 +127,14 @@ function iniciarSesion() {
 /*Registrar datos de un usuario nuevo*/
 function registrarUsuario() {
   //Leer datos de formuario y validar
-  let data = vista.getForm("formRegistro")
+  let data = vista.getForm("formRegistro");
   if (data.ok) {
     //Consultar en la BD si existe
-    
-    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
     sesion = !sesion;
     vista.cerrarModal("modalCrearCuenta");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -146,14 +144,13 @@ function registrarUsuario() {
 /*Guardar cambios (trantando de hacerlo general*/
 function guardarEvento() {
   //Leer datos de formuario y validar
-  let data = vista.getForm("formEvento")
+  let data = vista.getForm("formEvento");
   if (data.ok) {
     //Consultar en la BD si existe
 
     //mensaje guardado correctamente
     vista.mostrarMensaje(data.ok, data.msj);
     mostrarPerfil();
-    
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -184,9 +181,10 @@ function cerrarModalLateralSesionIniciada() {
   vista.cerrarModal("modalLateralSesionIniciada");
 }
 
-function mostrarModalRol() {
-  vista.abrirModal("roles");
-}
+// function mostrarModalRol() {
+//   vista.abrirModal("roles");
+// }
+
 function cerrarModalRol() {
   vista.cerrarModal("roles");
 }
@@ -196,7 +194,7 @@ function mostrarModalLogin() {
 }
 
 function cerrarModalLogin() {
-   vista.cerrarModal("modalLogin");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalCrearCuenta() {

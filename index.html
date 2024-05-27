@@ -79,53 +79,11 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button id="botonInciarSesion" onclick="mostrarModalRol(), cerrarModalLateral()">
+                        <button id="botonInciarSesion" onclick="mostrarModalLogin(), cerrarModalLateral()">
                             INICIAR SESIÓN
                         </button>
                     </div>
 
-                </div>
-
-            </div>
-
-            <!--Seleccion de Rol-->
-            <div class="d-flex justify-content-center" id="roles">
-
-                <!--Seleccion de Rol Login-->
-                <div class=" d-flex flex-column align-items-center" id="seleccionRol">
-
-                    <button class="d-flex justify-content-end" id="cerrarSeleccionRol" onclick="cerrarModalRol()">
-                        <i class="material-icons">close</i>
-                    </button>
-
-                    <div class="d-flex justify-content-center">
-                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
-                    </div>
-
-                    <div class="row justify-content-center" id="tituloRol">
-                        <strong class="text-center">¿QUIEN ERES?</strong>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <p class="overflow-visible" id="especifiqueRol">ELIGE EL TIPO DE CUENTA CON LA QUE QUIERES CREAR
-                        </p>
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolUsuario"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">account_box</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">USUARIO</strong>
-                    </button>
-
-                    <div class="d-flex justify-content-center" id="separadorRolOrganizador">
-                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolOrganizador"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">business_center</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">ORGANIZADOR</strong>
-                    </button>
                 </div>
 
             </div>
@@ -204,6 +162,13 @@
                     </div>
 
                     <form id="formLogin">
+
+                        <select type="text" class="form-select" id="seleccioneRolLogin" onchange="cambiarColorSelect()">
+                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
+                            <option value="1" id="opcionesRol">USUARIO</option>
+                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
+                        </select>
+
                         <div>
                             <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
                                 name="correo">
@@ -405,36 +370,7 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img
-                            src="./Recursos/Img/recomendationa.png" class="d-block w-100" alt="" id="imgReco"></button>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left" id="tituloRecomendado">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left" id="parrafoRecomendado">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img//wp11922453.jpg"
-                            class="d-block w-100" alt="" id="imgReco"></button>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left ">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                        </p>
-                        <p class="text-left">
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
+            <div class="carousel-inner" id="contenidoCarrusel">
 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -446,13 +382,14 @@
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button>
+            </button> 
         </div>
 
         <hr size="8px" color="#4F4F4F" />
 
         <!--contenedor en el que se cargan eventos desde BD-->
-        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos" id="contenidoEventos">
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
         </div>
 
         <hr size="8px" color="#4F4F4F" />
@@ -468,58 +405,24 @@
     <!--Ver Mas eventos-->
     <template id="MasEventos">
 
+        <hr size="8px" color="#4F4F4F" />
+
+
         <!--contenedor en el que se cargan eventos desde BD-->
-        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos" id="contenidoEventos">
-
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
         </div>
-<!--    
-        Eventos pequeños
-            <hr size="8px" color="#4F4F4F" />
 
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 class="nombreEvento">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="descripcionEvento">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET. (DESCRIPCIÓN)
-                            <br>
-                            XX/XX/XXXX XX:XX
-                        </p>
-                    </div>
-                </button>
-            </div>
-    
-        <hr size="8px" color="#4F4F4F" /> -->
+        <hr size="8px" color="#4F4F4F" />
 
         <!--Ver más eventos-->
         <div class="row justify-content-center">
             <button href="#" id="botonSig" onclick="volverInicio()">
-                VER MÁS EVENTOS
+                VOLVER A INICIO
             </button>
         </div>
+
     </template>
-
-
-    <!--Eventos carrusel-->
-    <!-- <template id="eventosCarrusel">
-        <div class="carousel-item">
-            <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src=".Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco"></button>
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="text-left ">
-                    <strong>TITULO DEL EVENTO</strong>
-                </h5>
-                <p class="text-left">
-                    LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                </p>
-                <p class="text-left">
-                    XX/XX/XXXX
-                </p>
-            </div>
-        </div>
-    </template> -->
 
     <!--Card eventos pequeños-->
     <template id="cardEvento">

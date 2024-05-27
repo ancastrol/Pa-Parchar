@@ -105,6 +105,63 @@ class Vista {
     div.appendChild(divEvento);
   }
   
+  /**
+   * 
+   * @param {contenedor a llenar} content 
+   * @param {Lista con la info de la BD} data 
+   * Funcion que crea una plantilla para poner eventos en el carrusel
+   */
+  mostrarCarrusel(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
+
+    data.forEach((evento) => {
+
+      let carrusel = document.createElement("div");
+      carrusel.classList.add("carousel-item");
+      carrusel.setAttribute("id", "carruselEvento");
+
+      let botonCarrusel = document.createElement("button");
+      botonCarrusel.setAttribute("id", "btnCarrusel");
+
+      let imagenCarrusel = document.createElement("img");
+      imagenCarrusel.classList.add("d-block");
+      imagenCarrusel.classList.add("w-50");
+      imagenCarrusel.classList.add("mx-auto");
+      imagenCarrusel.setAttribute("id", "imgReco");
+      imagenCarrusel.src = evento.ruta_imagen;
+      
+      let body = document.createElement("div");
+      body.classList.add("carousel-caption");
+      body.classList.add("d-none");
+      body.classList.add("d-md-block");
+
+      let nombre = document.createElement("h5");
+      nombre.classList.add("text-left");
+      nombre.setAttribute("id", "tituloRecomendado");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+  
+      let descripcion = document.createElement("p");
+      descripcion.classList.add("text-left");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
+
+      botonCarrusel.appendChild(imagenCarrusel);
+      body.appendChild(nombre);
+      body.appendChild(descripcion);
+      carrusel.appendChild(botonCarrusel);
+      carrusel.appendChild(body);
+      botonCarrusel.addEventListener("click", mostrarDetalleEvento);
+      contenedor.appendChild(carrusel);
+    });
+    contenedor.children[0].classList.add("active");
+  }
+
+  /**
+   * 
+   * @param {contenedor a llenar} content 
+   * @param {Lista con la info de la BD} data 
+   * Funcion que muestra eventos en la pagina principal 
+   */
   mostrarEvento(content, data) {
     let contenedor = document.getElementById(content);
     contenedor.innerHTML = "";
