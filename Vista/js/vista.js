@@ -89,22 +89,6 @@ class Vista {
     }, 3000);
   }
 
-  // mostrarDetalleEvento(evento) {
-  //   let div = document.getElementById("contenido");
-  //   div.innerHTML = "";
-  //   let divEvento = document.createElement("div");
-  //   divEvento.innerHTML = `
-  //   <h2>${evento.nombre}</h2>
-  //   <p>${evento.fecha}</p>
-  //   <p>${evento.hora}</p>
-  //   <p>${evento.lugar}</p>
-  //   <p>${evento.descripcion}</p>
-  //   <p>${evento.categoria}</p>
-  //   <p>${evento.imagen}</p>
-  //   `;
-  //   div.appendChild(divEvento);
-  // }
-
   /**
    *
    * @param {contenedor a llenar} content

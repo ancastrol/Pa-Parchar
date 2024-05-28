@@ -54,10 +54,11 @@ function mostrarMasEventos() {
 function mostrarDetalleEvento() {
   let id_eventoStr = this.attributes["data-id"].value;
   let id_evento = parseInt(id_eventoStr);
-  evento.consultarDetalleEvento({id_evento}, function(data) {
+  evento.consultarDetalleEvento(id_evento, function(data) {
     // Esta es la función de callback que se ejecutará cuando los datos sean devueltos
+    evento = data.data;
     // Aquí puedes llamar a la función mostrarDetalleEvento que definimos anteriormente
-    vista.mostrarDetalleEvento(data);
+    vista.mostrarDetalleEvento("contenido", evento);
   });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
