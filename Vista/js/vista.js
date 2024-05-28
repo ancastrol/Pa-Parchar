@@ -89,26 +89,26 @@ class Vista {
     }, 3000);
   }
 
-  mostrarDetalleEvento(evento) {
-    let div = document.getElementById("contenido");
-    div.innerHTML = "";
-    let divEvento = document.createElement("div");
-    divEvento.innerHTML = `
-    <h2>${evento.nombre}</h2>
-    <p>${evento.fecha}</p>
-    <p>${evento.hora}</p>
-    <p>${evento.lugar}</p>
-    <p>${evento.descripcion}</p>
-    <p>${evento.categoria}</p>
-    <p>${evento.imagen}</p>
-    `;
-    div.appendChild(divEvento);
-  }
-  
+  // mostrarDetalleEvento(evento) {
+  //   let div = document.getElementById("contenido");
+  //   div.innerHTML = "";
+  //   let divEvento = document.createElement("div");
+  //   divEvento.innerHTML = `
+  //   <h2>${evento.nombre}</h2>
+  //   <p>${evento.fecha}</p>
+  //   <p>${evento.hora}</p>
+  //   <p>${evento.lugar}</p>
+  //   <p>${evento.descripcion}</p>
+  //   <p>${evento.categoria}</p>
+  //   <p>${evento.imagen}</p>
+  //   `;
+  //   div.appendChild(divEvento);
+  // }
+
   /**
-   * 
-   * @param {contenedor a llenar} content 
-   * @param {Lista con la info de la BD} data 
+   *
+   * @param {contenedor a llenar} content
+   * @param {Lista con la info de la BD} data
    * Funcion que crea una plantilla para poner eventos en el carrusel
    */
   mostrarCarrusel(content, data) {
@@ -116,7 +116,6 @@ class Vista {
     contenedor.innerHTML = "";
 
     data.forEach((evento) => {
-
       let carrusel = document.createElement("div");
       carrusel.classList.add("carousel-item");
       carrusel.setAttribute("id", "carruselEvento");
@@ -130,7 +129,7 @@ class Vista {
       imagenCarrusel.classList.add("mx-auto");
       imagenCarrusel.setAttribute("id", "imgReco");
       imagenCarrusel.src = evento.ruta_imagen;
-      
+
       let body = document.createElement("div");
       body.classList.add("carousel-caption");
       body.classList.add("d-none");
@@ -140,7 +139,7 @@ class Vista {
       nombre.classList.add("text-left");
       nombre.setAttribute("id", "tituloRecomendado");
       nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
-  
+
       let descripcion = document.createElement("p");
       descripcion.classList.add("text-left");
       descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
@@ -150,17 +149,17 @@ class Vista {
       body.appendChild(descripcion);
       carrusel.appendChild(botonCarrusel);
       carrusel.appendChild(body);
-      botonCarrusel.addEventListener("click", mostrarDetalleEvento);
       contenedor.appendChild(carrusel);
+      botonCarrusel.addEventListener("click",mostrarDetalleEvento);
     });
     contenedor.children[0].classList.add("active");
   }
 
   /**
-   * 
-   * @param {contenedor a llenar} content 
-   * @param {Lista con la info de la BD} data 
-   * Funcion que muestra eventos en la pagina principal 
+   *
+   * @param {contenedor a llenar} content
+   * @param {Lista con la info de la BD} data
+   * Funcion que muestra eventos en la pagina principal
    */
   mostrarEvento(content, data) {
     let contenedor = document.getElementById(content);
@@ -172,25 +171,26 @@ class Vista {
       let divEvento = document.createElement("div");
       divEvento.classList.add("card");
       divEvento.setAttribute("id", "cardEvento");
-  
+
       let botonEvento = document.createElement("button");
       botonEvento.setAttribute("id", "botonEvento");
-  
+      botonEvento.setAttribute("data-id", evento.id_evento)
+
       let imagenEvento = document.createElement("img");
       imagenEvento.setAttribute("id", "eventoA");
       imagenEvento.src = evento.ruta_imagen;
-  
+
       let bodyCard = document.createElement("div");
       bodyCard.classList.add("card-body");
-  
+
       let nombre = document.createElement("h5");
       nombre.classList.add("nombreEvento");
       nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
-  
+
       let descripcion = document.createElement("p");
       descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
       descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
-  
+
       botonEvento.appendChild(imagenEvento);
       bodyCard.appendChild(nombre);
       bodyCard.appendChild(descripcion);
@@ -201,87 +201,29 @@ class Vista {
     });
   }
 
-
-  //funcion que crea los eventos pequeños en la pagina principal
-  mostrarMasEvento(content, data) {
+  //Mostrar detalle de evento
+  mostrarDetalleEvento(content, data) {
     let contenedor = document.getElementById(content);
     contenedor.innerHTML = "";
 
     console.log(data);
-    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
-    data.forEach((evento) => {
-      let divEvento = document.createElement("div");
-      divEvento.classList.add("card");
-      divEvento.setAttribute("id", "cardEvento");
-  
-      let botonEvento = document.createElement("button");
-      botonEvento.setAttribute("id", "botonEvento");
-  
-      let imagenEvento = document.createElement("img");
-      imagenEvento.setAttribute("id", "eventoA");
-      imagenEvento.src = evento.ruta_imagen;
-  
-      let bodyCard = document.createElement("div");
-      bodyCard.classList.add("card-body");
-  
-      let nombre = document.createElement("h5");
-      nombre.classList.add("nombreEvento");
-      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
-  
-      let descripcion = document.createElement("p");
-      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
-      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
-  
-      botonEvento.appendChild(imagenEvento);
-      bodyCard.appendChild(nombre);
-      bodyCard.appendChild(descripcion);
-      botonEvento.appendChild(bodyCard);
-      divEvento.appendChild(botonEvento);
-      contenedor.appendChild(divEvento);
-      botonEvento.addEventListener("click", mostrarDetalleEvento);
-    });
-  }
 
-  //funcion que crea los eventos pequeños en la pagina mas eventos
-  mostrarMasEvento(content, data) {
-    let contenedor = document.getElementById(content);
-    contenedor.innerHTML = "";
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let imagenEvento = document.getElementById("imgDetalle");
+    let nombreEvento = document.getElementById("nombreEvento");
+    let descripcionEvento = document.getElementById("descripEvento");
+    let fechaEvento = document.getElementById("fechaEvento");
+    let horaEvento = document.getElementById("horaEvento");
+    let lugarEvento = document.getElementById("lugarEvento");
+    let mapita = document.getElementById("mapitaLindo")
 
-    console.log(data);
-    
-    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
-    data.forEach((evento) => {
-      let divEvento = document.createElement("div");
-      divEvento.classList.add("card");
-      divEvento.setAttribute("id", "cardEvento");
-  
-      let botonEvento = document.createElement("button");
-      botonEvento.setAttribute("id", "botonEvento");
-  
-      let imagenEvento = document.createElement("img");
-      imagenEvento.setAttribute("id", "eventoA");
-      imagenEvento.src = evento.ruta_imagen;
-  
-      let bodyCard = document.createElement("div");
-      bodyCard.classList.add("card-body");
-  
-      let nombre = document.createElement("h5");
-      nombre.classList.add("nombreEvento");
-      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
-  
-      let descripcion = document.createElement("p");
-      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
-      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
-  
-      botonEvento.appendChild(imagenEvento);
-      bodyCard.appendChild(nombre);
-      bodyCard.appendChild(descripcion);
-      botonEvento.appendChild(bodyCard);
-      divEvento.appendChild(botonEvento);
-      contenedor.appendChild(divEvento);
-      botonEvento.addEventListener("click", mostrarDetalleEvento);
-    });
+    // Ahora, llenamos los elementos con los datos de la base de datos
+    imagenEvento.src = data.ruta_imagen;
+    nombreEvento.innerHTML = `<strong>${data.nombre_evento}</strong>`;
+    descripcionEvento.innerHTML = data.descripcion;
+    fechaEvento.innerHTML = data.fecha;
+    horaEvento.innerHTML = data.hora;
+    lugarEvento.innerHTML = data.lugar;
+    mapita.src = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=" + data.lugar + "&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
   }
 }
-
-

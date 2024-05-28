@@ -33,5 +33,12 @@ class Evento extends Connect{
         this.connect({}, endpoint, method, eventCallback);
     }
 
+    //Metodo para traer detalles evento
+    consultarDetalleEvento(dataReq, eventCallback){
+        const endpoint = '/evento/:id'
+        const method = 'GET';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
+
 
 }

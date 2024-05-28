@@ -2129,7 +2129,7 @@
 
                 <div class="flex-shrink-0 ">
                     <div>
-                        <img src="./Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
+                        <img src="" alt="" id="imgDetalle">
                     </div>
                     <div id="compraConjunto">
                         <p>Adquiere tu boleta aqui</p>
@@ -2141,62 +2141,27 @@
 
                 <div class="flex-grow-1 text-left" id="informacionTexto">
                     <div id="parrafoDetallado">
-                        <h1>
-                            TITULO DEL EVENTO
+                        <h1 id="tituloEvento">
                         </h1>
-                        <p class="d-inline-flex p-2" style="text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium
-                            voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati
-                            cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id
-                            est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam
-                            libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id,
-                            quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet,
-                            ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-                            tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-                            perferendis doloribus asperiores repellat…
+                        <p class="d-inline-flex p-2" style="text-align: justify;" id="descripEvento">
                         </p>
                         <div class="d-flex justify-content-around">
 
                             <div class="align-self-center">
                                 <h6>FECHA</h6>
-                                <p>XX/XX/XXXX</p>
+                                <p id="fechaEvento"></p>
                             </div>
 
                             <div class="align-self-center">
                                 <h6>HORA</h6>
-                                <p>00:00:00</p>
+                                <p id = "horaEvento"></p>
                             </div>
 
                             <div class="align-self-center">
                                 <h6> LUGAR</h6>
-                                <p>Movistar Arena</p>
+                                <p id = "lugarEvento"></p>
                             </div>
                         </div>
-                    </div>
-                    <div style="padding-left: 2%;" id="lineUp">
-                        <p id="ACT">
-                        <h6 style="padding-left: 3.5%;">ACTUACIONES</h6>
-                        </p>
-                        <li>"Will He" -- Opener</li>
-                        <li>"Demons"</li>
-                        <li>"Yeah Right"</li>
-                        <li>"Head in the Clouds"</li>
-                        <li>"Test Drive"</li>
-                        <li>"I Don't Wanna Waste My Time"</li>
-                        <li>"Attention"</li>
-                        <li>"Wanted U"</li>
-                        <li>"XNXX"</li>
-                        <li>"Can't Get Over You"</li>
-                        <li>"No Fun"</li>
-                        <li>"I'll See You in 40" -- Main Set Closer</li>
-                        <li>Encore</li>
-                        <li>"Slow Dancing in the Dark" - main Set Closer</li>
                     </div>
                 </div>
             </div>
@@ -2208,29 +2173,9 @@
             <div class="mapouter">
                 <div class="gmap_canvas">
                     <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        src="" id = "mapitaLindo"></iframe>
                     <a href="https://strandsgame.net/">Strands Game</a>
                 </div>
-                <style>
-                    .mapouter {
-                        position: relative;
-                        text-align: right;
-                        width: auto;
-                        height: 400px;
-                    }
-
-                    .gmap_canvas {
-                        overflow: hidden;
-                        background: none !important;
-                        width: auto;
-                        height: 400px;
-                    }
-
-                    .gmap_iframe {
-                        width: 100% !important;
-                        height: 30rem !important;
-                    }
-                </style>
             </div>
 
         </div>
@@ -2261,7 +2206,7 @@
                         <form id="formEvento">
                             <input type="file" id="seleccionar-archivo" style="display: none;" name="ruta_imagen">
                             <button onclick="document.getElementById('seleccionar-archivo').click()">
-                                <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                                <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalleIngreso">
                             </button>
                             <div id="compraConjunto">
                                 <p>Adquiere tu boleta aqui</p>

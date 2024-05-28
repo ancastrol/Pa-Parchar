@@ -41,7 +41,7 @@ function mostrarMasEventos() {
     console.log(listaEventos);
 
     //Desplegar tarjetas de eventos en id= "contenidoEventos"
-    vista.mostrarMasEvento("contenidoEventos", listaEventos);
+    vista.mostrarEvento("contenidoEventos", listaEventos);
   });
 
   //cargar eventos en el pantalla
@@ -49,7 +49,16 @@ function mostrarMasEventos() {
   vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
+
+//Mostrar detalle de evento
 function mostrarDetalleEvento() {
+  let id_eventoStr = this.attributes["data-id"].value;
+  let id_evento = parseInt(id_eventoStr);
+  evento.consultarDetalleEvento({id_evento}, function(data) {
+    // Esta es la función de callback que se ejecutará cuando los datos sean devueltos
+    // Aquí puedes llamar a la función mostrarDetalleEvento que definimos anteriormente
+    vista.mostrarDetalleEvento(data);
+  });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
 }
