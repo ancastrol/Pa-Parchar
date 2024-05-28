@@ -266,6 +266,11 @@
                         <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
                     </button>
 
+                    <button class="d-flex justify-content-center" id="opcionMenu" onclick="mostrarVerMisEventos(), cerrarModalLateralSesionIniciada()">
+                        <i class="material-icons">label_outline</i>
+                        <strong class="align-self-center text-btn-despl">VER MIS EVENTOS </strong>
+                    </button>
+
                     <button class="d-flex justify-content-center" id="opcionMenu" onclick="mostrarIngresarEvento(), cerrarModalLateralSesionIniciada()">
                         <i class="material-icons">label_outline</i>
                         <strong class="align-self-center text-btn-despl">NUEVO EVENTO</strong>
@@ -1290,6 +1295,812 @@
 
         </div>
     </template>
+
+
+    <template id="verMisEventos">
+        <!---Ver mis Eventos --->
+
+            <div class="d-flex flex-column" style="padding: 4%;">
+    
+                <div class="d-flex justify-content-center">
+
+    
+                    <H6 class="align-self-center" style="font-size: 0.8rem;">
+                      TU HISTORIAL DE EVENTOS 
+                    </H6>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoa.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventob.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoc.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventod.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoe.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventof.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventog.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoh.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoi.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoj.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventok.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventol.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventom.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventon.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventoo.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+                <div>
+    
+                    <button class="p-2" id="botonEvento">
+                        <div class="d-flex">
+                            <div class="p-2 flex-grow-1 align-self-center">
+                                <img src="./Recursos/Img/eventop.png" alt="" id="eventoOrganizador">
+                            </div>
+    
+                            <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+    
+                                <h6 id=tituloOrganizador>
+                                    <strong>TITULO DEL EVENTO</strong>
+                                </h6>
+    
+                                <p id=parrafoOrganizador>
+                                    FECHA
+                                    <br>
+                                    XX/XX/XXXX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    HORA
+                                    <br>
+                                    XX:XX
+                                </p>
+    
+                                <p id=parrafoOrganizador>
+                                    CATEGORIAS
+                                    <br>
+                                    CONCIERTO CON BOLETERIA
+                                </p>
+    
+                            </div>
+    
+                            <div class="p-2 align-self-center text-left">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+    
+                        </div>
+                    </button>
+    
+                </div>
+    
+                <hr size="8px" color="#ffffff" />
+    
+            </div>
+    
+    </template>
+
 
     <!--lista de eventos-->
     <template id="eventosOrganizador">
@@ -2991,6 +3802,16 @@
                             <li>"Slow Dancing in the Dark" - main Set Closer</li>
                         </div>
                 </div>
+                <select type="text" class="form-select" id="seleccioneRol"
+                        onchange="cambiarColorSelect()">
+                        <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
+                        <option value="1" id="opcionesRol">ASISTIDO</option>
+                        <option value="2" id="opcionesRol">ASISTIRÉ</option>
+                        <option value="2" id="opcionesRol">ME GUSTA</option>
+                        <option value="2" id="opcionesRol">NO INTERESADO</option>
+                    </select>
+
+
             </div>
 
 

@@ -63,6 +63,12 @@ function mostrarPoliticasPrivacidad(){
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
+
+function mostrarVerMisEventos(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("verMisEventos", "contenido");
+}
+
 function cambiarColorSelect() {
   var select = document.getElementById("seleccioneRol");
   select.classList.add("seleccionado");
