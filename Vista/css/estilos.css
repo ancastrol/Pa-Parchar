@@ -1,47 +1,48 @@
 /*Body*/
 
-body{
+body {
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    background-color: #262626;
     font: "Inter", sans-serif;
     font-size: 10px;
-    color: white; 
+    color: white;
 }
 
- h1{
+h1 {
     text-align: center;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 0.5em; 
+    line-height: 0.5em;
     letter-spacing: -0.57px;
     text-transform: uppercase;
 
-    
+
 }
-h4{
+
+h4 {
     font-family: 'inter', sans-serif;
     font-size: 7.5px;
     font-weight: semibold;
     margin: 0;
 }
 
-p{
+p {
     font: "Inter", sans-serif;
     margin: 0;
 }
 
-a{
-   color: white; 
-} 
+a {
+    color: white;
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Contenedor padre*/
 
-#container{
+#container {
     max-width: 100%;
     max-height: 100%;
     min-width: 574px;
@@ -54,29 +55,29 @@ a{
 
 /*Area de trabajo*/
 
-main{
+main {
     width: 100%;
     height: 100%;
     background-color: #262626;
     color: white;
 }
 
-button{
+button {
     color: #ffffff;
     background-color: #0d0c0d00;
-    border-color: #0d0c0d00 ;
+    border-color: #0d0c0d00;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Encabezado*/
 
-header{
+header {
     width: 100%;
     background-color: #0D0C0D;
 }
 
-#botonEncabezado{
+#botonEncabezado {
     margin-top: 5%;
     width: 100%;
     background-color: #0d0c0d00;
@@ -86,7 +87,7 @@ header{
     border: #0d0c0d00;
 }
 
-#logoHeader{
+#logoHeader {
     width: 15%;
 }
 
@@ -94,7 +95,7 @@ header{
 
 /*Menu*/
 
-#menuLateral{
+#menuLateral {
     width: 40%;
     height: 100%;
     font: "Inter", sans-serif;
@@ -103,7 +104,7 @@ header{
     padding: 3%;
 }
 
-#botonCerrarSesion{
+#botonCerrarSesion {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -112,12 +113,12 @@ header{
     width: 80%;
 }
 
-.text-btn-despl{
+.text-btn-despl {
     margin-left: 5px;
     margin-bottom: 3px;
 }
 
-.btn-listado{
+.btn-listado {
     display: inline;
 }
 
@@ -125,14 +126,14 @@ header{
 
 /*Botones para ingresar descripción*/
 
-#ingresarDetalle{
+#ingresarDetalle {
     color: #8a8a8a;
     background-color: #d9d9d9;
     width: 80%;
     border-radius: 8%;
 }
 
-#especificosEvento{
+#especificosEvento {
     margin-right: 0%;
     margin-left: -10%;
 }
@@ -141,7 +142,7 @@ header{
 
 /*Botones para ingresar datos especificos(fecha/hora/sitio)*/
 
-#ingresarData{
+#ingresarData {
     color: #8a8a8a;
     background-color: #d9d9d9;
     width: 100%;
@@ -151,9 +152,71 @@ header{
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+/*Evento detallado*/
+
+#informacionTexto{
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+#nombreEvento{
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    margin: 2% 0 1.5% 2%  ;
+    padding: 0% 0% 0% 0%;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+
+
+#imgDetalle{
+    border-radius: 3%;
+    margin: 10%;
+}
+
+#descripcionEvento{
+    text-align: center;
+    font: "Inter", sans-serif;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#listaActuaciones{
+    font: "Inter", sans-serif;
+    font-size: 15px;
+    width: 100%;
+    margin-left: 5%;
+}
+
+#estEvento{
+    text-align: center;
+    background-color: #262626;
+    border-radius: 5%;
+    border-top: #ffffff;
+    border-left: #ffffff;
+    border-right: #ffffff;
+    width: 30%;
+    text-align: left;
+    margin: 2%;
+    color: white;
+}
+
+.vertical-line {
+    border-left: 1px solid #565656;
+    height: 50px
+    margin: 0 20%;
+}
+
+#opEstEvent{
+    background-color: white;
+    color: #000000;
+}
+
 /*contenedor del texto y boton de la zona de compra*/
 
-#compraConjunto{
+#compraConjunto {
     left: 5%;
     margin-bottom: 2%;
     text-align: center;
@@ -163,7 +226,7 @@ header{
 
 /*Boton para ingresar información de compra*/
 
-#compraBtn{
+#compraBtn {
     color: #ffffff;
     background-color: #000000;
     width: 60%;
@@ -175,7 +238,7 @@ header{
     transition: background-color .3s;
 }
 
-#compraBtn:hover{
+#compraBtn:hover {
     color: #000000;
     background-color: #fff;
 }
@@ -184,7 +247,7 @@ header{
 
 /*propiedades ventana emergente*/
 
-#modalUrl{
+#modalUrl {
     position: fixed;
     top: 0;
     right: 0;
@@ -196,8 +259,8 @@ header{
     pointer-events: none;
 }
 
-#modal_container{
-    margin:auto;
+#modal_container {
+    margin: auto;
     width: 90%;
     max-width: 600px;
     max-height: 90%;
@@ -210,24 +273,24 @@ header{
     grid-auto-columns: 100%;
 }
 
-#modal_title{
+#modal_title {
     align-self: center;
     font-size: 2rem;
     color: #000000;
 }
 
-#agregarUrl{
+#agregarUrl {
     width: 80%;
     max-width: 600px;
 }
 
-#agregarArchivo{    
+#agregarArchivo {
     margin: 0 50% 2% 50%;
     max-width: 600px;
     color: #000000;
 }
 
-#modal_close{
+#modal_close {
     text-decoration: none;
     color: #fff;
     background-color: #000000;
@@ -239,12 +302,12 @@ header{
     transition: background-color .3s;
 }
 
-#modal_close:hover{
+#modal_close:hover {
     color: #000000;
     background-color: #fff;
 }
 
-#cerrarModal{
+#cerrarModal {
     text-decoration: none;
     color: #fff;
     background-color: #000000;
@@ -256,7 +319,7 @@ header{
     transition: background-color .3s;
 }
 
-#cerrarModal:hover{
+#cerrarModal:hover {
     color: #000000;
     background-color: #fff;
 }
@@ -265,12 +328,12 @@ header{
 
 /*Organizar detalles eventos*/
 
-#registroDetalles{
+#registroDetalles {
     left: 5%;
     padding: 0 0 2% 0;
 }
 
-#imgDetalle{
+#imgDetalle {
     min-width: 13rem;
     max-width: 25rem;
     width: auto;
@@ -279,12 +342,12 @@ header{
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Boton para ingresar actuaciones*/
-#ingresarActo{
+#ingresarActo {
     color: #8a8a8a;
     background-color: #d9d9d9;
     width: 100%;
     height: 100%;
-    border-radius: 8%; 
+    border-radius: 8%;
     margin: 0;
 }
 
@@ -292,40 +355,40 @@ header{
 
 /*Boton para ingresar dirección especifica*/
 
-#ingresarDireccion{
+#ingresarDireccion {
     height: 100%;
     color: #8a8a8a;
     background-color: #d9d9d9;
     border-radius: 8%;
 }
 
-#imgReco{
+#imgReco {
     width: 100%;
     height: auto;
 }
 
-#parrafoDetallado{
+#parrafoDetallado {
     margin-top: 5%;
     margin-right: 0%;
     padding-left: 0;
 }
 
-hr{
-    height:85%;
+hr {
+    height: 85%;
     width: 100%;
-    background-color:#ffffff;
+    background-color: #ffffff;
     margin: 0 0 0 0;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 /*Menu Sesion No Iniciada*/
 
-#modalLateral{
+#modalLateral {
     opacity: 0;
     pointer-events: none;
 }
 
-#menuLateral{
+#menuLateral {
     width: 18%;
     height: 100%;
     font: "Inter", sans-serif;
@@ -340,17 +403,17 @@ hr{
     z-index: 3;
 }
 
-#logoBarraLateral{
+#logoBarraLateral {
     width: 10rem;
     margin: 0 0 10% 0;
 }
 
-#parrafoRegistro{
-    font-size:65%;
+#parrafoRegistro {
+    font-size: 65%;
     padding: 0 0 10% 0;
 }
 
-#botonCrearcuenta{
+#botonCrearcuenta {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -361,7 +424,7 @@ hr{
     border-radius: 5%;
 }
 
-#botonInciarSesion{
+#botonInciarSesion {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -372,23 +435,23 @@ hr{
     border-radius: 5%;
 }
 
-.text-btn-despl{
+.text-btn-despl {
     margin-left: 5px;
     margin-bottom: 3px;
 }
 
-.btn-listado{
+.btn-listado {
     display: inline;
 }
 
-.botonMenu{
+.botonMenu {
     padding: 0 10% 0 0;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 /*Selección de rol*/
 
-#roles{
+#roles {
     display: flex;
     height: 100%;
     width: 100%;
@@ -400,7 +463,7 @@ hr{
     pointer-events: none;
 }
 
-#seleccionRol{
+#seleccionRol {
     text-align: center;
     background-color: #0D0C0D;
     color: white;
@@ -411,15 +474,15 @@ hr{
     left: 40%;
 }
 
-#imgTituloRol{
+#imgTituloRol {
     width: 40%;
 }
 
-#tituloRol{
+#tituloRol {
     margin-bottom: 5%;
 }
 
-#especifiqueRol{
+#especifiqueRol {
     font-size: 9px;
     margin-bottom: 5%;
     color: #aba6a6;
@@ -427,14 +490,14 @@ hr{
     margin-bottom: 8%;
 }
 
-#cerrarSeleccionRol{
+#cerrarSeleccionRol {
     width: 5%;
     margin-left: auto;
     margin-right: 2%;
     margin-top: 2%;
 }
 
-#botonRolUsuario{
+#botonRolUsuario {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -444,7 +507,7 @@ hr{
     border-radius: 5%;
 }
 
-#botonRolOrganizador{
+#botonRolOrganizador {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -459,7 +522,7 @@ hr{
 /*-------------------------------------------------------------------------------------------------------*/
 /*Creacion de perfil Usuario*/
 
-#modalCrearCuenta{
+#modalCrearCuenta {
     display: flex;
     height: 100%;
     width: 100%;
@@ -471,7 +534,7 @@ hr{
     pointer-events: none;
 }
 
-#creacionPerfilUsuario{
+#creacionPerfilUsuario {
     text-align: center;
     background-color: #0D0C0D;
     color: white;
@@ -482,43 +545,43 @@ hr{
     left: 42%;
 }
 
-#fondoDifum{
+#fondoDifum {
     height: 100%;
     width: 100%;
     background-color: #000000da;
 }
 
-#cerrarCrearPerfilUsuario{
+#cerrarCrearPerfilUsuario {
     width: 5%;
     margin-left: auto;
     margin-right: 2%;
     margin-top: 2%;
 }
 
-#logoCrearPerfilUsuario{
+#logoCrearPerfilUsuario {
     width: 70%;
     margin-bottom: 7%;
 }
 
-#tituloCrearPerfilUsuario{
+#tituloCrearPerfilUsuario {
     margin-bottom: 5%;
     font: "Inter", sans-serif;
 }
 
-#cuadroNombreUsuario{
+#cuadroNombreUsuario {
     width: 14rem;
-    background-color:#0d0c0d00;
+    background-color: #0d0c0d00;
     border-top: #0d0c0d00;
     border-left: #0d0c0d00;
     border-right: #0d0c0d00;
     color: #ffffff;
 }
 
-#opcionesRol{
-    color: #000000; 
+#opcionesRol {
+    color: #000000;
 }
 
-#botonSiguienteCrearPerfilUsuario{
+#botonSiguienteCrearPerfilUsuario {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -541,7 +604,8 @@ hr{
 
 /* Estilo específico para la opción "ROLES" */
 .form-select .roles-option {
-    color: #6C757D; /* Cambia el color de texto solo para la opción "ROLES" */
+    color: #6C757D;
+    /* Cambia el color de texto solo para la opción "ROLES" */
 }
 
 .form-select:focus,
@@ -553,7 +617,7 @@ hr{
 
 /*Login*/
 
-#modalLogin{
+#modalLogin {
     display: flex;
     height: 100%;
     width: 100%;
@@ -565,7 +629,7 @@ hr{
     pointer-events: none;
 }
 
-#login{
+#login {
     font-size: 10px;
     text-align: center;
     background-color: #0D0C0D;
@@ -577,45 +641,45 @@ hr{
     left: 40%;
 }
 
-#logoLogin{
+#logoLogin {
     width: 70%;
 }
 
-#tituloLogin{
+#tituloLogin {
     margin-bottom: 5%;
 }
 
-#imgSeparador{
+#imgSeparador {
     width: 50%;
     margin: 5%;
 }
 
-#cerrarLogin{
+#cerrarLogin {
     width: 5%;
     margin-left: auto;
     margin-right: 2%;
     margin-top: 2%;
 }
 
-#cuadroCorreo{
+#cuadroCorreo {
     width: 14rem;
-    background-color:#0d0c0d00;
+    background-color: #0d0c0d00;
     border-top: #0d0c0d00;
     border-left: #0d0c0d00;
     border-right: #0d0c0d00;
     color: #ffffff;
 }
 
-#cuadroContrasenia{
+#cuadroContrasenia {
     width: 14rem;
-    background-color:#0d0c0d00;
+    background-color: #0d0c0d00;
     border-top: #0d0c0d00;
     border-left: #0d0c0d00;
     border-right: #0d0c0d00;
     color: #ffffff;
 }
 
-#botonIniciarSesion{
+#botonIniciarSesion {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -627,19 +691,20 @@ hr{
     margin-bottom: 2%;
 }
 
-#terminosLogin{
+#terminosLogin {
     max-width: 65%;
     margin-bottom: 2%;
 }
 
-#terminosLogin> a{
+#terminosLogin>a {
     color: rgb(163, 159, 255);
 }
-#subTerminosLogin{
+
+#subTerminosLogin {
     margin-bottom: 10%;
 }
 
-#subTerminosLogin > a{
+#subTerminosLogin>a {
     color: rgb(163, 159, 255);
 }
 
@@ -647,13 +712,13 @@ hr{
 
 /*Menu Sesion Iniciada*/
 
-#modalLateralSesionIniciada{
+#modalLateralSesionIniciada {
     opacity: 0;
     pointer-events: none;
     z-index: 3;
 }
 
-#menuLateralSesionIniciada{
+#menuLateralSesionIniciada {
     width: 18%;
     height: 100%;
     font: "Inter", sans-serif;
@@ -668,11 +733,11 @@ hr{
     z-index: 3;
 }
 
-#opcionesMenu{
+#opcionesMenu {
     margin-left: 5%;
 }
 
-#opcionMenu{
+#opcionMenu {
     text-align: center;
     width: 80%;
     font: "Inter", sans-serif;
@@ -684,7 +749,7 @@ hr{
     border-radius: 5%;
 }
 
-#botonCerrarSesion{
+#botonCerrarSesion {
     background-color: #ffffff;
     color: black;
     font: "Inter", sans-serif;
@@ -695,16 +760,16 @@ hr{
     border-radius: 5%;
 }
 
-.text-btn-despl{
+.text-btn-despl {
     margin-left: 5px;
     margin-bottom: 3px;
 }
 
-.btn-listado{
+.btn-listado {
     display: inline;
 }
 
-.botonMenuLateral{
+.botonMenuLateral {
     padding: 0 10% 0 0;
 }
 
@@ -712,46 +777,46 @@ hr{
 
 /*Recomendacion*/
 
-#btnCarrusel{
+#btnCarrusel {
     width: 100%;
     margin-bottom: 1%;
 }
 
-#eventoRecomendado{
+#eventoRecomendado {
     background-color: #0d0c0d00;
     border: #0d0c0d00;
 }
 
-#lineUp{
+#lineUp {
     left: 10%;
     margin-bottom: 2%;
 }
 
-#ACT{
+#ACT {
     margin: 0 0 0% 0;
     text-align: center;
 }
 
-#botonRecomendados{
+#botonRecomendados {
     width: 100%;
     border: #0d0c0d00;
     padding: 0 0 0 0;
 }
 
-#parrafoP{
+#parrafoP {
     font-size: 10px;
 }
 
-#imgReco{
+#imgReco {
     width: 100%;
     height: 30rem;
 }
 
-#tituloRecomendado{
+#tituloRecomendado {
     font-size: 10px;
 }
 
-#parrafoRecomendado{
+#parrafoRecomendado {
     font-size: 9px;
 }
 
@@ -759,14 +824,14 @@ hr{
 
 /*eventos pequeños*/
 
-#cardEvento{
+#cardEvento {
     width: 15%;
     border: #0d0c0d00;
     background-color: #0d0c0d00;
     margin-top: 2%;
 }
 
-#botonEvento{
+#botonEvento {
     max-width: 100%;
     background-color: #0d0c0d00;
     color: #ffffff;
@@ -776,24 +841,24 @@ hr{
     padding: 0 0 0 0;
 }
 
-#eventoA{
+#eventoA {
     max-height: 70%;
     max-width: 70%;
     border-radius: 5px;
 }
 
-#tituloE{
+#tituloE {
     font-size: 10px;
     color: white;
 }
 
-#parrafoE{
+#parrafoE {
     font-size: 9px;
     color: white;
 }
 
 
-#botonSig{
+#botonSig {
     width: 15%;
     background-color: #ffffff;
     color: black;
@@ -804,7 +869,7 @@ hr{
     border-radius: 5%;
 }
 
-#botonSig:hover{
+#botonSig:hover {
     color: #ffffff;
     background-color: #0D0C0D;
 }
@@ -813,38 +878,38 @@ hr{
 
 /*Pie de pagina*/
 
-footer{
+footer {
     width: 100%;
     background-color: #0D0C0D;
     color: white;
     padding: 3% 0% 3% 0%;
 }
 
-footer.p{
+footer.p {
     font-size: 5px;
 }
 
-footer.a{
+footer.a {
     font-size: 5px;
 }
 
-#botonRed{
+#botonRed {
     background-color: #0d0c0d00;
     padding: 0;
-    border-color:#0d0c0d00;
+    border-color: #0d0c0d00;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Busqueda*/
 
-#cuadroBusqueda{
+#cuadroBusqueda {
     min-width: 574px;
     width: 100%;
     background-color: #0d0c0d00;
 }
 
-#barraBusqueda{
+#barraBusqueda {
     width: 100%;
     font-size: 1rem;
     color: white;
@@ -853,13 +918,13 @@ footer.a{
     padding-left: 2%;
 }
 
-.separadorBusqueda{
+.separadorBusqueda {
     width: 100%;
     background-color: #3D3D3D;
     border-bottom: 0.1rem solid #A6A6A6;
 }
 
-#eventoBusqueda{
+#eventoBusqueda {
     background-color: #0d0c0d00;
     padding-left: 2%;
     color: rgb(202, 200, 200);
@@ -868,7 +933,7 @@ footer.a{
     border-color: #0d0c0d00;
 }
 
-#cuadroBusqueda > :last-child{
+#cuadroBusqueda> :last-child {
     border-bottom: none;
 }
 
@@ -876,34 +941,34 @@ footer.a{
 
 /*Listado del Organizador*/
 
-#eventoOrganizador{
+#eventoOrganizador {
     max-height: 14rem;
     max-width: 14rem;
     border-radius: 5px;
 }
 
-#tituloOrganizador{
+#tituloOrganizador {
     font-size: 12px;
 }
 
-#parrafoOrganizador{
+#parrafoOrganizador {
     font-size: 11px;
-}       
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Terminos y condiciones*/
 
-#titulos{
+#titulos {
     text-align: center;
 }
 
-#terminosYCondiciones{
+#terminosYCondiciones {
     text-align: start;
     margin: 5%;
 }
 
-#derechosTerminosYCondiciones{
+#derechosTerminosYCondiciones {
     text-align: center;
     margin: 0 0;
 }
@@ -912,16 +977,16 @@ footer.a{
 
 /*politica de Privacidad*/
 
-#titulos{
+#titulos {
     text-align: center;
 }
 
-#politicaPrivacidad{
+#politicaPrivacidad {
     text-align: start;
     margin: 5%;
 }
 
-#derechosPoliticaPrivacidad{
+#derechosPoliticaPrivacidad {
     text-align: center;
     margin: 0 0;
 }
@@ -930,44 +995,46 @@ footer.a{
 
 /* Area perfil*/
 
-#fotoPerfil{
+#fotoPerfil {
     width: 100%;
 }
 
-#perfilFontP{
+#perfilFontP {
     margin: 0 0 0 1.5em;
 }
 
-#containerPerfil{
+#containerPerfil {
     width: 100%;
     height: 100%;
 
 }
 
-#lateralIzquierdo{
-background-color: #0D0C0D;
-width: 10rem;
-padding: 10%;
-position: relative;
+#lateralIzquierdo {
+    background-color: #0D0C0D;
+    width: 10rem;
+    padding: 10%;
+    position: relative;
 }
 
-#LateralDerecho{
-    color:#0D0C0D;
+#LateralDerecho {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:100%;
+    width: 100%;
     height: 100%;
     margin: 0;
 
-    
+
 }
-#lineasHorizantal{
+
+#lineasHorizantal {
     height: 0.1em;
     width: 80%;
     background-color: #0D0C0D;
-    margin: 1% 0  1% 10%;
+    margin: 1% 0 1% 10%;
 
 }
-#lineasHorizantal2{
+
+#lineasHorizantal2 {
     height: 0.03em;
     width: 80%;
     background-color: #0D0C0D;
@@ -975,118 +1042,118 @@ position: relative;
 
 }
 
-#tituloPerfil{
-color: #ffffff;
-background-color: #0D0C0D;
-font: "Inter", sans-serif;
-margin: 0;
-border-radius: 5%;
-text-align: center;
-padding: 0.7em 0 0.7em ;
-margin: 1em 0 1em 1em ;
-width: 9em;
+#tituloPerfil {
+    color: #ffffff;
+    background-color: #0D0C0D;
+    font: "Inter", sans-serif;
+    margin: 0;
+    border-radius: 5%;
+    text-align: center;
+    padding: 0.7em 0 0.7em;
+    margin: 1em 0 1em 1em;
+    width: 9em;
 }
 
 
 /* Btn lateral*/
 #bn1 {
-display: inline-block;
-padding: 10%;
-border: 0.1em solid #ffffff;
-border-radius: 0.4em;
-text-decoration: none;
-color: #0D0C0D;
-text-align: center;
-transition: all 0.2s;
-background-color: #ffffff;
-width: 100%;
+    display: inline-block;
+    padding: 10%;
+    border: 0.1em solid #ffffff;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: #0D0C0D;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: #ffffff;
+    width: 100%;
 
 }
 
 #bn1:hover {
-color: #ffffff;
-background-color: #0D0C0D;
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfil{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 0 0.5em 1.5em;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 10%;
-background-color: #000000;
+#btnPerfil {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 0 0.5em 1.5em;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 10%;
+    background-color: #000000;
 }
 
-#btnPerfil:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfil:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfilModal{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 0.5 0.5em 0.5em;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 6em;
-background-color: #000000;
+#btnPerfilModal {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 0.5 0.5em 0.5em;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 6em;
+    background-color: #000000;
 }
 
-#btnPerfilModal:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfilModal:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfilModalNombre{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 1em 0.5em 10%;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 6em;
+#btnPerfilModalNombre {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 1em 0.5em 10%;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 6em;
 }
 
-#btnPerfilModalNombre:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfilModalNombre:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
 
 /*icono*/
-#iconoPerfil{
-height: 100%;
-margin: 1em 0 25% 0;
-position: relative;
-top: 3%;
+#iconoPerfil {
+    height: 100%;
+    margin: 1em 0 25% 0;
+    position: relative;
+    top: 3%;
 }
 
 /*input Perfil*/
-#inputPerfil{
-padding: 0.8em 5em 0.8em ;
-border-radius:0.5em ;
-margin: 1em 0 1em 0 ;
-border-color:#0D0C0D ;
+#inputPerfil {
+    padding: 0.8em 5em 0.8em;
+    border-radius: 0.5em;
+    margin: 1em 0 1em 0;
+    border-color: #0D0C0D;
 }
 
 /*-------------------------Area modal-------------------------------------------------------------------*/
 
-#contModalNombre{
+#contModalNombre {
     top: 0;
     height: 100%;
     width: 100%;
@@ -1097,40 +1164,18 @@ border-color:#0D0C0D ;
     pointer-events: none;
 }
 
-#modalPerfilNombre{
-color:#0D0C0D;
-background-color: #ffffff;
-width:40%;
-margin: 15% 30% 0 30%;
-opacity: 1;
-padding:  0.1em 1em 0.1em 1em;
-border-radius: 1em;
-z-index: 3;
-}
-
-#contModalEmail{
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#modalPerfilEmail{
-    color:#0D0C0D;
+#modalPerfilNombre {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:40%;
+    width: 40%;
     margin: 15% 30% 0 30%;
     opacity: 1;
-    padding:  0.1em 1em 0.1em 1em;
+    padding: 0.1em 1em 0.1em 1em;
     border-radius: 1em;
     z-index: 3;
 }
 
-#contModalContraseña{
+#contModalEmail {
     top: 0;
     height: 100%;
     width: 100%;
@@ -1141,13 +1186,35 @@ z-index: 3;
     pointer-events: none;
 }
 
-#modalPerfilContraseña{
-    color:#0D0C0D;
+#modalPerfilEmail {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:40%;
+    width: 40%;
     margin: 15% 30% 0 30%;
     opacity: 1;
-    padding:  0.1em 1em 0.1em 1em;
+    padding: 0.1em 1em 0.1em 1em;
+    border-radius: 1em;
+    z-index: 3;
+}
+
+#contModalContraseña {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalPerfilContraseña {
+    color: #0D0C0D;
+    background-color: #ffffff;
+    width: 40%;
+    margin: 15% 30% 0 30%;
+    opacity: 1;
+    padding: 0.1em 1em 0.1em 1em;
     border-radius: 1em;
     z-index: 3;
 }
@@ -1159,7 +1226,9 @@ table {
     width: 100%;
     height: 50rem;
 }
-th, td {
+
+th,
+td {
     height: auto;
     border: 1px solid black;
     text-align: start;
