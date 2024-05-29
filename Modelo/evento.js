@@ -3,12 +3,12 @@ class Evento extends Connect{
     constructor() {
         super();
         this.id_evento = 0;
-        this.nombre = '';
+        this.nombre_evento = '';
         this.fecha_hora = '';
         this.lugar = '';
         this.descripcion = '';
         this.ruta_imagen = '';
-        this.id_organizador = 0;
+        this.id_usuario = 0;
     }
 
 
@@ -35,7 +35,7 @@ class Evento extends Connect{
 
     //Metodo para traer detalles evento
     consultarDetalleEvento(dataReq, eventCallback){
-        const endpoint = 'evento/id'
+        const endpoint = 'evento/'+ dataReq;
         const method = 'GET';
         this.connect(dataReq, endpoint, method, eventCallback);
     }

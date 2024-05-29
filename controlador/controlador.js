@@ -1,5 +1,5 @@
 let vista = new Vista();
-let evento = new Evento();
+let eventoObj = new Evento();
 let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
@@ -12,7 +12,7 @@ document.body.onload = function () {
 function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
-  evento.consultarEventos({}, function (data) {
+  eventoObj.consultarEventos({}, function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
@@ -25,7 +25,7 @@ function volverInicio() {
 
 function mostrarCarrusel() {
   //consultar eventos en  BD
-  evento.consultarEventosCarrusel({}, function (data) {
+  eventoObj.consultarEventosCarrusel({}, function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
@@ -36,7 +36,7 @@ function mostrarCarrusel() {
 
 function mostrarMasEventos() {
   //consultar eventos en  BD
-  evento.consultarMasEventos(function (data) {
+  eventoObj.consultarMasEventos(function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
@@ -52,16 +52,16 @@ function mostrarMasEventos() {
 
 //Mostrar detalle de evento
 function mostrarDetalleEvento() {
-  let id_eventoStr = this.attributes["data-id"].value;
-  let id_evento = parseInt(id_eventoStr);
-  evento.consultarDetalleEvento(id_evento, function(data) {
-    // Esta es la función de callback que se ejecutará cuando los datos sean devueltos
-    evento = data.data;
-    // Aquí puedes llamar a la función mostrarDetalleEvento que definimos anteriormente
-    vista.mostrarDetalleEvento("contenido", evento);
-  });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
+  let id_eventoStr = this.attributes["data-id"].value;
+  let id_evento = parseInt(id_eventoStr);
+  eventoObj.consultarDetalleEvento(id_evento, function(data) {
+    evento = data.data;
+    console.log(evento);
+    vista.mostrarDetalleEvento('contenido', evento);
+  });
+
 }
 
 function mostrarIngresarEvento() {

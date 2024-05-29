@@ -186,15 +186,11 @@ class Vista {
   }
 
   //Mostrar detalle de evento
-  mostrarDetalleEvento(content, data) {
-    let contenedor = document.getElementById(content);
-    contenedor.innerHTML = "";
-
+  mostrarDetalleEvento(contenido, data) {
     console.log(data);
-
     // Suponiendo que los IDs de tus elementos HTML son los siguientes:
     let imagenEvento = document.getElementById("imgDetalle");
-    let nombreEvento = document.getElementById("nombreEvento");
+    let nombreEvento = document.getElementById("tituloEvento");
     let descripcionEvento = document.getElementById("descripEvento");
     let fechaEvento = document.getElementById("fechaEvento");
     let horaEvento = document.getElementById("horaEvento");
@@ -202,12 +198,12 @@ class Vista {
     let mapita = document.getElementById("mapitaLindo")
 
     // Ahora, llenamos los elementos con los datos de la base de datos
-    imagenEvento.src = data.ruta_imagen;
-    nombreEvento.innerHTML = `<strong>${data.nombre_evento}</strong>`;
-    descripcionEvento.innerHTML = data.descripcion;
-    fechaEvento.innerHTML = data.fecha;
-    horaEvento.innerHTML = data.hora;
-    lugarEvento.innerHTML = data.lugar;
-    mapita.src = "https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=" + data.lugar + "&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+    evento = data[0];
+    imagenEvento.src = evento.ruta_imagen;
+    nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+    descripcionEvento.innerHTML = evento.descripcion;
+    fechaEvento.innerHTML = evento.fecha;
+    horaEvento.innerHTML = evento.hora;
+    lugarEvento.innerHTML = evento.lugar;
   }
 }
