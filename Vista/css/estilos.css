@@ -1305,9 +1305,9 @@ z-index: 3;
 .numdias div:hover:not(.today){
     background-color: #0D0C0D;
     cursor: pointer;
-    border: 0.1rem solid #b1b1b1;
+    border: 0.1rem solid #b1b1b1,;
     transition: background-color 0.3s;
-
+    opacity: 75%;
 }
 
 .dias-prev, .dias-sig{

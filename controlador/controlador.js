@@ -16,7 +16,7 @@ function volverInicio() {
     console.log(listaEventos);
 
     //Desplegar tarjetas de eventos en id= "contenidoEventos"
-    vista.mostrarEvento("contenidoEventos", listaEventos);
+    vista.mostrarEvento("contenidoEventos", "listaEventos");
   });
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
@@ -180,7 +180,7 @@ function mostrarModalLogin() {
 }
 
 function cerrarModalLogin() {
-   vista.cerrarModal("modalLogin");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalCrearCuenta() {
@@ -214,3 +214,40 @@ function mostrarModalContraseña() {
 function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
+
+//--------------------------------------------------------------------------------------CALENDARIO--------------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const template = document.getElementById('calendario');
+  const clone = template.content.cloneNode(true);
+  document.body.appendChild(clone);
+
+  const fecha = new Date();
+  const diasMes = document.querySelector(".numDias")
+  const ultimoDia = new Date (fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+
+  let opciones = {weekday: "short", year: "numeric", month: "short", day:"numeric"}
+
+  document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+  document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString("es-ES", opciones);
+
+  let numDias = "";
+  for ( let i = 1; i <=ultimoDia; i ++ ){
+    numDias += `<div>${i}</div>`;
+  }
+
+  diasMes.innerHTML = numDias;
+});

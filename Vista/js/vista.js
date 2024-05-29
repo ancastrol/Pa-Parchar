@@ -104,7 +104,7 @@ class Vista {
     `;
     div.appendChild(divEvento);
   }
-  
+
   mostrarEvento(content, data) {
     let contenedor = document.getElementById(content);
     contenedor.innerHTML = "";
@@ -125,7 +125,7 @@ class Vista {
 
       let bodyCard = document.createElement("div");
       bodyCard.classList.add("card-body");
-      
+
       let nombre = document.createElement("h5");
       nombre.textContent = evento.nombre_evento;
       console.log(evento.nombre_evento);
@@ -137,23 +137,23 @@ class Vista {
       let fecha_hora = document.createElement("p");
       fecha_hora.textContent = evento.fecha_hora;
       console.log(evento.fecha_hora);
-      
-     //insertar imagen en el boton
-     botonEvento.appendChild(imagenEvento);
 
-     //insertar elementos en la tarjeta (divEvento)
-     divEvento.appendChild(botonEvento); // Agrega el botón como hijo del div de la tarjeta
-     divEvento.appendChild(bodyCard); // Agrega el cuerpo de la tarjeta como hijo del div de la tarjeta
+      //insertar imagen en el boton
+      botonEvento.appendChild(imagenEvento);
 
-     //insertar elementos en el cuerpo de la tarjeta
-     bodyCard.appendChild(nombre);
-     bodyCard.appendChild(descripcion);
-     bodyCard.appendChild(fecha_hora);
+      //insertar elementos en la tarjeta (divEvento)
+      divEvento.appendChild(botonEvento); // Agrega el botón como hijo del div de la tarjeta
+      divEvento.appendChild(bodyCard); // Agrega el cuerpo de la tarjeta como hijo del div de la tarjeta
 
-     //insertar tarjeta en el contenedor
-     contenedor.appendChild(divEvento);
+      //insertar elementos en el cuerpo de la tarjeta
+      bodyCard.appendChild(nombre);
+      bodyCard.appendChild(descripcion);
+      bodyCard.appendChild(fecha_hora);
 
-     botonEvento.addEventListener("click", mostrarDetalleEvento);
+      //insertar tarjeta en el contenedor
+      contenedor.appendChild(divEvento);
+
+      botonEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
 }
