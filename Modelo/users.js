@@ -9,7 +9,7 @@ class Usuario extends Connect {
     this.imagen_perfil = "";
   }
   setData(data) {
-    this.id = data.id;
+    this.id = data.id_usuario;
     this.nombre = data.nombre;
     this.correo = data.correo;
     this.rol = data.rol;

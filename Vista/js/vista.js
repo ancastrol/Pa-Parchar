@@ -106,6 +106,7 @@ class Vista {
 
       let botonCarrusel = document.createElement("button");
       botonCarrusel.setAttribute("id", "btnCarrusel");
+      botonCarrusel.setAttribute("data-id", evento.id_evento)
 
       let imagenCarrusel = document.createElement("img");
       imagenCarrusel.classList.add("d-block");

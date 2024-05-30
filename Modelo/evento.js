@@ -40,5 +40,18 @@ class Evento extends Connect{
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 
+    //Mostrar los eventos de un usuario
+    consultarEventosUsuario(dataReq, eventCallback){
+        const endpoint = 'principal/' + dataReq;
+        const method = 'GET';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
+
+    //Traer eventos del carrusel de un usuario
+    consultarEventosCarruselUsuario(dataReq, eventCallback){
+        const endpoint = 'principal/eventsCarrousel/' + dataReq;
+        const method = 'GET';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
 
 }

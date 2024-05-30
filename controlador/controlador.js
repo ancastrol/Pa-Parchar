@@ -1,6 +1,9 @@
 let vista = new Vista();
 let eventoObj = new Evento();
+let usuarioObj = new Usuario();
 let listaEventos = [];
+/*variable que representa si el usuario inicio sesion con TRUE o no con FALSE*/
+let sesion = false;
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
@@ -12,15 +15,24 @@ document.body.onload = function () {
 function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
-  eventoObj.consultarEventos({}, function (data) {
-    listaEventos = data.data;
-    console.log(listaEventos);
+  if(sesion == false){
+    eventoObj.consultarEventos({}, function (data) {
+      listaEventos = data.data;
+      console.log(listaEventos);
 
-    //Desplegar tarjetas de eventos en id= "contenidoEventos"
-    vista.mostrarEvento("contenidoEventos", listaEventos);
-    this.mostrarCarrusel();
-  });
-  //cargar eventos en el pantalla
+      //Desplegar tarjetas de eventos en id= "contenidoEventos"
+      vista.mostrarEvento("contenidoEventos", listaEventos);
+      vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
+    });
+  }
+  else{
+    eventoObj.consultarEventosUsuario(usuarioObj.id, function(data) {
+      listaEventos = data.data;
+      console.log(listaEventos);
+      vista.mostrarEvento("contenidoEventos", listaEventos);
+      vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
+    });
+  }
 }
 
 function mostrarCarrusel() {
@@ -114,24 +126,40 @@ function handleKeyPress(event) {
 
 /* -------------------------------------------modales-----------------------------------------------*/
 
-/*variable que representa si el usuario inicio sesion con TRUE o no con FALSE*/
-let sesion = false;
-
-/*Cambia el estado de la sesion al contrario del que estaba*/
+//Verificar datos de usuario e iniciar sesion
 function iniciarSesion() {
-  //Leer datos de formuario y validar
   let data = vista.getForm("formLogin");
   if (data.ok) {
-    //Consultar en la BD si existe
-
-    //Si si existe, activar sesión, cerrar modal, cambiar barra
-    sesion = !sesion;
-    vista.cerrarModal("modalLogin");
-    vista.cerrarModal("modalLateralSesionIniciada");
+    usuarioObj.login(data, function(data) {
+      if (data.success) {
+        if(data.data.length > 0){
+          sesion = !sesion;
+          vista.cerrarModal("modalLogin");
+          vista.cerrarModal("modalLateralSesionIniciada");
+          vista.mostrarMensaje(data.success, data.msj);
+          //Se guarda los datos del usuario en el objeto usuario
+          usuarioObj.setData(data.data[0]);
+          //Se guarda el id del usuario en la variable id_usuario, para luego usarla en a funcion consultarEventosUsuario
+          let id_usuario = usuarioObj.id;
+          eventoObj.consultarEventosUsuario(id_usuario, function(data) {
+            listaEventos = data.data;
+            console.log(listaEventos);
+            vista.mostrarEvento("contenidoEventos", listaEventos);
+            vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
+          });
+        }
+        else{
+          vista.mostrarMensaje(false, "Usuario no encontrado");
+        }
+      } 
+      else {
+        vista.mostrarMensaje(data.ok, data.msj);
+      }
+    });
   } else {
-    //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
   }
+
 }
 
 /*Registrar datos de un usuario nuevo*/
