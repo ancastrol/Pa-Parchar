@@ -11,7 +11,7 @@ document.body.onload = function () {
 
 function volverInicio() {
   //consultar eventos en  BD
-  evento.consultarEventos({}, function(data) {
+  evento.consultarEventos({}, function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
@@ -60,7 +60,7 @@ function mostrarPerfil() {
 
 function mostrarCalendario() {
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("calendarioTemplate", "contenido");
+  vista.mostrarPlantilla("calendario", "contenido");
 }
 
 function mostrarCrearEvento() {
@@ -69,11 +69,11 @@ function mostrarCrearEvento() {
 }
 
 function mostrarTerminosCondiciones() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
-  }
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
+}
 
-function mostrarPoliticasPrivacidad(){
+function mostrarPoliticasPrivacidad() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
@@ -97,12 +97,12 @@ function iniciarSesion() {
   let data = vista.getForm("formLogin")
   if (data.ok) {
     //Consultar en la BD si existe
-    
+
     //Si si existe, activar sesión, cerrar modal, cambiar barra 
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -115,12 +115,12 @@ function registrarUsuario() {
   let data = vista.getForm("formRegistro")
   if (data.ok) {
     //Consultar en la BD si existe
-    
+
     //Si si existe, activar sesión, cerrar modal, cambiar barra 
     sesion = !sesion;
     vista.cerrarModal("modalCrearCuenta");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -137,7 +137,7 @@ function guardarEvento() {
     //mensaje guardado correctamente
     vista.mostrarMensaje(data.ok, data.msj);
     mostrarPerfil();
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -180,7 +180,7 @@ function mostrarModalLogin() {
 }
 
 function cerrarModalLogin() {
-   vista.cerrarModal("modalLogin");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalCrearCuenta() {
@@ -214,3 +214,42 @@ function mostrarModalContraseña() {
 function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
+
+
+
+// --------------------------------------------Calendario-----------------------------------------------
+
+// let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+// let clone = document.importNode(template.content, true);
+
+// const fecha = new Date();
+// const diasMes = document.querySelector(".numdias");
+// const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+// const meses = [
+//     "enero",
+//     "febrero",
+//     "marzo",
+//     "abril",
+//     "mayo",
+//     "junio",
+//     "julio",
+//     "agosto",
+//     "septiembre",
+//     "octubre",
+//     "noviembre",
+//     "diciembre"
+// ];
+
+// let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+// document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+// document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
+
+// let numdias = "";
+// for (let i = 1; i <= ultimoDia; i++) {
+//     numdias += `<div>${i}</div>`;
+// }
+
+// diasMes.innerHTML = numdias;
+
+

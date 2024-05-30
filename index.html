@@ -475,12 +475,12 @@
         <div class="container-calendario">
 
             <div class="calendario">
-    
+
                 <div class="mes">
                     <i class="fa fa-angle-left prev"></i>
                     <div class="fecha">
-                        <h2>Mayo</h3>
-                        <p>Miercoles 13 de mayo de 2024</p>
+                        <h2></h2>
+                        <p></p>
                     </div>
                     <i class="fa fa-angle-right next"></i>
                 </div>
@@ -494,56 +494,50 @@
                     <div>DOMINGO</div>
                 </div>
                 <div class="numdias">
-                    <div class="dias-prev">26</div>
-                    <div class="dias-prev">27</div>
-                    <div class="dias-prev">28</div>
-                    <div class="dias-prev">29</div>
-                    <div class="dias-prev">30</div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                    <div>10</div>
-                    <div>11</div>
-                    <div>12</div>
-                    <div class="today">13</div>
-                    <div>14</div>
-                    <div>15</div>
-                    <div>16</div>
-                    <div>17</div>
-                    <div>18</div>
-                    <div>19</div>
-                    <div>20</div>
-                    <div>21</div>
-                    <div>22</div>
-                    <div>23</div>
-                    <div>24</div>
-                    <div>25</div>
-                    <div>26</div>
-                    <div>27</div>
-                    <div>28</div>
-                    <div>29</div>
-                    <div>30</div>
-    
-                    <div class="dias-sig">1</div>
-                    <div class="dias-sig">2</div>
-                    <div class="dias-sig">3</div>
-                    <div class="dias-sig">4</div>
-                    <div class="dias-sig">5</div>
-                    <div class="dias-sig">6</div>
-    
-    
+                    
+
                 </div>
-    
-    
-                        
+
+
+
             </div>
         </div>
+        <script>
+            let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+            let clone = document.importNode(template.content, true);
+
+            const fecha = new Date();
+            const diasMes = document.querySelector(".numdias");
+            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+            const meses = [
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+            ];
+
+            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+            document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
+
+            let numdias = "";
+            for (let i = 1; i <= ultimoDia; i++) {
+                numdias += `<div>${i}</div>`;
+            }
+
+            diasMes.innerHTML = numdias;
+
+        </script>
+
     </template>
 
     <!--Ver Mas eventos-->
@@ -3087,49 +3081,6 @@
 
         </div>
     </template>
-
-    <!--Calendario-->
-    <template id="calendarioTemplate">
-        <h1>Calendario</h1>
-        <div id="calendar"></div>
-
-        <script>
-            function crearCalendario(year, month) {
-                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-                var fecha = new Date(year, month - 1, 1);
-                var diasEnMes = new Date(year, month, 0).getDate();
-                var primerDiaSemana = fecha.getDay();
-
-                var table = '<table><tr>';
-                for (var i = 0; i < diasSemana.length; i++) {
-                    table += '<th>' + diasSemana[i] + '</th>';
-                }
-                table += '</tr><tr>';
-
-                var dia = 1;
-                for (var j = 0; j < 42; j++) {
-                    if (j >= primerDiaSemana && dia <= diasEnMes) {
-                        table += '<td>' + dia + '</td>';
-                        dia++;
-                    } else {
-                        table += '<td></td>';
-                    }
-
-                    if (j % 7 == 6) {
-                        table += '</tr><tr>';
-                    }
-                }
-
-                table += '</tr></table>';
-                document.getElementById('calendar').innerHTML = table;
-            }
-
-            // Ejemplo: Mostrar el calendario del mes actual
-            var fechaActual = new Date();
-            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
-        </script>
-    </template>
-
     <!--Pagina Principal Sesion Iniciada-->
     <template id="paginaSesionIniciada">
         <!--Menú Lateral Sesion Inciada-->
