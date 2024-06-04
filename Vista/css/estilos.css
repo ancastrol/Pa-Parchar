@@ -152,78 +152,6 @@ header {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Evento detallado*/
-
-#informacionTexto{
-    margin-left: 6%;
-    margin-right: 6%;
-}
-
-#nombreEvento{
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    margin: 2% 0 1.5% 2%  ;
-    padding: 0% 0% 0% 0%;
-    justify-content: start;
-    align-items: flex-start;
-}
-
-
-
-#imgDetalle{
-    border-radius: 3%;
-    margin: 10%;
-}
-
-#descripcionEvento{
-    text-align: center;
-    font: "Inter", sans-serif;
-    font-size: 15px;
-    width: 100%;
-    margin-bottom: 5%;
-}
-
-#listaActuaciones{
-    font: "Inter", sans-serif;
-    font-size: 15px;
-    width: 100%;
-    margin-left: 5%;
-}
-
-#estEvento{
-    text-align: center;
-    background-color: #262626;
-    border-radius: 5%;
-    border-top: #ffffff;
-    border-left: #ffffff;
-    border-right: #ffffff;
-    width: 30%;
-    text-align: left;
-    margin: 2%;
-    color: white;
-}
-
-.vertical-line {
-    border-left: 1px solid #565656;
-    height: 50px
-    margin: 0 20%;
-}
-
-#opEstEvent{
-    background-color: white;
-    color: #000000;
-}
-
-/*contenedor del texto y boton de la zona de compra*/
-
-#compraConjunto {
-    left: 5%;
-    margin-bottom: 2%;
-    text-align: center;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
 /*Boton para ingresar información de compra*/
 
 #compraBtn {
@@ -306,8 +234,7 @@ header {
     color: #000000;
     background-color: #fff;
 }
-
-#cerrarModal {
+DESCRIPCIÓN DEL EVENTO#cerrarModal {
     text-decoration: none;
     color: #fff;
     background-color: #000000;
@@ -326,15 +253,19 @@ header {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Organizar detalles eventos*/
+/*Detalles evento*/
 
-#registroDetalles {
-    left: 5%;
-    padding: 0 0 2% 0;
+#tituloEventoDetallado, #tituloDescripEvent{
+    font: "Inter", sans-serif;
+    font-size: 15px;
+    margin: 2% 0 1.5% 2%  ;
+    padding: 0% 0% 0% 0%;
+    justify-content: start;
+    align-items: flex-start;
 }
 
-#nombreDescripEvento {
-    text-align: center;
+#tituloDescripEvent{
+    margin-top: 4%;
 }
 
 #imgDetalle {
@@ -346,7 +277,7 @@ header {
 
 #informacionTexto{
     width: 100%;
-    margin-top: 4%;
+    margin-top: 3%;
     margin-right: 2.5%;
     margin-left: 3%;
 }
@@ -355,20 +286,72 @@ header {
     font: "Inter", sans-serif;
     font-size: 15px;
     text-align: center;
-    margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
-/*-------------------------------------------------------------------------------------------------------*/
+#seleccionEstadoEvento{
+    text-align: center;
+    background-color: #262626;
+    border-radius: 5%;
+    border-color: #ffffff;
+    width: 30%;
+    text-align: left;
+    margin: 2%;
+    color: white;
+}
 
-/*Boton para ingresar actuaciones*/
-#ingresarActo {
-    color: #8a8a8a;
-    background-color: #d9d9d9;
+#compraConjunto {
+    left: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.vertical-line {
+    border-left: 1px solid #565656;
+    height: 70px;
+}
+
+/*contenedor del texto y boton de la zona de compra*/
+
+#compraConjunto {
+    left: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+#ingresoInformacionImput{
+    width: 100%;
+    font: "Inter", sans-serif;
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 3%;
+    color: black;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 0;
+    padding-bottom: 40%;
+    border-radius: 2%;
+    overflow: hidden;
+    margin-bottom: 4%;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
     width: 100%;
     height: 100%;
-    border-radius: 8%;
-    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gmap_iframe {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
