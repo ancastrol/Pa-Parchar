@@ -15,7 +15,7 @@ document.body.onload = function () {
 function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
-  if(sesion == false){
+  if (sesion == false) {
     eventoObj.consultarEventos({}, function (data) {
       listaEventos = data.data;
       console.log(listaEventos);
@@ -24,9 +24,8 @@ function volverInicio() {
       vista.mostrarEvento("contenidoEventos", listaEventos);
       vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
     });
-  }
-  else{
-    eventoObj.consultarEventosUsuario(usuarioObj.id, function(data) {
+  } else {
+    eventoObj.consultarEventosUsuario(usuarioObj.id, function (data) {
       listaEventos = data.data;
       console.log(listaEventos);
       vista.mostrarEvento("contenidoEventos", listaEventos);
@@ -61,19 +60,17 @@ function mostrarMasEventos() {
   vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
-
 //Mostrar detalle de evento
 function mostrarDetalleEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventoDetallado", "contenido");
   let id_eventoStr = this.attributes["data-id"].value;
   let id_evento = parseInt(id_eventoStr);
-  eventoObj.consultarDetalleEvento(id_evento, function(data) {
+  eventoObj.consultarDetalleEvento(id_evento, function (data) {
     evento = data.data;
     console.log(evento);
-    vista.mostrarDetalleEvento('contenido', evento);
+    vista.mostrarDetalleEvento("contenido", evento);
   });
-
 }
 
 function mostrarIngresarEvento() {
@@ -127,12 +124,45 @@ function handleKeyPress(event) {
 /* -------------------------------------------modales-----------------------------------------------*/
 
 //Verificar datos de usuario e iniciar sesion
+// function iniciarSesion() {
+//   let data = vista.getForm("formLogin");
+//   if (data.ok) {
+//     usuarioObj.login(data, function (data) {
+//       if (data.success) {
+//         if (data.data.length > 0) {
+//           sesion = !sesion;
+//           vista.cerrarModal("modalLogin");
+//           vista.cerrarModal("modalLateralSesionIniciada");
+//           vista.mostrarMensaje(data.success, data.msj);
+//           //Se guarda los datos del usuario en el objeto usuario
+//           usuarioObj.setData(data.data[0]);
+//           //Se guarda el id del usuario en la variable id_usuario, para luego usarla en a funcion consultarEventosUsuario
+//           let id_usuario = usuarioObj.id;
+//           eventoObj.consultarEventosUsuario(id_usuario, function (data) {
+//             listaEventos = data.data;
+//             console.log(listaEventos);
+//             vista.mostrarEvento("contenidoEventos", listaEventos);
+//             vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
+//           });
+//         } else {
+//           vista.mostrarMensaje(false, "Usuario no encontrado");
+//         }
+//       } else {
+//         vista.mostrarMensaje(data.ok, data.msj);
+//       }
+//     });
+//   } else {
+//     vista.mostrarMensaje(data.ok, data.msj);
+//   }
+// }
+
 function iniciarSesion() {
   let data = vista.getForm("formLogin");
+
   if (data.ok) {
-    usuarioObj.login(data, function(data) {
+    usuarioObj.login(data, function (data) {
       if (data.success) {
-        if(data.data.length > 0){
+        if (data.data.length == 0) {
           sesion = !sesion;
           vista.cerrarModal("modalLogin");
           vista.cerrarModal("modalLateralSesionIniciada");
@@ -141,25 +171,22 @@ function iniciarSesion() {
           usuarioObj.setData(data.data[0]);
           //Se guarda el id del usuario en la variable id_usuario, para luego usarla en a funcion consultarEventosUsuario
           let id_usuario = usuarioObj.id;
-          eventoObj.consultarEventosUsuario(id_usuario, function(data) {
+          eventoObj.consultarEventosUsuario(id_usuario, function (data) {
             listaEventos = data.data;
             console.log(listaEventos);
             vista.mostrarEvento("contenidoEventos", listaEventos);
             vista.mostrarCarrusel("contenidoCarrusel", listaEventos);
           });
-        }
-        else{
+        } else {
           vista.mostrarMensaje(false, "Usuario no encontrado");
         }
-      } 
-      else {
+      } else {
         vista.mostrarMensaje(data.ok, data.msj);
       }
     });
   } else {
     vista.mostrarMensaje(data.ok, data.msj);
   }
-
 }
 
 /*Registrar datos de un usuario nuevo*/
