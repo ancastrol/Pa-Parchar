@@ -20,12 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--Calendario-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -509,6 +503,10 @@
             const fecha = new Date();
             const diasMes = document.querySelector(".numdias");
             const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+            const indicePrimerDia = fecha.getDay();
+            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+            const diasSig = 7 - indiceUltimoDia - 1;
             const meses = [
                 "enero",
                 "febrero",
@@ -528,13 +526,39 @@
 
             document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
             document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
-
+            
             let numdias = "";
-            for (let i = 1; i <= ultimoDia; i++) {
+            
+            for(let x = indicePrimerDia; x > 0; x--){
+                numdias +=`<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
+            };
+
+            for (let i = 1; i <= ultimoDia; i++) { 
+                if (i === new Date(). getDate() && fecha.getMonth () === new Date(), getMonth())
+                {
+                    numdias += `<div class="hoy">${i}</div>`;
+                } else {
+                    numdias += `<div>${i}</div>`;
+                }
                 numdias += `<div>${i}</div>`;
             }
-
+ 
+            for (let y = 1; j <= diasSig; y++) {
+                numdias += `<div class="dias-sig">${y}</div>`;
+            }
             diasMes.innerHTML = numdias;
+
+            document.querySelector(".prev").addEventListener("click", () => {
+                fecha.setMonth(fecha.getMonth() - 1);
+                renderizarCalendario();
+            });
+
+            document.querySelector(".next").addEventListener("click", () => {
+                fecha.setMonth(fecha.getMonth() + 1);
+                renderizarCalendario();
+            });
+
+            renderizarCalendario();
 
         </script>
 
