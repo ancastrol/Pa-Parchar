@@ -6,7 +6,7 @@ document.body.onload = function () {
   vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
-/*Funciones para mostrar las plantillas en el main*/
+/*Funciones para mostrar las plantillas en el main */
 
 function volverInicio() {
   vista.limpiarContenido("contenido");
