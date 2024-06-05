@@ -3,10 +3,10 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
-/*Funciones para mostrar las plantillas en el main*/
+/*Funciones para mostrar las plantillas en el main */
 
 function volverInicio() {
   vista.limpiarContenido("contenido");
@@ -61,6 +61,12 @@ function mostrarTerminosCondiciones() {
 function mostrarPoliticasPrivacidad(){
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
+}
+
+
+function mostrarVerMisEventos(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
 }
 
 function cambiarColorSelect() {
