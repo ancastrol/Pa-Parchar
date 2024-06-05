@@ -144,7 +144,6 @@
 
             </div>
 
-
             <!--Login-->
             <div id="modalLogin">
                 <div class=" d-flex flex-column align-items-center" id="login">
@@ -236,6 +235,12 @@
                             onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada()">
                             <i class="material-icons">event</i>
                             <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
+                        </button>
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarVerMisEventos(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">label_outline</i>
+                            <strong class="align-self-center text-btn-despl">VER MIS EVENTOS</strong>
                         </button>
 
                         <button class="d-flex justify-content-center" id="opcionMenu"
@@ -1309,7 +1314,7 @@
 
     </template>
 
-    <!--Busqueda relacionada-->
+    <!--Busqueda Relacionada-->
     <template id="busquedaRelacionada">
 
         <div class="d-flex flex-column" style="padding: 4%;">
@@ -2120,12 +2125,13 @@
         </div>
 
     </template>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Evento Detallado-->
     <template id="eventoDetallado">
 
-        <div class="d-flex flex-column" style="padding: 2% 10%;">
-            <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+        <div class="d-flex flex-column">
+            <div class="d-flex align-content-center">
 
                 <div class="flex-shrink-0 ">
                     <div>
@@ -2140,46 +2146,85 @@
                 </div>
 
                 <div class="flex-grow-1 text-left" id="informacionTexto">
-                    <div id="parrafoDetallado">
-                        <h1 id="tituloEvento">
-                        </h1>
-                        <p class="d-inline-flex p-2" style="text-align: justify;" id="descripEvento">
-                        </p>
+
+                    <h1 id="tituloEventoDetallado">
+                        TITULO DEL EVENTO
+                    </h1>
+
+                    <div id="datosEventoDetallado">
+
                         <div class="d-flex justify-content-around">
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6>FECHA</h6>
-                                <p id="fechaEvento"></p>
+                                <p id="fechaEvento">XX/XX/XXXX</p>
                             </div>
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6>HORA</h6>
-                                <p id = "horaEvento"></p>
+                                <p id="horaEvento">00:00:00</p>
                             </div>
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6> LUGAR</h6>
-                                <p id = "lugarEvento"></p>
+                                <p id="lugarEvento">Movistar Arena</p>
                             </div>
+
+                            <div class="vertical-line"></div>
+
+                            <select type="text" class="form-select" id="seleccionEstadoEvento"
+                                onchange="cambiarColorSelect()">
+                                <option value="0" selected id="estadoEvento" class="option">ESTADO EVENTO</option>
+                                <option value="1" id="opcionesRol">ASISTIDO</option>
+                                <option value="2" id="opcionesRol">ASISTIRÉ</option>
+                                <option value="3" id="opcionesRol">ME GUSTA</option>
+                                <option value="4" id="opcionesRol">NO INTERESADO</option>
+                            </select>
+
+                            <div class="vertical-line"></div>
+
                         </div>
+
+
+                        <h1 id="tituloDescripEvent">
+                            DESCRIPCIÓN DEL EVENTO
+                        </h1>
+                        <p class="d-inline-flex p-2" id="descripcionEvento">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+
+                        <!--Mapa-->
+                        <div class="mapouter">
+                            <div class="gmap_canvas">
+                                <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
+                                    marginwidth="0"
+                                    src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=movistar%20arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                <a href="https://strandsgame.net/"></a>
+                            </div>
+
+                        </div>
+
+
                     </div>
+
                 </div>
-            </div>
 
-
-
-            <!--Mapa-->
-            
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" id = mapitaLindo></iframe>
-                    <a href="https://strandsgame.net/">Strands Game</a>
-                </div>
             </div>
 
         </div>
 
     </template>
+
 
     <!--Ingresar Evento-->
     <template id="ingresarEvento">
@@ -2188,9 +2233,7 @@
         <div class="z-3" id="modalUrl">
             <div id="modal_container">
                 <h2 id="modal_title">Coloca la dirección de compra</h2>
-                <form>
-                    <input type="text" id="agregarUrl" name="link_compra">
-                </form>
+                <input type="text" id="agregarUrl">
                 <button id="modal_close" onclick="cerrarModal()">Enviar</button>
                 <button id="cerrarModal" onclick="cerrarModal()">X</button>
             </div>
@@ -2201,179 +2244,78 @@
             <div>
                 <div class="d-flex align-content-center" style="padding-bottom: 5%;">
 
-                    <div class="flex-shrink-0">
-                        <form id="formEvento">
-                            <input type="file" id="seleccionar-archivo" style="display: none;" name="ruta_imagen">
-                            <button onclick="document.getElementById('seleccionar-archivo').click()">
-                                <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalleIngreso">
+                    <div class="flex-shrink-0" id="subirImagenes">
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                        </button>
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
+                        </button>
+                        <div id="compraConjunto">
+                            <p>Adquiere tu boleta aqui</p>
+                            <button id="compraBtn" onclick="mostrarModal()">
+                                <p id="ACT">LINK DE COMPRA</p>
                             </button>
-                            <div id="compraConjunto">
-                                <p>Adquiere tu boleta aqui</p>
-                                <button id="compraBtn" onclick="mostrarModal()">
-                                    <p id="ACT">LINK DE COMPRA</p>
-                                </button>
-                                <button id="compraBtn" onclick="guardarEvento()">
-                                    <p id="ACT">GUARDAR</p>
-                                </button>
-                            </div>
+                        </div>
                     </div>
 
                     <div class="flex-grow-1 text-left" id="informacionTexto">
                         <div id="parrafoDetallado">
 
-                            <div class="form-floating mb-3">
-                                <form>
-                                    <input class="form-control form-control-lg" type="text"
-                                        placeholder="NOMBRE DEL EVENTO" aria-label=".form-control-lg example"
-                                        id="ingresoInformacionImput" name="nombre_evento">
-                                </form>
-                                <label for="floatingTextarea"></label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control form-control-lg" type="text-break"
-                                    placeholder="DESCRIPCIÓN DEL EVENTO" id="ingresoInformacionImput"
-                                    style="height: 20rem"></textarea>
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
-                                    <h6>DESCRIPCIÓN DEL EVENTO</h6>
+                                    <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
+
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="FECHA"
-                                            aria-label=".form-control-lg example" name="fecha">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>FECHA</h6>
+                                    </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="HORA"
-                                            aria-label=".form-control-lg example" name="hora">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="HORA"
+                                        aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea">
+                                        <h6>HORA</h6>
+                                    </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="LUGAR"
-                                            aria-label=".form-control-lg example" name="lugar">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>LUGAR</h6>
+                                    </label>
                                 </div>
 
                             </div>
-                        </div>
 
-                        <br>
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DIRECCION</h6>
+                                </label>
+                            </div>
 
-                        <div class="text-center mb-3">
-                            <h4>ACTUACIONES</h4>
-                        </div>
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DISPONIBILIDAD</h6>
+                                </label>
+                            </div>
 
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
                         </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%;">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="flex-shrink-0 mb-3">
-                            <button id="compraBotonAgregarMasActuaciones">
-                                AGREGAR MÁS ACTUACIONES
-                            </button>
-                        </div>
-
-                        <div class="text-center mb-3">
-                            <h4>ENCORE</h4>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="flex-shrink-0 mb-3">
-                            <button id="compraBotonAgregarMasActuaciones">
-                                AGREGAR MÁS ENCORE
-                            </button>
-                        </div>
+                        
                     </div>
-                    </form>
 
-                    <!--Mapa-->
-
-                </div>
-
-                <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                        <a href="https://strandsgame.net/">Strands Game</a>
-                    </div>
-                    <style>
-                        .mapouter {
-                            position: relative;
-                            text-align: right;
-                            width: auto;
-                            height: 30rem;
-                        }
-
-                        .gmap_canvas {
-                            overflow: hidden;
-                            background: none !important;
-                            width: auto;
-                            height: 30rem;
-                        }
-
-                        .gmap_iframe {
-                            width: 100% !important;
-                            height: 30rem !important;
-                        }
-                    </style>
                 </div>
     </template>
 
@@ -3042,7 +2984,7 @@
         </div>
     </template>
 
-    <!--Pagina Politica-->
+    <!--Pagina Principal Sesion Iniciada-->
     <template id="pantallaPoliticaPrivacidad">
         <!--Poilitica de Privacidad-->
         <div>
@@ -3052,7 +2994,7 @@
                 <h2>POLITICA DE PRIVACIDAD:</h2>
             </div>
 
-            <hr size="8px" color="#4F4F4F" />
+            <hr size="10px" color="#4F4F4F" />
 
             <div class="d-flex align-content-center" id="terminosYCondiciones">
                 <p>
@@ -3138,117 +3080,98 @@
 
     <!--Pagina Perfil-->
     <template id="pantallaPerfil">
-
-        <!--Pantalla Perfil-->
-
-        <div class="d-flex bd-highlight" id="containerPerfil">
-            <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo">
-                <img src="./Recursos/Img/iconoUser.png" class="d-block w-100" alt="" id="fotoPerfil">
-                <div class="align-content space-between">
-                    <form>
-                        <input type="file" name="imagen_perfil">
-                    </form>
+        
+            <!--Pantalla Perfil-->
+    
+            <div class = "d-flex bd-highlight" id="containerPerfil">
+                <div class = "p-2 flex-fill bd-highlight" id="lateralIzquierdo">
+                    <img src="./Recursos/Img/iconoUser.png" class="d-block w-100" alt="" id="fotoPerfil">
+                    <div class ="align-content space-between">
+                        <input type="file">
+                    </div>
+                </div>
+                
+        <!--seccion nombre perfil-->
+               
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "LateralDerecho">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1>TU NOMBRE</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p>Tu nombre es:XXXXXXXXXX</p>
+                        </div>
+                        <button id ="btnPerfil" onclick="mostrarModalNombre()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                            <h1>TU CORREO</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p>Tu correo es:XXXXXXXXXX@emial.com</p>
+                        </div>
+                        <button id = "btnPerfil" onclick="mostrarModalEmail()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                            <h1>Contraseña</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p>Cambiar tu contraseña en cualquier momento</p>
+                        </div>
+                        <button id ="btnPerfil" onclick="mostrarModalContraseña()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal2">
+                </div>    
+            </div>
+             <!--modal Nombre-->
+    
+            <div id="contModalNombre">
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilNombre">
+                    <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1 class="modalTitle">TU NOMBRE</h1>
+                    </div>
+                        <p>Tu nombre es:XXXXXXXXXX</p>
+                        <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" >
+                    
+                    <div class = "d-flex justify-content-around">
+                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>CANCELAR</h1></button>
+                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>GUARDAR</h1></button>
+                    </div>
                 </div>
             </div>
+               
+            <!--Modal email -->
 
-            <!--seccion nombre perfil-->
-
-            <div class="d-flex flex-column bd-highlight mb-0" id="LateralDerecho">
-                <div class="p-2 bd-highlight" id="tituloPerfil">
-                    <h1>TU NOMBRE</h1>
-                </div>
-                <div id="perfilFontP">
-                    <p>Tu nombre es:XXXXXXXXXX</p>
-                </div>
-                <button id="btnPerfil" onclick="mostrarModalNombre()">
-                    <h4>CAMBIAR</h1>
-                </button>
-                <hr id="lineasHorizantal">
-                <div class="p-2 bd-highlight" id="tituloPerfil">
-                    <h1>TU CORREO</h1>
-                </div>
-                <div id="perfilFontP">
-                    <p>Tu correo es:XXXXXXXXXX@emial.com</p>
-                </div>
-                <button id="btnPerfil" onclick="mostrarModalEmail()">
-                    <h4>CAMBIAR</h1>
-                </button>
-                <hr id="lineasHorizantal">
-                <div class="p-2 bd-highlight" id="tituloPerfil">
+            <div id="contModalEmail">    
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilEmail">
+                    <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1>TU EMAIL</h1>
+                    </div>
+                        <p>Tu email es:XXXX@email.com</p>
+                        <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
+                    <div class="d-flex justify-content-around">
+                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>CANCELAR</h1></button>
+                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>GUARDAR</h1></button>
+                    </div>
+                </div>  
+            </div>     
+    
+            
+    
+    
+            <!--modal contraseña--> 
+                
+            <div id="contModalContraseña">
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilContraseña">
+                
+                <div class="p-2 bd-highlight" id ="tituloPerfil">
                     <h1>Contraseña</h1>
                 </div>
-                <div id="perfilFontP">
-                    <p>Cambiar tu contraseña en cualquier momento</p>
-                </div>
-                <button id="btnPerfil" onclick="mostrarModalContraseña()">
-                    <h4>CAMBIAR</h1>
-                </button>
-                <hr id="lineasHorizantal2">
-            </div>
-        </div>
-        <!--modal Nombre-->
-
-
-        <div id="contModalNombre">
-            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilNombre">
-                <div class="p-2 bd-highlight" id="tituloPerfil">
-                    <h1 class="modalTitle">TU NOMBRE</h1>
-                </div>
-                <p>Tu nombre es:XXXXXXXXXX</p>
-                <form>
-                    <input type="text" placeholder="Nombre del evento" name="nombre" id="inputPerfil">
-                </form>
-
-                <div class="d-flex justify-content-around">
-                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
-                        <h4>CANCELAR</h1>
-                    </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
-                        <h4>GUARDAR</h1>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!--Modal email -->
-        <div id="contModalEmail">
-            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilEmail">
-                <div class="p-2 bd-highlight" id="tituloPerfil">
-                    <h1>TU EMAIL</h1>
-                </div>
-                <p>Tu email es:XXXX@email.com</p>
-                <form>
-                    <input type="text" placeholder="Escribe tu email" name="correo" id="inputPerfil">
-                </form>
-                <div class="d-flex justify-content-around">
-                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
-                        <h4>CANCELAR</h1>
-                    </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
-                        <h4>GUARDAR</h1>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!--modal contraseña-->
-        <div id="contModalContraseña">
-            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilContraseña">
-
-                <div class="p-2 bd-highlight" id="tituloPerfil">
-                    <h1>Contraseña</h1>
-                </div>
-                <form>
-                    <input type="password" placeholder="Escribre tu contraseña" name="contrasenia" id="inputPerfil">
-                </form>
-
+                
+                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
+                
                 <hr id="lineasHorizantal">
-                <form>
-                    <input type="password" placeholder="Confirma tu contraseña" name="contrasenia" id="inputPerfil" />
-                    <input type="password" placeholder="Escribre nueva contraseña" name="contrasenia"
-                        id="inputPerfil" />
-                </form>
-
+                
+                        <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
+                        <input type="password" placeholder="Confirma tu contraseña" name="title"  id="inputPerfil"/>
+                    
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
                         <h4>CANCELAR</h1>

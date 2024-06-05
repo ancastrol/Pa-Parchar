@@ -7,10 +7,18 @@ let sesion = false;
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
+<<<<<<< HEAD
   volverInicio();
 };
 
 /*Funciones para mostrar las plantillas en el main*/
+=======
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
+};
+
+/*Funciones para mostrar las plantillas en el main */
+
+>>>>>>> Santiago
 function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
@@ -118,6 +126,17 @@ function mostrarPoliticasPrivacidad() {
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
+
+function mostrarVerMisEventos(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+}
+
+function cambiarColorSelect() {
+  var select = document.getElementById("seleccioneRol");
+  select.classList.add("seleccionado");
+}
+
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
 function handleKeyPress(event) {
@@ -191,6 +210,24 @@ function guardarEvento() {
   }
 }
 
+/*Cambia el estado de la sesion al contrario del que estaba*/
+function crearUsuario() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formLogin")
+  if (data.ok) {
+    //Consultar en la BD si existe
+    
+    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+    sesion = !sesion;
+    vista.cerrarModal("modalLogin");
+    vista.cerrarModal("modalLateralSesionIniciada");
+    
+  } else {
+    //Si no, avisar
+    
+  }
+}
+
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 function mostrarModalLateral() {
   if (sesion == false) {
@@ -212,7 +249,15 @@ function cerrarModalLateral() {
 }
 
 function cerrarModalLateralSesionIniciada() {
+<<<<<<< HEAD
   vista.cerrarModal("modalLateralSesionIniciada");
+=======
+vista.cerrarModal("modalLateralSesionIniciada");
+}
+
+function mostrarModalRol() {
+  vista.abrirModal("roles");
+>>>>>>> Santiago
 }
 
 // function mostrarModalRol() {

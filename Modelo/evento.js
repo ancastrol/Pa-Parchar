@@ -3,11 +3,16 @@ class Evento extends Connect{
     constructor() {
         super();
         this.id_evento = 0;
+<<<<<<< HEAD
         this.nombre_evento = '';
+=======
+        this.nombre = '';
+>>>>>>> Santiago
         this.fecha_hora = '';
         this.lugar = '';
         this.descripcion = '';
         this.ruta_imagen = '';
+<<<<<<< HEAD
         this.id_usuario = 0;
     }
 
@@ -22,10 +27,19 @@ class Evento extends Connect{
     //Metodo para traer eventos recomendados
     consultarEventos(dataReq, eventCallback){
         const endpoint = 'principal';
+=======
+        this.id_organizador = 0;
+    }
+
+    //Metodo para traer eventos
+    consultarEventos(dataReq, eventCallback){
+        const endpoint = 'usuario';
+>>>>>>> Santiago
         const method = 'GET';
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 
+<<<<<<< HEAD
     //Metodo para traer todos los eventos
     consultarMasEventos( eventCallback){
         const endpoint = 'principal/events';
@@ -53,5 +67,7 @@ class Evento extends Connect{
         const method = 'GET';
         this.connect(dataReq, endpoint, method, eventCallback);
     }
+=======
+>>>>>>> Santiago
 
 }
