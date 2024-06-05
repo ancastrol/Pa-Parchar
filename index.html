@@ -496,71 +496,78 @@
 
             </div>
         </div>
-        <script>
-            let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
-            let clone = document.importNode(template.content, true);
+    <script>
+let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+let clone = document.importNode(template.content, true);
 
-            const fecha = new Date();
-            const diasMes = document.querySelector(".numdias");
-            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
-            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
-            const indicePrimerDia = fecha.getDay();
-            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
-            const diasSig = 7 - indiceUltimoDia - 1;
-            const meses = [
-                "enero",
-                "febrero",
-                "marzo",
-                "abril",
-                "mayo",
-                "junio",
-                "julio",
-                "agosto",
-                "septiembre",
-                "octubre",
-                "noviembre",
-                "diciembre"
-            ];
+const renderizarCalendario = () => {
+    const fecha = new Date();
+    const diasMes = document.querySelector(".numdias");
+    const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+    const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+    const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+    let indicePrimerDia = primerDiaMes.getDay();
+    const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+    const diasSig = 7 - indiceUltimoDia - 1;
+    const meses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre"
+    ];
 
-            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
-            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-            document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
-            
-            let numdias = "";
-            
-            for(let x = indicePrimerDia; x > 0; x--){
-                numdias +=`<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
-            };
+    document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+    document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
+    
+    let numdias = "";
 
-            for (let i = 1; i <= ultimoDia; i++) { 
-                if (i === new Date(). getDate() && fecha.getMonth () === new Date(), getMonth())
-                {
-                    numdias += `<div class="hoy">${i}</div>`;
-                } else {
-                    numdias += `<div>${i}</div>`;
-                }
-                numdias += `<div>${i}</div>`;
-            }
- 
-            for (let y = 1; j <= diasSig; y++) {
-                numdias += `<div class="dias-sig">${y}</div>`;
-            }
-            diasMes.innerHTML = numdias;
 
-            document.querySelector(".prev").addEventListener("click", () => {
-                fecha.setMonth(fecha.getMonth() - 1);
-                renderizarCalendario();
-            });
+// Ajustar el índice del primer día si el calendario comienza en Lunes
+if (indicePrimerDia === 0) { // Si es Domingo
+    indicePrimerDia = 7; // Cambiar a 7
+}
 
-            document.querySelector(".next").addEventListener("click", () => {
-                fecha.setMonth(fecha.getMonth() + 1);
-                renderizarCalendario();
-            });
 
-            renderizarCalendario();
+    for(let x = indicePrimerDia; x > 0; x--){
+        numdias +=`<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
+    };
 
-        </script>
+    for (let i = 1; i <= ultimoDia; i++) { 
+        if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
+            numdias += `<div class="hoy">${i}</div>`;
+        } else {
+            numdias += `<div>${i}</div>`;
+        }
+    }
+
+    for (let y = 1; y <= diasSig; y++) {
+        numdias += `<div class="dias-sig">${y}</div>`;
+    }
+    diasMes.innerHTML = numdias;
+};
+
+document.querySelector(".prev").addEventListener("click", () => {
+    fecha.setMonth(fecha.getMonth() - 1);
+    renderizarCalendario();
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+    fecha.setMonth(fecha.getMonth() + 1);
+    renderizarCalendario();
+});
+
+renderizarCalendario();
+    </script>
 
     </template>
 

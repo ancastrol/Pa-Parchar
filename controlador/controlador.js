@@ -4,7 +4,7 @@ let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("calendario", "contenido");
+  vista.mostrarPlantilla("paginaPrincipal", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main*/
