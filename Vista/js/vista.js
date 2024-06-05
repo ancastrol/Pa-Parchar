@@ -200,7 +200,7 @@ class Vista {
 
     // Ahora, llenamos los elementos con los datos de la base de datos
     evento = data[0];
-    imagenEvento.src = evento.ruta_flayer;
+    imagenEvento.src = evento.flayer;
     nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
     descripcionEvento.innerHTML = evento.descripcion;
     fechaEvento.innerHTML = evento.fecha;
