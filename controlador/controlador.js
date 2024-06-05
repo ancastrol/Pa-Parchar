@@ -66,7 +66,7 @@ function mostrarPoliticasPrivacidad(){
 
 function mostrarVerMisEventos(){
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("verMisEventos", "contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
 }
 
 function cambiarColorSelect() {
