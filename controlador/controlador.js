@@ -94,6 +94,18 @@ function mostrarDetalleEvento() {
   });
 }
 
+function mostrarPerfil(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaPerfil", "contenido")
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  usuarioObj.getProfile(id_usuario, function (data) {
+    usuario = data.data;
+    vista.mostrarPerfil(usuario)
+  });
+
+}
+
 function mostrarIngresarEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");
@@ -107,11 +119,6 @@ function mostrarBusquedaRelacionada() {
 function mostrarPantallaBusqueda() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("busqueda", "contenido");
-}
-
-function mostrarPerfil() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("pantallaPerfil", "contenido");
 }
 
 function mostrarCalendario() {
@@ -222,20 +229,20 @@ function cerrarSesion() {
 }
 
 /*Guardar cambios (trantando de hacerlo general*/
-function guardarEvento() {
-  //Leer datos de formuario y validar
-  let data = vista.getForm("formEvento");
-  if (data.ok) {
-    //Consultar en la BD si existe
+// function guardarEvento() {
+//   //Leer datos de formuario y validar
+//   let data = vista.getForm("formEvento");
+//   if (data.ok) {
+//     //Consultar en la BD si existe
 
-    //mensaje guardado correctamente
-    vista.mostrarMensaje(data.ok, data.msj);
-    mostrarPerfil();
-  } else {
-    //Si no, avisar
-    vista.mostrarMensaje(data.ok, data.msj);
-  }
-}
+//     //mensaje guardado correctamente
+//     vista.mostrarMensaje(data.ok, data.msj);
+//     mostrarPerfil();
+//   } else {
+//     //Si no, avisar
+//     vista.mostrarMensaje(data.ok, data.msj);
+//   }
+// }
 
 /*Cambia el estado de la sesion al contrario del que estaba*/
 function crearUsuario() {

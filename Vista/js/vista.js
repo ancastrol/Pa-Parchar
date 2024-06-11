@@ -207,4 +207,17 @@ class Vista {
     horaEvento.innerHTML = evento.hora;
     lugarEvento.innerHTML = evento.lugar;
   }
+
+mostrarPerfil(data) {
+  // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+  let imagenPerfil = document.getElementById("fotoPerfil")
+  let nombrePerfil = document.getElementById("nombrePerfil")
+  let correoPerfil = document.getElementById("correoPerfil")
+
+  usuario = data[0]
+  imagenPerfil.src = usuario.imagen_perfil;
+  nombrePerfil.innerHTML = usuario.nombre;
+  correoPerfil.innerHTML = usuario.correo
+}
+
 }

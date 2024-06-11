@@ -39,4 +39,10 @@ class Usuario extends Connect {
     const method = "POST";
     this.connect(dataReq, endpoint, method, registrarCallback);
   }
+
+  getProfile(dataReq, registrarCallback){
+    const endpoint = "perfil/" + dataReq
+    const method = "GET";
+    this.connect(dataReq, endpoint, method, registrarCallback);
+  }
 }
