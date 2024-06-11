@@ -4,14 +4,14 @@ let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("calendario", "contenido");
+  vista.mostrarPlantilla("paguinaPrincipal", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main*/
 
 function volverInicio() {
   //consultar eventos en  BD
-  evento.consultarEventos({}, function(data) {
+  evento.consultarEventos({}, function (data) {
     listaEventos = data.data;
     console.log(listaEventos);
 
@@ -59,21 +59,21 @@ function mostrarPerfil() {
 }
 
 function mostrarCalendario() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("calendarioTemplate", "contenido");
+    vista.limpiarContenido("contenido");
+    vista.mostrarPlantilla("calendario", "contenido");
+    renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 }
-
 function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");
 }
 
 function mostrarTerminosCondiciones() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
-  }
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
+}
 
-function mostrarPoliticasPrivacidad(){
+function mostrarPoliticasPrivacidad() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
@@ -97,12 +97,12 @@ function iniciarSesion() {
   let data = vista.getForm("formLogin")
   if (data.ok) {
     //Consultar en la BD si existe
-    
+
     //Si si existe, activar sesión, cerrar modal, cambiar barra 
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -115,12 +115,12 @@ function registrarUsuario() {
   let data = vista.getForm("formRegistro")
   if (data.ok) {
     //Consultar en la BD si existe
-    
+
     //Si si existe, activar sesión, cerrar modal, cambiar barra 
     sesion = !sesion;
     vista.cerrarModal("modalCrearCuenta");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -137,7 +137,7 @@ function guardarEvento() {
     //mensaje guardado correctamente
     vista.mostrarMensaje(data.ok, data.msj);
     mostrarPerfil();
-    
+
   } else {
     //Si no, avisar
     vista.mostrarMensaje(data.ok, data.msj);
@@ -181,6 +181,7 @@ function mostrarModalLogin() {
 
 function cerrarModalLogin() {
   vista.cerrarModal("modalLogin");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalCrearCuenta() {
@@ -215,39 +216,41 @@ function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
 
-//--------------------------------------------------------------------------------------CALENDARIO--------------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  const template = document.getElementById('calendario');
-  const clone = template.content.cloneNode(true);
-  document.body.appendChild(clone);
 
-  const fecha = new Date();
-  const diasMes = document.querySelector(".numDias")
-  const ultimoDia = new Date (fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
 
-  let opciones = {weekday: "short", year: "numeric", month: "short", day:"numeric"}
+// --------------------------------------------Calendario-----------------------------------------------
 
-  document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-  document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString("es-ES", opciones);
+// let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+// let clone = document.importNode(template.content, true);
 
-  let numDias = "";
-  for ( let i = 1; i <=ultimoDia; i ++ ){
-    numDias += `<div>${i}</div>`;
-  }
+// const fecha = new Date();
+// const diasMes = document.querySelector(".numdias");
+// const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+// const meses = [
+//     "enero",
+//     "febrero",
+//     "marzo",
+//     "abril",
+//     "mayo",
+//     "junio",
+//     "julio",
+//     "agosto",
+//     "septiembre",
+//     "octubre",
+//     "noviembre",
+//     "diciembre"
+// ];
 
-  diasMes.innerHTML = numDias;
-});
+// let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+// document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+// document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
+
+// let numdias = "";
+// for (let i = 1; i <= ultimoDia; i++) {
+//     numdias += `<div>${i}</div>`;
+// }
+
+// diasMes.innerHTML = numdias;
+
+
