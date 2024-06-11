@@ -471,12 +471,12 @@
             <div class="calendario">
 
                 <div class="mes">
-                    <i class="fa fa-angle-left prev"></i>
+                    <i class="fa fa-angle-left previo"></i>
                     <div class="fecha">
                         <h2></h2>
                         <p></p>
                     </div>
-                    <i class="fa fa-angle-right next"></i>
+                    <i class="fa fa-angle-right proximo"></i>
                 </div>
                 <div class="dias">
                     <div>LUNES</div>
@@ -488,7 +488,7 @@
                     <div>DOMINGO</div>
                 </div>
                 <div class="numdias">
-                    
+
 
                 </div>
 
@@ -496,12 +496,16 @@
 
             </div>
         </div>
+    </template>
+
     <script>
         let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
         let clone = document.importNode(template.content, true);
+        document.body.appendChild(clone);
 
-        const renderizarCalendario = () => {
-            const fecha = new Date();
+
+        let fecha = new Date();
+        const renderizarCalendario = (mes, año) => {
             const diasMes = document.querySelector(".numdias");
             const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
             const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
@@ -528,23 +532,23 @@
 
             document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
             document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
-            
+
             let numdias = "";
 
 
-// Ajustar el índice del primer día si el calendario comienza en Lunes
-if (indicePrimerDia === 0) { // Si es Domingo
-    indicePrimerDia = 7; // Cambiar a 7
-} else {
-    indicePrimerDia--; // Restar 1 a los otros días
-}
+            // Ajustar el índice del primer día si el calendario comienza en Lunes
+            if (indicePrimerDia === 0) { // Si es Domingo
+                indicePrimerDia = 7; // Cambiar a 7
+            } else {
+                indicePrimerDia--; // Restar 1 a los otros días
+            }
 
 
-            for(let x = indicePrimerDia; x > 0; x--){
-                numdias +=`<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
+            for (let x = indicePrimerDia; x > 0; x--) {
+                numdias += `<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
             };
 
-            for (let i = 1; i <= ultimoDia; i++) { 
+            for (let i = 1; i <= ultimoDia; i++) {
                 if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
                     numdias += `<div class="hoy">${i}</div>`;
                 } else {
@@ -558,20 +562,24 @@ if (indicePrimerDia === 0) { // Si es Domingo
             diasMes.innerHTML = numdias;
         };
 
-        document.querySelector(".prev").addEventListener("click", () => {
-            fecha.setMonth(fecha.getMonth() - 1);
-            renderizarCalendario();
-        });
 
-        document.querySelector(".next").addEventListener("click", () => {
-            fecha.setMonth(fecha.getMonth() + 1);
-            renderizarCalendario();
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            let botonPrevio = document.querySelector('.previo');
+            botonPrevio.addEventListener('click', function () {
+                fecha.setMonth(fecha.getMonth() - 1);
+                renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+            });
 
-        renderizarCalendario();
+            let botonProximo = document.querySelector('.proximo');
+            botonProximo.addEventListener('click', function () {
+                fecha.setMonth(fecha.getMonth() + 1);
+                renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+            });
+
+            
+        renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+        });
     </script>
-
-    </template>
 
     <!--Ver Mas eventos-->
     <template id="MasEventos">

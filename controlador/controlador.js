@@ -4,7 +4,7 @@ let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("calendario", "contenido");
+  vista.mostrarPlantilla("paguinaPrincipal", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main*/
@@ -59,10 +59,10 @@ function mostrarPerfil() {
 }
 
 function mostrarCalendario() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("calendario", "contenido");
+    vista.limpiarContenido("contenido");
+    vista.mostrarPlantilla("calendario", "contenido");
+    renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 }
-
 function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");
