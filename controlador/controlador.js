@@ -3,7 +3,7 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("ingresarEvento", "contenido");
+  vista.mostrarPlantilla("busqueda", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main */
@@ -148,10 +148,10 @@ vista.cerrarModal("modalLateralSesionIniciada");
 }
 
 function mostrarModalRol() {
-  vista.abrirModal("roles");
+  vista.abrirModal("modalLogin");
 }
 function cerrarModalRol() {
-  vista.cerrarModal("roles");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalLogin() {

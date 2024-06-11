@@ -234,6 +234,7 @@ header {
     color: #000000;
     background-color: #fff;
 }
+
 DESCRIPCIÓN DEL EVENTO#cerrarModal {
     text-decoration: none;
     color: #fff;
@@ -255,16 +256,17 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
 
 /*Detalles evento*/
 
-#tituloEventoDetallado, #tituloDescripEvent{
+#tituloEventoDetallado,
+#tituloDescripEvent {
     font: "Inter", sans-serif;
     font-size: 15px;
-    margin: 2% 0 1.5% 2%  ;
+    margin: 2% 0 1.5% 2%;
     padding: 0% 0% 0% 0%;
     justify-content: start;
     align-items: flex-start;
 }
 
-#tituloDescripEvent{
+#tituloDescripEvent {
     margin-top: 4%;
 }
 
@@ -275,7 +277,7 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
     margin: 5%;
 }
 
-#informacionTexto{
+#informacionTexto {
     width: 100%;
     margin-top: 3%;
     margin-right: 2.5%;
@@ -289,7 +291,7 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
     margin-bottom: 3%;
 }
 
-#seleccionEstadoEvento{
+#seleccionEstadoEvento {
     text-align: center;
     background-color: #262626;
     border-radius: 5%;
@@ -311,6 +313,9 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
     height: 70px;
 }
 
+/*-------------------------------------------------------------------------------------------------------*/
+
+
 /*contenedor del texto y boton de la zona de compra*/
 
 #compraConjunto {
@@ -319,7 +324,7 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
     text-align: center;
 }
 
-#ingresoInformacionImput{
+#ingresoInformacionImput {
     width: 100%;
     font: "Inter", sans-serif;
     font-size: 15px;
@@ -357,6 +362,18 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Boton para ingresar dirección especifica*/
+
+#subirImagenes {
+    width: 65%;
+}
+
+#imgSubirDetalle {
+    width: 100%;
+    height: auto;
+    border-radius: 3%;
+    margin: 1%;
+}
+
 
 #ingresarDireccion {
     height: 100%;
@@ -521,15 +538,16 @@ hr {
     border-radius: 5%;
 }
 
-
 /*-------------------------------------------------------------------------------------------------------*/
 /*Creacion de perfil Usuario*/
 
 #modalCrearCuenta {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    padding: 10%;
+    padding: 5%;
     background-color: #000000bd;
     position: fixed;
     z-index: 3;
@@ -542,10 +560,10 @@ hr {
     background-color: #0D0C0D;
     color: white;
     border-radius: 2%;
-    width: 20rem;
-    top: 5rem;
-    position: absolute;
-    left: 42%;
+    width: 80%;
+    max-width: 400px; /* Ancho máximo del modal */
+    padding: 2%;
+    position: relative;
 }
 
 #fondoDifum {
@@ -556,9 +574,10 @@ hr {
 
 #cerrarCrearPerfilUsuario {
     width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
 }
 
 #logoCrearPerfilUsuario {
@@ -572,11 +591,9 @@ hr {
 }
 
 #cuadroNombreUsuario {
-    width: 14rem;
+    width: 100%; /* Ajuste del ancho del cuadro de nombre de usuario */
     background-color: #0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
+    border: none;
     color: #ffffff;
 }
 
@@ -590,18 +607,16 @@ hr {
     font: "Inter", sans-serif;
     font-size: 12px;
     border: #4F4F4F;
-    width: 14rem;
+    width: 100%; /* Ajuste del ancho del botón */
     height: 2rem;
     margin-bottom: 7%;
     border-radius: 3%;
 }
 
 .form-select {
-    width: 14rem;
+    width: 100%; /* Ajuste del ancho del selector de roles */
     background-color: #0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
+    border: none;
     color: #6C757D;
 }
 
@@ -615,16 +630,17 @@ hr {
 .form-select.seleccionado {
     color: white;
 }
-
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Login*/
 
 #modalLogin {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    padding: 10%;
+    padding: 5%;
     background-color: #000000bd;
     position: fixed;
     z-index: 3;
@@ -633,69 +649,63 @@ hr {
 }
 
 #login {
-    font-size: 10px;
+    font-size: 14px;
     text-align: center;
     background-color: #0D0C0D;
     color: white;
     border-radius: 2%;
-    width: 20%;
-    top: 10%;
-    position: absolute;
-    left: 40%;
+    width: 60%;
+    max-width: 300px;
+    padding: 1rem;
+    position: relative;
 }
 
 #logoLogin {
     width: 70%;
-}
-
-#tituloLogin {
-    margin-bottom: 5%;
+    margin-bottom: 1rem;
 }
 
 #imgSeparador {
-    width: 50%;
-    margin: 5%;
+    width: 70%;
+    margin: 1rem 0;
 }
 
 #cerrarLogin {
     width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }
 
-#cuadroCorreo {
+#cuadroCorreo,
+#cuadroContrasenia,
+#cuadroNombreUsuario {
+    width: 100%;
+    padding: 1.2rem;
     width: 14rem;
     background-color: #0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
+    border: 1px solid #ffffff;
     color: #ffffff;
-}
-
-#cuadroContrasenia {
-    width: 14rem;
-    background-color: #0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
 }
 
 #botonIniciarSesion {
     background-color: #ffffff;
     color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    height: 2.5rem;
     border-radius: 3%;
     margin-bottom: 2%;
+    cursor: pointer;
 }
 
 #terminosLogin {
-    max-width: 65%;
+    max-width: 100%;
     margin-bottom: 2%;
 }
 
@@ -709,6 +719,29 @@ hr {
 
 #subTerminosLogin>a {
     color: rgb(163, 159, 255);
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+    #login {
+        width: 50%;
+        font-size: 14px;
+    }
+
+    #botonIniciarSesion {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #login {
+        width: 35%;
+        font-size: 14px;
+    }
+
+    #botonIniciarSesion {
+        font-size: 14px;
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -859,7 +892,6 @@ hr {
     font-size: 9px;
     color: white;
 }
-
 
 #botonSig {
     width: 15%;
@@ -1089,13 +1121,13 @@ footer.a {
     background-color: #0D0C0D;
     border-radius: 0.5em;
     font-family: "Inter", sans-serif;
-    font-size: 12px; 
+    font-size: 12px;
     color: #ffffff;
     text-align: center;
-    width: 20%; 
+    width: 20%;
     margin-top: 2%;
     margin-left: 40%;
-    cursor: pointer; /
+    cursor: pointer;/
 }
 
 
@@ -1243,3 +1275,33 @@ td {
     text-align: start;
     padding: 5px;
 }
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Mis eventos*/
+
+#encabezadoMisEventos {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+
+#filtroEvento {
+    display: flex; 
+    align-items: center; 
+    margin-left: auto; 
+}
+
+#filtroCategoriaEvento,
+#filtroOrdenEvento {
+    width: 100%;
+    background-color: #262626;
+    border-radius: 5%;
+    border-color: #ffffff;
+    text-align: left;
+    margin: 1%;
+    color: white;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/

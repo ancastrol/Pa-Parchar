@@ -89,47 +89,6 @@
 
             </div>
 
-            <!--Seleccion de Rol-->
-            <div class="d-flex justify-content-center" id="roles">
-
-                <!--Seleccion de Rol Login-->
-                <div class=" d-flex flex-column align-items-center" id="seleccionRol">
-
-                    <button class="d-flex justify-content-end" id="cerrarSeleccionRol" onclick="cerrarModalRol()">
-                        <i class="material-icons">close</i>
-                    </button>
-
-                    <div class="d-flex justify-content-center">
-                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
-                    </div>
-
-                    <div class="row justify-content-center" id="tituloRol">
-                        <strong class="text-center">¿QUIEN ERES?</strong>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <p class="overflow-visible" id="especifiqueRol">ELIGE EL TIPO DE CUENTA CON LA QUE QUIERES CREAR
-                        </p>
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolUsuario"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">account_box</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">USUARIO</strong>
-                    </button>
-
-                    <div class="d-flex justify-content-center" id="separadorRolOrganizador">
-                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolOrganizador"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">business_center</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">ORGANIZADOR</strong>
-                    </button>
-                </div>
-
-            </div>
 
             <!--Crear cuenta-->
             <div class="d-flex justify-content-center" id="modalCrearCuenta">
@@ -153,11 +112,6 @@
                         <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO">
                     </div>
 
-                    <select type="text" class="form-select" id="seleccioneRol" onchange="cambiarColorSelect()">
-                        <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
-                        <option value="1" id="opcionesRol">USUARIO</option>
-                        <option value="2" id="opcionesRol">ORGANIZADOR</option>
-                    </select>
 
                     <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
                         <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
@@ -189,8 +143,7 @@
 
             <!--Login-->
             <div id="modalLogin">
-                <div class=" d-flex flex-column align-items-center" id="login">
-
+                <div class="d-flex flex-column align-items-center" id="login">
                     <button class="d-flex justify-content-end" id="cerrarLogin" onclick="cerrarModalLogin()">
                         <i class="material-icons">close</i>
                     </button>
@@ -208,7 +161,7 @@
                             <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
                                 name="correo">
                         </div>
-                        <div class="mb-3 text-center">
+                        <div class="mb-3">
                             <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
                                 name="contrasenia">
                         </div>
@@ -225,13 +178,12 @@
                     <div class="row justify-content-center">
                         <p class="overflow-visible" id="terminosLogin">Al registrarme o iniciar sesión, acepto los <a
                                 href="#" onclick="mostrarTerminosCondiciones(), cerrarModalLogin()">Términos del
-                                Servicio</a> Pa’Parchar
-                            y <a href="#" onclick="mostrarPoliticasPrivacidad(),cerrarModalLogin()">la Política de
-                                Privacidad</a>, confirmo que tengo 18 años de edad o más y
-                            acepto recibir comunicaciones por correo electrónico.
+                                Servicio</a> Pa’Parchar y <a href="#"
+                                onclick="mostrarPoliticasPrivacidad(),cerrarModalLogin()">la Política de Privacidad</a>,
+                            confirmo que tengo 18 años de edad o más y acepto recibir comunicaciones por correo
+                            electrónico.
                         </p>
                     </div>
-
 
                     <div class="row justify-content-center">
                         <p class="overflow-visible" id="subTerminosLogin">¿no tienes cuenta pa’ parchar? <a href="#"
@@ -1312,32 +1264,41 @@
 
         <div class="d-flex flex-column" style="padding: 4%;">
 
-            <div class="d-flex mb-0">
+            <div id="encabezadoMisEventos">
 
                 <div class="d-flex me-auto p-2">
-                    <i class="material-icons align-self-start">
-                        format_list_bulleted
-                    </i>
-
                     <strong class="align-self-center" style="font-size: 1rem;">
                         TUS EVENTOS
                     </strong>
                 </div>
 
-                <div class="p-2">
-                    <button>
-                        <i class="material-icons align-self-center">
-                            filter_list
-                        </i>
-                    </button>
-                </div>
+                <div id="filtroEvento">
 
-                <div class="p-2">
-                    <button>
-                        <i class="material-icons align-self-center">
-                            more_horiz
-                        </i>
-                    </button>
+                    <select type="text" class="form-select" id="filtroCategoriaEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">CATEGORIA</option>
+                        <option value="1" id="opcionesRol">FIESTA</option>
+                        <option value="2" id="opcionesRol">CONCIERTO</option>
+                        <option value="3" id="opcionesRol">CARNAVAL</option>
+                    </select>
+                
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">NOMBRE</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">LUGAR</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">FECHA</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+                
                 </div>
 
             </div>
@@ -2139,19 +2100,40 @@
 
             <div class="d-flex justify-content-center">
 
-                <button class="align-self-start">
-                    <i class="material-icons">
-                        search
-                    </i>
-                </button>
-
                 <p class="align-self-center" style="font-size: 0.8rem;">
                     BUSQUEDA RELACIONADA:
                     <strong style="font-size: 1rem;">
                         EVENTO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                     </strong>
                 </p>
+                <div id="filtroEvento">
 
+                    <select type="text" class="form-select" id="filtroCategoriaEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">CATEGORIA</option>
+                        <option value="1" id="opcionesRol">FIESTA</option>
+                        <option value="2" id="opcionesRol">CONCIERTO</option>
+                        <option value="3" id="opcionesRol">CARNAVAL</option>
+                    </select>
+                
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">NOMBRE</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">LUGAR</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+
+                    <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
+                        <option value="0" selected id="estadoEvento" class="option">FECHA</option>
+                        <option value="1" id="opcionesRol">DESCENDENTE</option>
+                        <option value="2" id="opcionesRol">ASCENDENTE</option>
+                    </select>
+                
+                </div>
             </div>
 
             <hr size="8px" color="#ffffff" />
@@ -3057,18 +3039,19 @@
             </div>
         </div>
 
-        <div class="d-flex flex-column" style="padding: 2% 10%;">
+        <div class="d-flex flex-column">
             <div>
                 <div class="d-flex align-content-center" style="padding-bottom: 5%;">
 
                     <div class="flex-shrink-0" id="subirImagenes">
                         <input type="file" id="seleccionar-archivo" style="display: none;">
                         <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgSubirDetalle">
                         </button>
                         <input type="file" id="seleccionar-archivo" style="display: none;">
                         <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
+                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt=""
+                                id="imgSubirDetalle">
                         </button>
                         <div id="compraConjunto">
                             <p>Adquiere tu boleta aqui</p>
@@ -3130,7 +3113,7 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
 
                 </div>
