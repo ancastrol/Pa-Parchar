@@ -29,12 +29,28 @@ function volverInicio() {
     id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
     id_usuario = parseInt(id_usuarioStr);
     eventoObj.consultarEventosCarruselUsuario(id_usuario, function (data) {
-      listaEventosCarrusel = data.data;
-      vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
+      if(data.data.length > 2){
+        listaEventosCarrusel = data.data;
+        vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
+      }
+      else{
+        eventoObj.consultarEventosCarrusel({}, function (data) {
+          listaEventosCarrusel = data.data;
+          vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
+        });
+      }
     });
     eventoObj.consultarEventosUsuario(id_usuario, function (data) {
-      listaEventos = data.data;
-      vista.mostrarEvento("contenidoEventos", listaEventos);
+      if(data.data.length > 0){  
+        listaEventos = data.data;
+        vista.mostrarEvento("contenidoEventos", listaEventos);
+      }
+      else{
+        eventoObj.consultarEventos({}, function (data) {
+          listaEventos = data.data;
+          vista.mostrarEvento("contenidoEventos", listaEventos);
+        });
+      }
     });
   }
 }
@@ -139,10 +155,37 @@ function handleKeyPress(event) {
 
 /* -------------------------------------------modales-----------------------------------------------*/
 
+//Registrar un usuario nuevo
+function registrarUsuario() {
+  let data = vista.getForm("formRegistro");
+  let data2 = vista.getForm("formRegistro");
+  if (data.ok) {
+    usuarioObj.login(data, function (data) {
+      if (data.success) {
+        if (data.data.length == 0) {
+          sesion = !sesion;
+          usuarioObj.registrar(data2, function (data) {
+            let id_usuario = data.data;
+            document.getElementById("papa").setAttribute("user-id", id_usuario);
+            vista.cerrarModal("modalCrearCuenta");
+            vista.mostrarMensaje(data.success, data.message);
+            volverInicio();
+          });
+        }
+      else{
+        vista.mostrarMensaje(false, "Correo ya esta reistrado");
+        }
+      } 
+      else {
+        vista.mostrarMensaje(data.ok, data.msj);
+      }
+    });
+  }
+}
+
 //Verificar datos de usuario e iniciar sesion
 function iniciarSesion() {
   let data = vista.getForm("formLogin");
-
   if (data.ok) {
     usuarioObj.login(data, function (data) {
       if (data.success) {
@@ -176,24 +219,6 @@ function cerrarSesion() {
   vista.cerrarModal("modalLateralSesionIniciada");
   vista.mostrarMensaje(true, "Sesion cerrada");
   volverInicio();
-}
-
-
-/*Registrar datos de un usuario nuevo*/
-function registrarUsuario() {
-  //Leer datos de formuario y validar
-  let data = vista.getForm("formRegistro");
-  if (data.ok) {
-    //Consultar en la BD si existe
-
-    //Si si existe, activar sesión, cerrar modal, cambiar barra
-    sesion = !sesion;
-    vista.cerrarModal("modalCrearCuenta");
-    vista.cerrarModal("modalLateralSesionIniciada");
-  } else {
-    //Si no, avisar
-    vista.mostrarMensaje(data.ok, data.msj);
-  }
 }
 
 /*Guardar cambios (trantando de hacerlo general*/

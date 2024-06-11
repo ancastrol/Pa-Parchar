@@ -25,10 +25,18 @@ class Usuario extends Connect {
       imagen_perfil: this.imagen_perfil,
     };
   }
+
   //Metodo para verificar login
   login(dataReq, loginCallback) {
     const endpoint = "usuario/login";
     const method = "POST";
     this.connect(dataReq, endpoint, method, loginCallback);
+  }
+
+  //Metodo para registrar un usuario
+  registrar(dataReq, registrarCallback) {
+    const endpoint = "crearUsuario";
+    const method = "POST";
+    this.connect(dataReq, endpoint, method, registrarCallback);
   }
 }
