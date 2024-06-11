@@ -253,7 +253,7 @@
 
                     <div class="row justify-content-center">
                         <button href="#" id="botonCerrarSesion"
-                            onclick="sesionIniciada(), cerrarModalLateralSesionIniciada(), volverInicio()">
+                            onclick="cerrarSesion()">
                             CERRAR SESIÓN
                         </button>
                     </div>
@@ -2147,8 +2147,7 @@
 
                 <div class="flex-grow-1 text-left" id="informacionTexto">
 
-                    <h1 id="tituloEventoDetallado">
-                        TITULO DEL EVENTO
+                    <h1 id="tituloEvento">
                     </h1>
 
                     <div id="datosEventoDetallado">
@@ -2159,21 +2158,21 @@
 
                             <div class="align-self-center">
                                 <h6>FECHA</h6>
-                                <p id="fechaEvento">XX/XX/XXXX</p>
+                                <p id="fechaEvento"></p>
                             </div>
 
                             <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6>HORA</h6>
-                                <p id="horaEvento">00:00:00</p>
+                                <p id="horaEvento"></p>
                             </div>
 
                             <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6> LUGAR</h6>
-                                <p id="lugarEvento">Movistar Arena</p>
+                                <p id="lugarEvento"></p>
                             </div>
 
                             <div class="vertical-line"></div>
@@ -2195,12 +2194,7 @@
                         <h1 id="tituloDescripEvent">
                             DESCRIPCIÓN DEL EVENTO
                         </h1>
-                        <p class="d-inline-flex p-2" id="descripcionEvento">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <p class="d-inline-flex p-2" id="descripEvento">
                         </p>
 
                         <!--Mapa-->

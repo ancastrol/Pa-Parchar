@@ -208,4 +208,3 @@ class Vista {
     lugarEvento.innerHTML = evento.lugar;
   }
 }
-c

@@ -7,18 +7,10 @@ let sesion = false;
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-<<<<<<< HEAD
   volverInicio();
 };
 
 /*Funciones para mostrar las plantillas en el main*/
-=======
-  vista.mostrarPlantilla("ingresarEvento", "contenido");
-};
-
-/*Funciones para mostrar las plantillas en el main */
-
->>>>>>> Santiago
 function volverInicio() {
   vista.mostrarPlantilla("paginaPrincipal", "contenido");
   //consultar eventos en  BD
@@ -177,6 +169,16 @@ function iniciarSesion() {
   }
 }
 
+//funcion para cerrar sesion de usuario
+function cerrarSesion() {
+  sesion = !sesion;
+  document.getElementById("papa").setAttribute("user-id", "");
+  vista.cerrarModal("modalLateralSesionIniciada");
+  vista.mostrarMensaje(true, "Sesion cerrada");
+  volverInicio();
+}
+
+
 /*Registrar datos de un usuario nuevo*/
 function registrarUsuario() {
   //Leer datos de formuario y validar
@@ -249,15 +251,7 @@ function cerrarModalLateral() {
 }
 
 function cerrarModalLateralSesionIniciada() {
-<<<<<<< HEAD
   vista.cerrarModal("modalLateralSesionIniciada");
-=======
-vista.cerrarModal("modalLateralSesionIniciada");
-}
-
-function mostrarModalRol() {
-  vista.abrirModal("roles");
->>>>>>> Santiago
 }
 
 // function mostrarModalRol() {
