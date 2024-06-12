@@ -2208,6 +2208,16 @@ footer.a {
     font-size: 11px;
 }
 
+#divMiEvento2_2{
+    width: 100%;
+}
+
+#lineaMiEvento{
+    width: 100%;
+    background-color: white;
+    margin: 1% 0 1% 0;
+}
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Terminos y condiciones*/

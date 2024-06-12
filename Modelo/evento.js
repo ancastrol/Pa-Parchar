@@ -33,6 +33,13 @@ class Evento extends Connect{
         this.connect({}, endpoint, method, eventCallback);
     }
 
+    //Metodo para traer eventos segun organizador
+    consultarEventosOrganizador(dataReq, eventCallback){
+        const endpoint = 'organizer/' + dataReq;
+        const method = 'GET';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
+
     //Metodo para traer detalles evento
     consultarDetalleEvento(dataReq, eventCallback){
         const endpoint = 'evento/'+ dataReq;

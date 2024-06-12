@@ -149,8 +149,6 @@ class Vista {
   mostrarEvento(content, data) {
     let contenedor = document.getElementById(content);
     contenedor.innerHTML = "";
-
-    console.log(data);
     //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
     data.forEach((evento) => {
       let divEvento = document.createElement("div");
@@ -183,6 +181,66 @@ class Vista {
       divEvento.appendChild(botonEvento);
       contenedor.appendChild(divEvento);
       botonEvento.addEventListener("click", mostrarDetalleEvento);
+    });
+  }
+
+  //mostrar eventos organizados por el usuario
+  mostrarMiEvento(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
+
+    console.log(data);
+    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
+    data.forEach((miEvento) => {
+
+      let divMiEvento = document.createElement("div");
+      divMiEvento.setAttribute("id", "contenedorMiEvento");
+
+      let hrLinea = document.createElement("hr");
+      hrLinea.setAttribute("id", "lineaMiEvento");
+
+      let botonMiEvento = document.createElement("button");
+      botonMiEvento.classList.add("p-2");
+      botonMiEvento.setAttribute("id", "botonEvento");
+      botonMiEvento.setAttribute("data-id", miEvento.id_evento)
+
+      let divMiEvento2 = document.createElement("div");
+      divMiEvento2.classList.add("d-flex");
+
+      let divMiEvento2_1 = document.createElement("div");
+      divMiEvento2_1.classList.add("p-2", "flex-grow-1", "align-self-center");
+
+      let imagenMiEvento = document.createElement("img");
+      imagenMiEvento.setAttribute("id", "eventoOrganizador");
+      imagenMiEvento.src = miEvento.ruta_imagen;
+
+      let divMiEvento2_2 = document.createElement("div");
+      divMiEvento2_2.classList.add("p-2", "d-flex", "flex-column", "mb-0", "align-self-center", "text-left");
+      divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
+      
+      let nombre = document.createElement("h6");
+      nombre.setAttribute("id", "tituloOrganizador");
+      nombre.innerHTML = `<strong>${miEvento.nombre_evento}</strong>`;
+
+      let informacion = document.createElement("p");
+      informacion.setAttribute("id", "parrafoOrganizador");
+      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}`;
+
+      let descripcion = document.createElement("div");
+      descripcion.classList.add("p-2", "align-self-center", "text-left");
+      descripcion.innerHTML = `${miEvento.descripcion}`;
+
+      divMiEvento2_1.appendChild(imagenMiEvento);
+      divMiEvento2_2.appendChild(nombre);
+      divMiEvento2_2.appendChild(informacion);
+      divMiEvento2.appendChild(divMiEvento2_1);
+      divMiEvento2.appendChild(divMiEvento2_2);
+      divMiEvento2.appendChild(descripcion);
+      botonMiEvento.appendChild(divMiEvento2);
+      divMiEvento.appendChild(botonMiEvento);
+      divMiEvento.appendChild(hrLinea);
+      contenedor.appendChild(divMiEvento);
+      botonMiEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
 

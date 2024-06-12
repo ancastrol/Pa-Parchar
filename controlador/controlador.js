@@ -81,6 +81,18 @@ function mostrarMasEventos() {
   vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
+//Mostar eventos de un organizador
+function mostrarEventosOrganizador() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  eventoObj.consultarEventosOrganizador(id_usuario, function (data) {
+    listaEventos = data.data;
+    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  });
+}
+
 //Mostrar detalle de evento
 function mostrarDetalleEvento() {
   vista.limpiarContenido("contenido");
