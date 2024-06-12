@@ -1,6 +1,6 @@
 /*Body*/
 
-body{
+/* body {
     width: 100%;
     height: 100%;
     background-color: #000000;
@@ -9,45 +9,42 @@ body{
     color: white;
 }
 
-h1{
+h1 {
     text-align: center;
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 0.5em; /* 116.667% */
+    line-height: 0.5em;
+    /* 116.667% 
     letter-spacing: -0.57px;
     text-transform: uppercase;
-    margin: 0 0 0 0;
-    
 }
-h4{
+
+h4 {
     font-family: 'inter', sans-serif;
     font-size: 7.5px;
     font-weight: semibold;
-    margin: 0;
 }
 
-p{
+p {
     font: "Inter", sans-serif;
-    margin: 0;
 }
 
-a{
-   color: white; 
-}
+a {
+    color: white;
+} */
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Contenedor padre*/
 
-#container{
+#container {
     max-width: 100%;
     max-height: 100%;
     margin: auto;
-    background-color: white;
-    padding: 0;
-    min-width: 574px;
+    background-color: white; 
+    min-width: 574px; 
 
 }
 
@@ -55,7 +52,7 @@ a{
 
 /*Area de trabajo*/
 
-main{
+main {
     width: 100%;
     height: 100%;
     background-color: #262626;
@@ -63,825 +60,10 @@ main{
     padding: 0;
 }
 
-button{
+button {
     color: #ffffff;
     background-color: #0d0c0d00;
-    border-color: #0d0c0d00 ;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*eventos "pequeños"
-
-#cardEvento{
-    width: 10rem;
-    border: #0d0c0d00;
-    background-color: #0d0c0d00;
-    margin-top:5%
-}
-
-#botonEvento{
-    max-width: 100%;
-    background-color: #0d0c0d00;
-    color: #ffffff;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #0d0c0d00;
-    padding: 0 0 0 0;
-}
-
-#eventoA{
-    max-height: 70%;
-    max-width: 70%;
-    border-radius: 5px;
-}
-
-#tituloE{
-    font-size: 10px;
-    color: white;
-}
-
-#parrafoE{
-    font-size: 9px;
-    color: white;
-}
-
-#eventos{
-    width: 100%;
-}
-
-#botonSig{
-    width: 20%;
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    margin-bottom: 2%;
-    border-radius: 5%;
-}*/
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Encabezado*/
-
-header{
-    width: 100%;
-    background-color: #0D0C0D;
-}
-
-#botonEncabezado{
-    margin-top: 1%;
-    width: 100%;
-    background-color: #0d0c0d00;
-    color: #ffffff;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #0d0c0d00;
-}
-
-#logoHeader{
-    width: 13%;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Menu*/
-
-#menuLateral{
-    width: 40%;
-    height: 100%;
-    font: "Inter", sans-serif;
-    font-size: 10px;
-    background-color: #0D0C0D;
-    padding: 3%;
-}
-
-#botonCerrarSesion{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 80%;
-}
-
-.text-btn-despl{
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.btn-listado{
-    display: inline;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Botones para ingresar descripción*/
-
-#ingresarDetalle{
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    width: 80%;
-    border-radius: 8%;
-}
-
-#especificosEvento{
-    margin-right: 0%;
-    margin-left: -10%;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Botones para ingresar datos especificos(fecha/hora/sitio)*/
-
-#ingresarData{
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    width: 100%;
-    border-radius: 8%;
-    font-size: xx-small;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*contenedor del texto y boton de la zona de compra*/
-
-#compraConjunto{
-    left: 5%;
-    margin-bottom: 2%;
-    text-align: center;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Boton para ingresar información de compra*/
-
-#compraBtn{
-    color: #ffffff;
-    background-color: #000000;
-    width: 60%;
-    height: 25px;
-    border: 1px solid;
-    border-radius: 6px;
-    display: inline-block;
-    font-weight: 300;
-    transition: background-color .3s;
-}
-
-#compraBtn:hover{
-    color: #000000;
-    background-color: #fff;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*propiedades ventana emergente*/
-
-#modalUrl{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#modal_container{
-    margin:auto;
-    width: 90%;
-    max-width: 600px;
-    max-height: 90%;
-    background-color: #ffffff;
-    padding: 3em 2.5em;
-    display: grid;
-    border-radius: 6px;
-    gap: 1em;
-    place-items: center;
-    grid-auto-columns: 100%;
-}
-
-#modal_title{
-    align-self: center;
-    font-size: 2rem;
-    color: #000000;
-}
-
-#agregarUrl{
-    width: 80%;
-    max-width: 600px;
-}
-
-#agregarArchivo{    
-    margin: 0 50% 2% 50%;
-    max-width: 600px;
-    color: #000000;
-}
-
-#modal_close{
-    text-decoration: none;
-    color: #fff;
-    background-color: #000000;
-    padding: 1em 3em;
-    border: 1px solid;
-    border-radius: 6px;
-    display: inline-block;
-    font-weight: 300;
-    transition: background-color .3s;
-}
-
-#modal_close:hover{
-    color: #000000;
-    background-color: #fff;
-}
-
-#cerrarModal{
-    text-decoration: none;
-    color: #fff;
-    background-color: #000000;
-    padding: 0.5em 1em;
-    border: 1px solid;
-    border-radius: 100px;
-    display: inline-block;
-    font-weight: 300;
-    transition: background-color .3s;
-}
-
-#cerrarModal:hover{
-    color: #000000;
-    background-color: #fff;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Organizar detalles eventos*/
-
-#registroDetalles{
-    left: 5%;
-    padding: 0 0 2% 0;
-}
-
-#imgDetalle{
-    min-width: 13rem;
-    max-width: 25rem;
-    width: auto;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Boton para ingresar actuaciones*/
-#ingresarActo{
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    width: 100%;
-    height: 100%;
-    border-radius: 8%; 
-    margin: 0;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Boton para ingresar dirección especifica*/
-
-#ingresarDireccion{
-    height: 100%;
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    border-radius: 8%;
-}
-
-#imgReco{
-    width: 100%;
-    height: auto;
-}
-
-#parrafoDetallado{
-    margin-top: 5%;
-    margin-right: 0%;
-    padding-left: 0;
-}
-
-hr{
-    height:85%;
-    width: 5%;
-    background-color:#ffffff;
-    margin: 0 0 0 0;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*Menu Sesion No Iniciada*/
-
-#modalLateral{
-    opacity: 0;
-    pointer-events: none;
-}
-
-#menuLateral{
-    width: 18%;
-    height: 100%;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    background-color: #0D0C0D;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    color: #ffffff;
-    opacity: 1;
-    pointer-events: "unset";
-    z-index: 3;
-}
-
-#logoBarraLateral{
-    width: 10rem;
-    margin: 0 0 10% 0;
-}
-
-#parrafoRegistro{
-    font-size:65%;
-    padding: 0 0 10% 0;
-}
-
-#botonCrearcuenta{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    border: #4F4F4F;
-    width: 80%;
-    margin-top: auto;
-}
-
-#botonInciarSesion{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    border: #4F4F4F;
-    width: 80%;
-    margin-top: 5%;
-}
-
-.text-btn-despl{
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.btn-listado{
-    display: inline;
-}
-
-.botonMenu{
-    padding: 0 10% 0 0;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*Selección de rol*/
-
-#roles{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#seleccionRol{
-    text-align: center;
-    background-color: #0D0C0D;
-    color: white;
-    border-radius: 5%;
-    width: 20%;
-    height: 70%;
-    top: 5%;
-    left: 40%;
-}
-
-#imgTituloRol{
-    width: 40%;
-}
-
-#tituloRol{
-    margin-bottom: 5%;
-}
-
-#especifiqueRol{
-    font-size: 9px;
-    margin-bottom: 5%;
-    color: #aba6a6;
-    border-bottom: #4F4F4F;
-    margin-bottom: 8%;
-}
-
-#imgSeparadorRol{
-    width: 50%;
-    margin: 5% 0;
-}
-
-#cerrarSeleccionRol{
-    width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
-}
-
-#botonRolUsuario{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 9rem;
-    border-radius: 5%;
-}
-
-#botonRolOrganizador{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 9rem;
-    margin-bottom: 10%;
-    border-radius: 5%;
-}
-
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*Creacion de perfil Usuario*/
-
-#modalCrearCuenta{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#creacionPerfilUsuario{
-    text-align: center;
-    background-color: #0D0C0D;
-    color: white;
-    border-radius: 2%;
-    width: 20rem;
-    top: 5rem;
-    position: absolute;
-    left: 40%;
-}
-
-#fondoDifum{
-    height: 100%;
-    width: 100%;
-    background-color: #000000da;
-}
-
-#cerrarCrearPerfilUsuario{
-    width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
-}
-
-#logoCrearPerfilUsuario{
-    width: 70%;
-    margin-bottom: 7%;
-}
-
-#tituloCrearPerfilUsuario{
-    margin-bottom: 5%;
-    font: "Inter", sans-serif;
-}
-
-#cuadroNombreUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#seleccionGeneroCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-}
-
-#opcionesGeneroCrearPerfilUsuario{
-    background-color: #0D0C0D;
-    color: white;
-}
-
-#seleccionGeneroCrearPerfilUsuario option[value="GENERO"] {
-    color: #555; 
-}
-
-#seleccionGeneroCrearPerfilUsuario option:not([value="GENERO"]) {
-    color: #fff;
-}
-
-#imgSeparadorCrearPerfilUsuario{
-    width: 50%;
-    height: 25%;
-    margin-top: 6%;
-    margin-bottom: 5%;
-}
-
-#cuadroCorreoCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#cuadroContraseñaCrearPerfilUsuario{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#cuadroConfirmarContraseñaCrearPerfilUsuario{    
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-    margin-bottom: 5%;
-}
-
-#botonSiguienteCrearPerfilUsuario{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-    margin-bottom: 7%;
-    border-radius: 3%;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Login*/
-
-#modalLogin{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#login{
-    font-size: small;
-    text-align: center;
-    background-color: #0D0C0D;
-    color: white;
-    border-radius: 2%;
-    width: 20rem;
-    top: 5rem;
-    position: absolute;
-    left: 42.5%;
-}
-
-#logoLogin{
-    width: 70%;
-    margin-bottom: 5%;
-}
-
-#tituloLogin{
-    margin-bottom: 5%;
-}
-
-#imgSeparadorLogin{
-    width: 50%;
-    height: 25%;
-    margin-top: 5%;
-}
-
-#cerrarLogin{
-    width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
-}
-
-#botonIniciarConFacebook{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-    margin-bottom: 5%;
-    border-radius: 3%;
-}
-
-#opcionesInicioSesion{
-    margin: 0%;
-}
-
-#botonIniciarConGoogle{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-    margin-bottom: 5%;
-    border-radius: 3%;
-}
-
-#botonIniciarConApple{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-
-    margin-bottom: 0%;
-    border-radius: 3%;
-}
-
-#botonIniciarSesion{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 14rem;
-    height: 2rem;
-    margin-bottom: 7%;
-    border-radius: 3%;
-}
-
-#cuadroCorreo{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #000000;
-}
-
-#cuadroContraseña{
-    width: 14rem;
-    background-color:#0d0c0d00;
-    border-top: #0d0c0d00;
-    border-left: #0d0c0d00;
-    border-right: #0d0c0d00;
-    color: #ffffff;
-}
-
-#terminosLogin{
-    max-width: 70%;
-    margin-bottom: 5%;
-}
-
-#terminosLogin> a{
-    color: rgb(0, 140, 255);
-}
-
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Menu Sesion Iniciada*/
-
-#modalLateralSesionIniciada{
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-}
-
-#menuLateralSesionIniciada{
-    width: 18%;
-    height: 100%;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    background-color: #0D0C0D;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    color: #ffffff;
-    opacity: 1;
-    pointer-events: "unset";
-    z-index: 3;
-}
-
-#opcionesMenu{
-    margin-left: 5%;
-}
-
-#opcionMenu{
-    text-align: center;
-    width: 80%;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    background-color: #ffffff;
-    color: #000000;
-    margin: 5%;
-    bottom: 5%;
-    border-radius: 5%;
-}
-
-#botonCerrarSesion{
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 80%;
-    margin-top: 20rem;
-    border-radius: 5%;
-}
-
-.text-btn-despl{
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.btn-listado{
-    display: inline;
-}
-
-
-.botonMenuLateral{
-    padding: 0 10% 0 0;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Recomendacion*/
-
-#btnCarrusel{
-    width: 100%;
-}
-
-#eventoRecomendado{
-    background-color: #0d0c0d00;
-    border: #0d0c0d00;
-}
-
-#lineUp{
-    left: 10%;
-    margin-bottom: 2%;
-
-}
-
-#ACT{
-    margin: 0 0 2% 0;
-    text-align: center;
-}
-
-#botonRecomendados{
-    width: 100%;
-    border: #0d0c0d00;
-    padding: 0 0 0 0;
-}
-
-#parrafoP{
-    font-size: 10px;
-}
-
-#imgReco{
-    width: 100%;
-    height: 20rem;
-
-}
-
-#tituloRecomendado{
-    font-size: 10px;
-}
-
-#parrafoRecomendado{
-    font-size: 9px;
+    border-color: #0d0c0d00;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -926,6 +108,821 @@ hr{
 }
 
 #botonSig{
+    width: 20%;
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    margin-bottom: 2%;
+    border-radius: 5%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Encabezado*/
+
+header {
+    width: 100%;
+    background-color: #0D0C0D;
+}
+
+#botonEncabezado {
+    margin-top: 1%;
+    width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
+}
+
+#logoHeader {
+    width: 13%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Menu*/
+
+#menuLateral {
+    width: 40%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 10px;
+    background-color: #0D0C0D;
+    padding: 3%;
+}
+
+#botonCerrarSesion {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 80%;
+}
+
+.text-btn-despl {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado {
+    display: inline;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Botones para ingresar descripción*/
+
+#ingresarDetalle {
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 80%;
+    border-radius: 8%;
+}
+
+#especificosEvento {
+    margin-right: 0%;
+    margin-left: -10%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Botones para ingresar datos especificos(fecha/hora/sitio)*/
+
+#ingresarData {
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 100%;
+    border-radius: 8%;
+    font-size: xx-small;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*contenedor del texto y boton de la zona de compra*/
+
+#compraConjunto {
+    left: 5%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar información de compra*/
+
+#compraBtn {
+    color: #ffffff;
+    background-color: #000000;
+    width: 60%;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#compraBtn:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*propiedades ventana emergente*/
+
+#modalUrl {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal_container {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #ffffff;
+    padding: 3em 2.5em;
+    display: grid;
+    border-radius: 6px;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+}
+
+#modal_title {
+    align-self: center;
+    font-size: 2rem;
+    color: #000000;
+}
+
+#agregarUrl {
+    width: 80%;
+    max-width: 600px;
+}
+
+#agregarArchivo {
+    margin: 0 50% 2% 50%;
+    max-width: 600px;
+    color: #000000;
+}
+
+#modal_close {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    padding: 1em 3em;
+    border: 1px solid;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#modal_close:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+#cerrarModal {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    padding: 0.5em 1em;
+    border: 1px solid;
+    border-radius: 100px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+#cerrarModal:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Organizar detalles eventos*/
+
+#registroDetalles {
+    left: 5%;
+    padding: 0 0 2% 0;
+}
+
+#imgDetalle {
+    min-width: 13rem;
+    max-width: 25rem;
+    width: auto;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar actuaciones*/
+#ingresarActo {
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    width: 100%;
+    height: 100%;
+    border-radius: 8%;
+    margin: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Boton para ingresar dirección especifica*/
+
+#ingresarDireccion {
+    height: 100%;
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-radius: 8%;
+}
+
+#imgReco {
+    width: 100%;
+    height: auto;
+}
+
+#parrafoDetallado {
+    margin-top: 5%;
+    margin-right: 0%;
+    padding-left: 0;
+}
+
+hr {
+    height: 85%;
+    width: 5%;
+    background-color: #ffffff;
+    margin: 0 0 0 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*Menu Sesion No Iniciada*/
+
+#modalLateral {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#menuLateral {
+    width: 18%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    background-color: #0D0C0D;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: #ffffff;
+    opacity: 1;
+    pointer-events: "unset";
+    z-index: 3;
+}
+
+#logoBarraLateral {
+    width: 10rem;
+    margin: 0 0 10% 0;
+}
+
+#parrafoRegistro {
+    font-size: 65%;
+    padding: 0 0 10% 0;
+}
+
+#botonCrearcuenta {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    border: #4F4F4F;
+    width: 80%;
+    margin-top: auto;
+}
+
+#botonInciarSesion {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    border: #4F4F4F;
+    width: 80%;
+    margin-top: 5%;
+}
+
+.text-btn-despl {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado {
+    display: inline;
+}
+
+.botonMenu {
+    padding: 0 10% 0 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*Selección de rol*/
+
+#roles {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#seleccionRol {
+    text-align: center;
+    background-color: #0D0C0D;
+    color: white;
+    border-radius: 5%;
+    width: 20%;
+    height: 70%;
+    top: 5%;
+    left: 40%;
+}
+
+#imgTituloRol {
+    width: 40%;
+}
+
+#tituloRol {
+    margin-bottom: 5%;
+}
+
+#especifiqueRol {
+    font-size: 9px;
+    margin-bottom: 5%;
+    color: #aba6a6;
+    border-bottom: #4F4F4F;
+    margin-bottom: 8%;
+}
+
+#imgSeparadorRol {
+    width: 50%;
+    margin: 5% 0;
+}
+
+#cerrarSeleccionRol {
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#botonRolUsuario {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 9rem;
+    border-radius: 5%;
+}
+
+#botonRolOrganizador {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 9rem;
+    margin-bottom: 10%;
+    border-radius: 5%;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*Creacion de perfil Usuario*/
+
+#modalCrearCuenta {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#creacionPerfilUsuario {
+    text-align: center;
+    background-color: #0D0C0D;
+    color: white;
+    border-radius: 2%;
+    width: 20rem;
+    top: 5rem;
+    position: absolute;
+    left: 40%;
+}
+
+#fondoDifum {
+    height: 100%;
+    width: 100%;
+    background-color: #000000da;
+}
+
+#cerrarCrearPerfilUsuario {
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#logoCrearPerfilUsuario {
+    width: 70%;
+    margin-bottom: 7%;
+}
+
+#tituloCrearPerfilUsuario {
+    margin-bottom: 5%;
+    font: "Inter", sans-serif;
+}
+
+#cuadroNombreUsuario {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#seleccionGeneroCrearPerfilUsuario {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+}
+
+#opcionesGeneroCrearPerfilUsuario {
+    background-color: #0D0C0D;
+    color: white;
+}
+
+#seleccionGeneroCrearPerfilUsuario option[value="GENERO"] {
+    color: #555;
+}
+
+#seleccionGeneroCrearPerfilUsuario option:not([value="GENERO"]) {
+    color: #fff;
+}
+
+#imgSeparadorCrearPerfilUsuario {
+    width: 50%;
+    height: 25%;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+
+#cuadroCorreoCrearPerfilUsuario {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#cuadroContraseñaCrearPerfilUsuario {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#cuadroConfirmarContraseñaCrearPerfilUsuario {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+    margin-bottom: 5%;
+}
+
+#botonSiguienteCrearPerfilUsuario {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 7%;
+    border-radius: 3%;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Login*/
+
+#modalLogin {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#login {
+    font-size: small;
+    text-align: center;
+    background-color: #0D0C0D;
+    color: white;
+    border-radius: 2%;
+    width: 20rem;
+    top: 5rem;
+    position: absolute;
+    left: 42.5%;
+}
+
+#logoLogin {
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+#tituloLogin {
+    margin-bottom: 5%;
+}
+
+#imgSeparadorLogin {
+    width: 50%;
+    height: 25%;
+    margin-top: 5%;
+}
+
+#cerrarLogin {
+    width: 5%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 2%;
+}
+
+#botonIniciarConFacebook {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 5%;
+    border-radius: 3%;
+}
+
+#opcionesInicioSesion {
+    margin: 0%;
+}
+
+#botonIniciarConGoogle {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 5%;
+    border-radius: 3%;
+}
+
+#botonIniciarConApple {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+
+    margin-bottom: 0%;
+    border-radius: 3%;
+}
+
+#botonIniciarSesion {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 14rem;
+    height: 2rem;
+    margin-bottom: 7%;
+    border-radius: 3%;
+}
+
+#cuadroCorreo {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #000000;
+}
+
+#cuadroContraseña {
+    width: 14rem;
+    background-color: #0d0c0d00;
+    border-top: #0d0c0d00;
+    border-left: #0d0c0d00;
+    border-right: #0d0c0d00;
+    color: #ffffff;
+}
+
+#terminosLogin {
+    max-width: 70%;
+    margin-bottom: 5%;
+}
+
+#terminosLogin>a {
+    color: rgb(0, 140, 255);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Menu Sesion Iniciada*/
+
+#modalLateralSesionIniciada {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#menuLateralSesionIniciada {
+    width: 18%;
+    height: 100%;
+    font: "Inter", sans-serif;
+    font-size: 20px;
+    background-color: #0D0C0D;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: #ffffff;
+    opacity: 1;
+    pointer-events: "unset";
+    z-index: 3;
+}
+
+#opcionesMenu {
+    margin-left: 5%;
+}
+
+#opcionMenu {
+    text-align: center;
+    width: 80%;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 5%;
+    bottom: 5%;
+    border-radius: 5%;
+}
+
+#botonCerrarSesion {
+    background-color: #ffffff;
+    color: black;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #4F4F4F;
+    width: 80%;
+    margin-top: 20rem;
+    border-radius: 5%;
+}
+
+.text-btn-despl {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.btn-listado {
+    display: inline;
+}
+
+
+.botonMenuLateral {
+    padding: 0 10% 0 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*Recomendacion*/
+
+#btnCarrusel {
+    width: 100%;
+}
+
+#eventoRecomendado {
+    background-color: #0d0c0d00;
+    border: #0d0c0d00;
+}
+
+#lineUp {
+    left: 10%;
+    margin-bottom: 2%;
+
+}
+
+#ACT {
+    margin: 0 0 2% 0;
+    text-align: center;
+}
+
+#botonRecomendados {
+    width: 100%;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
+}
+
+#parrafoP {
+    font-size: 10px;
+}
+
+#imgReco {
+    width: 100%;
+    height: 20rem;
+
+}
+
+#tituloRecomendado {
+    font-size: 10px;
+}
+
+#parrafoRecomendado {
+    font-size: 9px;
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*eventos "pequeños"*/
+
+#cardEvento {
+    width: 10rem;
+    border: #0d0c0d00;
+    background-color: #0d0c0d00;
+    margin-top: 5%
+}
+
+#botonEvento {
+    max-width: 100%;
+    background-color: #0d0c0d00;
+    color: #ffffff;
+    font: "Inter", sans-serif;
+    font-size: 12px;
+    border: #0d0c0d00;
+    padding: 0 0 0 0;
+}
+
+#eventoA {
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 5px;
+}
+
+#tituloE {
+    font-size: 10px;
+    color: white;
+}
+
+#parrafoE {
+    font-size: 9px;
+    color: white;
+}
+
+#eventos {
+    width: 100%;
+}
+
+#botonSig {
     margin-bottom: 2%;
     width: 10%;
     background-color: #ffffff;
@@ -936,7 +933,7 @@ hr{
     border-radius: 5px;
 }
 
-#botonSig:hover{
+#botonSig:hover {
     color: #ffffff;
     background-color: #0D0C0D;
 }
@@ -945,38 +942,38 @@ hr{
 
 /*Pie de pagina*/
 
-footer{
+footer {
     width: 100%;
     background-color: #0D0C0D;
     color: white;
     padding: 3% 0% 3% 0%;
 }
 
-footer.p{
+footer.p {
     font-size: 5px;
 }
 
-footer.a{
+footer.a {
     font-size: 5px;
 }
 
-#botonRed{
+#botonRed {
     background-color: #0d0c0d00;
     padding: 0;
-    border-color:#0d0c0d00;
+    border-color: #0d0c0d00;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Busqueda*/
 
-#cuadroBusqueda{
+#cuadroBusqueda {
     min-width: 574px;
     width: 100%;
     background-color: #0d0c0d00;
 }
 
-#barraBusqueda{
+#barraBusqueda {
     width: 100%;
     font-size: 1rem;
     color: white;
@@ -985,13 +982,13 @@ footer.a{
     padding-left: 2%;
 }
 
-.separadorBusqueda{
+.separadorBusqueda {
     width: 100%;
     background-color: #3D3D3D;
     border-bottom: 0.1rem solid #A6A6A6;
 }
 
-#eventoBusqueda{
+#eventoBusqueda {
     background-color: #0d0c0d00;
     padding-left: 2%;
     color: rgb(202, 200, 200);
@@ -1000,7 +997,7 @@ footer.a{
     border-color: #0d0c0d00;
 }
 
-#cuadroBusqueda > :last-child{
+#cuadroBusqueda> :last-child {
     border-bottom: none;
 }
 
@@ -1008,34 +1005,34 @@ footer.a{
 
 /*Listado del Organizador*/
 
-#eventoOrganizador{
+#eventoOrganizador {
     max-height: 14rem;
     max-width: 14rem;
     border-radius: 5px;
 }
 
-#tituloOrganizador{
+#tituloOrganizador {
     font-size: 12px;
 }
 
-#parrafoOrganizador{
+#parrafoOrganizador {
     font-size: 11px;
-}       
+}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Terminos y condiciones*/
 
-#titulos{
+#titulos {
     text-align: center;
 }
 
-#terminosYCondiciones{
+#terminosYCondiciones {
     text-align: start;
     margin: 5%;
 }
 
-#derechosTerminosYCondiciones{
+#derechosTerminosYCondiciones {
     text-align: center;
     margin: 0 0;
 }
@@ -1044,16 +1041,16 @@ footer.a{
 
 /*politica de Privacidad*/
 
-#titulos{
+#titulos {
     text-align: center;
 }
 
-#politicaPrivacidad{
+#politicaPrivacidad {
     text-align: start;
     margin: 5%;
 }
 
-#derechosPoliticaPrivacidad{
+#derechosPoliticaPrivacidad {
     text-align: center;
     margin: 0 0;
 }
@@ -1062,44 +1059,46 @@ footer.a{
 
 /* Area perfil*/
 
-#fotoPerfil{
+#fotoPerfil {
     width: 100%;
 }
 
-#perfilFontP{
+#perfilFontP {
     margin: 0 0 0 1.5em;
 }
 
-#containerPerfil{
+#containerPerfil {
     width: 100%;
     height: 100%;
 
 }
 
-#lateralIzquierdo{
-background-color: #0D0C0D;
-width: 10rem;
-padding: 10%;
-position: relative;
+#lateralIzquierdo {
+    background-color: #0D0C0D;
+    width: 10rem;
+    padding: 10%;
+    position: relative;
 }
 
-#LateralDerecho{
-    color:#0D0C0D;
+#LateralDerecho {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:100%;
+    width: 100%;
     height: 100%;
     margin: 0;
 
-    
+
 }
-#lineasHorizantal{
+
+#lineasHorizantal {
     height: 0.1em;
     width: 80%;
     background-color: #0D0C0D;
-    margin: 1% 0  1% 10%;
+    margin: 1% 0 1% 10%;
 
 }
-#lineasHorizantal2{
+
+#lineasHorizantal2 {
     height: 0.03em;
     width: 80%;
     background-color: #0D0C0D;
@@ -1107,116 +1106,115 @@ position: relative;
 
 }
 
-#tituloPerfil{
-color: #ffffff;
-background-color: #0D0C0D;
-border-radius: 0.4em;
-text-align: center;
-padding: 0.7em 0 0.7em ;
-margin: 1em 0 1em 1.5em ;
-width: 9em;
+#tituloPerfil {
+    color: #ffffff;
+    background-color: #0D0C0D;
+    border-radius: 0.4em;
+    text-align: center;
+    padding: 0.7em 0 0.7em;
+    margin: 1em 0 1em 1.5em;
+    width: 9em;
 }
 
 
 /* Btn lateral*/
 #bn1 {
-display: inline-block;
-padding: 10%;
-border: 0.1em solid #ffffff;
-border-radius: 0.4em;
-text-decoration: none;
-color: #0D0C0D;
-text-align: center;
-transition: all 0.2s;
-background-color: #ffffff;
-width: 100%;
+    display: inline-block;
+    padding: 10%;
+    border: 0.1em solid #ffffff;
+    border-radius: 0.4em;
+    text-decoration: none;
+    color: #0D0C0D;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: #ffffff;
+    width: 100%;
 
 }
 
 #bn1:hover {
-color: #ffffff;
-background-color: #0D0C0D;
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfil{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 0 0.5em 1.5em;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 6em;
-background-color: #000000;
+#btnPerfil {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 0 0.5em 1.5em;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 6em;
+    background-color: #000000;
 }
 
-#btnPerfil:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfil:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfilModal{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 0.5 0.5em 0.5em;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 6em;
-background-color: #000000;
+#btnPerfilModal {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 0.5 0.5em 0.5em;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 6em;
+    background-color: #000000;
 }
 
-#btnPerfilModal:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfilModal:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
 
-#btnPerfilModalNombre{
-display: inline-block;
-padding: 0.3em 0.3em 0.35em 0.3em; 
-border: 0.1em solid #ffffff;
-margin: 0.5em 1em 0.5em 10%;
-border-radius: 0.8em;
-box-sizing: border-box;
-text-decoration: none;
-color: #ffffff;
-text-align: center;
-transition: all 0.2s;
-width: 6em;
+#btnPerfilModalNombre {
+    display: inline-block;
+    padding: 0.3em 0.3em 0.35em 0.3em;
+    border: 0.1em solid #ffffff;
+    margin: 0.5em 1em 0.5em 10%;
+    border-radius: 0.8em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+    width: 6em;
 }
 
-#btnPerfilModalNombre:hover{
-color: #ffffff;
-background-color: #0D0C0D;
+#btnPerfilModalNombre:hover {
+    color: #ffffff;
+    background-color: #0D0C0D;
 }
-
 
 /*icono*/
-#iconoPerfil{
-height: 100%;
-margin: 1em 0 25% 0;
-position: relative;
-top: 3%;
+#iconoPerfil {
+    height: 100%;
+    margin: 1em 0 25% 0;
+    position: relative;
+    top: 3%;
 }
 
 /*input Perfil*/
-#inputPerfil{
-padding: 0.8em 5em 0.8em ;
-border-radius:0.5em ;
-margin: 1em 0 1em 0 ;
-border-color:#0D0C0D ;
+#inputPerfil {
+    padding: 0.8em 5em 0.8em;
+    border-radius: 0.5em;
+    margin: 1em 0 1em 0;
+    border-color: #0D0C0D;
 }
 
 /*-------------------------Area modal-------------------------------------------------------------------*/
 
-#contModalNombre{
+#contModalNombre {
     top: 0;
     height: 100%;
     width: 100%;
@@ -1227,40 +1225,18 @@ border-color:#0D0C0D ;
     pointer-events: none;
 }
 
-#modalPerfilNombre{
-color:#0D0C0D;
-background-color: #ffffff;
-width:40%;
-margin: 15% 30% 0 30%;
-opacity: 1;
-padding:  0.1em 1em 0.1em 1em;
-border-radius: 1em;
-z-index: 3;
-}
-
-#contModalEmail{
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#modalPerfilEmail{
-    color:#0D0C0D;
+#modalPerfilNombre {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:40%;
+    width: 40%;
     margin: 15% 30% 0 30%;
     opacity: 1;
-    padding:  0.1em 1em 0.1em 1em;
+    padding: 0.1em 1em 0.1em 1em;
     border-radius: 1em;
     z-index: 3;
 }
 
-#contModalContraseña{
+#contModalEmail {
     top: 0;
     height: 100%;
     width: 100%;
@@ -1271,13 +1247,35 @@ z-index: 3;
     pointer-events: none;
 }
 
-#modalPerfilContraseña{
-    color:#0D0C0D;
+#modalPerfilEmail {
+    color: #0D0C0D;
     background-color: #ffffff;
-    width:40%;
+    width: 40%;
     margin: 15% 30% 0 30%;
     opacity: 1;
-    padding:  0.1em 1em 0.1em 1em;
+    padding: 0.1em 1em 0.1em 1em;
+    border-radius: 1em;
+    z-index: 3;
+}
+
+#contModalContraseña {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000000bd;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modalPerfilContraseña {
+    color: #0D0C0D;
+    background-color: #ffffff;
+    width: 40%;
+    margin: 15% 30% 0 30%;
+    opacity: 1;
+    padding: 0.1em 1em 0.1em 1em;
     border-radius: 1em;
     z-index: 3;
 }
@@ -1289,7 +1287,9 @@ table {
     width: 100%;
     height: 50rem;
 }
-th, td {
+
+th,
+td {
     height: auto;
     border: 1px solid black;
     text-align: start;
