@@ -540,7 +540,7 @@
 
             let numdias = "";
 
-//asdsa
+            //asdsa
             // Ajustar el índice del primer día si el calendario comienza en Lunes
             if (indicePrimerDia === 0) { // Si es Domingo
                 indicePrimerDia = 7; // Cambiar a 7
@@ -550,26 +550,26 @@
 
 
             for (let x = indicePrimerDia; x > 0; x--) {
-                numdias += `<div class ="dias-prev">${ultimoDiaPrev - x + 1}</div>`
+                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`
             };
 
             for (let i = 1; i <= ultimoDia; i++) {
                 if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                    numdias += `<div class="hoy" id="diaHoy">${i}</div>`;
+                    numdias += `<div class="contenedorCalendario"><div class="hoy" id="diaHoy">${i}</div></div>`;
                 }
                 else {
-                    numdias += `<div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>`;
+                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
                 }
             }
 
             for (let y = 1; y <= diasSig; y++) {
-                numdias += `<div class="dias-sig">${y}</div>`;
+                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
             }
             diasMes.innerHTML = numdias;
         };
-    
 
-                //------------------card-Caledario
+
+        //------------------card-Caledario
         //crear un div de eventos
         const nuevoDiv = document.createElement("div");
 
@@ -578,9 +578,9 @@
         nuevoDiv.id = "card-Calendario";
 
         //-------crear un div padre que contenga los divs de id variable y las cards
-        
+
         // Obtener todas las clases diferentes dentro de la clase numdias
-        const clasesDiferentes = ['dias-prev', 'diasMes', 'dias-sig','hoy'];
+        const clasesDiferentes = ['dias-prev', 'diasMes', 'dias-sig', 'hoy'];
 
         // Crear un contenedor padre para cada clase diferente
         clasesDiferentes.forEach(clase => {
@@ -601,8 +601,8 @@
             primerDivClase.parentNode.insertBefore(contenedorPadre, primerDivClase);
         });
 
-        
-        
+
+
         //------------crear una funcion que traiga las card al div padre 
 
 
