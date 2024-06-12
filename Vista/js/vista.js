@@ -19,12 +19,6 @@ class Vista {
     }
   }
 
-  abrirModal(modal) {
-    let pModal = document.getElementById(modal);
-    pModal.style["pointer-events"] = "unset";
-    pModal.style.opacity = 1;
-  }
-
   cerrarModal(modal) {
     let pModal = document.getElementById(modal);
     pModal.style["pointer-events"] = "none";
@@ -88,6 +82,28 @@ class Vista {
       mensajeDiv.remove();
     }, 3000);
   }
+
+  /**
+   * Funcion para poner recomendaciones en barra de busqueda
+   * 
+   */
+      abrirModal(modal, data) {
+      let pModal = document.getElementById(modal);
+      pModal.style["pointer-events"] = "unset";
+      pModal.style.opacity = 1;
+      //IDs de tus elementos HTML son los siguientes:
+      let barraBusqueda1 = document.getElementById("botonBusqueda1");
+      let barraBusqueda2 = document.getElementById("botonBusqueda2");
+      let barraBusqueda3 = document.getElementById("botonBusqueda3");
+  
+      // Ahora, llenamos los elementos con los datos de la base de datos
+      let evento = data.data;
+      barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
+      barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
+      barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+    }
+
+
 
   /**
    *

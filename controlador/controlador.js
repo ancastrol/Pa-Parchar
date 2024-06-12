@@ -166,11 +166,11 @@ function cambiarColorSelect() {
 
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
-function handleKeyPress(event) {
-  if (event.key === "Enter") {
-    mostrarBusquedaRelacionada();
-  }
-}
+// function handleKeyPress(event) {
+//   if (event.key === "Enter") {
+//     mostrarBusquedaRelacionada();
+//   }
+// }
 
 /* -------------------------------------------modales-----------------------------------------------*/
 
@@ -240,40 +240,6 @@ function cerrarSesion() {
   volverInicio();
 }
 
-/*Guardar cambios (trantando de hacerlo general*/
-// function guardarEvento() {
-//   //Leer datos de formuario y validar
-//   let data = vista.getForm("formEvento");
-//   if (data.ok) {
-//     //Consultar en la BD si existe
-
-//     //mensaje guardado correctamente
-//     vista.mostrarMensaje(data.ok, data.msj);
-//     mostrarPerfil();
-//   } else {
-//     //Si no, avisar
-//     vista.mostrarMensaje(data.ok, data.msj);
-//   }
-// }
-
-/*Cambia el estado de la sesion al contrario del que estaba*/
-function crearUsuario() {
-  //Leer datos de formuario y validar
-  let data = vista.getForm("formLogin")
-  if (data.ok) {
-    //Consultar en la BD si existe
-    
-    //Si si existe, activar sesión, cerrar modal, cambiar barra 
-    sesion = !sesion;
-    vista.cerrarModal("modalLogin");
-    vista.cerrarModal("modalLateralSesionIniciada");
-    
-  } else {
-    //Si no, avisar
-    
-  }
-}
-
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 function mostrarModalLateral() {
   if (sesion == false) {
@@ -282,6 +248,22 @@ function mostrarModalLateral() {
     vista.abrirModal("modalLateralSesionIniciada");
   }
 }
+
+modalAbierto = false
+function mostrarModalBusqueda() {
+  if(modalAbierto==false){
+      eventoObj.consultarEventosCarrusel({}, function(data){
+      lista = data.data;
+      vista.abrirModal("modalBusqueda", data);
+      modalAbierto=true
+    });
+    }
+    else{
+      vista.cerrarModal("modalBusqueda");
+      modalAbierto = false
+    }
+}
+
 
 function mostrarModal() {
   vista.abrirModal("modalUrl");

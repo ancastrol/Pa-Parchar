@@ -234,6 +234,18 @@ header{
     color: #000000;
 }
 
+#modalBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 30%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
 #modal_close{
     text-decoration: none;
     color: #fff;

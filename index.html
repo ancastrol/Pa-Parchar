@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="align-self-center">
-                    <button href="#" id="botonEncabezado" onclick="mostrarPantallaBusqueda()">
+                    <button href="#" id="botonEncabezado" onclick="mostrarModalBusqueda()">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
@@ -144,6 +144,24 @@
 
             </div>
 
+            <!--Modal busqueda-->
+            <div id="modalBusqueda">
+                <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
+                    <div class="p-2 separadorBusqueda">
+                        <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {mostrarBusquedaRelacionada(), mostrarModalBusqueda();}">
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda1"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda2"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda3"></button>
+                    </div>
+                </div>
+            </div>
+
             <!--Login-->
             <div id="modalLogin">
                 <div class=" d-flex flex-column align-items-center" id="login">
@@ -162,12 +180,6 @@
 
                     <form id="formLogin">
 
-                        <select type="text" class="form-select" id="seleccioneRolLogin" onchange="cambiarColorSelect()">
-                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
-                            <option value="1" id="opcionesRol">USUARIO</option>
-                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
-                        </select>
-
                         <div>
                             <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
                                 name="correo">
@@ -175,7 +187,7 @@
 
                         <div>
                             <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
-                                name="contrasenia">
+                                name="contrasenia" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'cuadroContrasenia') {iniciarSesion();}">
                         </div>
                     </form>
 
@@ -448,45 +460,6 @@
             </button>
         </div>
 
-    </template>
-
-    <!--Pagina Busqueda-->
-    <template id="busqueda">
-        <!---busqueda--->
-
-        <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
-            <form>
-                <div class="p-2 separadorBusqueda">
-                    <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)" name="busqueda">
-                </div>
-            </form>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-        </div>
     </template>
 
     <!--lista de eventos-->
