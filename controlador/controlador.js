@@ -4,7 +4,7 @@ let listaEventos = [];
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("paguinaPrincipal", "contenido");
+  vista.mostrarPlantilla("calendario", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main*/
@@ -63,6 +63,20 @@ function mostrarCalendario() {
     vista.mostrarPlantilla("calendario", "contenido");
     renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 }
+
+
+function botonCalendarioPrevio () {
+  fecha.setMonth(fecha.getMonth() - 1);
+  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+};
+
+function botonCalendarioProximo () {
+  fecha.setMonth(fecha.getMonth() + 1);
+  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+}
+
+
+
 function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");

@@ -471,12 +471,12 @@
             <div class="calendario">
 
                 <div class="mes">
-                    <i class="fa fa-angle-left previo"></i>
+                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
                     <div class="fecha">
                         <h2></h2>
                         <p></p>
                     </div>
-                    <i class="fa fa-angle-right proximo"></i>
+                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
                 </div>
                 <div class="dias">
                     <div>LUNES</div>
@@ -499,8 +499,8 @@
 
     <script>
         let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
-        let clone = document.importNode(template.content, true);
-        document.body.appendChild(clone);
+        //let clone = document.importNode(template.content, true);
+        //document.body.appendChild(clone);
 
 
         let fecha = new Date();
@@ -527,7 +527,13 @@
                 "diciembre"
             ];
 
+            const mesId = new Date().getMonth();
+            const añoId = new Date().getFullYear();
+
+
             let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+
 
             document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
             document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
@@ -549,9 +555,10 @@
 
             for (let i = 1; i <= ultimoDia; i++) {
                 if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                    numdias += `<div class="hoy">${i}</div>`;
-                } else {
-                    numdias += `<div>${i}</div>`;
+                    numdias += `<div class="hoy" id="diaHoy">${i}</div>`;
+                }
+                else {
+                    numdias += `<div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>`;
                 }
             }
 
@@ -560,24 +567,49 @@
             }
             diasMes.innerHTML = numdias;
         };
+    
 
+                //------------------card-Caledario
+        //crear un div de eventos
+        const nuevoDiv = document.createElement("div");
 
-        document.addEventListener('DOMContentLoaded', function () {
-            let botonPrevio = document.querySelector('.previo');
-            botonPrevio.addEventListener('click', function () {
-                fecha.setMonth(fecha.getMonth() - 1);
-                renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+        // Asignar clase y ID al nuevo div
+        nuevoDiv.className = "cardCalendario";
+        nuevoDiv.id = "card-Calendario";
+
+        //-------crear un div padre que contenga los divs de id variable y las cards
+        
+        // Obtener todas las clases diferentes dentro de la clase numdias
+        const clasesDiferentes = ['dias-prev', 'diasMes', 'dias-sig','hoy'];
+
+        // Crear un contenedor padre para cada clase diferente
+        clasesDiferentes.forEach(clase => {
+            // Crear el contenedor padre
+            const contenedorPadre = document.createElement("div");
+            contenedorPadre.className = "contenedorCalendario" + clase;
+
+            // Obtener todos los elementos div de la clase actual
+            const divsClase = document.querySelectorAll('.numdias .' + clase);
+
+            // Iterar sobre cada div de la clase actual y agregarlo al contenedor padre
+            divsClase.forEach(div => {
+                contenedorPadre.appendChild(div);
             });
 
-            let botonProximo = document.querySelector('.proximo');
-            botonProximo.addEventListener('click', function () {
-                fecha.setMonth(fecha.getMonth() + 1);
-                renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
-            });
-
-            
-        renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+            // Insertar el contenedor padre antes del primer div de la clase actual
+            const primerDivClase = document.querySelector('.numdias .' + clase);
+            primerDivClase.parentNode.insertBefore(contenedorPadre, primerDivClase);
         });
+
+        
+        
+        //------------crear una funcion que traiga las card al div padre 
+
+
+
+
+
+
     </script>
 
     <!--Ver Mas eventos-->
