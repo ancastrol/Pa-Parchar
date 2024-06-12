@@ -3,7 +3,7 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("busqueda", "contenido");
+  vista.mostrarPlantilla("pantallaPerfil", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main */
@@ -93,15 +93,15 @@ function iniciarSesion() {
   let data = vista.getForm("formLogin")
   if (data.ok) {
     //Consultar en la BD si existe
-    
-    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
-    
+
   }
 }
 
@@ -111,19 +111,20 @@ function crearUsuario() {
   let data = vista.getForm("formLogin")
   if (data.ok) {
     //Consultar en la BD si existe
-    
-    //Si si existe, activar sesión, cerrar modal, cambiar barra 
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-    
+
   } else {
     //Si no, avisar
-    
+
   }
 }
 
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
+
 function mostrarModalLateral() {
   if (sesion == false) {
     vista.abrirModal("modalLateral");
@@ -156,6 +157,18 @@ function cerrarModalRol() {
 
 function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
+}
+
+modalAbierto = false
+function mostrarModalBusqueda() {
+  if(modalAbierto==false){
+    vista.abrirModal("modalBusqueda");
+    modalAbierto=true
+  }
+  else{
+    vista.cerrarModal("modalBusqueda");
+    modalAbierto = false
+  }
 }
 
 function cerrarModalLogin() {

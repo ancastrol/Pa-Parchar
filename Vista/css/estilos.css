@@ -9,6 +9,21 @@ body {
     color: white;
 }
 
+@media (max-width: 412px) {
+    .d-flex.flex-column {
+        flex-direction: column;
+        /* Cambiado a columna en dispositivos móviles */
+    }
+
+    body,
+    .header,
+    .footer,
+    .main {
+        width: 100%;
+        height: 100%;
+    }
+}
+
 h1 {
     text-align: center;
     font-family: Inter;
@@ -235,7 +250,7 @@ header {
     background-color: #fff;
 }
 
-DESCRIPCIÓN DEL EVENTO#cerrarModal {
+#cerrarModal {
     text-decoration: none;
     color: #fff;
     background-color: #000000;
@@ -254,14 +269,13 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Detalles evento*/
-
+/* Detalles evento */
 #tituloEventoDetallado,
 #tituloDescripEvent {
-    font: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 15px;
     margin: 2% 0 1.5% 2%;
-    padding: 0% 0% 0% 0%;
+    padding: 0;
     justify-content: start;
     align-items: flex-start;
 }
@@ -271,21 +285,23 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
 }
 
 #imgDetalle {
-    width: 100%;
-    height: auto;
+    width: 80%;
     border-radius: 3%;
-    margin: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 20%;
 }
 
 #informacionTexto {
-    width: 100%;
+    width: 40%;
+    /* Ancho original en pantallas grandes */
     margin-top: 3%;
-    margin-right: 2.5%;
+    margin-right: 8%;
     margin-left: 3%;
 }
 
 #descripcionEvento {
-    font: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 15px;
     text-align: center;
     margin-bottom: 3%;
@@ -303,9 +319,10 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
 }
 
 #compraConjunto {
-    left: 5%;
-    margin-bottom: 2%;
     text-align: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-bottom: 5%;
 }
 
 .vertical-line {
@@ -313,16 +330,33 @@ DESCRIPCIÓN DEL EVENTO#cerrarModal {
     height: 70px;
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 300px) {
+    .d-flex.flex-column {
+        flex-direction: column;
+        /* Cambiado a columna en dispositivos móviles */
+    }
+
+    #imgDetalle {
+        width: 100%;
+        /* La imagen ocupa todo el ancho en dispositivos móviles */
+        margin-left: 3%;
+
+    }
+
+    #informacionTexto {
+        width: 10%;
+        /* Ancho ajustado en dispositivos móviles */
+        margin-left: 3%;
+
+        /* Margen superior e inferior del 3% y centrado horizontal */
+    }
+}
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 
 /*contenedor del texto y boton de la zona de compra*/
-
-#compraConjunto {
-    left: 5%;
-    margin-bottom: 2%;
-    text-align: center;
-}
 
 #ingresoInformacionImput {
     width: 100%;
@@ -398,6 +432,29 @@ hr {
     width: 100%;
     background-color: #ffffff;
     margin: 0 0 0 0;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 300px) {
+    .d-flex.flex-column {
+        flex-direction: column;
+        /* Cambiado a columna en dispositivos móviles */
+    }
+
+    #informacionTexto {
+        width: 100%;
+        /* La imagen ocupa todo el ancho en dispositivos móviles */
+        margin-left: 3%;
+
+    }
+
+    #subirInformacionTexto {
+        width: 10%;
+        /* Ancho ajustado en dispositivos móviles */
+        margin-left: 3%;
+
+        /* Margen superior e inferior del 3% y centrado horizontal */
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -561,7 +618,8 @@ hr {
     color: white;
     border-radius: 2%;
     width: 80%;
-    max-width: 400px; /* Ancho máximo del modal */
+    max-width: 400px;
+    /* Ancho máximo del modal */
     padding: 2%;
     position: relative;
 }
@@ -591,7 +649,8 @@ hr {
 }
 
 #cuadroNombreUsuario {
-    width: 100%; /* Ajuste del ancho del cuadro de nombre de usuario */
+    width: 100%;
+    /* Ajuste del ancho del cuadro de nombre de usuario */
     background-color: #0d0c0d00;
     border: none;
     color: #ffffff;
@@ -607,14 +666,16 @@ hr {
     font: "Inter", sans-serif;
     font-size: 12px;
     border: #4F4F4F;
-    width: 100%; /* Ajuste del ancho del botón */
+    width: 100%;
+    /* Ajuste del ancho del botón */
     height: 2rem;
     margin-bottom: 7%;
     border-radius: 3%;
 }
 
 .form-select {
-    width: 100%; /* Ajuste del ancho del selector de roles */
+    width: 100%;
+    /* Ajuste del ancho del selector de roles */
     background-color: #0d0c0d00;
     border: none;
     color: #6C757D;
@@ -630,6 +691,7 @@ hr {
 .form-select.seleccionado {
     color: white;
 }
+
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Login*/
@@ -938,8 +1000,19 @@ footer.a {
 
 /*Busqueda*/
 
+#modalBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+}
+
 #cuadroBusqueda {
-    min-width: 574px;
     width: 100%;
     background-color: #0d0c0d00;
 }
@@ -950,7 +1023,6 @@ footer.a {
     color: white;
     background-color: #0d0c0d00;
     border-color: #0d0c0d00;
-    padding-left: 2%;
 }
 
 .separadorBusqueda {
@@ -1282,15 +1354,15 @@ td {
 
 #encabezadoMisEventos {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
 #filtroEvento {
-    display: flex; 
-    align-items: center; 
-    margin-left: auto; 
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
 #filtroCategoriaEvento,

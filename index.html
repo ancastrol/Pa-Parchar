@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="align-self-center">
-                    <button href="#" id="botonEncabezado" onclick="mostrarPantallaBusqueda()">
+                    <button href="#" id="botonEncabezado" onclick="mostrarModalBusqueda()">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
@@ -139,6 +139,35 @@
 
                 </div>
 
+            </div>
+
+            <!--Pagina busqueda-->
+            <div id="modalBusqueda">
+                <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
+                    <div class="p-2 separadorBusqueda">
+                        <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event), mostrarModalBusqueda()">
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
+                            [XX/XX/XXXX]</button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
+                            [XX/XX/XXXX]</button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
+                            [XX/XX/XXXX]</button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
+                            [XX/XX/XXXX]</button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
+                            [XX/XX/XXXX]</button>
+                    </div>
+                </div>
             </div>
 
             <!--Login-->
@@ -1221,44 +1250,6 @@
         </div>
     </template>
 
-    <!--Pagina busqueda-->
-    <template id="busqueda">
-        <!---busqueda--->
-
-        <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
-
-            <div class="p-2 separadorBusqueda">
-                <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)">
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-        </div>
-    </template>
-
     <!--lista de eventos-->
     <template id="eventosOrganizador">
 
@@ -1280,7 +1271,7 @@
                         <option value="2" id="opcionesRol">CONCIERTO</option>
                         <option value="3" id="opcionesRol">CARNAVAL</option>
                     </select>
-                
+
                     <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
                         <option value="0" selected id="estadoEvento" class="option">NOMBRE</option>
                         <option value="1" id="opcionesRol">DESCENDENTE</option>
@@ -1298,7 +1289,7 @@
                         <option value="1" id="opcionesRol">DESCENDENTE</option>
                         <option value="2" id="opcionesRol">ASCENDENTE</option>
                     </select>
-                
+
                 </div>
 
             </div>
@@ -2114,7 +2105,7 @@
                         <option value="2" id="opcionesRol">CONCIERTO</option>
                         <option value="3" id="opcionesRol">CARNAVAL</option>
                     </select>
-                
+
                     <select type="text" class="form-select" id="filtroOrdenEvento" onchange="cambiarColorSelect()">
                         <option value="0" selected id="estadoEvento" class="option">NOMBRE</option>
                         <option value="1" id="opcionesRol">DESCENDENTE</option>
@@ -2132,7 +2123,7 @@
                         <option value="1" id="opcionesRol">DESCENDENTE</option>
                         <option value="2" id="opcionesRol">ASCENDENTE</option>
                     </select>
-                
+
                 </div>
             </div>
 
@@ -2929,12 +2920,10 @@
 
     <!--Evento Detallado-->
     <template id="eventoDetallado">
-
         <div class="d-flex flex-column">
-            <div class="d-flex align-content-center">
-
-                <div class="flex-shrink-0 ">
-                    <div>
+            <div class="d-flex align-content-center flex-wrap">
+                <div class="flex-shrink-0">
+                    <div class="contenedorImagen">
                         <img src="./Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
                     </div>
                     <div id="compraConjunto">
@@ -2944,40 +2933,26 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="flex-grow-1 text-left" id="informacionTexto">
-
-                    <h1 id="tituloEventoDetallado">
-                        TITULO DEL EVENTO
-                    </h1>
-
+                    <h1 id="tituloEventoDetallado">TITULO DEL EVENTO</h1>
                     <div id="datosEventoDetallado">
-
-                        <div class="d-flex justify-content-around">
-
+                        <div class="d-flex justify-content-around flex-wrap">
                             <div class="vertical-line"></div>
-
                             <div class="align-self-center">
                                 <h6>FECHA</h6>
                                 <p id="fechaEvento">XX/XX/XXXX</p>
                             </div>
-
                             <div class="vertical-line"></div>
-
                             <div class="align-self-center">
                                 <h6>HORA</h6>
                                 <p id="horaEvento">00:00:00</p>
                             </div>
-
                             <div class="vertical-line"></div>
-
                             <div class="align-self-center">
                                 <h6> LUGAR</h6>
                                 <p id="lugarEvento">Movistar Arena</p>
                             </div>
-
                             <div class="vertical-line"></div>
-
                             <select type="text" class="form-select" id="seleccionEstadoEvento"
                                 onchange="cambiarColorSelect()">
                                 <option value="0" selected id="estadoEvento" class="option">ESTADO EVENTO</option>
@@ -2986,15 +2961,9 @@
                                 <option value="3" id="opcionesRol">ME GUSTA</option>
                                 <option value="4" id="opcionesRol">NO INTERESADO</option>
                             </select>
-
                             <div class="vertical-line"></div>
-
                         </div>
-
-
-                        <h1 id="tituloDescripEvent">
-                            DESCRIPCIÓN DEL EVENTO
-                        </h1>
+                        <h1 id="tituloDescripEvent">DESCRIPCIÓN DEL EVENTO</h1>
                         <p class="d-inline-flex p-2" id="descripcionEvento">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -3002,7 +2971,6 @@
                             voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                             cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
-
                         <!--Mapa-->
                         <div class="mapouter">
                             <div class="gmap_canvas">
@@ -3011,18 +2979,11 @@
                                     src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=movistar%20arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
                                 <a href="https://strandsgame.net/"></a>
                             </div>
-
                         </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </template>
 
 
@@ -3041,7 +3002,7 @@
 
         <div class="d-flex flex-column">
             <div>
-                <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+                <div class="d-flex align-content-center">
 
                     <div class="flex-shrink-0" id="subirImagenes">
                         <input type="file" id="seleccionar-archivo" style="display: none;">
@@ -3061,7 +3022,7 @@
                         </div>
                     </div>
 
-                    <div class="flex-grow-1 text-left" id="informacionTexto">
+                    <div class="flex-grow-1 text-left" id="subirInformacionTexto">
                         <div id="parrafoDetallado">
 
                             <div class="form-floating" id="ingresoInformacionImput">
@@ -3884,7 +3845,7 @@
         <!--Pantalla Perfil-->
 
         <div class="d-flex bd-highlight" id="containerPerfil">
-            <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo">
+            <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo" >
                 <img src="./Recursos/Img/iconoUser.png" alt="" id="fotoPerfil">
                 <div class="align-content center">
                     <input type="file">
