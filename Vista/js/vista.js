@@ -83,27 +83,39 @@ class Vista {
     }, 3000);
   }
 
-  /**
-   * Funcion para poner recomendaciones en barra de busqueda
-   * 
-   */
-      abrirModal(modal, data) {
-      let pModal = document.getElementById(modal);
-      pModal.style["pointer-events"] = "unset";
-      pModal.style.opacity = 1;
-      //IDs de tus elementos HTML son los siguientes:
-      let barraBusqueda1 = document.getElementById("botonBusqueda1");
-      let barraBusqueda2 = document.getElementById("botonBusqueda2");
-      let barraBusqueda3 = document.getElementById("botonBusqueda3");
-  
-      // Ahora, llenamos los elementos con los datos de la base de datos
-      let evento = data.data;
-      barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
-      barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
-      barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
-    }
+ 
+abrirModal(modal) {
+  let pModal = document.getElementById(modal);
+  pModal.style["pointer-events"] = "unset";
+  pModal.style.opacity = 1;
+  }
 
-
+/**
+ * Funcion para poner recomendaciones en barra de busqueda
+ * @param {id del modal que se quiere abrir} modal 
+ * @param {lista de eventos de la BD} data 
+ */
+abrirModalBusqueda(modal, data) {
+  //abre el modal normalmente
+  let pModal = document.getElementById(modal);
+  pModal.style["pointer-events"] = "unset";
+  pModal.style.opacity = 1;
+  //IDs de tus elementos HTML son los siguientes:
+  let barraBusqueda1 = document.getElementById("botonBusqueda1");
+  let barraBusqueda2 = document.getElementById("botonBusqueda2");
+  let barraBusqueda3 = document.getElementById("botonBusqueda3");
+  //llenar barra de busqueda
+  let evento = data;
+  barraBusqueda1.setAttribute("data-id", evento[0].id_evento)
+  barraBusqueda2.setAttribute("data-id", evento[1].id_evento)
+  barraBusqueda3.setAttribute("data-id", evento[2].id_evento)
+  barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
+  barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
+  barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+  barraBusqueda1.addEventListener("click",mostrarDetalleEvento);
+  barraBusqueda2.addEventListener("click",mostrarDetalleEvento);
+  barraBusqueda3.addEventListener("click",mostrarDetalleEvento);
+  }
 
   /**
    *

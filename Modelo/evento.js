@@ -61,4 +61,11 @@ class Evento extends Connect{
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 
+    searchEvent(dataReq, eventCallback){
+        //var searchTerm = document.getElementById('searchInput').value;
+        const endpoint = 'busqueda';
+        const method = 'POST';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
+
 }

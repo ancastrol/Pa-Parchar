@@ -29,7 +29,7 @@ function volverInicio() {
     id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
     id_usuario = parseInt(id_usuarioStr);
     eventoObj.consultarEventosCarruselUsuario(id_usuario, function (data) {
-      if(data.data.length > 2){
+      if(data.data.length > 0){
         listaEventosCarrusel = data.data;
         vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
       }
@@ -106,6 +106,21 @@ function mostrarDetalleEvento() {
   });
 }
 
+//Busqueda de eventos por input del usuario
+function buscarEvento() {
+  let busqueda = document.getElementById("barraBusqueda").value;
+  let data = {'searchElement': '%'+busqueda+'%'};
+  if (data != "") {
+    eventoObj.searchEvent(data, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenido", listaEventos);
+    });
+  } else {
+    vista.mostrarMensaje(data.ok, data.msj);
+  }
+
+}
+
 function mostrarPerfil(){
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPerfil", "contenido")
@@ -115,7 +130,6 @@ function mostrarPerfil(){
     usuario = data.data;
     vista.mostrarPerfil(usuario)
   });
-
 }
 
 function mostrarIngresarEvento() {
@@ -254,7 +268,7 @@ function mostrarModalBusqueda() {
   if(modalAbierto==false){
       eventoObj.consultarEventosCarrusel({}, function(data){
       lista = data.data;
-      vista.abrirModal("modalBusqueda", data);
+      vista.abrirModalBusqueda("modalBusqueda", lista);
       modalAbierto=true
     });
     }

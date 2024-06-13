@@ -73,13 +73,13 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
+                        <button id="botonCrearcuenta" onclick="cerrarModalLateral(), mostrarModalCrearCuenta()">
                             CREAR CUENTA
                         </button>
                     </div>
 
                     <div class="row justify-content-center">
-                        <button id="botonInciarSesion" onclick="mostrarModalLogin(), cerrarModalLateral()">
+                        <button id="botonInciarSesion" onclick="cerrarModalLateral(), mostrarModalLogin()">
                             INICIAR SESIÓN
                         </button>
                     </div>
@@ -148,7 +148,9 @@
             <div id="modalBusqueda">
                 <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
                     <div class="p-2 separadorBusqueda">
-                        <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {mostrarBusquedaRelacionada(), mostrarModalBusqueda();}">
+                        <form id = "formBusqueda">
+                            <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {buscarEvento(), mostrarModalBusqueda();}">
+                        </form>
                     </div>
                     <div class="p-2 separadorBusqueda">
                         <button class="text-left eventoBusqueda" id = "botonBusqueda1"></button>
