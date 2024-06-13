@@ -9,53 +9,1663 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="icon" type="Img" href="/Recursos/Img/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./Vista/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Vista/css/estilos.css">
-    <link rel="icon" type= "image/x.icon" href="./Recursos/Img/descarga.png">
+    <link rel="icon" type="image/x.icon" href="./Recursos/Img/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Calendario-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
     <!--Contenedor padre-->
     <div class="container" id="container">
 
         <!--Header-->
+
         <header id="header">
             <div class="d-flex justify-content-between">
+
                 <div class="align-self-center">
-                    <button href="#" id="botonEncabezado">
+                    <button href="#" id="botonEncabezado" onclick="mostrarModalLateral()">
                         <i class="material-icons">dehaze</i>
                     </button>
                 </div>
+
                 <div class="align-self-center">
-                    <button href="#" id="papa">
-                        <img src="/Recursos/Img/banner.png" alt="" width="15%">
-                    </button>
+                    <button id="papa" onclick="volverInicio()"><img src="/Recursos/Img/banner.png" alt=""
+                            id="logoHeader"></button>
                 </div>
+
                 <div class="align-self-center">
-                    <button href="#" id="botonEncabezado">
+                    <button href="#" id="botonEncabezado" onclick="mostrarModalBusqueda()">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
+
+            </div>
+            <div id="modalLateral">
+
+                <!--Menú Lateral Sesion No Inciada-->
+                <div class="z-3 d-flex flex-column" id="menuLateral">
+
+                    <div class="d-flex justify-content-end" id="salirMenu">
+                        <button class="d-flex justify-content-start" id="botonMenu" onclick="cerrarModalLateral()">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
+                    </div>
+
+                    <div class="row justify-content-center" id="parrafoRegistro">
+                        <strong class="text-center">INICIA SESIÓN PARA ACCEDER A NUESTROS BENEFICIOS</strong>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
+                            CREAR CUENTA
+                        </button>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <button id="botonInciarSesion" onclick="mostrarModalLogin(), cerrarModalLateral()">
+                            INICIAR SESIÓN
+                        </button>
+                    </div>
+
+                </div>
+
             </div>
 
+            <!--Crear cuenta-->
+            <div class="d-flex justify-content-center" id="modalCrearCuenta">
 
+                <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
+
+                    <button class="d-flex justify-content-end" id="cerrarCrearPerfilUsuario"
+                        onclick="cerrarModalCrearCuenta()">
+                        <i class="material-icons">close</i>
+                    </button>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoCrearPerfilUsuario">
+                    </div>
+
+                    <div class="row justify-content-center" id="tituloCrearPerfilUsuario">
+                        <strong class="text-center">DATOS DE CUENTA:</strong>
+                    </div>
+
+                    <!--formulario de crear cuenta -->
+                    <form id="formRegistro">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="cuadroNombreUsuario"
+                                placeholder="NOMBRE USUARIO" name="nombre">
+                        </div>
+
+                        <select type="text" class="form-select" id="seleccioneRol" onchange="cambiarColorSelect()">
+                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
+                            <option value="1" id="opcionesRol">USUARIO</option>
+                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
+                        </select>
+
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfil"
+                                placeholder="CORREO ELECTRONICO" name="correo">
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfil"
+                                placeholder="CONTRASEÑA" name="contrasenia">
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfil"
+                                placeholder=" CONFIRMAR CONTRASEÑA" name="contrasenia">
+                        </div>
+                    </form>
+
+                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
+                        onclick="registrarUsuario()">
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR CUENTA</strong>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!--Modal busqueda-->
+            <div id="modalBusqueda">
+                <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
+                    <div class="p-2 separadorBusqueda">
+                        <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {mostrarBusquedaRelacionada(), mostrarModalBusqueda();}">
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda1"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda2"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id = "botonBusqueda3"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Login-->
+            <div id="modalLogin">
+                <div class=" d-flex flex-column align-items-center" id="login">
+
+                    <button class="d-flex justify-content-end" id="cerrarLogin" onclick="cerrarModalLogin()">
+                        <i class="material-icons">close</i>
+                    </button>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
+                    </div>
+
+                    <div class="d-flex justify-content-center" id="separadorLogin">
+                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
+                    </div>
+
+                    <form id="formLogin">
+
+                        <div>
+                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
+                                name="correo">
+                        </div>
+
+                        <div>
+                            <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
+                                name="contrasenia" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'cuadroContrasenia') {iniciarSesion();}">
+                        </div>
+                    </form>
+
+                    <button class="d-flex justify-content-center" id="botonIniciarSesion" onclick="iniciarSesion()">
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">INICIAR SESION</strong>
+                    </button>
+
+
+                    <div class="row justify-content-center">
+                        <p class="overflow-visible" id="subTerminosLogin"><a href="#">¿olvidaste tu contraseña?</a></p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <p class="overflow-visible" id="terminosLogin">Al registrarme o iniciar sesión, acepto los <a
+                                href="#" onclick="mostrarTerminosCondiciones(), cerrarModalLogin()">Términos del
+                                Servicio</a> Pa’Parchar
+                            y <a href="#" onclick="mostrarPoliticasPrivacidad(),cerrarModalLogin()">la Política de
+                                Privacidad</a>, confirmo que tengo 18 años de edad o más y
+                            acepto recibir comunicaciones por correo electrónico.
+                        </p>
+                    </div>
+
+
+                    <div class="row justify-content-center">
+                        <p class="overflow-visible" id="subTerminosLogin">¿no tienes cuenta pa’ parchar? <a href="#"
+                                onclick="mostrarModalCrearCuenta(), cerrarModalLogin()">¡regístrate ahora!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Barra lateral sesion iniciada-->
+            <div class="d-flex justify-content-center" id="modalLateralSesionIniciada">
+
+                <div class="d-flex flex-column" id="menuLateralSesionIniciada">
+
+                    <div class="d-flex justify-content-start" id="salirMenu">
+                        <button class="d-flex justify-content-start" id="botonMenu"
+                            onclick="cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
+                    </div>
+
+                    <div class="d-flex justify-content-center flex-column" id="opcionesMenu">
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarPerfil(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">account_box</i>
+                            <strong class="align-self-center text-btn-despl">PERFIL</strong>
+                        </button>
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">event</i>
+                            <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
+                        </button>
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarEventosOrganizador(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">label_outline</i>
+                            <strong class="align-self-center text-btn-despl">VER MIS EVENTOS</strong>
+                        </button>
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarIngresarEvento(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">label_outline</i>
+                            <strong class="align-self-center text-btn-despl">NUEVO EVENTO</strong>
+                        </button>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <button href="#" id="botonCerrarSesion"
+                            onclick="cerrarSesion()">
+                            CERRAR SESIÓN
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </header>
 
         <!--Main-->
-    <main>
-            <!--Login-->
-            <div class="modalUrl">
 
-            <!--Menú Lateral Sesion No Inciada-->
-            <div class="z-3 d-flex flex-column" id="menuLateral">
+        <main id="contenido">
 
-                <div class="d-flex justify-content-end" id="salirMenu">
-                    <button class="d-flex justify-content-start" id="botonMenu" onclick="volverInicio()">
+        </main>
+
+        <!--Footer-->
+
+        <footer class="container_pie" id="footer">
+
+            <div class="d-flex justify-content-around bd-highlight">
+                <div class="d-flex justify-content-start">
+                    <p><strong>Ticket Fast S.A.S</strong>
+                        <br>
+                        NIT. XXX.XXX.XXX-X
+                        <br>
+                        <br>
+                        <strong>Contact Center</strong>
+                        <br>
+                        (60-1) XXX-XXXX
+                    </p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p><strong>Ayuda:</strong>
+                        <br>
+                        <a href="#">Contáctanos - PQRS</a>
+                        <br>
+                        <a href="#">Preguntas frecuentes</a>
+                        <br>
+                        <a href="#">Pa'Parchar Te Cuenta</a>
+                    </p>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <p><strong>Legal:</strong>
+                        <br>
+                        <a href="#">Asistencia Pa'Parchar</a>
+                        <br>
+                        <a href="#">Política de privacidad</a>
+                        <br>
+                        <a href="#">Términos de uso</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-between">
+                    <strong>Síguenos en:</strong>
+                    <button id="botonRed" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                            viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M25,3c-12.15,0 -22,9.85 -22,22c0,11.03 8.125,20.137 18.712,21.728v-15.897h-5.443v-5.783h5.443v-3.848c0,-6.371 3.104,-9.168 8.399,-9.168c2.536,0 3.877,0.188 4.512,0.274v5.048h-3.612c-2.248,0 -3.033,2.131 -3.033,4.533v3.161h6.588l-0.894,5.783h-5.694v15.944c10.738,-1.457 19.022,-10.638 19.022,-21.775c0,-12.15 -9.85,-22 -22,-22z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="botonRed" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                            viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M16,3c-7.17,0 -13,5.83 -13,13v18c0,7.17 5.83,13 13,13h18c7.17,0 13,-5.83 13,-13v-18c0,-7.17 -5.83,-13 -13,-13zM37,11c1.1,0 2,0.9 2,2c0,1.1 -0.9,2 -2,2c-1.1,0 -2,-0.9 -2,-2c0,-1.1 0.9,-2 2,-2zM25,14c6.07,0 11,4.93 11,11c0,6.07 -4.93,11 -11,11c-6.07,0 -11,-4.93 -11,-11c0,-6.07 4.93,-11 11,-11zM25,16c-4.96,0 -9,4.04 -9,9c0,4.96 4.04,9 9,9c4.96,0 9,-4.04 9,-9c0,-4.96 -4.04,-9 -9,-9z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="botonRed" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
+                            viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!--Plantillas-->
+
+    <!--Pagina principal-->
+    <template id="paginaPrincipal">
+
+        <!--Evento recomendado-->
+        <div id="carouselExampleCaptions" class="carousel slide" id="contenidoCarrusel">
+            <div class="z-1 carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner" id="contenidoCarrusel">
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button> 
+        </div>
+
+        <hr size="8px" color="#4F4F4F" />
+
+        <!--contenedor en el que se cargan eventos desde BD-->
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
+        </div>
+
+        <hr size="8px" color="#4F4F4F" />
+
+        <!--Ver más eventos-->
+        <div class="row justify-content-center">
+            <button id="botonSig" onclick="mostrarMasEventos()">
+                VER MÁS EVENTOS
+            </button>
+        </div>
+    </template>
+
+    <!--Ver Mas eventos-->
+    <template id="MasEventos">
+
+        <hr size="8px" color="#4F4F4F" />
+
+
+        <!--contenedor en el que se cargan eventos desde BD-->
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
+        </div>
+
+        <hr size="8px" color="#4F4F4F" />
+
+        <!--Ver más eventos-->
+        <div class="row justify-content-center">
+            <button href="#" id="botonSig" onclick="volverInicio()">
+                VOLVER A INICIO
+            </button>
+        </div>
+
+    </template>
+
+    <!--Card eventos pequeños-->
+    <template id="cardEvento">
+
+        <div class="card" id="cardEvento">
+            <button id="botonEvento">
+                <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
+                <div class="card-body">
+                    <h5 class="nombreEvento">
+                        <strong>TITULO DEL EVENTO</strong>
+                    </h5>
+                    <p class="descripcionEvento">
+                        LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET. (DESCRIPCIÓN)
+                        <br>
+                        XX/XX/XXXX XX:XX
+                    </p>
+                </div>
+            </button>
+        </div>
+
+    </template>
+
+    <!--lista de eventos-->
+    <template id="eventosOrganizador">
+
+        <div class="d-flex flex-column" style="padding: 4%;">
+
+            <div class="d-flex mb-0">
+
+                <div class="d-flex me-auto p-2">
+                    <i class="material-icons align-self-start">
+                        format_list_bulleted
+                    </i>
+
+                    <strong class="align-self-center" style="font-size: 1rem;">
+                        TUS EVENTOS
+                    </strong>
+                </div>
+
+                <div class="p-2">
+                    <button>
+                        <i class="material-icons align-self-center">
+                            filter_list
+                        </i>
+                    </button>
+                </div>
+
+                <div class="p-2">
+                    <button>
+                        <i class="material-icons align-self-center">
+                            more_horiz
+                        </i>
+                    </button>
+                </div>
+
+            </div>
+
+            <div id = "contenedorMisEventos">
+
+            </div>
+
+
+        </div>
+
+    </template>
+
+    <!--Busqueda Relacionada-->
+    <template id="busquedaRelacionada">
+
+        <div class="d-flex flex-column" style="padding: 4%;">
+
+            <div class="d-flex justify-content-center">
+
+                <button class="align-self-start">
+                    <i class="material-icons">
+                        search
+                    </i>
+                </button>
+
+                <p class="align-self-center" style="font-size: 0.8rem;">
+                    BUSQUEDA RELACIONADA:
+                    <strong style="font-size: 1rem;">
+                        EVENTO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                    </strong>
+                </p>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoa.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventob.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoc.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventod.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoe.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventof.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventog.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoh.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoi.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoj.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventok.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventol.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventom.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventon.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventoo.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+            <div>
+
+                <button class="p-2" id="botonEvento">
+                    <div class="d-flex">
+                        <div class="p-2 flex-grow-1 align-self-center">
+                            <img src="./Recursos/Img/eventop.png" alt="" id="eventoOrganizador">
+                        </div>
+
+                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
+
+                            <h6 id=tituloOrganizador>
+                                <strong>TITULO DEL EVENTO</strong>
+                            </h6>
+
+                            <p id=parrafoOrganizador>
+                                FECHA
+                                <br>
+                                XX/XX/XXXX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                HORA
+                                <br>
+                                XX:XX
+                            </p>
+
+                            <p id=parrafoOrganizador>
+                                CATEGORIAS
+                                <br>
+                                CONCIERTO CON BOLETERIA
+                            </p>
+
+                        </div>
+
+                        <div class="p-2 align-self-center text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+
+                    </div>
+                </button>
+
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+        </div>
+
+    </template>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Evento Detallado-->
+    <template id="eventoDetallado">
+
+        <div class="d-flex flex-column">
+            <div class="d-flex align-content-center">
+
+                <div class="flex-shrink-0 ">
+                    <div>
+                        <img src="" alt="" id="imgDetalle">
+                    </div>
+                    <div id="compraConjunto">
+                        <p>Adquiere tu boleta aqui</p>
+                        <button id="compraBtn">
+                            <p id="ACT">Compra</p>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-grow-1 text-left" id="informacionTexto">
+
+                    <h1 id="tituloEvento">
+                    </h1>
+
+                    <div id="datosEventoDetallado">
+
+                        <div class="d-flex justify-content-around">
+
+                            <div class="vertical-line"></div>
+
+                            <div class="align-self-center">
+                                <h6>FECHA</h6>
+                                <p id="fechaEvento"></p>
+                            </div>
+
+                            <div class="vertical-line"></div>
+
+                            <div class="align-self-center">
+                                <h6>HORA</h6>
+                                <p id="horaEvento"></p>
+                            </div>
+
+                            <div class="vertical-line"></div>
+
+                            <div class="align-self-center">
+                                <h6> LUGAR</h6>
+                                <p id="lugarEvento"></p>
+                            </div>
+
+                            <div class="vertical-line"></div>
+
+                            <select type="text" class="form-select" id="seleccionEstadoEvento"
+                                onchange="cambiarColorSelect()">
+                                <option value="0" selected id="estadoEvento" class="option">ESTADO EVENTO</option>
+                                <option value="1" id="opcionesRol">ASISTIDO</option>
+                                <option value="2" id="opcionesRol">ASISTIRÉ</option>
+                                <option value="3" id="opcionesRol">ME GUSTA</option>
+                                <option value="4" id="opcionesRol">NO INTERESADO</option>
+                            </select>
+
+                            <div class="vertical-line"></div>
+
+                        </div>
+
+
+                        <h1 id="tituloDescripEvent">
+                            DESCRIPCIÓN DEL EVENTO
+                        </h1>
+                        <p class="d-inline-flex p-2" id="descripEvento">
+                        </p>
+
+                        <!--Mapa-->
+                        <div class="mapouter">
+                            <div class="gmap_canvas">
+                                <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
+                                    marginwidth="0"
+                                    src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=movistar%20arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                <a href="https://strandsgame.net/"></a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </template>
+
+
+    <!--Ingresar Evento-->
+    <template id="ingresarEvento">
+
+        <!--Ventana emergente-->
+        <div class="z-3" id="modalUrl">
+            <div id="modal_container">
+                <h2 id="modal_title">Coloca la dirección de compra</h2>
+                <input type="text" id="agregarUrl">
+                <button id="modal_close" onclick="cerrarModal()">Enviar</button>
+                <button id="cerrarModal" onclick="cerrarModal()">X</button>
+            </div>
+        </div>
+
+        <!--Principal ingresar evento-->
+        <div class="d-flex flex-column" style="padding: 2% 10%;">
+            <div>
+                <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+
+                    <div class="flex-shrink-0" id="subirImagenes">
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                        </button>
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
+                        </button>
+                        <div id="compraConjunto">
+                            <p>Adquiere tu boleta aqui</p>
+                            <button id="compraBtn" onclick="mostrarModal()">
+                                <p id="ACT">LINK DE COMPRA</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex-grow-1 text-left" id="informacionTexto">
+                        <div id="parrafoDetallado">
+
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
+                                </label>
+
+                            </div>
+
+                            <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
+
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>FECHA</h6>
+                                    </label>
+                                </div>
+
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="HORA"
+                                        aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea">
+                                        <h6>HORA</h6>
+                                    </label>
+                                </div>
+
+                                <div class="form-floating" id="ingresoInformacionImput">
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>LUGAR</h6>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DIRECCION</h6>
+                                </label>
+                            </div>
+
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DISPONIBILIDAD</h6>
+                                </label>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+    </template>
+
+    <!--Terminos y condiciones-->
+    <template id="pantallaTerminosYCondiciones">
+        <!--Terminos y condiciones-->
+        <div>
+
+            <div class="text-center">
+                <br>
+                <h2>TÉRMINOS Y CONDICIONES DE USO:</h2>
+            </div>
+
+            <hr size="8px" color="#4F4F4F" />
+
+            <div class="d-flex align-content-center" id="terminosYCondiciones">
+                <p>
+                    Bienvenido a Pa parchar. Este Sitio es propiedad y está operado por [Nombre de la Empresa]. Al
+                    acceder y utilizar este Sitio, usted acepta cumplir y quedar sujeto a los siguientes términos y
+                    condiciones de uso. Si no está de acuerdo con estos términos y condiciones, por favor no utilice
+                    este Sitio.
+
+                    <br><br>
+                    <strong>1. Uso del Sitio:</strong>
+                    <br><br>
+
+                    1.1. El contenido de este Sitio es proporcionado únicamente con fines informativos y de
+                    entretenimiento. La información presentada aquí se basa en opiniones, recomendaciones y
+                    comentarios
+                    de terceros, y no garantizamos la exactitud, integridad o actualidad de dicha información.
+
+                    1.2. Usted acepta utilizar este Sitio únicamente para fines lícitos y de acuerdo con todas las
+                    leyes, regulaciones y normativas aplicables.
+
+                    <br><br>
+                    <strong>2. Propiedad Intelectual:</strong>
+                    <br><br>
+
+                    2.1. Todo el contenido disponible en este Sitio, incluyendo pero no limitado a texto, gráficos,
+                    logotipos, imágenes, videos, software y código fuente, está protegido por las leyes de propiedad
+                    intelectual y son propiedad de [Nombre de la Empresa] o de sus licenciantes.
+
+                    2.2. Usted se compromete a no reproducir, distribuir, modificar, crear trabajos derivados,
+                    mostrar
+                    públicamente, transmitir, vender o explotar de cualquier manera el contenido de este Sitio sin
+                    la
+                    autorización previa por escrito de [Nombre de la Empresa].
+
+                    <br><br>
+                    <strong>3. Enlaces a Terceros:</strong>
+                    <br><br>
+
+                    3.1. Este Sitio puede contener enlaces a sitios web de terceros que no están bajo nuestro
+                    control.
+                    Estos enlaces se proporcionan únicamente para su conveniencia y no implican una aprobación por
+                    parte
+                    de Pa Parchar del contenido de dichos sitios web.
+
+                    3.2. Pa Parchar no asume ninguna responsabilidad por el contenido, políticas de
+                    privacidad o prácticas de cualquier sitio web de terceros al que se acceda a través de enlaces
+                    en
+                    este Sitio.
+
+                    <br><br>
+                    <strong>4. Limitación de Responsabilidad:</strong>
+                    <br><br>
+
+                    4.1. En la máxima medida permitida por la ley aplicable, Pa Parchar no será responsable
+                    por ningún daño directo, indirecto, incidental, especial, consecuente o punitivo que surja del
+                    uso o
+                    la imposibilidad de uso de este Sitio.
+
+                    4.2. Pa Parchar no garantiza que este Sitio esté libre de errores, virus u otros
+                    componentes dañinos, y no será responsable por cualquier daño o pérdida que pueda surgir del
+                    acceso
+                    no autorizado o de la interrupción del Sitio.
+
+                    <br><br>
+                    <strong>5. Modificaciones de los Términos y Condiciones:</strong>
+                    <br><br>
+
+                    5.1. Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento y
+                    a
+                    nuestra sola discreción. Se le notificarán los cambios a estos términos y condiciones mediante
+                    la
+                    publicación de la versión actualizada en este Sitio.
+
+                    <br><br>
+                    <strong>6. Ley Aplicable:</strong>
+                    <br><br>
+
+                    6.1. Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes del [país
+                    o
+                    estado], sin tener en cuenta sus disposiciones sobre conflictos de leyes.
+
+                    <br><br>
+                    <strong>7. Contacto:</strong>
+                    <br><br>
+
+                    7.1. Si tiene alguna pregunta o inquietud sobre estos términos y condiciones, puede ponerse en
+                    contacto con nosotros a través de paparchar1569@mail.com.
+                </p>
+            </div>
+
+            <hr size="8px" color="#4F4F4F" />
+
+            <div id="derechosTerminosYCondiciones">
+                <p><strong>Todos los derechos reservados: </strong> ©Pa Parchar</p>
+            </div>
+
+        </div>
+    </template>
+
+    <!--Calendario-->
+    <template id="calendarioTemplate">
+        <h1>Calendario</h1>
+        <div id="calendar"></div>
+
+        <script>
+            function crearCalendario(year, month) {
+                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+                var fecha = new Date(year, month - 1, 1);
+                var diasEnMes = new Date(year, month, 0).getDate();
+                var primerDiaSemana = fecha.getDay();
+
+                var table = '<table><tr>';
+                for (var i = 0; i < diasSemana.length; i++) {
+                    table += '<th>' + diasSemana[i] + '</th>';
+                }
+                table += '</tr><tr>';
+
+                var dia = 1;
+                for (var j = 0; j < 42; j++) {
+                    if (j >= primerDiaSemana && dia <= diasEnMes) {
+                        table += '<td>' + dia + '</td>';
+                        dia++;
+                    } else {
+                        table += '<td></td>';
+                    }
+
+                    if (j % 7 == 6) {
+                        table += '</tr><tr>';
+                    }
+                }
+
+                table += '</tr></table>';
+                document.getElementById('calendar').innerHTML = table;
+            }
+
+            // Ejemplo: Mostrar el calendario del mes actual
+            var fechaActual = new Date();
+            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
+        </script>
+    </template>
+
+    <!--Pagina Principal Sesion Iniciada-->
+    <template id="paginaSesionIniciada">
+        <!--Menú Lateral Sesion Inciada-->
+        <div class="d-flex justify-content-center" id="modalUrl">
+
+            <div class="d-flex flex-column" id="menuLateral">
+
+                <div class="d-flex justify-content-start" id="salirMenu">
+                    <button class="d-flex justify-content-start" id="botonMenu" href="#">
                         <i class="material-icons">close</i>
                     </button>
                 </div>
@@ -64,28 +1674,40 @@
                     <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
                 </div>
 
-                <div class="row justify-content-center" id="parrafoRegistro">
-                    <strong class="text-center">INICIA SESIÓN PARA ACCEDER A NUESTROS BENEFICIOS</strong>
+                <hr size="2px" color="#4F4F4F" />
+
+                <div class="d-flex justify-content-center flex-column" id="opcionesMenu">
+
+                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
+                        <i class="material-icons">account_box</i>
+                        <strong class="align-self-center text-btn-despl">PERFIL</strong>
+                    </button>
+
+                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
+                        <i class="material-icons">event</i>
+                        <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
+                    </button>
+
+                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
+                        <i class="material-icons">label_outline</i>
+                        <strong class="align-self-center text-btn-despl">CATEGORIAS</strong>
+                    </button>
+
                 </div>
+
+                <hr size="2px" color="#4F4F4F" />
 
                 <div class="row justify-content-center">
-                    <button href="#" id="botonCrearcuenta">
-                        CREAR CUENTA
+                    <button href="#" id="botonCerrarSesion">
+                        CERRAR SESIÓN
                     </button>
                 </div>
-
-                <div class="row justify-content-center">
-                    <button href="#" id="botonInciarSesion">
-                        INICIAR SESIÓN
-                    </button>
-                </div>
-
             </div>
 
         </div>
         <!--Evento recomendado-->
         <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
+            <div class="z-1 carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -542,1018 +2164,220 @@
 
         <!--Ver más eventos-->
         <div class="row justify-content-center">
-            <button href="#" id="botonSig">
+            <button id="botonSig" onclick="mostrarMasEventos()">
                 VER MÁS EVENTOS
             </button>
         </div>
+    </template>
 
+    <!--Pagina Principal Sesion Iniciada-->
+    <template id="pantallaPoliticaPrivacidad">
+        <!--Poilitica de Privacidad-->
+        <div>
 
-        <!--Footer-->
-        <footer class="container_pie" id="footer">
-
-            <div class="d-flex justify-content-around bd-highlight">
-                <div class="d-flex justify-content-start">
-                    <p><strong>Ticket Fast S.A.S</strong>
-                        <br>
-                        NIT. XXX.XXX.XXX-X
-                        <br>
-                        <br>
-                        <strong>Contact Center</strong>
-                        <br>
-                        (60-1) XXX-XXXX
-                    </p>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <p><strong>Ayuda:</strong>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Contáctanos - PQRS</a>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Preguntas frecuentes</a>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Pa'Parchar Te Cuenta</a>
-                    </p>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <p><strong>Legal:</strong>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Asistencia Pa'Parchar</a>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Política de privacidad</a>
-                        <br>
-                        <a href="#" id="opcionesPiePagina">Términos de uso</a>
-                    </p>
-                </div>
+            <div class="text-center">
+                <br>
+                <h2>POLITICA DE PRIVACIDAD:</h2>
             </div>
 
-            <div class="d-flex justify-content-center">
-                <div class="d-flex justify-content-between">
-                    <strong>Síguenos en:</strong>
-                    <button id="botonRed" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
-                            viewBox="0,0,256,256">
-                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.12,5.12)">
-                                    <path
-                                        d="M25,3c-12.15,0 -22,9.85 -22,22c0,11.03 8.125,20.137 18.712,21.728v-15.897h-5.443v-5.783h5.443v-3.848c0,-6.371 3.104,-9.168 8.399,-9.168c2.536,0 3.877,0.188 4.512,0.274v5.048h-3.612c-2.248,0 -3.033,2.131 -3.033,4.533v3.161h6.588l-0.894,5.783h-5.694v15.944c10.738,-1.457 19.022,-10.638 19.022,-21.775c0,-12.15 -9.85,-22 -22,-22z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
-                    <button id="botonRed" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
-                            viewBox="0,0,256,256">
-                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.12,5.12)">
-                                    <path
-                                        d="M16,3c-7.17,0 -13,5.83 -13,13v18c0,7.17 5.83,13 13,13h18c7.17,0 13,-5.83 13,-13v-18c0,-7.17 -5.83,-13 -13,-13zM37,11c1.1,0 2,0.9 2,2c0,1.1 -0.9,2 -2,2c-1.1,0 -2,-0.9 -2,-2c0,-1.1 0.9,-2 2,-2zM25,14c6.07,0 11,4.93 11,11c0,6.07 -4.93,11 -11,11c-6.07,0 -11,-4.93 -11,-11c0,-6.07 4.93,-11 11,-11zM25,16c-4.96,0 -9,4.04 -9,9c0,4.96 4.04,9 9,9c4.96,0 9,-4.04 9,-9c0,-4.96 -4.04,-9 -9,-9z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
-                    <button id="botonRed" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
-                            viewBox="0,0,256,256">
-                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.12,5.12)">
-                                    <path
-                                        d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z">
-                                    </path>
-                                </g>
-                            </g>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </footer>
+            <hr size="10px" color="#4F4F4F" />
 
-        <div class="d-flex justify-content-center" id="modalUrl">
-        </div>
+            <div class="d-flex align-content-center" id="terminosYCondiciones">
+                <p>
+                    Esta página le informa sobre nuestras políticas con respecto a la recopilación, el uso y la
+                    divulgación de datos personales cuando utiliza nuestro Servicio y las opciones que tiene asociadas a
+                    esos datos.
 
-    </div>
-    </main>
-    <!--Pantalla ver más eventos-->
-    <template id="pantallaPrincipalConMasEventos">
+                    Utilizamos sus datos para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted acepta
+                    la recopilación y el uso de información de acuerdo con esta política. A menos que se defina de otro
+                    modo en esta Política de Privacidad, los términos utilizados en esta Política de Privacidad tienen
+                    los mismos significados que en nuestros Términos y Condiciones, disponibles en [URL de los términos
+                    y condiciones].
 
-        <main>
+                    <br><br>
+                    <strong>Tipos de Datos Recopilados:</strong>
+                    <br><br>
 
-            <!--Eventos pequeños-->
-            <div class="d-flex align-content-between flex-wrap justify-content-around">
+                    <strong>Datos Personales:</strong>
+                    <br><br>
 
-                <div class="card " id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    Mientras utiliza nuestro Servicio, es posible que le pidamos que nos proporcione cierta información
+                    personalmente identificable que pueda utilizarse para contactarlo o identificarlo ("Datos
+                    personales"). La información personalmente identificable puede incluir, entre otras cosas:
 
-                <div class="card " id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventob.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    <br><br>
+                    <strong>Datos de Uso:</strong>
+                    <br><br>
 
-                <div class="card " id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoc.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    También podemos recopilar información sobre cómo se accede y se utiliza el Servicio ("Datos de
+                    uso"). Estos Datos de uso pueden incluir información como la dirección del protocolo de Internet de
+                    su computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de
+                    nuestro Servicio que visita, la hora y la fecha de su visita, el tiempo que pasa en esas páginas,
+                    identificadores de dispositivo y otros datos de diagnóstico.
 
-                <div class="card " id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventod.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    <br><br>
+                    <strong>Seguimiento y Cookies de Datos</strong>
+                    <br><br>
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoe.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    4.1. En la máxima medida permitida por la ley aplicable, Pa Parchar no será responsable
+                    por ningún daño directo, indirecto, incidental, especial, consecuente o punitivo que surja del
+                    uso o
+                    la imposibilidad de uso de este Sitio.
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventof.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    4.2. Pa Parchar no garantiza que este Sitio esté libre de errores, virus u otros
+                    componentes dañinos, y no será responsable por cualquier daño o pérdida que pueda surgir del
+                    acceso
+                    no autorizado o de la interrupción del Sitio.
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventog.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    <br><br>
+                    <strong>Seguimiento y Cookies de Datos</strong>
+                    <br><br>
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoh.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro
+                    Servicio y mantener cierta información.
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoi.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    <br><br>
+                    <strong>Cambios a esta Política de Privacidad</strong>
+                    <br><br>
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoj.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    Le recomendamos que revise esta Política de Privacidad periódicamente para ver si hay cambios. Los
+                    cambios a esta Política de Privacidad son efectivos cuando se publican en esta página.
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventok.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    <br><br>
+                    <strong>Contacto:</strong>
+                    <br><br>
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventol.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    Si tiene alguna pregunta sobre esta Política de Privacidad, puede contactarnos:
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventom.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
+                    - Por correo electrónico: [Dirección de correo electrónico]
+                    - Visitando esta página en nuestro sitio web: [URL de contacto]
 
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventon.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoo.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventop.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventoq.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventor.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventos.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventot.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventou.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventov.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventow.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="card" id="cardEvento">
-                    <button id="botonEvento">
-                        <img src="./Recursos/Img/eventox.png" alt="" id="eventoA">
-                        <div class="card-body">
-                            <h5 id=tituloE>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h5>
-                            <p id=parrafoE>
-                                LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-                        </div>
-                    </button>
-                </div>
-
+                </p>
             </div>
 
             <hr size="8px" color="#4F4F4F" />
 
-            <!--Ver más eventos-->
-            <div class="row justify-content-center">
-                <button href="#" id="botonSig">
-                    VER MÁS EVENTOS
-                </button>
-            </div>
-
-        </main>
-
-    </template>
-
-    <!--Busqueda-->
-    <template id="pantallaPrincipalConBusqueda">
-
-        <!---busqueda--->
-        <div class="d-flex justify-content-center" id="modalUrl">
-
-            <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
-
-                <div class="p-2 separadorBusqueda">
-                    <input type="text" id="barraBusqueda">
-                </div>
-
-                <div class="p-2 separadorBusqueda">
-                    <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                        [XX/XX/XXXX]</button>
-                </div>
-
-                <div class="p-2 separadorBusqueda">
-                    <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                        [XX/XX/XXXX]</button>
-                </div>
-
-                <div class="p-2 separadorBusqueda">
-                    <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                        [XX/XX/XXXX]</button>
-                </div>
-
-                <div class="p-2 separadorBusqueda">
-                    <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                        [XX/XX/XXXX]</button>
-                </div>
-
-                <div class="p-2 separadorBusqueda">
-                    <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                        [XX/XX/XXXX]</button>
-                </div>
-
+            <div id="derechosTerminosYCondiciones">
+                <p><strong>Todos los derechos reservados: </strong> ©Pa Parchar</p>
             </div>
 
         </div>
-
     </template>
 
-    <!--Menú Lateral Sesion No Inciada-->
-    <template id="pantallaPrincipalConmenuLateralSesionNoIniciada">
-
-        <!---Menu Lateral Sesion No Iniciada--->
-        <div class="d-flex justify-content-center" id="modalUrl">
-
-            <!--Menú Lateral Sesion No Inciada-->
-            <div class="d-flex flex-column" id="menuLateral">
-
-                <div class="d-flex justify-content-end" id="salirMenu">
-                    <button class="d-flex justify-content-start" id="botonMenu" href="#">
-                        <i class="material-icons">close</i>
-                    </button>
+    <!--Pagina Perfil-->
+    <template id="pantallaPerfil">
+        
+            <!--Pantalla Perfil-->
+    
+            <div class = "d-flex bd-highlight" id="containerPerfil">
+                <div class = "p-2 flex-fill bd-highlight" id="lateralIzquierdo">
+                    <img src="" class="d-block w-100" alt="" id="fotoPerfil">
+                    <div class ="align-content space-between">
+                        <input type="file">
+                    </div>
                 </div>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
-                </div>
-
-                <div class="row justify-content-center" id="parrafoRegistro">
-                    <strong class="text-center">INICIA SESIÓN PARA ACCEDER A NUESTROS BENEFICIOS</strong>
-                </div>
-
-                <div class="row justify-content-center">
-                    <button href="#" id="botonCrearcuenta">
-                        CREAR CUENTA
-                    </button>
-                </div>
-
-                <div class="row justify-content-center">
-                    <button href="#" id="botonInciarSesion">
-                        INICIAR SESIÓN
-                    </button>
-                </div>
-
+                
+        <!--seccion nombre perfil-->
+               
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "LateralDerecho">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1>TU NOMBRE</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p id = "nombrePerfil"></p>
+                        </div>
+                        <button id ="btnPerfil" onclick="mostrarModalNombre()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                            <h1>TU CORREO</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p id="correoPerfil"></p>
+                        </div>
+                        <button id = "btnPerfil" onclick="mostrarModalEmail()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal">
+                        <div class="p-2 bd-highlight" id ="tituloPerfil">
+                            <h1>Contraseña</h1>
+                        </div>
+                        <div id="perfilFontP">
+                            <p>Cambiar tu contraseña en cualquier momento</p>
+                        </div>
+                        <button id ="btnPerfil" onclick="mostrarModalContraseña()"><h4>CAMBIAR</h1></button>
+                        <hr id="lineasHorizantal2">
+                </div>    
             </div>
-
-        </div>
-
-    </template>
-
-    <!--Seleccion de Rol-->
-    <template id="pantallaPrincipalConcuadroSeleccionRol">
-
-        <!--Seleccion de Rol-->
-        <div class="d-flex justify-content-center" id="modalUrl">
-
-            <!--Seleccion de Rol-->
-            <div class=" d-flex flex-column align-items-center" id="seleccionRol">
-
-                <button class="d-flex justify-content-end" id="cerrarSeleccionRol" href="#">
-                    <i class="material-icons">close</i>
-                </button>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
+             <!--modal Nombre-->
+    
+            <div id="contModalNombre">
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilNombre">
+                    <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1 class="modalTitle">TU NOMBRE</h1>
+                    </div>
+                        <p>Tu nombre es:XXXXXXXXXX</p>
+                        <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" >
+                    
+                    <div class = "d-flex justify-content-around">
+                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>CANCELAR</h1></button>
+                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>GUARDAR</h1></button>
+                    </div>
                 </div>
-
-                <div class="row justify-content-center" id="tituloRol">
-                    <strong class="text-center">¿QUIEN ERES?</strong>
-                </div>
-
-                <div class="row justify-content-center">
-                    <p class="overflow-visible" id="especifiqueRol">ELIGE EL TIPO DE CUENTA CON LA QUE QUIERES CREAR</p>
-                </div>
-
-                <button class="d-flex justify-content-center" id="botonRolUsuario" href="#">
-                    <i class="material-icons">account_box</i>
-                    <strong class="align-self-center text-btn-despl" id="opcionesMenu">USUARIO</strong>
-                </button>
-
-                <div class="d-flex justify-content-center" id="separadorRolOrganizador">
-                    <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorRol">
-                </div>
-
-                <button class="d-flex justify-content-center" id="botonRolOrganizador" href="#">
-                    <i class="material-icons">business_center</i>
-                    <strong class="align-self-center text-btn-despl" id="opcionesMenu">ORGANIZADOR</strong>
-                </button>
             </div>
+               
+            <!--Modal email -->
 
-        </div>
-
-    </template>
-
-    <!--Menú Lateral Sesion Inciada-->
-    <template id="pantallaPrincipalConmenuLateralSesionIniciada">
-
-        <!--Menú Lateral Sesion Inciada-->
-        <div class="d-flex justify-content-center" id="modalUrl">
-
-            <div class="d-flex flex-column" id="menuLateral">
-
-                <div class="d-flex justify-content-start" id="salirMenu">
-                    <button class="d-flex justify-content-start" id="botonMenu" href="#">
-                        <i class="material-icons">close</i>
-                    </button>
+            <div id="contModalEmail">    
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilEmail">
+                    <div class="p-2 bd-highlight" id ="tituloPerfil">
+                        <h1>TU EMAIL</h1>
+                    </div>
+                        <p>Tu email es:XXXX@email.com</p>
+                        <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
+                    <div class="d-flex justify-content-around">
+                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>CANCELAR</h1></button>
+                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>GUARDAR</h1></button>
+                    </div>
+                </div>  
+            </div>     
+    
+            
+    
+    
+            <!--modal contraseña--> 
+                
+            <div id="contModalContraseña">
+                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilContraseña">
+                
+                <div class="p-2 bd-highlight" id ="tituloPerfil">
+                    <h1>Contraseña</h1>
                 </div>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
-                </div>
-
-                <hr size="2px" color="#4F4F4F" />
-
-                <div class="d-flex justify-content-center flex-column" id="opcionesMenu">
-
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">account_box</i>
-                        <strong class="align-self-center text-btn-despl">PERFIL</strong>
+                
+                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
+                
+                <hr id="lineasHorizantal">
+                
+                        <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
+                        <input type="password" placeholder="Confirma tu contraseña" name="title"  id="inputPerfil"/>
+                    
+                <div class="d-flex justify-content-around">
+                    <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
+                        <h4>CANCELAR</h1>
                     </button>
-
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">event</i>
-                        <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
-                    </button>
-
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">label_outline</i>
-                        <strong class="align-self-center text-btn-despl">CATEGORIAS</strong>
-                    </button>
-
-                </div>
-
-                <hr size="2px" color="#4F4F4F" />
-
-                <div class="row justify-content-center">
-                    <button href="#" id="botonCerrarSesion">
-                        CERRAR SESIÓN
+                    <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
+                        <h4>GUARDAR</h1>
                     </button>
                 </div>
             </div>
 
         </div>
-
     </template>
-
-    <!--Creacion de perfil Usuario-->
-    <template id="pantallaPrincipalConCrearPerfilUsuario">
-
-        <!--Seleccion de Rol-->
-        <div class="d-flex justify-content-center" id="modalUrl">
-
-            <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
-
-                <button class="d-flex justify-content-end" id="cerrarCrearPerfilUsuario" href="#">
-                    <i class="material-icons">close</i>
-                </button>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/image.png" alt="" id="logoCrearPerfilUsuario">
-                </div>
-
-                <div class="row justify-content-center" id="tituloCrearPerfilUsuario">
-                    <strong class="text-center">DATOS DE CUENTA:</strong>
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="cuadroNombreUsuario" placeholder="NOMBRE USUARIO">
-                </div>
-
-                <select type="text" class="form-select" id="seleccionGeneroCrearPerfilUsuario"
-                    onchange="cambiarColorSelect()">
-                    <option value="0" selected id="opcionesGeneroCrearPerfilUsuario">GENERO</option>
-                    <option value="1" id="opcionesGeneroCrearPerfilUsuario">MASCULINO</option>
-                    <option value="2" id="opcionesGeneroCrearPerfilUsuario">FEMENINO</option>
-                    <option value="3" id="opcionesGeneroCrearPerfilUsuario">OTRO</option>
-                </select>
-
-                <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
-                    <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorCrearPerfilUsuario">
-                </div>
-
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="cuadroCorreoCrearPerfilUsuario"
-                        placeholder="CORREO ELECTRONICO">
-                </div>
-
-                <div class="mb-3 text-center">
-                    <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilUsuario"
-                        placeholder="CONTRASEÑA">
-                </div>
-
-                <div class="mb-3 text-center">
-                    <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilUsuario"
-                        placeholder=" CONFIRMAR CONTRASEÑA">
-                </div>
-
-                <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario" href="#">
-                    <strong class="align-self-center text-btn-despl" id="opcionesMenu">SIGUIENTE</strong>
-                </button>
-
-            </div>
-
-        </div>
-
-    </template>
-
-    <!--Creacion de perfil Organizador-->
-    <template id="pantallaPrincipalConCrearPerfilOrganizador">
-
-        <!--Seleccion de Rol-->
-        <div id="modalUrl">
-
-            <div class=" d-flex flex-column align-items-center" id="creacionPerfilOrganizador">
-
-                <button class="d-flex justify-content-end" id="cerrarCrearPerfilOrganizador" href="#">
-                    <i class="material-icons">close</i>
-                </button>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/image.png" alt="" id="logoCrearPerfilOrganizador">
-                </div>
-
-                <div class="row justify-content-center" id="tituloCrearPerfilOrganizador">
-                    <strong class="text-center">DATOS DE CUENTA:</strong>
-                </div>
-
-                <div class="mb-3">
-                    <input type="text" class="form-control" id="cuadroNombreOrganizador"
-                        placeholder="NOMBRE ORGANIZADOR">
-                </div>
-
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="cuadroCorreoCrearPerfilOrganizador"
-                        placeholder="CORREO ELECTRONICO">
-                </div>
-
-                <div class="d-flex justify-content-center" id="SeparadorCrearPerfilOrganizador">
-                    <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorCrearPerfilUsuario">
-                </div>
-
-                <div class="mb-3 text-center">
-                    <input type="password" class="form-control" id="cuadroContraseñaCrearPerfilOrganizador"
-                        placeholder="CONTRASEÑA">
-                </div>
-
-                <div class="mb-3 text-center">
-                    <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfilOrganizador"
-                        placeholder=" CONFIRMAR CONTRASEÑA">
-                </div>
-
-
-                <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilOrganizador" href="#">
-                    <strong class="align-self-center text-btn-despl" id="opcionesMenu">SIGUIENTE</strong>
-                </button>
-
-            </div>
-
-        </div>
-
-    </template>
-
-    <!--Login-->
-    <template id="pantallaPrincipalConLogin">
-
-        <!--Login-->
-        <div id="modalUrl">
-            <div class=" d-flex flex-column align-items-center" id="login">
-
-                <button class="d-flex justify-content-end" id="cerrarLogin" href="#">
-                    <i class="material-icons">close</i>
-                </button>
-
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
-                </div>
-
-                <div class="row justify-content-center" id="tituloLogin">
-                    <strong class="text-center">CONTINUAR CON:</strong>
-                </div>
-
-                <button class="d-flex justify-content-center align-items-center" id="botonIniciarConFacebook" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                        class="bi bi-facebook" viewBox="0 0 16 16">
-                        <path
-                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                    </svg>
-                    <strong class="align-self-center text-btn-despl" id="opcionesInicioSesion">CONTINUAR CON
-                        FACEBOOK</strong>
-                </button>
-
-                <button class="d-flex justify-content-center align-items-center" id="botonIniciarConGoogle" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                        class="bi bi-google" viewBox="0 0 16 16">
-                        <path
-                            d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
-                    </svg>
-                    <strong class="align-self-center text-btn-despl" id="opcionesInicioSesion">CONTINUAR CON
-                        GOOGLE</strong>
-                </button>
-
-                <button class="d-flex justify-content-center align-items-center" id="botonIniciarConApple" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                        class="bi bi-apple" viewBox="0 0 16 16">
-                        <path
-                            d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282" />
-                        <path
-                            d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282" />
-                    </svg>
-                    <strong class="align-self-center text-btn-despl" id="opcionesInicioSesion">CONTINUAR CON
-                        APPLE</strong>
-                </button>
-
-                <div class="d-flex justify-content-center" id="separadorLogin">
-                    <img src="./Recursos/Img/separador.png" alt="" id="imgSeparadorLogin">
-                </div>
-
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO">
-                </div>
-
-                <div class="mb-3 text-center">
-                    <input type="password" class="form-control" id="cuadroContraseña" placeholder="CONTRASEÑA">
-                </div>
-
-                <button class="d-flex justify-content-center" id="botonIniciarSesion" href="#">
-                    <strong class="align-self-center text-btn-despl" id="opcionesMenu">INICIAR SESION</strong>
-                </button>
-
-                </button>
-
-                <div class="row justify-content-center">
-                    <p class="overflow-visible" id="terminosLogin">Al registrarme o iniciar sesión, acepto los <a
-                            href="#">Términos del Servicio Pa’</a> Parchar
-                        y <a href="#">la Política de Privacidad</a>, confirmo que tengo 18 años de edad o más y acepto
-                        recibir comunicaciones por correo electrónico.
-                    </p>
-                </div>
-
-                <div class="row justify-content-center">
-                    <p class="overflow-visible" id="terminosLogin"><a href="#">¿olvidaste tu contraseña?</a></p>
-                </div>
-
-                <div class="row justify-content-center">
-                    <p class="overflow-visible" id="terminosLogin">¿no tienes cuenta pa’ parchar? <a
-                            href="#">¡regístrate ahora!</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </template>
-
-    <!--Terminos y condiciones-->
-    <template id="pantallaTerminosYCondiciones">
-        <main>
-
-            <!--Terminos y condiciones-->
-            <div>
-
-                <div class="text-center">
-                    <br>
-                    <h2>TÉRMINOS Y CONDICIONES DE USO:</h2>
-                </div>
-
-                <hr size="8px" color="#4F4F4F" />
-
-                <div class="d-flex align-content-center" id="terminosYCondiciones">
-                    <p>
-                        Bienvenido a Pa parchar. Este Sitio es propiedad y está operado por [Nombre de la Empresa]. Al
-                        acceder y utilizar este Sitio, usted acepta cumplir y quedar sujeto a los siguientes términos y
-                        condiciones de uso. Si no está de acuerdo con estos términos y condiciones, por favor no utilice
-                        este Sitio.
-
-                        <br><br>
-                        <strong>1. Uso del Sitio:</strong>
-                        <br><br>
-
-                        1.1. El contenido de este Sitio es proporcionado únicamente con fines informativos y de
-                        entretenimiento. La información presentada aquí se basa en opiniones, recomendaciones y
-                        comentarios
-                        de terceros, y no garantizamos la exactitud, integridad o actualidad de dicha información.
-
-                        1.2. Usted acepta utilizar este Sitio únicamente para fines lícitos y de acuerdo con todas las
-                        leyes, regulaciones y normativas aplicables.
-
-                        <br><br>
-                        <strong>2. Propiedad Intelectual:</strong>
-                        <br><br>
-
-                        2.1. Todo el contenido disponible en este Sitio, incluyendo pero no limitado a texto, gráficos,
-                        logotipos, imágenes, videos, software y código fuente, está protegido por las leyes de propiedad
-                        intelectual y son propiedad de [Nombre de la Empresa] o de sus licenciantes.
-
-                        2.2. Usted se compromete a no reproducir, distribuir, modificar, crear trabajos derivados,
-                        mostrar
-                        públicamente, transmitir, vender o explotar de cualquier manera el contenido de este Sitio sin
-                        la
-                        autorización previa por escrito de [Nombre de la Empresa].
-
-                        <br><br>
-                        <strong>3. Enlaces a Terceros:</strong>
-                        <br><br>
-
-                        3.1. Este Sitio puede contener enlaces a sitios web de terceros que no están bajo nuestro
-                        control.
-                        Estos enlaces se proporcionan únicamente para su conveniencia y no implican una aprobación por
-                        parte
-                        de Pa Parchar del contenido de dichos sitios web.
-
-                        3.2. Pa Parchar no asume ninguna responsabilidad por el contenido, políticas de
-                        privacidad o prácticas de cualquier sitio web de terceros al que se acceda a través de enlaces
-                        en
-                        este Sitio.
-
-                        <br><br>
-                        <strong>4. Limitación de Responsabilidad:</strong>
-                        <br><br>
-
-                        4.1. En la máxima medida permitida por la ley aplicable, Pa Parchar no será responsable
-                        por ningún daño directo, indirecto, incidental, especial, consecuente o punitivo que surja del
-                        uso o
-                        la imposibilidad de uso de este Sitio.
-
-                        4.2. Pa Parchar no garantiza que este Sitio esté libre de errores, virus u otros
-                        componentes dañinos, y no será responsable por cualquier daño o pérdida que pueda surgir del
-                        acceso
-                        no autorizado o de la interrupción del Sitio.
-
-                        <br><br>
-                        <strong>5. Modificaciones de los Términos y Condiciones:</strong>
-                        <br><br>
-
-                        5.1. Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento y
-                        a
-                        nuestra sola discreción. Se le notificarán los cambios a estos términos y condiciones mediante
-                        la
-                        publicación de la versión actualizada en este Sitio.
-
-                        <br><br>
-                        <strong>6. Ley Aplicable:</strong>
-                        <br><br>
-
-                        6.1. Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes del [país
-                        o
-                        estado], sin tener en cuenta sus disposiciones sobre conflictos de leyes.
-
-                        <br><br>
-                        <strong>7. Contacto:</strong>
-                        <br><br>
-
-                        7.1. Si tiene alguna pregunta o inquietud sobre estos términos y condiciones, puede ponerse en
-                        contacto con nosotros a través de paparchar1569@mail.com.
-                    </p>
-                </div>
-
-                <hr size="8px" color="#4F4F4F" />
-
-                <div id="derechosTerminosYCondiciones">
-                    <p><strong>Todos los derechos reservados: </strong> ©Pa Parchar</p>
-                </div>
-
-            </div>
-
-        </main>
-    </template>
-
 
     <script src="./Vista/js/vista.js"></script>
-    <script src ="./Vista/js/controlador.js"></script>
-
+    <script src="./Modelo/connect.js"></script>
+    <script src="./Modelo/evento.js"></script>
+    <script src="./Modelo/users.js"></script>
+    <script src="./Modelo/organizer.js"></script>
+    <script src="./Modelo/client.js"></script>
+    <script src="./controlador/controlador.js"></script>
 </body>
 
 </html>
