@@ -85,25 +85,23 @@ class Vista {
 
   /**
    * Funcion para poner recomendaciones en barra de busqueda
-   * 
+   *
    */
-      abrirModal(modal, data) {
-      let pModal = document.getElementById(modal);
-      pModal.style["pointer-events"] = "unset";
-      pModal.style.opacity = 1;
-      //IDs de tus elementos HTML son los siguientes:
-      let barraBusqueda1 = document.getElementById("botonBusqueda1");
-      let barraBusqueda2 = document.getElementById("botonBusqueda2");
-      let barraBusqueda3 = document.getElementById("botonBusqueda3");
-  
-      // Ahora, llenamos los elementos con los datos de la base de datos
-      let evento = data.data;
-      barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
-      barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
-      barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
-    }
+  abrirModal(modal, data) {
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
+    //IDs de tus elementos HTML son los siguientes:
+    let barraBusqueda1 = document.getElementById("botonBusqueda1");
+    let barraBusqueda2 = document.getElementById("botonBusqueda2");
+    let barraBusqueda3 = document.getElementById("botonBusqueda3");
 
-
+    // Ahora, llenamos los elementos con los datos de la base de datos
+    let evento = data.data;
+    barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
+    barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
+    barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+  }
 
   /**
    *
@@ -122,7 +120,7 @@ class Vista {
 
       let botonCarrusel = document.createElement("button");
       botonCarrusel.setAttribute("id", "btnCarrusel");
-      botonCarrusel.setAttribute("data-id", evento.id_evento)
+      botonCarrusel.setAttribute("data-id", evento.id_evento);
 
       let imagenCarrusel = document.createElement("img");
       imagenCarrusel.classList.add("d-block");
@@ -151,7 +149,7 @@ class Vista {
       carrusel.appendChild(botonCarrusel);
       carrusel.appendChild(body);
       contenedor.appendChild(carrusel);
-      botonCarrusel.addEventListener("click",mostrarDetalleEvento);
+      botonCarrusel.addEventListener("click", mostrarDetalleEvento);
     });
     contenedor.children[0].classList.add("active");
   }
@@ -173,7 +171,7 @@ class Vista {
 
       let botonEvento = document.createElement("button");
       botonEvento.setAttribute("id", "botonEvento");
-      botonEvento.setAttribute("data-id", evento.id_evento)
+      botonEvento.setAttribute("data-id", evento.id_evento);
 
       let imagenEvento = document.createElement("img");
       imagenEvento.setAttribute("id", "eventoA");
@@ -208,7 +206,6 @@ class Vista {
     console.log(data);
     //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
     data.forEach((miEvento) => {
-
       let divMiEvento = document.createElement("div");
       divMiEvento.setAttribute("id", "contenedorMiEvento");
 
@@ -218,7 +215,7 @@ class Vista {
       let botonMiEvento = document.createElement("button");
       botonMiEvento.classList.add("p-2");
       botonMiEvento.setAttribute("id", "botonEvento");
-      botonMiEvento.setAttribute("data-id", miEvento.id_evento)
+      botonMiEvento.setAttribute("data-id", miEvento.id_evento);
 
       let divMiEvento2 = document.createElement("div");
       divMiEvento2.classList.add("d-flex");
@@ -231,9 +228,17 @@ class Vista {
       imagenMiEvento.src = miEvento.ruta_imagen;
 
       let divMiEvento2_2 = document.createElement("div");
-      divMiEvento2_2.classList.add("p-2", "d-flex", "flex-column", "mb-0", "align-self-center", "text-left");
-      divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
+      divMiEvento2_2.classList.add(
+        "p-2",
+        "d-flex",
+        "flex-column",
+        "mb-0",
+        "align-self-center",
+        "text-left"
+      );
       
+      divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
+
       let nombre = document.createElement("h6");
       nombre.setAttribute("id", "tituloOrganizador");
       nombre.innerHTML = `<strong>${miEvento.nombre_evento}</strong>`;
@@ -270,7 +275,7 @@ class Vista {
     let fechaEvento = document.getElementById("fechaEvento");
     let horaEvento = document.getElementById("horaEvento");
     let lugarEvento = document.getElementById("lugarEvento");
-    let mapita = document.getElementById("mapitaLindo")
+    let mapita = document.getElementById("mapitaLindo");
 
     // Ahora, llenamos los elementos con los datos de la base de datos
     evento = data[0];
@@ -282,16 +287,15 @@ class Vista {
     lugarEvento.innerHTML = evento.lugar;
   }
 
-mostrarPerfil(data) {
-  // Suponiendo que los IDs de tus elementos HTML son los siguientes:
-  let imagenPerfil = document.getElementById("fotoPerfil")
-  let nombrePerfil = document.getElementById("nombrePerfil")
-  let correoPerfil = document.getElementById("correoPerfil")
+  mostrarPerfil(data) {
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let imagenPerfil = document.getElementById("fotoPerfil");
+    let nombrePerfil = document.getElementById("nombrePerfil");
+    let correoPerfil = document.getElementById("correoPerfil");
 
-  usuario = data[0]
-  imagenPerfil.src = usuario.imagen_perfil;
-  nombrePerfil.innerHTML = usuario.nombre;
-  correoPerfil.innerHTML = usuario.correo
-}
-
+    usuario = data[0];
+    imagenPerfil.src = usuario.imagen_perfil;
+    nombrePerfil.innerHTML = usuario.nombre;
+    correoPerfil.innerHTML = usuario.correo;
+  }
 }

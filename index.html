@@ -148,16 +148,17 @@
             <div id="modalBusqueda">
                 <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
                     <div class="p-2 separadorBusqueda">
-                        <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {mostrarBusquedaRelacionada(), mostrarModalBusqueda();}">
+                        <input type="text" id="barraBusqueda"
+                            onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {mostrarBusquedaRelacionada(), mostrarModalBusqueda();}">
                     </div>
                     <div class="p-2 separadorBusqueda">
-                        <button class="text-left eventoBusqueda" id = "botonBusqueda1"></button>
+                        <button class="text-left eventoBusqueda" id="botonBusqueda1"></button>
                     </div>
                     <div class="p-2 separadorBusqueda">
-                        <button class="text-left eventoBusqueda" id = "botonBusqueda2"></button>
+                        <button class="text-left eventoBusqueda" id="botonBusqueda2"></button>
                     </div>
                     <div class="p-2 separadorBusqueda">
-                        <button class="text-left eventoBusqueda" id = "botonBusqueda3"></button>
+                        <button class="text-left eventoBusqueda" id="botonBusqueda3"></button>
                     </div>
                 </div>
             </div>
@@ -187,7 +188,8 @@
 
                         <div>
                             <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
-                                name="contrasenia" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'cuadroContrasenia') {iniciarSesion();}">
+                                name="contrasenia"
+                                onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'cuadroContrasenia') {iniciarSesion();}">
                         </div>
                     </form>
 
@@ -264,8 +266,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button href="#" id="botonCerrarSesion"
-                            onclick="cerrarSesion()">
+                        <button href="#" id="botonCerrarSesion" onclick="cerrarSesion()">
                             CERRAR SESIÓN
                         </button>
                     </div>
@@ -399,7 +400,7 @@
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-            </button> 
+            </button>
         </div>
 
         <hr size="8px" color="#4F4F4F" />
@@ -497,7 +498,7 @@
 
             </div>
 
-            <div id = "contenedorMisEventos">
+            <div id="contenedorMisEventos">
 
             </div>
 
@@ -1499,7 +1500,7 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -2266,98 +2267,112 @@
 
     <!--Pagina Perfil-->
     <template id="pantallaPerfil">
-        
-            <!--Pantalla Perfil-->
-    
-            <div class = "d-flex bd-highlight" id="containerPerfil">
-                <div class = "p-2 flex-fill bd-highlight" id="lateralIzquierdo">
-                    <img src="" class="d-block w-100" alt="" id="fotoPerfil">
-                    <div class ="align-content space-between">
-                        <input type="file">
-                    </div>
-                </div>
-                
-        <!--seccion nombre perfil-->
-               
-                <div class ="d-flex flex-column bd-highlight mb-0" id = "LateralDerecho">
-                        <div class="p-2 bd-highlight" id ="tituloPerfil">
-                        <h1>TU NOMBRE</h1>
-                        </div>
-                        <div id="perfilFontP">
-                            <p id = "nombrePerfil"></p>
-                        </div>
-                        <button id ="btnPerfil" onclick="mostrarModalNombre()"><h4>CAMBIAR</h1></button>
-                        <hr id="lineasHorizantal">
-                        <div class="p-2 bd-highlight" id ="tituloPerfil">
-                            <h1>TU CORREO</h1>
-                        </div>
-                        <div id="perfilFontP">
-                            <p id="correoPerfil"></p>
-                        </div>
-                        <button id = "btnPerfil" onclick="mostrarModalEmail()"><h4>CAMBIAR</h1></button>
-                        <hr id="lineasHorizantal">
-                        <div class="p-2 bd-highlight" id ="tituloPerfil">
-                            <h1>Contraseña</h1>
-                        </div>
-                        <div id="perfilFontP">
-                            <p>Cambiar tu contraseña en cualquier momento</p>
-                        </div>
-                        <button id ="btnPerfil" onclick="mostrarModalContraseña()"><h4>CAMBIAR</h1></button>
-                        <hr id="lineasHorizantal2">
-                </div>    
-            </div>
-             <!--modal Nombre-->
-    
-            <div id="contModalNombre">
-                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilNombre">
-                    <div class="p-2 bd-highlight" id ="tituloPerfil">
-                        <h1 class="modalTitle">TU NOMBRE</h1>
-                    </div>
-                        <p>Tu nombre es:XXXXXXXXXX</p>
-                        <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" >
-                    
-                    <div class = "d-flex justify-content-around">
-                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>CANCELAR</h1></button>
-                        <button id ="btnPerfilModal" onclick="cerrarModalNombre()"><h4>GUARDAR</h1></button>
-                    </div>
-                </div>
-            </div>
-               
-            <!--Modal email -->
 
-            <div id="contModalEmail">    
-                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilEmail">
-                    <div class="p-2 bd-highlight" id ="tituloPerfil">
-                        <h1>TU EMAIL</h1>
-                    </div>
-                        <p>Tu email es:XXXX@email.com</p>
-                        <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
-                    <div class="d-flex justify-content-around">
-                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>CANCELAR</h1></button>
-                        <button id ="btnPerfilModal" onclick="cerrarModalEmail()"><h4>GUARDAR</h1></button>
-                    </div>
-                </div>  
-            </div>     
-    
-            
-    
-    
-            <!--modal contraseña--> 
-                
-            <div id="contModalContraseña">
-                <div class ="d-flex flex-column bd-highlight mb-0" id = "modalPerfilContraseña">
-                
-                <div class="p-2 bd-highlight" id ="tituloPerfil">
+        <!--Pantalla Perfil-->
+
+        <div class="d-flex bd-highlight" id="containerPerfil">
+            <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo">
+                <img src="" class="d-block w-100" alt="" id="fotoPerfil">
+                <div class="align-content space-between">
+                    <input type="file">
+                </div>
+            </div>
+
+            <!--seccion nombre perfil-->
+
+            <div class="d-flex flex-column bd-highlight mb-0" id="LateralDerecho">
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1>TU NOMBRE</h1>
+                </div>
+                <div id="perfilFontP">
+                    <p id="nombrePerfil"></p>
+                </div>
+                <button id="btnPerfil" onclick="mostrarModalNombre()">
+                    <h4>CAMBIAR</h1>
+                </button>
+                <hr id="lineasHorizantal">
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1>TU CORREO</h1>
+                </div>
+                <div id="perfilFontP">
+                    <p id="correoPerfil"></p>
+                </div>
+                <button id="btnPerfil" onclick="mostrarModalEmail()">
+                    <h4>CAMBIAR</h1>
+                </button>
+                <hr id="lineasHorizantal">
+                <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1>Contraseña</h1>
                 </div>
-                
-                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
-                
+                <div id="perfilFontP">
+                    <p>Cambiar tu contraseña en cualquier momento</p>
+                </div>
+                <button id="btnPerfil" onclick="mostrarModalContraseña()">
+                    <h4>CAMBIAR</h1>
+                </button>
+                <hr id="lineasHorizantal2">
+            </div>
+        </div>
+        <!--modal Nombre-->
+
+        <div id="contModalNombre">
+            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilNombre">
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1 class="modalTitle">TU NOMBRE</h1>
+                </div>
+                <p>Tu nombre es:XXXXXXXXXX</p>
+                <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil">
+
+                <div class="d-flex justify-content-around">
+                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
+                        <h4>CANCELAR</h1>
+                    </button>
+                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
+                        <h4>GUARDAR</h1>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal email -->
+
+        <div id="contModalEmail">
+            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilEmail">
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1>TU EMAIL</h1>
+                </div>
+                <p>Tu email es:XXXX@email.com</p>
+                <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
+                <div class="d-flex justify-content-around">
+                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
+                        <h4>CANCELAR</h1>
+                    </button>
+                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
+                        <h4>GUARDAR</h1>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--modal contraseña-->
+
+        <div id="contModalContraseña">
+            <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilContraseña">
+
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1>Contraseña</h1>
+                </div>
+
+                <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
+
                 <hr id="lineasHorizantal">
-                
-                        <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
-                        <input type="password" placeholder="Confirma tu contraseña" name="title"  id="inputPerfil"/>
-                    
+
+                <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
+                <input type="password" placeholder="Confirma tu contraseña" name="title" id="inputPerfil" />
+
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
                         <h4>CANCELAR</h1>

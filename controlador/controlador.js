@@ -164,14 +164,6 @@ function cambiarColorSelect() {
   select.classList.add("seleccionado");
 }
 
-/* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
-
-// function handleKeyPress(event) {
-//   if (event.key === "Enter") {
-//     mostrarBusquedaRelacionada();
-//   }
-// }
-
 /* -------------------------------------------modales-----------------------------------------------*/
 
 //Registrar un usuario nuevo
@@ -279,10 +271,6 @@ function cerrarModalLateral() {
 function cerrarModalLateralSesionIniciada() {
   vista.cerrarModal("modalLateralSesionIniciada");
 }
-
-// function mostrarModalRol() {
-//   vista.abrirModal("roles");
-// }
 
 function cerrarModalRol() {
   vista.cerrarModal("roles");
