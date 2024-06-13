@@ -3,7 +3,7 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("pantallaPerfil", "contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main */
@@ -206,3 +206,15 @@ function mostrarModalContraseña() {
 function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
+
+document.getElementById('seleccionar-archivo').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          const imgSubirDetalle = document.getElementById('imgSubirDetalle');
+          imgSubirDetalle.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+  }
+});

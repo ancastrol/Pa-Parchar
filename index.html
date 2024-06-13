@@ -3002,7 +3002,7 @@
 
         <div class="d-flex flex-column">
             <div>
-                <div class="d-flex align-content-center">
+                <div class="d-flex align-content-center flex-wrap">
 
                     <div class="flex-shrink-0" id="subirImagenes">
                         <input type="file" id="seleccionar-archivo" style="display: none;">
@@ -3030,7 +3030,6 @@
                                 <label for="floatingTextarea">
                                     <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
-
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
@@ -3078,6 +3077,11 @@
                     </div>
 
                 </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+
     </template>
 
     <!--Terminos y condiciones-->
@@ -3845,11 +3849,17 @@
         <!--Pantalla Perfil-->
 
         <div class="d-flex bd-highlight" id="containerPerfil">
-            <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo" >
-                <img src="./Recursos/Img/iconoUser.png" alt="" id="fotoPerfil">
-                <div class="align-content center">
-                    <input type="file">
+            <div class="p-2 flex-fill bd-highlight" id="iconoPerfil">
+
+                <input type="file" id="seleccionar-archivo" style="display: none;">
+                <button onclick="document.getElementById('seleccionar-archivo').click()">
+                    <img class="img-fluid" src="./Recursos/Img/iconoUser.png" alt="" id="imgSubirDetalle">
+                </button>
+
+                <div class="p-2 bd-highlight" id="tituloPerfil">
+                    <h1>ACTUALIZAR ICONO</h1>
                 </div>
+
             </div>
 
             <!--seccion nombre perfil-->
@@ -3886,6 +3896,7 @@
                 <hr id="lineasHorizantal2">
             </div>
         </div>
+
         <!--modal Nombre-->
 
         <div id="contModalNombre">

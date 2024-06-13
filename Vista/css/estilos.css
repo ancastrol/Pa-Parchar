@@ -408,7 +408,6 @@ header {
     margin: 1%;
 }
 
-
 #ingresarDireccion {
     height: 100%;
     color: #8a8a8a;
@@ -435,25 +434,25 @@ hr {
 }
 
 /* Media query para dispositivos móviles */
-@media (max-width: 300px) {
-    .d-flex.flex-column {
+@media (max-width: 768px) {
+    .d-flex.align-content-center {
         flex-direction: column;
-        /* Cambiado a columna en dispositivos móviles */
+        align-items: center;
     }
 
-    #informacionTexto {
+    #subirImagenes, 
+    #subirInformacionTexto {
         width: 100%;
-        /* La imagen ocupa todo el ancho en dispositivos móviles */
-        margin-left: 3%;
-
     }
 
     #subirInformacionTexto {
-        width: 10%;
-        /* Ancho ajustado en dispositivos móviles */
-        margin-left: 3%;
+        margin-top: 1em;
+    }
+}
 
-        /* Margen superior e inferior del 3% y centrado horizontal */
+@media (min-width: 300px) {
+    #subirInformacionTexto {
+        margin-left: 2%;
     }
 }
 
@@ -1127,6 +1126,7 @@ footer.a {
 
 #containerPerfil {
     width: 100%;
+    background-color: #0D0C0D;
 }
 
 #lateralIzquierdo {
@@ -1250,10 +1250,15 @@ footer.a {
 
 /*icono*/
 #iconoPerfil {
-    height: 100%;
-    margin: 1em 0 25% 0;
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: #dddddd00;
     position: relative;
     top: 3%;
+    text-align: center;
 }
 
 /*input Perfil*/
