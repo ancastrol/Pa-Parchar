@@ -498,6 +498,18 @@
     </template>
 
     <script>
+        //------------------card-Caledario--------------------
+        //crear un div de eventos
+        const nuevoDiv = document.createElement("div");
+
+        // Asignar clase y ID al nuevo div
+        nuevoDiv.className = "cardCalendario";
+        nuevoDiv.id = "card-Calendario";
+
+
+
+
+
         let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
         //let clone = document.importNode(template.content, true);
         //document.body.appendChild(clone);
@@ -527,20 +539,33 @@
                 "diciembre"
             ];
 
-            const mesId = new Date().getMonth();
-            const añoId = new Date().getFullYear();
+
 
 
             let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
 
-
+            // Almacena la fecha actual cuando la página se carga por primera vez
+            let fechaActual = new Date();
             document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-            document.querySelector(".fecha p").innerHTML = fecha.toLocaleDateString('es-ES', opciones);
+            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
+
+
+            //--------------------------------------------------------------------------------------
+
+            const añoId = new Date().getFullYear();
+            let mesId = fecha.getMonth();
 
             let numdias = "";
+            let eventos = [
+                { dia: 18, mes: 5, año: 2024 },
+                { dia: 20, mes: 5, año: 2024 },
+                { dia: 24, mes: 5, año: 2024 },
+                { dia: 28, mes: 5, año: 2024 },
+                // Agrega más eventos aquí
+            ];
+            let cardCalendario = '<div class="card-calendario"><p>EVENTO</p></div>';
 
-            //asdsa
             // Ajustar el índice del primer día si el calendario comienza en Lunes
             if (indicePrimerDia === 0) { // Si es Domingo
                 indicePrimerDia = 7; // Cambiar a 7
@@ -548,64 +573,32 @@
                 indicePrimerDia--; // Restar 1 a los otros días
             }
 
-
             for (let x = indicePrimerDia; x > 0; x--) {
-                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`
+                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
             };
+
+
 
             for (let i = 1; i <= ultimoDia; i++) {
                 if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                    numdias += `<div class="contenedorCalendario"><div class="hoy" id="diaHoy">${i}</div></div>`;
+                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
                 }
                 else {
-                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
+                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
+                    if (eventoHoy) {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>${cardCalendario}</div>`;
+                    } else {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
+                    }
                 }
             }
 
             for (let y = 1; y <= diasSig; y++) {
                 numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
             }
+
             diasMes.innerHTML = numdias;
         };
-
-
-        //------------------card-Caledario
-        //crear un div de eventos
-        const nuevoDiv = document.createElement("div");
-
-        // Asignar clase y ID al nuevo div
-        nuevoDiv.className = "cardCalendario";
-        nuevoDiv.id = "card-Calendario";
-
-        //-------crear un div padre que contenga los divs de id variable y las cards
-
-        // Obtener todas las clases diferentes dentro de la clase numdias
-        const clasesDiferentes = ['dias-prev', 'diasMes', 'dias-sig', 'hoy'];
-
-        // Crear un contenedor padre para cada clase diferente
-        clasesDiferentes.forEach(clase => {
-            // Crear el contenedor padre
-            const contenedorPadre = document.createElement("div");
-            contenedorPadre.className = "contenedorCalendario" + clase;
-
-            // Obtener todos los elementos div de la clase actual
-            const divsClase = document.querySelectorAll('.numdias .' + clase);
-
-            // Iterar sobre cada div de la clase actual y agregarlo al contenedor padre
-            divsClase.forEach(div => {
-                contenedorPadre.appendChild(div);
-            });
-
-            // Insertar el contenedor padre antes del primer div de la clase actual
-            const primerDivClase = document.querySelector('.numdias .' + clase);
-            primerDivClase.parentNode.insertBefore(contenedorPadre, primerDivClase);
-        });
-
-
-
-        //------------crear una funcion que traiga las card al div padre 
-
-
 
 
 

@@ -1288,14 +1288,15 @@ z-index: 3;
 
 }
 
-.numdias div{
+
+.contenedorCalendario,.contenedorCalendarioHoy{    
     width: 100%;
-    height: 8rem;
-    display: flex;
+    height: 7.5rem;
+    /* display: flex; */
     justify-content: start;
-    align-items: center;
+    /* align-items: self-start; */
     font-family: 'inter', sans-serif;
-    letter-spacing: 0.2rem;
+    /* letter-spacing: 0.2rem; */
     text-align: center;
     font-size: 1rem;
     font-style: normal;
@@ -1303,6 +1304,54 @@ z-index: 3;
     line-height: 1em; 
     letter-spacing: -0.57px;
     transition: background-color 0.3s;
+
+}
+
+.contenedorCalendario {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedorCalendario .dias-prev,
+.contenedorCalendario .hoy,
+.contenedorCalendario .diasMes,
+.contenedorCalendario .dias-sig {
+    order: 1;
+
+}
+
+.contenedorCalendario .card-calendario {
+    order: 2;
+    
+
+}
+
+
+.card-calendario{
+    width: 100%;
+    height: 20%;
+    background-color: #863617;
+    color: #6C757D;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #b1b1b1;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    cursor: pointer;
+}
+.card-calendario p {
+    font-size: 0.8rem;
+    width: 100%;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    text-align:  center;
+    -webkit-box-orient: vertical;
+    font-family: 'inter', sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1em; 
+    letter-spacing: -0.57px;
 }
 
 
@@ -1325,4 +1374,3 @@ z-index: 3;
     color: #6C757D;
 }
 
-/*-------------------------Perfil-------------------------------------------------------------------*/
