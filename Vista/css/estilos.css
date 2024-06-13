@@ -104,36 +104,6 @@ header {
     width: 15%;
 }
 
-/*-------------------------------------------------------------------------------------------------------*/
-
-/*Menu*/
-
-#menuLateral {
-    width: 40%;
-    height: 100%;
-    font: "Inter", sans-serif;
-    font-size: 10px;
-    background-color: #0D0C0D;
-    padding: 3%;
-}
-
-#botonCerrarSesion {
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 80%;
-}
-
-.text-btn-despl {
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.btn-listado {
-    display: inline;
-}
 
 /*-------------------------------------------------------------------------------------------------------*/
 
@@ -268,6 +238,7 @@ header {
 /*-------------------------------------------------------------------------------------------------------*/
 
 /* Detalles evento */
+
 #tituloEventoDetallado,
 #tituloDescripEvent {
     font-family: "Inter", sans-serif;
@@ -285,17 +256,13 @@ header {
 #imgDetalle {
     width: 80%;
     border-radius: 3%;
-    margin-top: 3%;
     margin-bottom: 3%;
-    margin-left: 20%;
 }
 
 #informacionTexto {
-    width: 40%;
-    /* Ancho original en pantallas grandes */
+    width: 100%;
     margin-top: 3%;
     margin-right: 8%;
-    margin-left: 3%;
 }
 
 #descripcionEvento {
@@ -317,7 +284,6 @@ header {
 }
 
 #compraConjunto {
-    text-align: center;
     align-items: center;
     margin-left: 20%;
     margin-bottom: 5%;
@@ -329,30 +295,131 @@ header {
 }
 
 /* Media query para dispositivos móviles */
-@media (max-width: 300px) {
-    .d-flex.flex-column {
-        flex-direction: column;
-        /* Cambiado a columna en dispositivos móviles */
+@media (max-width: 576px) {
+    #detallesEvento {
+        flex-direction: column !important;
     }
 
     #imgDetalle {
         width: 100%;
-        /* La imagen ocupa todo el ancho en dispositivos móviles */
-        margin-left: 3%;
-
+        margin-bottom: 1em;
+        margin-top: 5%;
+        margin-left: 5%;
     }
 
     #informacionTexto {
-        width: 10%;
-        /* Ancho ajustado en dispositivos móviles */
-        margin-left: 3%;
+        width: 100%;
+        margin-top: 1em;
+    }
 
-        /* Margen superior e inferior del 3% y centrado horizontal */
+    #compraConjunto {
+        margin-left: 0;
+        margin-left: 40%;
+        margin-top: 1em;
+    }
+
+}
+
+/* Flex layout for larger screens */
+@media (min-width: 577px) {
+
+    #imgDetalle {
+        width: 100%;
+        margin-left: 10%;
+        margin-bottom: 1em;
+        margin-top: 10%;
+    }
+
+    #detallesEvento {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    #informacionTexto {
+        margin-left: 5em;
+        margin-top: 0;
+    }
+
+    #compraConjunto {
+        margin-left: 0;
+        margin-left: 40%;
+        margin-top: 1em;
     }
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+/*Boton para ingresar dirección especifica*/
+
+#subirImagenes {
+    width: 35%; /* Ajustamos el ancho para escritorio */
+}
+
+#imgSubirDetalle {
+    width: 100%;
+    height: auto;
+    border-radius: 3%;
+}
+
+#ingresarDireccion {
+    height: 100%;
+    color: #8a8a8a;
+    background-color: #d9d9d9;
+    border-radius: 8%;
+}
+
+#imgReco {
+    width: 100%;
+    height: auto;
+}
+
+#parrafoDetallado {
+    margin-top: 5%;
+    margin-right: 5%;
+    padding-left: 0;
+}
+
+hr {
+    height: 85%;
+    width: 100%;
+    background-color: #ffffff;
+    margin: 0 0 0 0;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    .d-flex.align-content-center {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2%;
+        margin-left: 6%;
+    }
+
+    #subirImagenes, 
+    #subirInformacionTexto {
+        width: 100%;
+        margin-bottom: 10%;
+    }
+
+}
+
+/* Para pantallas más grandes */
+@media (min-width: 769px) {
+    .d-flex.align-content-center {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 10%;
+        margin-top: 2%;
+    }
+
+    #subirInformacionTexto {
+        margin-left: 2%;
+        width: 60%; /* Ajustamos el ancho para escritorio */
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
 
 /*contenedor del texto y boton de la zona de compra*/
 
@@ -393,206 +460,6 @@ header {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Boton para ingresar dirección especifica*/
-
-#subirImagenes {
-    width: 65%;
-}
-
-#imgSubirDetalle {
-    width: 100%;
-    height: auto;
-    border-radius: 3%;
-    margin: 1%;
-}
-
-#ingresarDireccion {
-    height: 100%;
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    border-radius: 8%;
-}
-
-#imgReco {
-    width: 100%;
-    height: auto;
-}
-
-#parrafoDetallado {
-    margin-top: 5%;
-    margin-right: 0%;
-    padding-left: 0;
-}
-
-hr {
-    height: 85%;
-    width: 100%;
-    background-color: #ffffff;
-    margin: 0 0 0 0;
-}
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .d-flex.align-content-center {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #subirImagenes, 
-    #subirInformacionTexto {
-        width: 100%;
-    }
-
-    #subirInformacionTexto {
-        margin-top: 1em;
-    }
-}
-
-@media (min-width: 300px) {
-    #subirInformacionTexto {
-        margin-left: 2%;
-    }
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*Menu Sesion No Iniciada*/
-
-#modalLateral {
-    opacity: 0;
-    pointer-events: none;
-}
-
-#menuLateral {
-    width: 18%;
-    height: 100%;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    background-color: #0D0C0D;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    color: #ffffff;
-    opacity: 1;
-    pointer-events: "unset";
-    z-index: 3;
-}
-
-#logoBarraLateral {
-    width: 10rem;
-    margin: 0 0 10% 0;
-}
-
-#parrafoRegistro {
-    font-size: 65%;
-    padding: 0 0 10% 0;
-}
-
-#botonCrearcuenta {
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    border: #4F4F4F;
-    width: 80%;
-    margin-top: auto;
-    border-radius: 5%;
-}
-
-#botonInciarSesion {
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 20px;
-    border: #4F4F4F;
-    width: 80%;
-    margin-top: 5%;
-    border-radius: 5%;
-}
-
-.text-btn-despl {
-    margin-left: 5px;
-    margin-bottom: 3px;
-}
-
-.btn-listado {
-    display: inline;
-}
-
-.botonMenu {
-    padding: 0 10% 0 0;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*Selección de rol*/
-
-#roles {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
-    background-color: #000000bd;
-    position: fixed;
-    z-index: 3;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#seleccionRol {
-    text-align: center;
-    background-color: #0D0C0D;
-    color: white;
-    border-radius: 5%;
-    width: 20%;
-    height: 70%;
-    top: 5%;
-    left: 40%;
-}
-
-#imgTituloRol {
-    width: 40%;
-}
-
-#tituloRol {
-    margin-bottom: 5%;
-}
-
-#especifiqueRol {
-    font-size: 9px;
-    margin-bottom: 5%;
-    color: #aba6a6;
-    border-bottom: #4F4F4F;
-    margin-bottom: 8%;
-}
-
-#cerrarSeleccionRol {
-    width: 5%;
-    margin-left: auto;
-    margin-right: 2%;
-    margin-top: 2%;
-}
-
-#botonRolUsuario {
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 9rem;
-    border-radius: 5%;
-}
-
-#botonRolOrganizador {
-    background-color: #ffffff;
-    color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
-    border: #4F4F4F;
-    width: 9rem;
-    margin-bottom: 10%;
-    border-radius: 5%;
-}
-
-/*-------------------------------------------------------------------------------------------------------*/
 /*Creacion de perfil Usuario*/
 
 #modalCrearCuenta {
@@ -788,7 +655,7 @@ hr {
     }
 
     #botonIniciarSesion {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -799,59 +666,54 @@ hr {
     }
 
     #botonIniciarSesion {
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Menu Sesion Iniciada*/
 
-#modalLateralSesionIniciada {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 3;
-}
+/* Menu lateral */
 
-#menuLateralSesionIniciada {
-    width: 18%;
+#menuLateral {
     height: 100%;
-    font: "Inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 20px;
     background-color: #0D0C0D;
+    padding: 3%;
     position: absolute;
-    top: 0%;
-    left: 0%;
+    top: 0;
+    left: 0;
     color: #ffffff;
     opacity: 1;
-    pointer-events: "unset";
     z-index: 3;
 }
 
-#opcionesMenu {
-    margin-left: 5%;
+
+#parrafoRegistro {
+    font-size: 65%;
+    padding: 0 0 10% 0;
 }
 
-#opcionMenu {
-    text-align: center;
-    width: 80%;
-    font: "Inter", sans-serif;
-    font-size: 12px;
+#botonCrearcuenta {
     background-color: #ffffff;
-    color: #000000;
-    margin: 5%;
-    bottom: 5%;
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    border: #4F4F4F;
+    width: 80%;
+    margin-top: auto;
     border-radius: 5%;
 }
 
-#botonCerrarSesion {
+#botonInciarSesion {
     background-color: #ffffff;
     color: black;
-    font: "Inter", sans-serif;
-    font-size: 12px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
     border: #4F4F4F;
     width: 80%;
-    margin-top: 20rem;
+    margin-top: 5%;
     border-radius: 5%;
 }
 
@@ -864,10 +726,170 @@ hr {
     display: inline;
 }
 
+.botonMenu {
+    padding: 0 10% 0 0;
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+    #menuLateral {
+        width: 25%;
+    }
+
+    #botonCrearcuenta,
+    #botonInciarSesion {
+        font-size: 16px;
+        width: 90%;
+        margin-top: 10%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #menuLateral {
+        width: 50%;
+        font-size: 14px;
+    }
+
+    #botonCrearcuenta,
+    #botonInciarSesion {
+        font-size: 16px;
+        width: 50%;
+        margin-top: 10%;
+    }
+
+
+}
+
+@media (max-width: 1024px) {
+    #menuLateral {
+        width: 50%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+
+
+    #parrafoRegistro {
+        font-size: 12px;
+        padding: 0 10%;
+    }
+
+    #botonCrearcuenta,
+    #botonInciarSesion {
+        font-size: 16px;
+        width: 80%;
+        margin-top: 10%;
+    }
+
+    #botonInciarSesion {
+        margin-bottom: 200%;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+/* Menu Sesion Iniciada */
+#modalLateralSesionIniciada {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+
+#menuLateralSesionIniciada {
+    width: 18%;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    background-color: #0D0C0D;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ffffff;
+    opacity: 1;
+    pointer-events: unset;
+    z-index: 3;
+}
+
+#opcionesMenu {
+    margin-left: 5%;
+}
+
+#opcionMenu {
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 5%;
+    bottom: 5%;
+    border-radius: 5%;
+}
+
+#botonCerrarSesion {
+    background-color: #ffffff;
+    color: black;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    border: 1px solid #4F4F4F;
+    border-radius: 5%;
+}
+
+.text-btn-despl {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
 .botonMenuLateral {
     padding: 0 10% 0 0;
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    #menuLateralSesionIniciada {
+        width: 50%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    #opcionesMenu {
+        margin-left: 0;
+    }
+
+    #opcionMenu {
+        width: 80%;
+        margin: 10px 0;
+        margin-top: 200%;
+    }
+
+    #botonCerrarSesion {
+        width: 80%;
+    }
+}
+
+/* Media query para tablets */
+@media(max-width: 1024px) {
+    #menuLateralSesionIniciada {
+        width: 50%;
+        height: 100%;
+    }
+
+    #opcionesMenu {
+        margin-left: 10%;
+    }
+
+    #opcionMenu {
+        width: 80%;
+    }
+
+    #botonCerrarSesion {
+        width: 80%;
+        margin-top: 190%;
+    }
+}
 /*-------------------------------------------------------------------------------------------------------*/
 
 /*Recomendacion*/
@@ -1000,7 +1022,7 @@ footer.a {
 #modalBusqueda {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     height: 35%;
     width: 100%;
     position: fixed;
@@ -1097,10 +1119,11 @@ footer.a {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/* Area perfil*/
-
+/* Area perfil */
 #fotoPerfil {
-    width: 100%;
+    width: 80%;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Asegura que la imagen se recorte para ajustarse al contenedor */
 }
 
 #perfilFontP {
@@ -1137,7 +1160,7 @@ footer.a {
     color: #0D0C0D;
     background-color: #ffffff;
     width: 100%;
-    height: 100%;
+    height: 50%;
     margin: 0;
 }
 
@@ -1159,15 +1182,14 @@ footer.a {
     background-color: #0D0C0D;
     border-radius: 0.5em;
     font: "Inter", sans-serif;
-    font-size: 12px;
+    font-size: 20px;
     text-align: center;
     margin-top: 5%;
     margin-left: 10%;
     width: 80%;
 }
 
-
-/* Btn lateral*/
+/* Btn lateral */
 #bn1 {
     display: inline-block;
     padding: 10%;
@@ -1179,7 +1201,6 @@ footer.a {
     transition: all 0.2s;
     background-color: #ffffff;
     width: 100%;
-
 }
 
 #bn1:hover {
@@ -1197,9 +1218,8 @@ footer.a {
     width: 20%;
     margin-top: 2%;
     margin-left: 40%;
-    cursor: pointer;/
+    cursor: pointer;
 }
-
 
 #btnPerfil:hover {
     color: #ffffff;
@@ -1245,27 +1265,24 @@ footer.a {
     background-color: #0D0C0D;
 }
 
-/*icono*/
+/* Icono */
 #iconoPerfil {
-    width: 80%;
+    width: 30%;
     height: auto;
-    border-radius: 50%;
-    object-fit: cover;
     cursor: pointer;
-    border: #dddddd00;
+    border: none;
     position: relative;
     top: 3%;
     text-align: center;
 }
 
-/*input Perfil*/
+/* Input Perfil */
 #inputPerfil {
     padding: 0.8em 5em 0.8em;
     border-radius: 0.5em;
     margin: 1em 0 1em 0;
     border-color: #0D0C0D;
 }
-
 /*-------------------------Area modal-------------------------------------------------------------------*/
 
 #contModalNombre {

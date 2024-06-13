@@ -3,7 +3,7 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("ingresarEvento", "contenido");
+  vista.mostrarPlantilla("eventoDetallado", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main */
@@ -54,17 +54,16 @@ function mostrarCrearEvento() {
 }
 
 function mostrarTerminosCondiciones() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
-  }
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("pantallaTerminosYCondiciones", "contenido");
+}
 
-function mostrarPoliticasPrivacidad(){
+function mostrarPoliticasPrivacidad() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
-
-function mostrarVerMisEventos(){
+function mostrarVerMisEventos() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventosOrganizador", "contenido");
 }
@@ -90,7 +89,7 @@ let sesion = false;
 /*Cambia el estado de la sesion al contrario del que estaba*/
 function iniciarSesion() {
   //Leer datos de formuario y validar
-  let data = vista.getForm("formLogin")
+  let data = vista.getForm("formLogin");
   if (data.ok) {
     //Consultar en la BD si existe
 
@@ -98,17 +97,15 @@ function iniciarSesion() {
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-
   } else {
     //Si no, avisar
-
   }
 }
 
 /*Cambia el estado de la sesion al contrario del que estaba*/
 function crearUsuario() {
   //Leer datos de formuario y validar
-  let data = vista.getForm("formLogin")
+  let data = vista.getForm("formLogin");
   if (data.ok) {
     //Consultar en la BD si existe
 
@@ -116,10 +113,8 @@ function crearUsuario() {
     sesion = !sesion;
     vista.cerrarModal("modalLogin");
     vista.cerrarModal("modalLateralSesionIniciada");
-
   } else {
     //Si no, avisar
-
   }
 }
 
@@ -145,7 +140,7 @@ function cerrarModalLateral() {
 }
 
 function cerrarModalLateralSesionIniciada() {
-vista.cerrarModal("modalLateralSesionIniciada");
+  vista.cerrarModal("modalLateralSesionIniciada");
 }
 
 function mostrarModalRol() {
@@ -159,15 +154,14 @@ function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
 }
 
-modalAbierto = false
+modalAbierto = false;
 function mostrarModalBusqueda() {
-  if(modalAbierto==false){
+  if (modalAbierto == false) {
     vista.abrirModal("modalBusqueda");
-    modalAbierto=true
-  }
-  else{
+    modalAbierto = true;
+  } else {
     vista.cerrarModal("modalBusqueda");
-    modalAbierto = false
+    modalAbierto = false;
   }
 }
 
@@ -207,14 +201,13 @@ function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
 
-document.getElementById('seleccionar-archivo').addEventListener('change', function(event) {
-  const file = event.target.files[0];
-  if (file) {
+document.getElementById("seleccionar-archivo").addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
       const reader = new FileReader();
-      reader.onload = function(e) {
-          const imgSubirDetalle = document.getElementById('imgSubirDetalle');
-          imgSubirDetalle.src = e.target.result;
-      }
+      reader.onload = function (e) {
+        document.getElementById("fotoPerfil").src = e.target.result;
+      };
       reader.readAsDataURL(file);
-  }
-});
+    }
+  });
