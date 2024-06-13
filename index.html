@@ -148,8 +148,8 @@
             <div id="modalBusqueda">
                 <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
                     <div class="p-2 separadorBusqueda">
-                        <form id = "formBusqueda">
-                            <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {buscarEvento(), mostrarModalBusqueda();}">
+                        <form id = "formBusqueda" onsubmit=" ">
+                            <input type="text" id="barraBusqueda" onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {buscarEvento(event), mostrarModalBusqueda();}">
                         </form>
                     </div>
                     <div class="p-2 separadorBusqueda">

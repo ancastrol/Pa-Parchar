@@ -107,7 +107,8 @@ function mostrarDetalleEvento() {
 }
 
 //Busqueda de eventos por input del usuario
-function buscarEvento() {
+function buscarEvento(event) {
+  event.preventDefault();
   let busqueda = document.getElementById("barraBusqueda").value;
   let data = {'searchElement': '%'+busqueda+'%'};
   if (data != "") {
