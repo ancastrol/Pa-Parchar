@@ -3,10 +3,10 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
-/*Funciones para mostrar las plantillas en el main*/
+/*Funciones para mostrar las plantillas en el main */
 
 function volverInicio() {
   vista.limpiarContenido("contenido");
@@ -63,6 +63,17 @@ function mostrarPoliticasPrivacidad(){
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
+
+function mostrarVerMisEventos(){
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+}
+
+function cambiarColorSelect() {
+  var select = document.getElementById("seleccioneRol");
+  select.classList.add("seleccionado");
+}
+
 /* Funcion que identifica cuando se presiona ENTER en el input de busqueda */
 
 function handleKeyPress(event) {
@@ -77,11 +88,43 @@ function handleKeyPress(event) {
 let sesion = false;
 
 /*Cambia el estado de la sesion al contrario del que estaba*/
-function sesionIniciada() {
-  sesion = !sesion;
+function iniciarSesion() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formLogin")
+  if (data.ok) {
+    //Consultar en la BD si existe
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
+    sesion = !sesion;
+    vista.cerrarModal("modalLogin");
+    vista.cerrarModal("modalLateralSesionIniciada");
+
+  } else {
+    //Si no, avisar
+
+  }
+}
+
+/*Cambia el estado de la sesion al contrario del que estaba*/
+function crearUsuario() {
+  //Leer datos de formuario y validar
+  let data = vista.getForm("formLogin")
+  if (data.ok) {
+    //Consultar en la BD si existe
+
+    //Si si existe, activar sesión, cerrar modal, cambiar barra
+    sesion = !sesion;
+    vista.cerrarModal("modalLogin");
+    vista.cerrarModal("modalLateralSesionIniciada");
+
+  } else {
+    //Si no, avisar
+
+  }
 }
 
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
+
 function mostrarModalLateral() {
   if (sesion == false) {
     vista.abrirModal("modalLateral");
@@ -102,19 +145,32 @@ function cerrarModalLateral() {
 }
 
 function cerrarModalLateralSesionIniciada() {
-  vista.cerrarModal("modalLateralSesionIniciada");
+vista.cerrarModal("modalLateralSesionIniciada");
 }
 
 function mostrarModalRol() {
-  vista.abrirModal("roles");
+  vista.abrirModal("modalLogin");
 }
 function cerrarModalRol() {
-  vista.cerrarModal("roles");
+  vista.cerrarModal("modalLogin");
 }
 
 function mostrarModalLogin() {
   vista.abrirModal("modalLogin");
 }
+
+modalAbierto = false
+function mostrarModalBusqueda() {
+  if(modalAbierto==false){
+    vista.abrirModal("modalBusqueda");
+    modalAbierto=true
+  }
+  else{
+    vista.cerrarModal("modalBusqueda");
+    modalAbierto = false
+  }
+}
+
 function cerrarModalLogin() {
   vista.cerrarModal("modalLogin");
 }
@@ -150,3 +206,15 @@ function mostrarModalContraseña() {
 function cerrarModalContraseña() {
   vista.cerrarModal("contModalContraseña");
 }
+
+document.getElementById('seleccionar-archivo').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          const imgSubirDetalle = document.getElementById('imgSubirDetalle');
+          imgSubirDetalle.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+  }
+});
