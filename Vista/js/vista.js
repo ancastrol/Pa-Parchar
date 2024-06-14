@@ -252,7 +252,7 @@ abrirModalBusqueda(modal, data) {
 
       let informacion = document.createElement("p");
       informacion.setAttribute("id", "parrafoOrganizador");
-      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}`;
+      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}<br><strong>LUGAR</strong><br>${miEvento.lugar}`;
 
       let descripcion = document.createElement("div");
       descripcion.classList.add("p-2", "align-self-center", "text-left");
