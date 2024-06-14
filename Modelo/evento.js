@@ -61,10 +61,17 @@ class Evento extends Connect{
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 
+    //Metodo para traer eventos segun busqueda usuario
     searchEvent(dataReq, eventCallback){
-        //var searchTerm = document.getElementById('searchInput').value;
         const endpoint = 'busqueda';
         const method = 'POST';
+        this.connect(dataReq, endpoint, method, eventCallback);
+    }
+
+    //Metodo para cambiar estado de evento
+    cambiarEstadoEvento(dataReq, eventCallback){
+        const endpoint = 'evento';
+        const method = 'PUT';
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 

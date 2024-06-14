@@ -133,6 +133,7 @@ function cambiarEstadoEvento() {
     let id_eventoStr = this.attributes["data-id"].value;
     let id_evento = parseInt(id_eventoStr);
     let estado = document.getElementById("seleccionEstadoEvento").value;
+    console.log(estado);
     let data = { 'id_usuario': id_usuario, 'id_evento': id_evento, 'estado': estado};
     eventoObj.cambiarEstadoEvento(data, function (data) {
       vista.mostrarMensaje(data.success, data.msj);
