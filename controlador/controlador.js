@@ -122,6 +122,25 @@ function buscarEvento(event) {
   });
 }
 
+//cambiar el estado de un evento para el usuario
+function cambiarEstadoEvento() {
+  if (sesion == false) {
+    vista.mostrarMensaje(false, "Debe iniciar sesion para poder inscribirse a un evento");
+  } 
+  else {
+    let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+    let id_usuario = parseInt(id_usuarioStr);
+    let id_eventoStr = this.attributes["data-id"].value;
+    let id_evento = parseInt(id_eventoStr);
+    let estado = document.getElementById("seleccionEstadoEvento").value;
+    let data = { 'id_usuario': id_usuario, 'id_evento': id_evento, 'estado': estado};
+    eventoObj.cambiarEstadoEvento(data, function (data) {
+      vista.mostrarMensaje(data.success, data.msj);
+      mostrarDetalleEvento();
+    });
+  }
+}
+
 function mostrarPerfil(){
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPerfil", "contenido")
