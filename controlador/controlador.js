@@ -111,15 +111,15 @@ function buscarEvento(event) {
   event.preventDefault();
   let busqueda = document.getElementById("barraBusqueda").value;
   let data = {'searchElement': '%'+busqueda+'%'};
-  if (data != "") {
-    eventoObj.searchEvent(data, function (data) {
-      listaEventos = data.data;
-      vista.mostrarMiEvento("contenido", listaEventos);
-    });
-  } else {
-    vista.mostrarMensaje(data.ok, data.msj);
+  eventoObj.searchEvent(data, function (data) {
+  listaEventos = data.data;
+  if(listaEventos.length == 0){
+    vista.mostrarMensaje(false, "No se encontraron similitudes con la busqueda");
   }
-
+  else{
+    vista.mostrarMiEvento("contenido", listaEventos); 
+  } 
+  });
 }
 
 function mostrarPerfil(){
