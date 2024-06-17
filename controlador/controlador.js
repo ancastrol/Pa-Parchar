@@ -102,6 +102,7 @@ function mostrarDetalleEvento() {
   eventoObj.consultarDetalleEvento(id_evento, function (data) {
     evento = data.data;
     console.log(evento);
+    eventoObj.setData(evento[0]);
     vista.mostrarDetalleEvento("contenido", evento);
   });
 }
@@ -130,14 +131,13 @@ function cambiarEstadoEvento() {
   else {
     let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
     let id_usuario = parseInt(id_usuarioStr);
-    let id_eventoStr = this.attributes["data-id"].value;
+    let id_eventoStr = eventoObj.id_evento;
     let id_evento = parseInt(id_eventoStr);
-    let estado = document.getElementById("seleccionEstadoEvento").value;
-    console.log(estado);
-    let data = { 'id_usuario': id_usuario, 'id_evento': id_evento, 'estado': estado};
+    let estadoStr = document.getElementById("seleccionEstadoEvento").value;
+    let estado = parseInt(estadoStr);
+    let data = {'id_usuario': id_usuario, 'id_evento': id_evento, 'estado': estado};
     eventoObj.cambiarEstadoEvento(data, function (data) {
-      vista.mostrarMensaje(data.success, data.msj);
-      mostrarDetalleEvento();
+      vista.mostrarMensaje(true, "Estado del evento actualizado");
     });
   }
 }

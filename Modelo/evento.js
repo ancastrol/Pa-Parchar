@@ -8,9 +8,32 @@ class Evento extends Connect{
         this.lugar = '';
         this.descripcion = '';
         this.ruta_imagen = '';
+        this.ruta_flayer = '';
         this.id_usuario = 0;
     }
 
+    setData(data) {
+        this.id_evento = data.id_evento;
+        this.nombre_evento = data.nombre_evento;
+        this.fecha_hora = data.fecha_hora;
+        this.lugar = data.lugar;
+        this.descripcion = data.descripcion;
+        this.ruta_imagen = data.ruta_imagen;
+        this.ruta_flayer = data.ruta_flayer;
+        this.id_usuario = data.id_usuario;
+      }
+      getData() {
+        return {
+            id_evento:this.id_evento,
+            nombre_evento:this.nombre_evento,
+            fecha_hora:this.fecha_hora,
+            lugar:this.lugar,
+            descripcion:this.descripcion,
+            ruta_imagen:this.ruta_imagen,
+            ruta_flayer:this.ruta_flayer,
+            id_usuario:this.id_usuario,
+      };
+    }
 
     //Metodo para traer eventos al carrusel
     consultarEventosCarrusel(dataReq, eventCallback){
@@ -70,8 +93,8 @@ class Evento extends Connect{
 
     //Metodo para cambiar estado de evento
     cambiarEstadoEvento(dataReq, eventCallback){
-        const endpoint = 'evento';
-        const method = 'PUT';
+        const endpoint = 'estadoEvento';
+        const method = 'post';
         this.connect(dataReq, endpoint, method, eventCallback);
     }
 

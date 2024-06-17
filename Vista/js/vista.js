@@ -282,10 +282,13 @@ abrirModalBusqueda(modal, data) {
     let fechaEvento = document.getElementById("fechaEvento");
     let horaEvento = document.getElementById("horaEvento");
     let lugarEvento = document.getElementById("lugarEvento");
+    let botonE = document.getElementById("papa");
     let mapita = document.getElementById("mapitaLindo")
+
 
     // Ahora, llenamos los elementos con los datos de la base de datos
     evento = data[0];
+    botonE.setAttribute("data_id", evento.id_evento)
     imagenEvento.src = evento.flayer;
     nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
     descripcionEvento.innerHTML = evento.descripcion;
