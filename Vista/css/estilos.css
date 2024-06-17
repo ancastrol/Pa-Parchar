@@ -395,64 +395,45 @@ header {
 
 /*-------------------------------------------------------------------------------------------------------*/
 
-/*Boton para ingresar dirección especifica*/
+/* Estilos generales */
 
 #subirImagenes {
     width: 65%;
+    /* Ajusta otros estilos según tu diseño */
 }
 
-#imgSubirDetalle {
+#subirInformacionTexto {
     width: 100%;
-    height: auto;
-    border-radius: 3%;
-    margin: 1%;
-}
-
-#ingresarDireccion {
-    height: 100%;
-    color: #8a8a8a;
-    background-color: #d9d9d9;
-    border-radius: 8%;
-}
-
-#imgReco {
-    width: 100%;
-    height: auto;
-}
-
-#parrafoDetallado {
-    margin-top: 5%;
-    margin-right: 0%;
-    padding-left: 0;
-}
-
-hr {
-    height: 85%;
-    width: 100%;
-    background-color: #ffffff;
-    margin: 0 0 0 0;
+    /* Ajusta otros estilos según tu diseño */
 }
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
-    .d-flex.align-content-center {
+    .d-flex.flex-column {
         flex-direction: column;
-        align-items: center;
     }
 
     #subirImagenes, 
     #subirInformacionTexto {
         width: 100%;
     }
-
-    #subirInformacionTexto {
-        margin-top: 1em;
-    }
 }
 
-@media (min-width: 300px) {
+@media (min-width: 768px) {
+    .d-flex.flex-column {
+        flex-direction: row;
+    }
+
+    #subirImagenes {
+        width: 65%;
+        /* Puedes ajustar el ancho según necesites */
+        order: 1; /* Cambia el orden en pantallas grandes */
+    }
+
     #subirInformacionTexto {
-        margin-left: 2%;
+        width: 35%;
+        /* Puedes ajustar el ancho según necesites */
+        order: 2; /* Cambia el orden en pantallas grandes */
     }
 }
 
@@ -1002,7 +983,7 @@ footer.a {
 #modalBusqueda {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     height: 35%;
     width: 100%;
     position: fixed;
@@ -1250,7 +1231,7 @@ footer.a {
 
 /*icono*/
 #iconoPerfil {
-    width: 80%;
+    width: 20%;
     height: auto;
     border-radius: 50%;
     object-fit: cover;
