@@ -83,38 +83,37 @@ class Vista {
     }, 3000);
   }
 
- 
-abrirModal(modal) {
-  let pModal = document.getElementById(modal);
-  pModal.style["pointer-events"] = "unset";
-  pModal.style.opacity = 1;
+  abrirModal(modal) {
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
   }
 
-/**
- * Funcion para poner recomendaciones en barra de busqueda
- * @param {id del modal que se quiere abrir} modal 
- * @param {lista de eventos de la BD} data 
- */
-abrirModalBusqueda(modal, data) {
-  //abre el modal normalmente
-  let pModal = document.getElementById(modal);
-  pModal.style["pointer-events"] = "unset";
-  pModal.style.opacity = 1;
-  //IDs de tus elementos HTML son los siguientes:
-  let barraBusqueda1 = document.getElementById("botonBusqueda1");
-  let barraBusqueda2 = document.getElementById("botonBusqueda2");
-  let barraBusqueda3 = document.getElementById("botonBusqueda3");
-  //llenar barra de busqueda
-  let evento = data;
-  barraBusqueda1.setAttribute("data-id", evento[0].id_evento)
-  barraBusqueda2.setAttribute("data-id", evento[1].id_evento)
-  barraBusqueda3.setAttribute("data-id", evento[2].id_evento)
-  barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
-  barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
-  barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
-  barraBusqueda1.addEventListener("click",mostrarDetalleEvento);
-  barraBusqueda2.addEventListener("click",mostrarDetalleEvento);
-  barraBusqueda3.addEventListener("click",mostrarDetalleEvento);
+  /**
+   * Funcion para poner recomendaciones en barra de busqueda
+   * @param {id del modal que se quiere abrir} modal
+   * @param {lista de eventos de la BD} data
+   */
+  abrirModalBusqueda(modal, data) {
+    //abre el modal normalmente
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
+    //IDs de tus elementos HTML son los siguientes:
+    let barraBusqueda1 = document.getElementById("botonBusqueda1");
+    let barraBusqueda2 = document.getElementById("botonBusqueda2");
+    let barraBusqueda3 = document.getElementById("botonBusqueda3");
+    //llenar barra de busqueda
+    let evento = data;
+    barraBusqueda1.setAttribute("data-id", evento[0].id_evento);
+    barraBusqueda2.setAttribute("data-id", evento[1].id_evento);
+    barraBusqueda3.setAttribute("data-id", evento[2].id_evento);
+    barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
+    barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
+    barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+    barraBusqueda1.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda2.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda3.addEventListener("click", mostrarDetalleEvento);
   }
 
   /**
@@ -134,7 +133,7 @@ abrirModalBusqueda(modal, data) {
 
       let botonCarrusel = document.createElement("button");
       botonCarrusel.setAttribute("id", "btnCarrusel");
-      botonCarrusel.setAttribute("data-id", evento.id_evento)
+      botonCarrusel.setAttribute("data-id", evento.id_evento);
 
       let imagenCarrusel = document.createElement("img");
       imagenCarrusel.classList.add("d-block");
@@ -163,7 +162,7 @@ abrirModalBusqueda(modal, data) {
       carrusel.appendChild(botonCarrusel);
       carrusel.appendChild(body);
       contenedor.appendChild(carrusel);
-      botonCarrusel.addEventListener("click",mostrarDetalleEvento);
+      botonCarrusel.addEventListener("click", mostrarDetalleEvento);
     });
     contenedor.children[0].classList.add("active");
   }
@@ -185,7 +184,7 @@ abrirModalBusqueda(modal, data) {
 
       let botonEvento = document.createElement("button");
       botonEvento.setAttribute("id", "botonEvento");
-      botonEvento.setAttribute("data-id", evento.id_evento)
+      botonEvento.setAttribute("data-id", evento.id_evento);
 
       let imagenEvento = document.createElement("img");
       imagenEvento.setAttribute("id", "eventoA");
@@ -218,9 +217,8 @@ abrirModalBusqueda(modal, data) {
     contenedor.innerHTML = "";
 
     console.log(data);
-    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
+    //construir tarjeta evento, se cambia classlist.add por id para probar que funcionen los estilos
     data.forEach((miEvento) => {
-
       let divMiEvento = document.createElement("div");
       divMiEvento.setAttribute("id", "contenedorMiEvento");
 
@@ -230,7 +228,7 @@ abrirModalBusqueda(modal, data) {
       let botonMiEvento = document.createElement("button");
       botonMiEvento.classList.add("p-2");
       botonMiEvento.setAttribute("id", "botonEvento");
-      botonMiEvento.setAttribute("data-id", miEvento.id_evento)
+      botonMiEvento.setAttribute("data-id", miEvento.id_evento);
 
       let divMiEvento2 = document.createElement("div");
       divMiEvento2.classList.add("d-flex");
@@ -243,9 +241,16 @@ abrirModalBusqueda(modal, data) {
       imagenMiEvento.src = miEvento.ruta_imagen;
 
       let divMiEvento2_2 = document.createElement("div");
-      divMiEvento2_2.classList.add("p-2", "d-flex", "flex-column", "mb-0", "align-self-center", "text-left");
+      divMiEvento2_2.classList.add(
+        "p-2",
+        "d-flex",
+        "flex-column",
+        "mb-0",
+        "align-self-center",
+        "text-left"
+      );
       divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
-      
+
       let nombre = document.createElement("h6");
       nombre.setAttribute("id", "tituloOrganizador");
       nombre.innerHTML = `<strong>${miEvento.nombre_evento}</strong>`;
@@ -283,12 +288,11 @@ abrirModalBusqueda(modal, data) {
     let horaEvento = document.getElementById("horaEvento");
     let lugarEvento = document.getElementById("lugarEvento");
     let botonE = document.getElementById("papa");
-    let mapita = document.getElementById("mapitaLindo")
-
+    let mapita = document.getElementById("mapitaLindo");
 
     // Ahora, llenamos los elementos con los datos de la base de datos
     evento = data[0];
-    botonE.setAttribute("data_id", evento.id_evento)
+    botonE.setAttribute("data_id", evento.id_evento);
     imagenEvento.src = evento.flayer;
     nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
     descripcionEvento.innerHTML = evento.descripcion;
@@ -297,16 +301,15 @@ abrirModalBusqueda(modal, data) {
     lugarEvento.innerHTML = evento.lugar;
   }
 
-mostrarPerfil(data) {
-  // Suponiendo que los IDs de tus elementos HTML son los siguientes:
-  let imagenPerfil = document.getElementById("fotoPerfil")
-  let nombrePerfil = document.getElementById("nombrePerfil")
-  let correoPerfil = document.getElementById("correoPerfil")
+  mostrarPerfil(data) {
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let imagenPerfil = document.getElementById("fotoPerfil");
+    let nombrePerfil = document.getElementById("nombrePerfil");
+    let correoPerfil = document.getElementById("correoPerfil");
 
-  usuario = data[0]
-  imagenPerfil.src = usuario.imagen_perfil;
-  nombrePerfil.innerHTML = usuario.nombre;
-  correoPerfil.innerHTML = usuario.correo
-}
-
+    usuario = data[0];
+    imagenPerfil.src = usuario.imagen_perfil;
+    nombrePerfil.innerHTML = usuario.nombre;
+    correoPerfil.innerHTML = usuario.correo;
+  }
 }
