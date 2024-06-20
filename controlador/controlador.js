@@ -3,7 +3,7 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
 /*Funciones para mostrar las plantillas en el main */
