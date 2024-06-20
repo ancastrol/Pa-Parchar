@@ -288,10 +288,33 @@ function mostrarPantallaBusqueda() {
   vista.mostrarPlantilla("busqueda", "contenido");
 }
 
+//funciones calendario-------------------------------------------------------------------------------
+
 function mostrarCalendario() {
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("calendarioTemplate", "contenido");
+  vista.mostrarPlantilla("calendario", "contenido");
+  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 }
+
+
+function botonCalendarioPrevio () {
+fecha.setMonth(fecha.getMonth() - 1);
+renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+};
+
+function botonCalendarioProximo () {
+fecha.setMonth(fecha.getMonth() + 1);
+renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+};
+
+function mostrarEventosCalendario(){
+  let data = fecha.getMonth() + 1;
+  eventoObj.consultarEventosCalendario(data,function (data) {
+    vista.mostrarEventoDia(data.data);
+  })
+};
+
+//-------------------------------------------------------------------------------------------------
 
 function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");

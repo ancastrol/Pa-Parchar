@@ -17,12 +17,6 @@
     <link rel="stylesheet" href="./Vista/css/estilos.css">
     <link rel="icon" type="image/x.icon" href="./Recursos/Img/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!--Calendario-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -248,7 +242,7 @@
                         </button>
 
                         <button class="d-flex justify-content-center" id="opcionMenu"
-                            onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada()">
+                            onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada(), mostrarEventosCalendario()">
                             <i class="material-icons">event</i>
                             <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
                         </button>
@@ -806,47 +800,146 @@
         </div>
     </template>
 
-    <!--Calendario-->
-    <template id="calendarioTemplate">
-        <h1>Calendario</h1>
-        <div id="calendar"></div>
+  <!---Calendario-->
+  <template id="calendario">
 
-        <script>
-            function crearCalendario(year, month) {
-                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-                var fecha = new Date(year, month - 1, 1);
-                var diasEnMes = new Date(year, month, 0).getDate();
-                var primerDiaSemana = fecha.getDay();
+    <div class="container-calendario">
 
-                var table = '<table><tr>';
-                for (var i = 0; i < diasSemana.length; i++) {
-                    table += '<th>' + diasSemana[i] + '</th>';
-                }
-                table += '</tr><tr>';
+        <div class="calendario">
 
-                var dia = 1;
-                for (var j = 0; j < 42; j++) {
-                    if (j >= primerDiaSemana && dia <= diasEnMes) {
-                        table += '<td>' + dia + '</td>';
-                        dia++;
-                    } else {
-                        table += '<td></td>';
-                    }
+            <div class="mes">
+                <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
+                <div class="fecha">
+                    <h2 id = "mesCalendario"></h2>
+                    <p></p>
+                </div>
+                <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
+            </div>
+            <div class="dias">
+                <div>LUNES</div>
+                <div>MARTES</div>
+                <div>MIERCOLES</div>
+                <div>JUEVES</div>
+                <div>VIERNES</div>
+                <div>SABADO</div>
+                <div>DOMINGO</div>
+            </div>
+            <div class="numdias">
 
-                    if (j % 7 == 6) {
-                        table += '</tr><tr>';
-                    }
-                }
+            </div>
 
-                table += '</tr></table>';
-                document.getElementById('calendar').innerHTML = table;
+
+
+        </div>
+    </div>
+</template>
+
+<script>
+    //------------------card-Caledario--------------------
+    //crear un div de eventos
+    const nuevoDiv = document.createElement("div");
+
+    // Asignar clase y ID al nuevo div
+    nuevoDiv.className = "cardCalendario";
+    nuevoDiv.id = "card-Calendario";
+
+
+
+
+
+    let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+    //let clone = document.importNode(template.content, true);
+    //document.body.appendChild(clone);
+
+
+    let fecha = new Date();
+    const renderizarCalendario = (mes, año) => {
+        const diasMes = document.querySelector(".numdias");
+        const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+        const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+        const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+        let indicePrimerDia = primerDiaMes.getDay();
+        const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+        const diasSig = 7 - indiceUltimoDia - 1;
+        const meses = [
+            "enero",
+            "febrero",
+            "marzo",
+            "abril",
+            "mayo",
+            "junio",
+            "julio",
+            "agosto",
+            "septiembre",
+            "octubre",
+            "noviembre",
+            "diciembre"
+        ];
+
+
+
+
+        let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+
+        // Almacena la fecha actual cuando la página se carga por primera vez
+        let fechaActual = new Date();
+        document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+        document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
+
+
+        //--------------------------------------------------------------------------------------
+
+        const añoId = new Date().getFullYear();
+        let mesId = fecha.getMonth();
+
+        let numdias = "";
+        let eventos = [{
+
+        }
+            // Agrega más eventos aquí
+        ];
+        let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
+
+        // Ajustar el índice del primer día si el calendario comienza en Lunes
+        if (indicePrimerDia === 0) { // Si es Domingo
+            indicePrimerDia = 7; // Cambiar a 7
+        } else {
+            indicePrimerDia--; // Restar 1 a los otros días
+        }
+
+        for (let x = indicePrimerDia; x > 0; x--) {
+            numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
+        };
+
+
+
+        for (let i = 1; i <= ultimoDia; i++) {
+            if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
+                numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
             }
+            else {
+                let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
+                if (eventoHoy) {
+                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId+1}-${i}">${i}</div>${cardCalendario}</div>`;
+                } else {
+                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId+1}-${i}">${i}</div></div>`;
+                }
+            }
+        }
 
-            // Ejemplo: Mostrar el calendario del mes actual
-            var fechaActual = new Date();
-            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
-        </script>
-    </template>
+        for (let y = 1; y <= diasSig; y++) {
+            numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
+        }
+
+        diasMes.innerHTML = numdias;
+    };
+
+
+
+
+</script>
+
 
     <!--Pagina Politicas de privacidad-->
     <template id="pantallaPoliticaPrivacidad">

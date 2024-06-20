@@ -218,6 +218,27 @@ class Vista {
     });
   }
 
+    //Mostrar eventos por dia,  '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>'
+    mostrarEventoDia(data){
+      
+      console.log(data)
+      data.forEach((evento)=> {
+
+        let contenedor = document.getElementById(`${evento.fecha}`);
+
+        let botonDia = document.createElement("button");
+        botonDia.classList.add("card-calendario");
+  
+        let eventoDia = document.createElement("p");
+        eventoDia.innerHTML = `<strong>${evento.nombre}</strong>`;
+  
+        botonDia.appendChild(eventoDia);
+        contenedor.appendChild(botonDia);
+        botonDia.addEventListener("click", mostrarDetalleEvento);
+      });
+    }
+
+
   //mostrar eventos organizados por el usuario
   mostrarMiEvento(content, data) {
     let contenedor = document.getElementById(content);
