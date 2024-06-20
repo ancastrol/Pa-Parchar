@@ -209,6 +209,22 @@ function mostrarPerfil() {
   });
 }
 
+//funcion para cambiar nombre de usuario
+function cambiarNombre() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let nombre = vista.getForm("formNombre").nombre;
+  if (nombre.ok) {
+    let data = { id_usuario: id_usuario, nombre: nombre };
+    usuarioObj.changeName(data, function (data) {
+    vista.mostrarMensaje(data.success, data.msj);
+  });
+  }
+  else{
+    vista.mostrarMensaje(nombre.ok, "Debe ingresar un nombre");
+  }
+}
+
 function mostrarIngresarEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");

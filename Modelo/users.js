@@ -45,4 +45,17 @@ class Usuario extends Connect {
     const method = "GET";
     this.connect(dataReq, endpoint, method, registrarCallback);
   }
+
+  //Metodo para cambiar nombre de usuario
+  changeName(dataReq, changeNameCallback) {
+    const endpoint = "usuario/changeName";
+    const method = "POST";
+    this.connect(dataReq, endpoint, method, changeNameCallback);
+  }
 }
+
+
+
+
+
+

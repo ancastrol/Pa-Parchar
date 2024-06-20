@@ -997,8 +997,10 @@
                 <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1 class="modalTitle">TU NOMBRE</h1>
                 </div>
-                <p>Tu nombre es:XXXXXXXXXX</p>
-                <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil">
+                <p>Digite su nuevo nombre de usuario</p>
+                <form id = "formNombre">
+                    <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" onclick="cambiarNombre()">
+                </form>
 
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalNombre()">
