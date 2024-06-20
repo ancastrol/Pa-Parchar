@@ -1020,8 +1020,10 @@
                 <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1>TU EMAIL</h1>
                 </div>
-                <p>Tu email es:XXXX@email.com</p>
-                <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil">
+                <p>Ingrese su nuevo email</p>
+                <form id = "formEmail">
+                    <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil" onclick="cambiarEmail()">
+                </form>
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalEmail()">
                         <h4>CANCELAR</h1>
@@ -1045,7 +1047,9 @@
                     <h1>Contraseña</h1>
                 </div>
 
-                <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil">
+                <form id="formContrasenia">
+                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil" onclick="cambiarContrasenia()">
+                </form>
 
                 <hr id="lineasHorizantal">
 

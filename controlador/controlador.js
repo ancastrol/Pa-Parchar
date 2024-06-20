@@ -213,7 +213,7 @@ function mostrarPerfil() {
 function cambiarNombre() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  let nombre = vista.getForm("formNombre").nombre;
+  let nombre = vista.getForm("formNombre");
   if (nombre.ok) {
     let data = { id_usuario: id_usuario, nombre: nombre };
     usuarioObj.changeName(data, function (data) {
@@ -222,6 +222,38 @@ function cambiarNombre() {
   }
   else{
     vista.mostrarMensaje(nombre.ok, "Debe ingresar un nombre");
+  }
+}
+
+//funcion para cambiar correo de usuario
+function cambiarCorreo() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let correo = vista.getForm("formCorreo");
+  if (correo.ok) {
+    let data = { id_usuario: id_usuario, correo: correo };
+    usuarioObj.changeEmail(data, function (data) {
+      vista.mostrarMensaje(data.success, data.msj);
+    });
+  }
+  else{
+    vista.mostrarMensaje(correo.ok, "Debe ingresar un correo");
+  }
+}
+
+//funcion para cambiar contraseña de usuario
+function cambiarContraseña() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let contrasenia = vista.getForm("formContrasenia");
+  if (contrasenia.ok) {
+    let data = { id_usuario: id_usuario, contrasenia: contrasenia };
+    usuarioObj.changePassword(data, function (data) {
+      vista.mostrarMensaje(data.success, data.msj);
+    });
+  }
+  else{
+    vista.mostrarMensaje(contrasenia.ok, "Debe ingresar una contraseña");
   }
 }
 

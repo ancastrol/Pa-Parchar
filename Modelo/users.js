@@ -52,10 +52,18 @@ class Usuario extends Connect {
     const method = "POST";
     this.connect(dataReq, endpoint, method, changeNameCallback);
   }
+
+  //Metodo para cambiar correo de usuario
+  changeEmail(dataReq, changeEmailCallback) {
+    const endpoint = "usuario/changeEmail";
+    const method = "POST";
+    this.connect(dataReq, endpoint, method, changeEmailCallback);
+  }
+
+  //Metodo para cambiar contraseña de usuario
+  changePassword(dataReq, changePasswordCallback) {
+    const endpoint = "usuario/changePassword";
+    const method = "POST";
+    this.connect(dataReq, endpoint, method, changePasswordCallback);
+  }
 }
-
-
-
-
-
-
