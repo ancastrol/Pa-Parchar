@@ -48,22 +48,22 @@ class Usuario extends Connect {
 
   //Metodo para cambiar nombre de usuario
   changeName(dataReq, changeNameCallback) {
-    const endpoint = "usuario/changeName";
-    const method = "POST";
+    const endpoint = "changeName";
+    const method = "PUT";
     this.connect(dataReq, endpoint, method, changeNameCallback);
   }
 
   //Metodo para cambiar correo de usuario
   changeEmail(dataReq, changeEmailCallback) {
-    const endpoint = "usuario/changeEmail";
-    const method = "POST";
+    const endpoint = "changeEmail";
+    const method = "PUT";
     this.connect(dataReq, endpoint, method, changeEmailCallback);
   }
 
   //Metodo para cambiar contraseña de usuario
   changePassword(dataReq, changePasswordCallback) {
-    const endpoint = "usuario/changePassword";
-    const method = "POST";
+    const endpoint = "changePassword";
+    const method = "PUT";
     this.connect(dataReq, endpoint, method, changePasswordCallback);
   }
 }

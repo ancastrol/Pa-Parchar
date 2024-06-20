@@ -982,7 +982,7 @@
                     <h1>Contraseña</h1>
                 </div>
                 <div id="perfilFontP">
-                    <p>Cambiar tu contraseña en cualquier momento</p>
+                    <p>Puedes cambiar tu contraseña en cualquier momento</p>
                 </div>
                 <button id="btnPerfil" onclick="mostrarModalContraseña()">
                     <h4>CAMBIAR</h1>
@@ -999,14 +999,14 @@
                 </div>
                 <p>Digite su nuevo nombre de usuario</p>
                 <form id = "formNombre">
-                    <input type="text" placeholder="Nombre del evento" name="title" id="inputPerfil" onclick="cambiarNombre()">
+                    <input type="text" placeholder="Nombre del evento" name="title" class="inputPerfil">
                 </form>
 
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalNombre()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
+                    <button id="btnPerfilModal" onclick="cambiarNombre()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>
@@ -1021,14 +1021,14 @@
                     <h1>TU EMAIL</h1>
                 </div>
                 <p>Ingrese su nuevo email</p>
-                <form id = "formEmail">
-                    <input type="text" placeholder="Escribe tu email" name="title" id="inputPerfil" onclick="cambiarEmail()">
+                <form id = "formCorreo">
+                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil" onclick="cambiarEmail()">
                 </form>
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalEmail()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
+                    <button id="btnPerfilModal" onclick="cambiarCorreo()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>
@@ -1048,19 +1048,17 @@
                 </div>
 
                 <form id="formContrasenia">
-                    <input type="password" placeholder="Escribre tu contraseña" name="title" id="inputPerfil" onclick="cambiarContrasenia()">
+                    <input type="password" placeholder="Escribre tu contraseña" name="title" class="inputPerfil">
+                    <hr id="lineasHorizantal">
+                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title" class="inputPerfil" />
+                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil"/>
                 </form>
-
-                <hr id="lineasHorizantal">
-
-                <input type="password" placeholder="Escribre tu nueva contraseña" name="title" id="inputPerfil" />
-                <input type="password" placeholder="Confirma tu contraseña" name="title" id="inputPerfil" />
 
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
+                    <button id="btnPerfilModal" onclick="cambiarContrasenia()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>

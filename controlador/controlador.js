@@ -183,8 +183,7 @@ function cambiarEstadoEvento() {
       "Debe iniciar sesion para poder inscribirse a un evento"
     );
   } else {
-    let id_usuarioStr =
-      document.getElementById("papa").attributes["user-id"].value;
+    let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
     let id_usuario = parseInt(id_usuarioStr);
     let id_eventoStr = eventoObj.id_evento;
     let id_evento = parseInt(id_eventoStr);
@@ -213,11 +212,14 @@ function mostrarPerfil() {
 function cambiarNombre() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  let nombre = vista.getForm("formNombre");
-  if (nombre.ok) {
+  let nombreT = vista.getForm("formNombre");
+  if (nombreT.ok) {
+    let nombre = nombreT.title;
     let data = { id_usuario: id_usuario, nombre: nombre };
     usuarioObj.changeName(data, function (data) {
+    vista.cerrarModal("contModalNombre");
     vista.mostrarMensaje(data.success, data.msj);
+    mostrarPerfil();
   });
   }
   else{
@@ -229,11 +231,14 @@ function cambiarNombre() {
 function cambiarCorreo() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  let correo = vista.getForm("formCorreo");
-  if (correo.ok) {
+  let correoT = vista.getForm("formCorreo");
+  if (correoT.ok) {
+    let correo = correoT.title;
     let data = { id_usuario: id_usuario, correo: correo };
     usuarioObj.changeEmail(data, function (data) {
       vista.mostrarMensaje(data.success, data.msj);
+      vista.cerrarModal("contModalNombre");
+      mostrarPerfil();
     });
   }
   else{
@@ -242,15 +247,26 @@ function cambiarCorreo() {
 }
 
 //funcion para cambiar contraseña de usuario
-function cambiarContraseña() {
+function cambiarContrasenia() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  let contrasenia = vista.getForm("formContrasenia");
-  if (contrasenia.ok) {
-    let data = { id_usuario: id_usuario, contrasenia: contrasenia };
-    usuarioObj.changePassword(data, function (data) {
-      vista.mostrarMensaje(data.success, data.msj);
+  let contraseniaT = vista.getForm("formContrasenia");
+  if (contraseniaT.ok) {
+    let datos = vista.obtenerValoresFormulario("formContrasenia", "inputPerfil");
+    let contrasenia = datos[0];
+    let newContrasenia = datos[1];
+    let newContrasenia2 = datos[2];
+    if(newContrasenia != newContrasenia2){
+      vista.mostrarMensaje(false, "Las contraseñas no coinciden");
+    }
+    else{
+      let data = { id_usuario: id_usuario, contrasenia: contrasenia, newContrasenia: newContrasenia};
+      console.log(data);
+      usuarioObj.changePassword(data, function (data) {
+        vista.mostrarMensaje(data.success, "Se cambio la contraseña correctamente");
+        vista.cerrarModal("contModalContraseña");
     });
+  }
   }
   else{
     vista.mostrarMensaje(contrasenia.ok, "Debe ingresar una contraseña");

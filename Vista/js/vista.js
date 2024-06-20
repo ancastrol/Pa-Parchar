@@ -50,6 +50,13 @@ class Vista {
     return data;
   }
 
+  obtenerValoresFormulario(form, input) {
+    var formulario = document.getElementById(form);
+    var inputs = formulario.getElementsByClassName(input);
+    var valores = Array.from(inputs).map(input => input.value);
+    return valores;
+}
+
   /**
    * Despliega un mensaje de por tres segundos
    * @param {bool} ok: bandera que indica si el mensaje es de error o de éxito

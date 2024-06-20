@@ -1173,7 +1173,7 @@ top: 3%;
 }
 
 /*input Perfil*/
-#inputPerfil{
+.inputPerfil{
 padding: 0.8em 5em 0.8em ;
 border-radius:0.5em ;
 margin: 1em 0 1em 0 ;
