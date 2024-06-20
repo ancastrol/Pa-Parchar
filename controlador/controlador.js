@@ -4,8 +4,10 @@ let vista = new Vista();
 
 document.body.onload = function () {
   vista.mostrarPlantilla("ingresarEvento", "contenido");
+  vista.mostrarPlantilla("ingresarEvento", "contenido");
 };
 
+/*Funciones para mostrar las plantillas en el main */
 /*Funciones para mostrar las plantillas en el main */
 
 function volverInicio() {
@@ -120,6 +122,7 @@ function crearUsuario() {
 
 /*Abre el modal lateral correspondiente a si se ha iniciado sesion o no*/
 
+
 function mostrarModalLateral() {
   if (sesion == false) {
     vista.abrirModal("modalLateral");
@@ -140,13 +143,15 @@ function cerrarModalLateral() {
 }
 
 function cerrarModalLateralSesionIniciada() {
-  vista.cerrarModal("modalLateralSesionIniciada");
+vista.cerrarModal("modalLateralSesionIniciada");
 }
 
 function mostrarModalRol() {
   vista.abrirModal("modalLogin");
+  vista.abrirModal("modalLogin");
 }
 function cerrarModalRol() {
+  vista.cerrarModal("modalLogin");
   vista.cerrarModal("modalLogin");
 }
 
