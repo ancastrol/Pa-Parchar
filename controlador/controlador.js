@@ -3,11 +3,9 @@ let vista = new Vista();
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  vista.mostrarPlantilla("ingresarEvento", "contenido");
-  vista.mostrarPlantilla("ingresarEvento", "contenido");
+  vista.mostrarPlantilla("eventoDetalladoBtnEditar", "contenido");
 };
 
-/*Funciones para mostrar las plantillas en el main */
 /*Funciones para mostrar las plantillas en el main */
 
 function volverInicio() {
@@ -28,6 +26,11 @@ function mostrarMasEventos() {
 function mostrarIngresarEvento() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("ingresarEvento", "contenido");
+}
+
+function mostrarActualizarEvento() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("actualizarEvento", "contenido");
 }
 
 function mostrarBusquedaRelacionada() {
