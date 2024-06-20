@@ -83,11 +83,19 @@ class Vista {
     }, 3000);
   }
 
+  abrirModal(modal) {
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
+  }
+
   /**
    * Funcion para poner recomendaciones en barra de busqueda
-   *
+   * @param {id del modal que se quiere abrir} modal
+   * @param {lista de eventos de la BD} data
    */
-  abrirModal(modal, data) {
+  abrirModalBusqueda(modal, data) {
+    //abre el modal normalmente
     let pModal = document.getElementById(modal);
     pModal.style["pointer-events"] = "unset";
     pModal.style.opacity = 1;
@@ -95,12 +103,17 @@ class Vista {
     let barraBusqueda1 = document.getElementById("botonBusqueda1");
     let barraBusqueda2 = document.getElementById("botonBusqueda2");
     let barraBusqueda3 = document.getElementById("botonBusqueda3");
-
-    // Ahora, llenamos los elementos con los datos de la base de datos
-    let evento = data.data;
+    //llenar barra de busqueda
+    let evento = data;
+    barraBusqueda1.setAttribute("data-id", evento[0].id_evento);
+    barraBusqueda2.setAttribute("data-id", evento[1].id_evento);
+    barraBusqueda3.setAttribute("data-id", evento[2].id_evento);
     barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
     barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
     barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+    barraBusqueda1.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda2.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda3.addEventListener("click", mostrarDetalleEvento);
   }
 
   /**
@@ -204,7 +217,7 @@ class Vista {
     contenedor.innerHTML = "";
 
     console.log(data);
-    //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
+    //construir tarjeta evento, se cambia classlist.add por id para probar que funcionen los estilos
     data.forEach((miEvento) => {
       let divMiEvento = document.createElement("div");
       divMiEvento.setAttribute("id", "contenedorMiEvento");
@@ -236,7 +249,6 @@ class Vista {
         "align-self-center",
         "text-left"
       );
-      
       divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
 
       let nombre = document.createElement("h6");
@@ -245,7 +257,7 @@ class Vista {
 
       let informacion = document.createElement("p");
       informacion.setAttribute("id", "parrafoOrganizador");
-      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}`;
+      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}<br><strong>LUGAR</strong><br>${miEvento.lugar}`;
 
       let descripcion = document.createElement("div");
       descripcion.classList.add("p-2", "align-self-center", "text-left");
@@ -275,10 +287,12 @@ class Vista {
     let fechaEvento = document.getElementById("fechaEvento");
     let horaEvento = document.getElementById("horaEvento");
     let lugarEvento = document.getElementById("lugarEvento");
+    let botonE = document.getElementById("papa");
     let mapita = document.getElementById("mapitaLindo");
 
     // Ahora, llenamos los elementos con los datos de la base de datos
     evento = data[0];
+    botonE.setAttribute("data_id", evento.id_evento);
     imagenEvento.src = evento.flayer;
     nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
     descripcionEvento.innerHTML = evento.descripcion;

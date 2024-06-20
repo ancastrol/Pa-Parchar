@@ -24,16 +24,14 @@ function volverInicio() {
       //Desplegar tarjetas de eventos en id= "contenidoEventos"
       vista.mostrarEvento("contenidoEventos", listaEventos);
     });
-  } 
-  else {
+  } else {
     id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
     id_usuario = parseInt(id_usuarioStr);
     eventoObj.consultarEventosCarruselUsuario(id_usuario, function (data) {
-      if(data.data.length > 2){
+      if (data.data.length > 0) {
         listaEventosCarrusel = data.data;
         vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
-      }
-      else{
+      } else {
         eventoObj.consultarEventosCarrusel({}, function (data) {
           listaEventosCarrusel = data.data;
           vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
@@ -41,11 +39,10 @@ function volverInicio() {
       }
     });
     eventoObj.consultarEventosUsuario(id_usuario, function (data) {
-      if(data.data.length > 0){  
+      if (data.data.length > 0) {
         listaEventos = data.data;
         vista.mostrarEvento("contenidoEventos", listaEventos);
-      }
-      else{
+      } else {
         eventoObj.consultarEventos({}, function (data) {
           listaEventos = data.data;
           vista.mostrarEvento("contenidoEventos", listaEventos);
@@ -81,13 +78,66 @@ function mostrarMasEventos() {
   vista.mostrarPlantilla("MasEventos", "contenido");
 }
 
-//Mostar eventos de un organizador
+//Mostar eventos mis eventos (organizador)
 function mostrarEventosOrganizador() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
   eventoObj.consultarEventosOrganizador(id_usuario, function (data) {
+    listaEventos = data.data;
+    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  });
+}
+
+//Mostar eventos mis eventos fecha ASC (organizador)
+function mostrarEventosOrganizadorDateASC() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  eventoObj.consultarEventosOrganizadorDateASC(id_usuario, function (data) {
+    listaEventos = data.data;
+    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  });
+}
+
+//Mostar eventos mis eventos fecha DESC (organizador)
+function mostrarEventosOrganizadorDateDESC() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  eventoObj.consultarEventosOrganizadorDateDESC(id_usuario, function (data) {
+    listaEventos = data.data;
+    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  });
+}
+
+//Mostar eventos mis eventos categoria ASC (organizador)
+function mostrarEventosOrganizadorCatASC() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  eventoObj.consultarEventosOrganizadorCatASC(id_usuario, function (data) {
+    listaEventos = data.data;
+    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  });
+}
+
+//Mostar eventos mis eventos categoria DESC (organizador)
+function mostrarEventosOrganizadorCatDESC() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosOrganizador", "contenido");
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  eventoObj.consultarEventosOrganizadorCatDESC(id_usuario, function (data) {
     listaEventos = data.data;
     vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
   });
@@ -102,20 +152,109 @@ function mostrarDetalleEvento() {
   eventoObj.consultarDetalleEvento(id_evento, function (data) {
     evento = data.data;
     console.log(evento);
+    eventoObj.setData(evento[0]);
     vista.mostrarDetalleEvento("contenido", evento);
   });
 }
 
-function mostrarPerfil(){
+//Busqueda de eventos por input del usuario
+function buscarEvento(event) {
+  event.preventDefault();
+  let busqueda = document.getElementById("barraBusqueda").value;
+  let data = { searchElement: "%" + busqueda + "%" };
+  eventoObj.searchEvent(data, function (data) {
+    listaEventos = data.data;
+    if (listaEventos.length == 0) {
+      vista.mostrarMensaje(
+        false,
+        "No se encontraron similitudes con la busqueda"
+      );
+    } else {
+      vista.mostrarMiEvento("contenido", listaEventos);
+    }
+  });
+}
+
+//cambiar el estado de un evento para el usuario
+function cambiarEstadoEvento() {
+  if (sesion == false) {
+    vista.mostrarMensaje(
+      false,
+      "Debe iniciar sesion para poder inscribirse a un evento"
+    );
+  } else {
+    let id_usuarioStr =
+      document.getElementById("papa").attributes["user-id"].value;
+    let id_usuario = parseInt(id_usuarioStr);
+    let id_eventoStr = eventoObj.id_evento;
+    let id_evento = parseInt(id_eventoStr);
+    let estadoStr = document.getElementById("seleccionEstadoEvento").value;
+    let estado = parseInt(estadoStr);
+    let data = { id_usuario: id_usuario, id_evento: id_evento, estado: estado };
+    eventoObj.cambiarEstadoEvento(data, function (data) {
+      vista.mostrarMensaje(true, "Estado del evento actualizado");
+    });
+  }
+}
+
+function mostrarPerfil() {
   vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("pantallaPerfil", "contenido")
-  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  vista.mostrarPlantilla("pantallaPerfil", "contenido");
+  let id_usuarioStr =
+    document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
   usuarioObj.getProfile(id_usuario, function (data) {
     usuario = data.data;
-    vista.mostrarPerfil(usuario)
+    vista.mostrarPerfil(usuario);
   });
+}
 
+//funcion para cambiar nombre de usuario
+function cambiarNombre() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let nombre = vista.getForm("formNombre");
+  if (nombre.ok) {
+    let data = { id_usuario: id_usuario, nombre: nombre };
+    usuarioObj.changeName(data, function (data) {
+    vista.mostrarMensaje(data.success, data.msj);
+  });
+  }
+  else{
+    vista.mostrarMensaje(nombre.ok, "Debe ingresar un nombre");
+  }
+}
+
+//funcion para cambiar correo de usuario
+function cambiarCorreo() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let correo = vista.getForm("formCorreo");
+  if (correo.ok) {
+    let data = { id_usuario: id_usuario, correo: correo };
+    usuarioObj.changeEmail(data, function (data) {
+      vista.mostrarMensaje(data.success, data.msj);
+    });
+  }
+  else{
+    vista.mostrarMensaje(correo.ok, "Debe ingresar un correo");
+  }
+}
+
+//funcion para cambiar contraseña de usuario
+function cambiarContraseña() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let contrasenia = vista.getForm("formContrasenia");
+  if (contrasenia.ok) {
+    let data = { id_usuario: id_usuario, contrasenia: contrasenia };
+    usuarioObj.changePassword(data, function (data) {
+      vista.mostrarMensaje(data.success, data.msj);
+    });
+  }
+  else{
+    vista.mostrarMensaje(contrasenia.ok, "Debe ingresar una contraseña");
+  }
 }
 
 function mostrarIngresarEvento() {
@@ -153,8 +292,7 @@ function mostrarPoliticasPrivacidad() {
   vista.mostrarPlantilla("pantallaPoliticaPrivacidad", "contenido");
 }
 
-
-function mostrarVerMisEventos(){
+function mostrarVerMisEventos() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventosOrganizador", "contenido");
 }
@@ -182,12 +320,10 @@ function registrarUsuario() {
             vista.mostrarMensaje(data.success, data.message);
             volverInicio();
           });
+        } else {
+          vista.mostrarMensaje(false, "Correo ya esta reistrado");
         }
-      else{
-        vista.mostrarMensaje(false, "Correo ya esta reistrado");
-        }
-      } 
-      else {
+      } else {
         vista.mostrarMensaje(data.ok, data.msj);
       }
     });
@@ -210,8 +346,7 @@ function iniciarSesion() {
           let id_usuario = usuarioObj.id;
           document.getElementById("papa").setAttribute("user-id", id_usuario);
           volverInicio();
-        }
-        else {
+        } else {
           vista.mostrarMensaje(false, "Usuario no encontrado");
         }
       } else {
@@ -241,21 +376,19 @@ function mostrarModalLateral() {
   }
 }
 
-modalAbierto = false
+modalAbierto = false;
 function mostrarModalBusqueda() {
-  if(modalAbierto==false){
-      eventoObj.consultarEventosCarrusel({}, function(data){
+  if (modalAbierto == false) {
+    eventoObj.consultarEventosCarrusel({}, function (data) {
       lista = data.data;
-      vista.abrirModal("modalBusqueda", data);
-      modalAbierto=true
+      vista.abrirModalBusqueda("modalBusqueda", lista);
+      modalAbierto = true;
     });
-    }
-    else{
-      vista.cerrarModal("modalBusqueda");
-      modalAbierto = false
-    }
+  } else {
+    vista.cerrarModal("modalBusqueda");
+    modalAbierto = false;
+  }
 }
-
 
 function mostrarModal() {
   vista.abrirModal("modalUrl");
