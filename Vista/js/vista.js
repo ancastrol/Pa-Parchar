@@ -19,12 +19,6 @@ class Vista {
     }
   }
 
-  abrirModal(modal) {
-    let pModal = document.getElementById(modal);
-    pModal.style["pointer-events"] = "unset";
-    pModal.style.opacity = 1;
-  }
-
   cerrarModal(modal) {
     let pModal = document.getElementById(modal);
     pModal.style["pointer-events"] = "none";
@@ -55,6 +49,13 @@ class Vista {
     });
     return data;
   }
+
+  obtenerValoresFormulario(form, input) {
+    var formulario = document.getElementById(form);
+    var inputs = formulario.getElementsByClassName(input);
+    var valores = Array.from(inputs).map(input => input.value);
+    return valores;
+}
 
   /**
    * Despliega un mensaje de por tres segundos
@@ -89,72 +90,233 @@ class Vista {
     }, 3000);
   }
 
-  mostrarDetalleEvento(evento) {
-    let div = document.getElementById("contenido");
-    div.innerHTML = "";
-    let divEvento = document.createElement("div");
-    divEvento.innerHTML = `
-    <h2>${evento.nombre}</h2>
-    <p>${evento.fecha}</p>
-    <p>${evento.hora}</p>
-    <p>${evento.lugar}</p>
-    <p>${evento.descripcion}</p>
-    <p>${evento.categoria}</p>
-    <p>${evento.imagen}</p>
-    `;
-    div.appendChild(divEvento);
+  abrirModal(modal) {
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
   }
 
-  mostrarEvento(content, data) {
+  /**
+   * Funcion para poner recomendaciones en barra de busqueda
+   * @param {id del modal que se quiere abrir} modal
+   * @param {lista de eventos de la BD} data
+   */
+  abrirModalBusqueda(modal, data) {
+    //abre el modal normalmente
+    let pModal = document.getElementById(modal);
+    pModal.style["pointer-events"] = "unset";
+    pModal.style.opacity = 1;
+    //IDs de tus elementos HTML son los siguientes:
+    let barraBusqueda1 = document.getElementById("botonBusqueda1");
+    let barraBusqueda2 = document.getElementById("botonBusqueda2");
+    let barraBusqueda3 = document.getElementById("botonBusqueda3");
+    //llenar barra de busqueda
+    let evento = data;
+    barraBusqueda1.setAttribute("data-id", evento[0].id_evento);
+    barraBusqueda2.setAttribute("data-id", evento[1].id_evento);
+    barraBusqueda3.setAttribute("data-id", evento[2].id_evento);
+    barraBusqueda1.innerHTML = `<strong>${evento[0].nombre_evento}</strong> <strong>${evento[0].fecha_hora}<strong>`;
+    barraBusqueda2.innerHTML = `<strong>${evento[1].nombre_evento}</strong> <strong>${evento[1].fecha_hora}<strong>`;
+    barraBusqueda3.innerHTML = `<strong>${evento[2].nombre_evento}</strong> <strong>${evento[2].fecha_hora}<strong>`;
+    barraBusqueda1.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda2.addEventListener("click", mostrarDetalleEvento);
+    barraBusqueda3.addEventListener("click", mostrarDetalleEvento);
+  }
+
+  /**
+   *
+   * @param {contenedor a llenar} content
+   * @param {Lista con la info de la BD} data
+   * Funcion que crea una plantilla para poner eventos en el carrusel
+   */
+  mostrarCarrusel(content, data) {
     let contenedor = document.getElementById(content);
     contenedor.innerHTML = "";
 
-    console.log(data);
+    data.forEach((evento) => {
+      let carrusel = document.createElement("div");
+      carrusel.classList.add("carousel-item");
+      carrusel.setAttribute("id", "carruselEvento");
+
+      let botonCarrusel = document.createElement("button");
+      botonCarrusel.setAttribute("id", "btnCarrusel");
+      botonCarrusel.setAttribute("data-id", evento.id_evento);
+
+      let imagenCarrusel = document.createElement("img");
+      imagenCarrusel.classList.add("d-block");
+      imagenCarrusel.classList.add("w-50");
+      imagenCarrusel.classList.add("mx-auto");
+      imagenCarrusel.setAttribute("id", "imgReco");
+      imagenCarrusel.src = evento.ruta_imagen;
+
+      let body = document.createElement("div");
+      body.classList.add("carousel-caption");
+      body.classList.add("d-none");
+      body.classList.add("d-md-block");
+
+      let nombre = document.createElement("h5");
+      nombre.classList.add("text-left");
+      nombre.setAttribute("id", "tituloRecomendado");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+
+      let descripcion = document.createElement("p");
+      descripcion.classList.add("text-left");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
+
+      botonCarrusel.appendChild(imagenCarrusel);
+      body.appendChild(nombre);
+      body.appendChild(descripcion);
+      carrusel.appendChild(botonCarrusel);
+      carrusel.appendChild(body);
+      contenedor.appendChild(carrusel);
+      botonCarrusel.addEventListener("click", mostrarDetalleEvento);
+    });
+    contenedor.children[0].classList.add("active");
+  }
+
+  /**
+   *
+   * @param {contenedor a llenar} content
+   * @param {Lista con la info de la BD} data
+   * Funcion que muestra eventos en la pagina principal
+   */
+  mostrarEvento(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
     //construir tarjeta evento, se cambia cllaslist.add por id para probar que funcionen los estilos
     data.forEach((evento) => {
       let divEvento = document.createElement("div");
       divEvento.classList.add("card");
+      divEvento.setAttribute("id", "cardEvento");
 
       let botonEvento = document.createElement("button");
       botonEvento.setAttribute("id", "botonEvento");
+      botonEvento.setAttribute("data-id", evento.id_evento);
 
       let imagenEvento = document.createElement("img");
-      imagenEvento.classList.add("cardEventImg");
+      imagenEvento.setAttribute("id", "eventoA");
       imagenEvento.src = evento.ruta_imagen;
-      console.log(evento.ruta_imagen);
 
       let bodyCard = document.createElement("div");
       bodyCard.classList.add("card-body");
 
       let nombre = document.createElement("h5");
-      nombre.textContent = evento.nombre_evento;
-      console.log(evento.nombre_evento);
+      nombre.classList.add("nombreEvento");
+      nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
 
       let descripcion = document.createElement("p");
-      descripcion.textContent = evento.descripcion;
-      console.log(evento.descripcion);
+      descripcion.classList.add("descripcionEvento", "fechaHoraEvento");
+      descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
 
-      let fecha_hora = document.createElement("p");
-      fecha_hora.textContent = evento.fecha_hora;
-      console.log(evento.fecha_hora);
-
-      //insertar imagen en el boton
       botonEvento.appendChild(imagenEvento);
-
-      //insertar elementos en la tarjeta (divEvento)
-      divEvento.appendChild(botonEvento); // Agrega el botón como hijo del div de la tarjeta
-      divEvento.appendChild(bodyCard); // Agrega el cuerpo de la tarjeta como hijo del div de la tarjeta
-
-      //insertar elementos en el cuerpo de la tarjeta
       bodyCard.appendChild(nombre);
       bodyCard.appendChild(descripcion);
-      bodyCard.appendChild(fecha_hora);
-
-      //insertar tarjeta en el contenedor
+      botonEvento.appendChild(bodyCard);
+      divEvento.appendChild(botonEvento);
       contenedor.appendChild(divEvento);
-
       botonEvento.addEventListener("click", mostrarDetalleEvento);
     });
+  }
+  //mostrar eventos organizados por el usuario
+  mostrarMiEvento(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
+
+    console.log(data);
+    //construir tarjeta evento, se cambia classlist.add por id para probar que funcionen los estilos
+    data.forEach((miEvento) => {
+      let divMiEvento = document.createElement("div");
+      divMiEvento.setAttribute("id", "contenedorMiEvento");
+
+      let hrLinea = document.createElement("hr");
+      hrLinea.setAttribute("id", "lineaMiEvento");
+
+      let botonMiEvento = document.createElement("button");
+      botonMiEvento.classList.add("p-2");
+      botonMiEvento.setAttribute("id", "botonEvento");
+      botonMiEvento.setAttribute("data-id", miEvento.id_evento);
+
+      let divMiEvento2 = document.createElement("div");
+      divMiEvento2.classList.add("d-flex");
+
+      let divMiEvento2_1 = document.createElement("div");
+      divMiEvento2_1.classList.add("p-2", "flex-grow-1", "align-self-center");
+
+      let imagenMiEvento = document.createElement("img");
+      imagenMiEvento.setAttribute("id", "eventoOrganizador");
+      imagenMiEvento.src = miEvento.ruta_imagen;
+
+      let divMiEvento2_2 = document.createElement("div");
+      divMiEvento2_2.classList.add(
+        "p-2",
+        "d-flex",
+        "flex-column",
+        "mb-0",
+        "align-self-center",
+        "text-left"
+      );
+      divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
+
+      let nombre = document.createElement("h6");
+      nombre.setAttribute("id", "tituloOrganizador");
+      nombre.innerHTML = `<strong>${miEvento.nombre_evento}</strong>`;
+
+      let informacion = document.createElement("p");
+      informacion.setAttribute("id", "parrafoOrganizador");
+      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha}<br><strong>HORA</strong><br>${miEvento.hora}<br><strong>CATEGORIA</strong><br>${miEvento.descrip_cat}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}<br><strong>LUGAR</strong><br>${miEvento.lugar}`;
+
+      let descripcion = document.createElement("div");
+      descripcion.classList.add("p-2", "align-self-center", "text-left");
+      descripcion.innerHTML = `${miEvento.descripcion}`;
+
+      divMiEvento2_1.appendChild(imagenMiEvento);
+      divMiEvento2_2.appendChild(nombre);
+      divMiEvento2_2.appendChild(informacion);
+      divMiEvento2.appendChild(divMiEvento2_1);
+      divMiEvento2.appendChild(divMiEvento2_2);
+      divMiEvento2.appendChild(descripcion);
+      botonMiEvento.appendChild(divMiEvento2);
+      divMiEvento.appendChild(botonMiEvento);
+      divMiEvento.appendChild(hrLinea);
+      contenedor.appendChild(divMiEvento);
+      botonMiEvento.addEventListener("click", mostrarDetalleEvento);
+    });
+  }
+
+  //Mostrar detalle de evento
+  mostrarDetalleEvento(contenido, data) {
+    console.log(data);
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let imagenEvento = document.getElementById("imgDetalle");
+    let nombreEvento = document.getElementById("tituloEvento");
+    let descripcionEvento = document.getElementById("descripEvento");
+    let fechaEvento = document.getElementById("fechaEvento");
+    let horaEvento = document.getElementById("horaEvento");
+    let lugarEvento = document.getElementById("lugarEvento");
+    let botonE = document.getElementById("papa");
+    let mapita = document.getElementById("mapitaLindo");
+
+    // Ahora, llenamos los elementos con los datos de la base de datos
+    evento = data[0];
+    botonE.setAttribute("data_id", evento.id_evento);
+    imagenEvento.src = evento.flayer;
+    nombreEvento.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
+    descripcionEvento.innerHTML = evento.descripcion;
+    fechaEvento.innerHTML = evento.fecha;
+    horaEvento.innerHTML = evento.hora;
+    lugarEvento.innerHTML = evento.lugar;
+  }
+
+  mostrarPerfil(data) {
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let imagenPerfil = document.getElementById("fotoPerfil");
+    let nombrePerfil = document.getElementById("nombrePerfil");
+    let correoPerfil = document.getElementById("correoPerfil");
+
+    usuario = data[0];
+    imagenPerfil.src = usuario.imagen_perfil;
+    nombrePerfil.innerHTML = usuario.nombre;
+    correoPerfil.innerHTML = usuario.correo;
   }
 }
 

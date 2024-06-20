@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="align-self-center">
-                    <button href="#" id="botonEncabezado" onclick="mostrarPantallaBusqueda()">
+                    <button href="#" id="botonEncabezado" onclick="mostrarModalBusqueda()">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
@@ -70,13 +70,13 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
+                        <button id="botonCrearcuenta" onclick="cerrarModalLateral(), mostrarModalCrearCuenta()">
                             CREAR CUENTA
                         </button>
                     </div>
 
                     <div class="row justify-content-center">
-                        <button id="botonInciarSesion" onclick="mostrarModalRol(), cerrarModalLateral()">
+                        <button id="botonInciarSesion" onclick="cerrarModalLateral(), mostrarModalLogin()">
                             INICIAR SESIÓN
                         </button>
                     </div>
@@ -85,49 +85,7 @@
 
             </div>
 
-            <!--Seleccion de Rol-->
-            <div class="d-flex justify-content-center" id="roles">
-
-                <!--Seleccion de Rol Login-->
-                <div class=" d-flex flex-column align-items-center" id="seleccionRol">
-
-                    <button class="d-flex justify-content-end" id="cerrarSeleccionRol" onclick="cerrarModalRol()">
-                        <i class="material-icons">close</i>
-                    </button>
-
-                    <div class="d-flex justify-content-center">
-                        <img src="/Recursos/Img/descarga1.png" alt="" id="logoLogin">
-                    </div>
-
-                    <div class="row justify-content-center" id="tituloRol">
-                        <strong class="text-center">¿QUIEN ERES?</strong>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <p class="overflow-visible" id="especifiqueRol">ELIGE EL TIPO DE CUENTA CON LA QUE QUIERES CREAR
-                        </p>
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolUsuario"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">account_box</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">USUARIO</strong>
-                    </button>
-
-                    <div class="d-flex justify-content-center" id="separadorRolOrganizador">
-                        <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
-                    </div>
-
-                    <button class="d-flex justify-content-center" id="botonRolOrganizador"
-                        onclick="mostrarModalLogin(), cerrarModalRol()">
-                        <i class="material-icons">business_center</i>
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">ORGANIZADOR</strong>
-                    </button>
-                </div>
-
-            </div>
-
-            <!--Crear cuenta-->
+            <!-- Modal Crear cuenta-->
             <div class="d-flex justify-content-center" id="modalCrearCuenta">
 
                 <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
@@ -183,8 +141,28 @@
 
             </div>
 
+            <!--Modal busqueda-->
+            <div id="modalBusqueda">
+                <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
+                    <div class="p-2 separadorBusqueda">
+                        <form id="formBusqueda" onsubmit=" ">
+                            <input type="text" id="barraBusqueda"
+                                onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'barraBusqueda') {buscarEvento(event), mostrarModalBusqueda();}">
+                        </form>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id="botonBusqueda1"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id="botonBusqueda2"></button>
+                    </div>
+                    <div class="p-2 separadorBusqueda">
+                        <button class="text-left eventoBusqueda" id="botonBusqueda3"></button>
+                    </div>
+                </div>
+            </div>
 
-            <!--Login-->
+            <!--Modal Login-->
             <div id="modalLogin">
                 <div class=" d-flex flex-column align-items-center" id="login">
 
@@ -201,6 +179,7 @@
                     </div>
 
                     <form id="formLogin">
+
                         <div>
                             <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
                                 name="correo">
@@ -208,7 +187,8 @@
 
                         <div>
                             <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
-                                name="contrasenia">
+                                name="contrasenia"
+                                onkeydown="if (event.keyCode === 13 && document.activeElement.id === 'cuadroContrasenia') {iniciarSesion();}">
                         </div>
                     </form>
 
@@ -271,6 +251,12 @@
                         </button>
 
                         <button class="d-flex justify-content-center" id="opcionMenu"
+                            onclick="mostrarEventosOrganizador(), cerrarModalLateralSesionIniciada()">
+                            <i class="material-icons">label_outline</i>
+                            <strong class="align-self-center text-btn-despl">VER MIS EVENTOS</strong>
+                        </button>
+
+                        <button class="d-flex justify-content-center" id="opcionMenu"
                             onclick="mostrarIngresarEvento(), cerrarModalLateralSesionIniciada()">
                             <i class="material-icons">label_outline</i>
                             <strong class="align-self-center text-btn-despl">NUEVO EVENTO</strong>
@@ -279,8 +265,7 @@
                     </div>
 
                     <div class="row justify-content-center">
-                        <button href="#" id="botonCerrarSesion"
-                            onclick="sesionIniciada(), cerrarModalLateralSesionIniciada(), volverInicio()">
+                        <button href="#" id="botonCerrarSesion" onclick="cerrarSesion()">
                             CERRAR SESIÓN
                         </button>
                     </div>
@@ -404,36 +389,7 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img
-                            src="./Recursos/Img/recomendationa.png" class="d-block w-100" alt="" id="imgReco"></button>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left" id="tituloRecomendado">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left" id="parrafoRecomendado">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src="./Recursos/Img//wp11922453.jpg"
-                            class="d-block w-100" alt="" id="imgReco"></button>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left ">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                        </p>
-                        <p class="text-left">
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
+            <div class="carousel-inner" id="contenidoCarrusel">
 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -450,7 +406,9 @@
 
         <hr size="8px" color="#4F4F4F" />
 
-        <div class="d-flex align-content-between flex-wrap justify-content-around" id="contenidoEventos">
+        <!--contenedor en el que se cargan eventos desde BD-->
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
         </div>
 
         <hr size="8px" color="#4F4F4F" />
@@ -605,428 +563,169 @@
 
     </script>
 
+    <!---Calendario-->
+    <template id="calendario">
+
+        <div class="container-calendario">
+
+            <div class="calendario">
+
+                <div class="mes">
+                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
+                    <div class="fecha">
+                        <h2></h2>
+                        <p></p>
+                    </div>
+                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
+                </div>
+                <div class="dias">
+                    <div>LUNES</div>
+                    <div>MARTES</div>
+                    <div>MIERCOLES</div>
+                    <div>JUEVES</div>
+                    <div>VIERNES</div>
+                    <div>SABADO</div>
+                    <div>DOMINGO</div>
+                </div>
+                <div class="numdias">
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </template>
+
+    <script>
+        //------------------card-Caledario--------------------
+        //crear un div de eventos
+        const nuevoDiv = document.createElement("div");
+
+        // Asignar clase y ID al nuevo div
+        nuevoDiv.className = "cardCalendario";
+        nuevoDiv.id = "card-Calendario";
+
+
+
+
+
+        let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+        //let clone = document.importNode(template.content, true);
+        //document.body.appendChild(clone);
+
+
+        let fecha = new Date();
+        const renderizarCalendario = (mes, año) => {
+            const diasMes = document.querySelector(".numdias");
+            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+            const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+            let indicePrimerDia = primerDiaMes.getDay();
+            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+            const diasSig = 7 - indiceUltimoDia - 1;
+            const meses = [
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+            ];
+
+
+
+
+            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+
+            // Almacena la fecha actual cuando la página se carga por primera vez
+            let fechaActual = new Date();
+            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
+
+
+            //--------------------------------------------------------------------------------------
+
+            const añoId = new Date().getFullYear();
+            let mesId = fecha.getMonth();
+
+            let numdias = "";
+            let eventos = [
+                { dia: 18, mes: 5, año: 2024 },
+                { dia: 20, mes: 5, año: 2024 },
+                { dia: 24, mes: 5, año: 2024 },
+                { dia: 28, mes: 5, año: 2024 },
+                // Agrega más eventos aquí
+            ];
+            let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
+
+            // Ajustar el índice del primer día si el calendario comienza en Lunes
+            if (indicePrimerDia === 0) { // Si es Domingo
+                indicePrimerDia = 7; // Cambiar a 7
+            } else {
+                indicePrimerDia--; // Restar 1 a los otros días
+            }
+
+            for (let x = indicePrimerDia; x > 0; x--) {
+                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
+            };
+
+
+
+            for (let i = 1; i <= ultimoDia; i++) {
+                if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
+                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
+                }
+                else {
+                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
+                    if (eventoHoy) {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>${cardCalendario}</div>`;
+                    } else {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
+                    }
+                }
+            }
+
+            for (let y = 1; y <= diasSig; y++) {
+                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
+            }
+
+            diasMes.innerHTML = numdias;
+        };
+
+
+
+
+    </script>
+
     <!--Ver Mas eventos-->
     <template id="MasEventos">
 
         <hr size="8px" color="#4F4F4F" />
 
-        <!--Eventos pequeños-->
-        <div class="d-flex align-content-between flex-wrap justify-content-around">
 
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventob.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoc.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventod.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoe.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventof.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventog.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoh.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoi.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoj.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventok.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventol.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventom.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventon.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoo.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventop.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoq.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventor.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventos.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventot.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventou.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventov.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventow.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventox.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
+        <!--contenedor en el que se cargan eventos desde BD-->
+        <div class="d-flex align-content-between flex-wrap justify-content-around contenidoEventos"
+            id="contenidoEventos">
         </div>
 
-
         <hr size="8px" color="#4F4F4F" />
+
         <!--Ver más eventos-->
         <div class="row justify-content-center">
             <button href="#" id="botonSig" onclick="volverInicio()">
-                VER MÁS EVENTOS
+                VOLVER A INICIO
             </button>
         </div>
+
     </template>
-
-
-    <!--Eventos carrusel-->
-    <!-- <template id="eventosCarrusel">
-        <div class="carousel-item">
-            <button id="btnCarrusel" onclick="mostrarDetalleEvento()"><img src=".Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco"></button>
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="text-left ">
-                    <strong>TITULO DEL EVENTO</strong>
-                </h5>
-                <p class="text-left">
-                    LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                </p>
-                <p class="text-left">
-                    XX/XX/XXXX
-                </p>
-            </div>
-        </div>
-    </template> -->
 
     <!--Card eventos pequeños-->
     <template id="cardEvento">
@@ -1035,11 +734,11 @@
             <button id="botonEvento">
                 <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
                 <div class="card-body">
-                    <h5 id=tituloE>
+                    <h5 class="nombreEvento">
                         <strong>TITULO DEL EVENTO</strong>
                     </h5>
-                    <p id=parrafoE>
-                        LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
+                    <p class="descripcionEvento">
+                        LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET. (DESCRIPCIÓN)
                         <br>
                         XX/XX/XXXX XX:XX
                     </p>
@@ -1049,49 +748,10 @@
 
     </template>
 
-    <!--Pagina Busqueda-->
-    <template id="busqueda">
-        <!---busqueda--->
-
-        <div class="d-flex flex-column mb-0" id="cuadroBusqueda">
-            <form>
-                <div class="p-2 separadorBusqueda">
-                    <input type="text" id="barraBusqueda" onkeydown="handleKeyPress(event)" name="busqueda">
-                </div>
-            </form>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-            <div class="p-2 separadorBusqueda">
-                <button class="text-left" id="eventoBusqueda">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR.
-                    [XX/XX/XXXX]</button>
-            </div>
-
-        </div>
-    </template>
-
     <!--lista de eventos-->
     <template id="eventosOrganizador">
 
-        <div class="d-flex flex-column" style="padding: 4%;">
+        <div class="d-flex flex-column">
 
             <div class="d-flex mb-0">
 
@@ -1100,13 +760,14 @@
                         format_list_bulleted
                     </i>
 
-                    <strong class="align-self-center" style="font-size: 1rem;">
+                    <strong class="align-self-center">
                         TUS EVENTOS
                     </strong>
                 </div>
 
                 <div class="p-2">
-                    <button>
+                    <button onclick="mostrarEventosOrganizadorDateASC(), cerrarModalLateralSesionIniciada()">
+
                         <i class="material-icons align-self-center">
                             filter_list
                         </i>
@@ -1114,7 +775,8 @@
                 </div>
 
                 <div class="p-2">
-                    <button>
+                    <button onclick="mostrarEventosOrganizadorCatASC(), cerrarModalLateralSesionIniciada()">
+
                         <i class="material-icons align-self-center">
                             more_horiz
                         </i>
@@ -1123,1603 +785,10 @@
 
             </div>
 
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoa.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
+            <div id="contenedorMisEventos">
 
             </div>
 
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventob.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoc.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventod.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoe.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventof.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventog.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoh.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoi.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoj.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventok.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventol.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventom.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventon.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoo.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventop.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-        </div>
-
-    </template>
-
-    <!--Busqueda relacionada-->
-    <template id="busquedaRelacionada">
-
-        <div class="d-flex flex-column" style="padding: 4%;">
-
-            <div class="d-flex justify-content-center">
-
-                <button class="align-self-start">
-                    <i class="material-icons">
-                        search
-                    </i>
-                </button>
-
-                <p class="align-self-center" style="font-size: 0.8rem;">
-                    BUSQUEDA RELACIONADA:
-                    <strong style="font-size: 1rem;">
-                        EVENTO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                    </strong>
-                </p>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoa.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventob.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoc.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventod.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoe.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventof.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventog.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoh.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoi.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoj.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventok.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventol.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventom.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventon.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventoo.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
-
-            <div>
-
-                <button class="p-2" id="botonEvento">
-                    <div class="d-flex">
-                        <div class="p-2 flex-grow-1 align-self-center">
-                            <img src="./Recursos/Img/eventop.png" alt="" id="eventoOrganizador">
-                        </div>
-
-                        <div class="p-2 d-flex flex-column mb-0 align-self-center text-left" style="width: 100%;">
-
-                            <h6 id=tituloOrganizador>
-                                <strong>TITULO DEL EVENTO</strong>
-                            </h6>
-
-                            <p id=parrafoOrganizador>
-                                FECHA
-                                <br>
-                                XX/XX/XXXX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                HORA
-                                <br>
-                                XX:XX
-                            </p>
-
-                            <p id=parrafoOrganizador>
-                                CATEGORIAS
-                                <br>
-                                CONCIERTO CON BOLETERIA
-                            </p>
-
-                        </div>
-
-                        <div class="p-2 align-self-center text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </div>
-
-                    </div>
-                </button>
-
-            </div>
-
-            <hr size="8px" color="#ffffff" />
 
         </div>
 
@@ -2728,12 +797,12 @@
     <!--Evento Detallado-->
     <template id="eventoDetallado">
 
-        <div class="d-flex flex-column" style="padding: 2% 10%;">
-            <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+        <div class="d-flex flex-column">
+            <div class="d-flex align-content-center">
 
                 <div class="flex-shrink-0 ">
                     <div>
-                        <img src="./Recursos/Img/eventoDetallado.png" alt="" id="imgDetalle">
+                        <img src="" alt="" id="imgDetalle">
                     </div>
                     <div id="compraConjunto">
                         <p>Adquiere tu boleta aqui</p>
@@ -2744,97 +813,73 @@
                 </div>
 
                 <div class="flex-grow-1 text-left" id="informacionTexto">
-                    <div id="parrafoDetallado">
-                        <h1>
-                            TITULO DEL EVENTO
-                        </h1>
-                        <p class="d-inline-flex p-2" style="text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium
-                            voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati
-                            cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id
-                            est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam
-                            libero tempore, cum soluta nobis est eligendi optio, cumque nihil impedit, quo minus id,
-                            quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet,
-                            ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
-                            tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
-                            perferendis doloribus asperiores repellat…
-                        </p>
+
+                    <h1 id="tituloEvento">
+                    </h1>
+
+                    <div id="datosEventoDetallado">
+
                         <div class="d-flex justify-content-around">
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6>FECHA</h6>
-                                <p>XX/XX/XXXX</p>
+                                <p id="fechaEvento"></p>
                             </div>
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6>HORA</h6>
-                                <p>00:00:00</p>
+                                <p id="horaEvento"></p>
                             </div>
+
+                            <div class="vertical-line"></div>
 
                             <div class="align-self-center">
                                 <h6> LUGAR</h6>
-                                <p>Movistar Arena</p>
+                                <p id="lugarEvento"></p>
                             </div>
+
+                            <div class="vertical-line"></div>
+
+                            <select type="text" class="form-select" id="seleccionEstadoEvento"
+                                onchange="cambiarEstadoEvento()">
+                                <option value="0" selected id="estadoEvento" class="option">ESTADO EVENTO</option>
+                                <option value="1" id="opcionesRol">ASISTIDO</option>
+                                <option value="2" id="opcionesRol">ASISTIRÉ</option>
+                                <option value="3" id="opcionesRol">ME GUSTA</option>
+                                <option value="4" id="opcionesRol">NO INTERESADO</option>
+                            </select>
+
+                            <div class="vertical-line"></div>
+
                         </div>
-                    </div>
-                    <div style="padding-left: 2%;" id="lineUp">
-                        <p id="ACT">
-                        <h6 style="padding-left: 3.5%;">ACTUACIONES</h6>
+
+
+                        <h1 id="tituloDescripEvent">
+                            DESCRIPCIÓN DEL EVENTO
+                        </h1>
+                        <p class="d-inline-flex p-2" id="descripEvento">
                         </p>
-                        <li>"Will He" -- Opener</li>
-                        <li>"Demons"</li>
-                        <li>"Yeah Right"</li>
-                        <li>"Head in the Clouds"</li>
-                        <li>"Test Drive"</li>
-                        <li>"I Don't Wanna Waste My Time"</li>
-                        <li>"Attention"</li>
-                        <li>"Wanted U"</li>
-                        <li>"XNXX"</li>
-                        <li>"Can't Get Over You"</li>
-                        <li>"No Fun"</li>
-                        <li>"I'll See You in 40" -- Main Set Closer</li>
-                        <li>Encore</li>
-                        <li>"Slow Dancing in the Dark" - main Set Closer</li>
+
+                        <!--Mapa-->
+                        <div class="mapouter">
+                            <div class="gmap_canvas">
+                                <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
+                                    marginwidth="0"
+                                    src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=movistar%20arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                <a href="https://strandsgame.net/"></a>
+                            </div>
+
+                        </div>
+
+
                     </div>
+
                 </div>
-            </div>
 
-
-
-            <!--Mapa-->
-
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                    <a href="https://strandsgame.net/">Strands Game</a>
-                </div>
-                <style>
-                    .mapouter {
-                        position: relative;
-                        text-align: right;
-                        width: auto;
-                        height: 400px;
-                    }
-
-                    .gmap_canvas {
-                        overflow: hidden;
-                        background: none !important;
-                        width: auto;
-                        height: 400px;
-                    }
-
-                    .gmap_iframe {
-                        width: 100% !important;
-                        height: 30rem !important;
-                    }
-                </style>
             </div>
 
         </div>
@@ -2848,9 +893,7 @@
         <div class="z-3" id="modalUrl">
             <div id="modal_container">
                 <h2 id="modal_title">Coloca la dirección de compra</h2>
-                <form>
-                    <input type="text" id="agregarUrl" name="link_compra">
-                </form>
+                <input type="text" id="agregarUrl">
                 <button id="modal_close" onclick="cerrarModal()">Enviar</button>
                 <button id="cerrarModal" onclick="cerrarModal()">X</button>
             </div>
@@ -2861,179 +904,78 @@
             <div>
                 <div class="d-flex align-content-center" style="padding-bottom: 5%;">
 
-                    <div class="flex-shrink-0">
-                        <form id="formEvento">
-                            <input type="file" id="seleccionar-archivo" style="display: none;" name="ruta_imagen">
-                            <button onclick="document.getElementById('seleccionar-archivo').click()">
-                                <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                    <div class="flex-shrink-0" id="subirImagenes">
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
+                        </button>
+                        <input type="file" id="seleccionar-archivo" style="display: none;">
+                        <button onclick="document.getElementById('seleccionar-archivo').click()">
+                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
+                        </button>
+                        <div id="compraConjunto">
+                            <p>Adquiere tu boleta aqui</p>
+                            <button id="compraBtn" onclick="mostrarModal()">
+                                <p id="ACT">LINK DE COMPRA</p>
                             </button>
-                            <div id="compraConjunto">
-                                <p>Adquiere tu boleta aqui</p>
-                                <button id="compraBtn" onclick="mostrarModal()">
-                                    <p id="ACT">LINK DE COMPRA</p>
-                                </button>
-                                <button id="compraBtn" onclick="guardarEvento()">
-                                    <p id="ACT">GUARDAR</p>
-                                </button>
-                            </div>
+                        </div>
                     </div>
 
                     <div class="flex-grow-1 text-left" id="informacionTexto">
                         <div id="parrafoDetallado">
 
-                            <div class="form-floating mb-3">
-                                <form>
-                                    <input class="form-control form-control-lg" type="text"
-                                        placeholder="NOMBRE DEL EVENTO" aria-label=".form-control-lg example"
-                                        id="ingresoInformacionImput" name="nombre_evento">
-                                </form>
-                                <label for="floatingTextarea"></label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control form-control-lg" type="text-break"
-                                    placeholder="DESCRIPCIÓN DEL EVENTO" id="ingresoInformacionImput"
-                                    style="height: 20rem"></textarea>
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
-                                    <h6>DESCRIPCIÓN DEL EVENTO</h6>
+                                    <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
+
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="FECHA"
-                                            aria-label=".form-control-lg example" name="fecha">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>FECHA</h6>
+                                    </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="HORA"
-                                            aria-label=".form-control-lg example" name="hora">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="HORA"
+                                        aria-label=".form-control-lg example">
+                                    <label for="floatingTextarea">
+                                        <h6>HORA</h6>
+                                    </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <form>
-                                        <input class="form-control form-control-lg" type="text" placeholder="LUGAR"
-                                            aria-label=".form-control-lg example" name="lugar">
-                                    </form>
-                                    <label for="floatingTextarea"></label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <label for="floatingTextarea">
+                                        <h6>LUGAR</h6>
+                                    </label>
                                 </div>
 
                             </div>
+
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DIRECCION</h6>
+                                </label>
+                            </div>
+
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>DISPONIBILIDAD</h6>
+                                </label>
+                            </div>
+
                         </div>
 
-                        <br>
-
-                        <div class="text-center mb-3">
-                            <h4>ACTUACIONES</h4>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%;">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="flex-shrink-0 mb-3">
-                            <button id="compraBotonAgregarMasActuaciones">
-                                AGREGAR MÁS ACTUACIONES
-                            </button>
-                        </div>
-
-                        <div class="text-center mb-3">
-                            <h4>ENCORE</h4>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <form>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    name="actuaciones">
-                            </form>
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 0.5%">Tipo</button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Opener</a></li>
-                                <li><a class="dropdown-item" href="#">Main set closer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="flex-shrink-0 mb-3">
-                            <button id="compraBotonAgregarMasActuaciones">
-                                AGREGAR MÁS ENCORE
-                            </button>
-                        </div>
                     </div>
-                    </form>
 
-                    <!--Mapa-->
-
-                </div>
-
-                <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=movistar arena&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
-                        <a href="https://strandsgame.net/">Strands Game</a>
-                    </div>
-                    <style>
-                        .mapouter {
-                            position: relative;
-                            text-align: right;
-                            width: auto;
-                            height: 30rem;
-                        }
-
-                        .gmap_canvas {
-                            overflow: hidden;
-                            background: none !important;
-                            width: auto;
-                            height: 30rem;
-                        }
-
-                        .gmap_iframe {
-                            width: 100% !important;
-                            height: 30rem !important;
-                        }
-                    </style>
                 </div>
     </template>
 
@@ -3146,6 +1088,49 @@
 
         </div>
     </template>
+
+    <!--Calendario-->
+    <template id="calendarioTemplate">
+        <h1>Calendario</h1>
+        <div id="calendar"></div>
+
+        <script>
+            function crearCalendario(year, month) {
+                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+                var fecha = new Date(year, month - 1, 1);
+                var diasEnMes = new Date(year, month, 0).getDate();
+                var primerDiaSemana = fecha.getDay();
+
+                var table = '<table><tr>';
+                for (var i = 0; i < diasSemana.length; i++) {
+                    table += '<th>' + diasSemana[i] + '</th>';
+                }
+                table += '</tr><tr>';
+
+                var dia = 1;
+                for (var j = 0; j < 42; j++) {
+                    if (j >= primerDiaSemana && dia <= diasEnMes) {
+                        table += '<td>' + dia + '</td>';
+                        dia++;
+                    } else {
+                        table += '<td></td>';
+                    }
+
+                    if (j % 7 == 6) {
+                        table += '</tr><tr>';
+                    }
+                }
+
+                table += '</tr></table>';
+                document.getElementById('calendar').innerHTML = table;
+            }
+
+            // Ejemplo: Mostrar el calendario del mes actual
+            var fechaActual = new Date();
+            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
+        </script>
+    </template>
+
     <!--Pagina Principal Sesion Iniciada-->
     <template id="paginaSesionIniciada">
         <!--Menú Lateral Sesion Inciada-->
@@ -3669,7 +1654,7 @@
                 <h2>POLITICA DE PRIVACIDAD:</h2>
             </div>
 
-            <hr size="8px" color="#4F4F4F" />
+            <hr size="10px" color="#4F4F4F" />
 
             <div class="d-flex align-content-center" id="terminosYCondiciones">
                 <p>
@@ -3760,11 +1745,9 @@
 
         <div class="d-flex bd-highlight" id="containerPerfil">
             <div class="p-2 flex-fill bd-highlight" id="lateralIzquierdo">
-                <img src="./Recursos/Img/iconoUser.png" class="d-block w-100" alt="" id="fotoPerfil">
+                <img src="" class="d-block w-100" alt="" id="fotoPerfil">
                 <div class="align-content space-between">
-                    <form>
-                        <input type="file" name="imagen_perfil">
-                    </form>
+                    <input type="file">
                 </div>
             </div>
 
@@ -3775,7 +1758,7 @@
                     <h1>TU NOMBRE</h1>
                 </div>
                 <div id="perfilFontP">
-                    <p>Tu nombre es:XXXXXXXXXX</p>
+                    <p id="nombrePerfil"></p>
                 </div>
                 <button id="btnPerfil" onclick="mostrarModalNombre()">
                     <h4>CAMBIAR</h1>
@@ -3785,7 +1768,7 @@
                     <h1>TU CORREO</h1>
                 </div>
                 <div id="perfilFontP">
-                    <p>Tu correo es:XXXXXXXXXX@emial.com</p>
+                    <p id="correoPerfil"></p>
                 </div>
                 <button id="btnPerfil" onclick="mostrarModalEmail()">
                     <h4>CAMBIAR</h1>
@@ -3795,7 +1778,7 @@
                     <h1>Contraseña</h1>
                 </div>
                 <div id="perfilFontP">
-                    <p>Cambiar tu contraseña en cualquier momento</p>
+                    <p>Puedes cambiar tu contraseña en cualquier momento</p>
                 </div>
                 <button id="btnPerfil" onclick="mostrarModalContraseña()">
                     <h4>CAMBIAR</h1>
@@ -3805,22 +1788,21 @@
         </div>
         <!--modal Nombre-->
 
-
         <div id="contModalNombre">
             <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilNombre">
                 <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1 class="modalTitle">TU NOMBRE</h1>
                 </div>
-                <p>Tu nombre es:XXXXXXXXXX</p>
-                <form>
-                    <input type="text" placeholder="Nombre del evento" name="nombre" id="inputPerfil">
+                <p>Digite su nuevo nombre de usuario</p>
+                <form id = "formNombre">
+                    <input type="text" placeholder="Nombre del evento" name="title" class="inputPerfil">
                 </form>
 
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalNombre()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalNombre()">
+                    <button id="btnPerfilModal" onclick="cambiarNombre()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>
@@ -3828,49 +1810,51 @@
         </div>
 
         <!--Modal email -->
+
         <div id="contModalEmail">
             <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilEmail">
                 <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1>TU EMAIL</h1>
                 </div>
-                <p>Tu email es:XXXX@email.com</p>
-                <form>
-                    <input type="text" placeholder="Escribe tu email" name="correo" id="inputPerfil">
+                <p>Ingrese su nuevo email</p>
+                <form id = "formCorreo">
+                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil" onclick="cambiarEmail()">
                 </form>
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalEmail()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalEmail()">
+                    <button id="btnPerfilModal" onclick="cambiarCorreo()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>
             </div>
         </div>
 
+
+
+
         <!--modal contraseña-->
+
         <div id="contModalContraseña">
             <div class="d-flex flex-column bd-highlight mb-0" id="modalPerfilContraseña">
 
                 <div class="p-2 bd-highlight" id="tituloPerfil">
                     <h1>Contraseña</h1>
                 </div>
-                <form>
-                    <input type="password" placeholder="Escribre tu contraseña" name="contrasenia" id="inputPerfil">
-                </form>
 
-                <hr id="lineasHorizantal">
-                <form>
-                    <input type="password" placeholder="Confirma tu contraseña" name="contrasenia" id="inputPerfil" />
-                    <input type="password" placeholder="Escribre nueva contraseña" name="contrasenia"
-                        id="inputPerfil" />
+                <form id="formContrasenia">
+                    <input type="password" placeholder="Escribre tu contraseña" name="title" class="inputPerfil">
+                    <hr id="lineasHorizantal">
+                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title" class="inputPerfil" />
+                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil"/>
                 </form>
 
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
                         <h4>CANCELAR</h1>
                     </button>
-                    <button id="btnPerfilModal" onclick="cerrarModalContraseña()">
+                    <button id="btnPerfilModal" onclick="cambiarContrasenia()">
                         <h4>GUARDAR</h1>
                     </button>
                 </div>
