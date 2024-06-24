@@ -47,50 +47,46 @@
                 </div>
 
             </div>
-            <div id="modalLateral">
 
+            <div id="modalLateral">
                 <!--Menú Lateral Sesion No Inciada-->
                 <div class="z-3 d-flex flex-column" id="menuLateral">
-
                     <div class="d-flex justify-content-end" id="salirMenu">
                         <button class="d-flex justify-content-start" id="botonMenu" onclick="cerrarModalLateral()">
                             <i class="material-icons">close</i>
                         </button>
                     </div>
-
                     <div class="d-flex justify-content-center">
                         <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
                     </div>
-
                     <div class="row justify-content-center" id="parrafoRegistro">
                         <strong class="text-center">INICIA SESIÓN PARA ACCEDER A NUESTROS BENEFICIOS</strong>
                     </div>
-
                     <div class="row justify-content-center">
-                        <button id="botonCrearcuenta" onclick="cerrarModalLateral(), mostrarModalCrearCuenta()">
+                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
                             CREAR CUENTA
                         </button>
                     </div>
-
                     <div class="row justify-content-center">
-                        <button id="botonInciarSesion" onclick="cerrarModalLateral(), mostrarModalLogin()">
+                        <button id="botonInciarSesion" onclick="mostrarModalLogin(), cerrarModalLateral()">
                             INICIAR SESIÓN
                         </button>
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- Modal Crear cuenta-->
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+            <!--Crear cuenta-->
             <div class="d-flex justify-content-center" id="modalCrearCuenta">
 
                 <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
 
-                    <button class="d-flex justify-content-end" id="cerrarCrearPerfilUsuario"
-                        onclick="cerrarModalCrearCuenta()">
-                        <i class="material-icons">close</i>
-                    </button>
+                    <div class="d-flex justify-content-end" id="salirMenu">
+                        <button class="d-flex justify-content-start" id="botonMenu" onclick="cerrarModalCrearCuenta()">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
 
                     <div class="d-flex justify-content-center">
                         <img src="/Recursos/Img/descarga1.png" alt="" id="logoCrearPerfilUsuario">
@@ -100,42 +96,36 @@
                         <strong class="text-center">DATOS DE CUENTA:</strong>
                     </div>
 
-                    <!--formulario de crear cuenta -->
                     <form id="formRegistro">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="cuadroNombreUsuario"
-                                placeholder="NOMBRE USUARIO" name="nombre">
+                                placeholder="NOMBRE USUARIO" name = "nombre">
                         </div>
 
-                        <select type="text" class="form-select" id="seleccioneRol" onchange="cambiarColorSelect()">
-                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
-                            <option value="1" id="opcionesRol">USUARIO</option>
-                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
-                        </select>
+
+                        <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
+                            <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
+                        </div>
 
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfil"
-                                placeholder="CORREO ELECTRONICO" name="correo">
+                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO" name = "correo">
                         </div>
 
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfil"
-                                placeholder="CONTRASEÑA" name="contrasenia">
+                            <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA" name="contrasenia">
                         </div>
 
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfil"
-                                placeholder=" CONFIRMAR CONTRASEÑA" name="contrasenia">
+                            <input type="password" class="form-control" id="cuadroContrasenia"
+                                placeholder=" CONFIRMAR CONTRASEÑA" name= "contrasenia">
                         </div>
                     </form>
 
-                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
-                        onclick="registrarUsuario()">
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR CUENTA</strong>
-                    </button>
-
+                        <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
+                            onclick="registrarUsuario()">
+                            <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
+                        </button>
                 </div>
-
             </div>
 
             <!--Modal busqueda-->
@@ -517,7 +507,7 @@
                     </div>
                     <div id="compraConjunto">
                         <p>Adquiere tu boleta aqui</p>
-                        <button id="compraBtn">
+                        <button id="compraBtn" onclick="redirigirLink()">
                             <p id="ACT">Compra</p>
                         </button>
                     </div>
@@ -597,42 +587,28 @@
 
     </template>
 
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!--Ingresar Evento-->
     <template id="ingresarEvento">
 
         <!--Ventana emergente-->
-        <div class="z-3" id="modalUrl">
-            <div id="modal_container">
-                <h2 id="modal_title">Coloca la dirección de compra</h2>
-                <input type="text" id="agregarUrl">
-                <button id="modal_close" onclick="cerrarModal()">Enviar</button>
-                <button id="cerrarModal" onclick="cerrarModal()">X</button>
-            </div>
-        </div>
-
-        <!--Principal ingresar evento-->
-        <div class="d-flex flex-column" style="padding: 2% 10%;">
+        <div class="d-flex flex-column">
             <div>
-                <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+                <div class="d-flex align-content-center flex-wrap" id="contenedorPrincipal">
 
-                    <div class="flex-shrink-0" id="subirImagenes">
-                        <input type="file" id="seleccionar-archivo" style="display: none;">
-                        <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
-                        </button>
-                        <input type="file" id="seleccionar-archivo" style="display: none;">
-                        <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
-                        </button>
-                        <div id="compraConjunto">
-                            <p>Adquiere tu boleta aqui</p>
-                            <button id="compraBtn" onclick="mostrarModal()">
-                                <p id="ACT">LINK DE COMPRA</p>
-                            </button>
+                    <div class="d-flex justify-content-around" id="encabezadoSubirEvento">
+
+                        <div class="d-flex justify-content-start">
+                            <strong id="tituloSubirEvento">
+                                INGRESE NUEVO EVENTO
+                            </strong>
                         </div>
+
                     </div>
 
-                    <div class="flex-grow-1 text-left" id="informacionTexto">
+                    <hr size="8px" color="#ffffff" />
+
+                    <div class="flex-grow-1 text-left" id="subirInformacionTexto">
                         <div id="parrafoDetallado">
 
                             <div class="form-floating" id="ingresoInformacionImput">
@@ -640,7 +616,13 @@
                                 <label for="floatingTextarea">
                                     <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
+                            </div>
 
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <div class="input-group">
+                                    <span class="input-group-text"><h6 for="floatingTextarea">DESCRIPCIÓN DEL EVENTO</h6></span>
+                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                </div>
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
@@ -664,7 +646,6 @@
                                     <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
                                     <label for="floatingTextarea">
                                         <h6>LUGAR</h6>
-                                    </label>
                                 </div>
 
                             </div>
@@ -683,11 +664,40 @@
                                 </label>
                             </div>
 
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <label for="floatingTextarea">
+                                    <h6>LINK DE COMPRA</h6>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex-shrink-0" id="subirImagenes">
+                            <input type="file" id="seleccionar-archivo" style="display: none;">
+                            <button onclick="document.getElementById('seleccionar-archivo').click()">
+                                <img class="img-fluid" src="../Recursos/Img/Colocar flayer.png" alt=""
+                                    id="imgSubirDetalle">
+                            </button>
+                            <input type="file" id="seleccionar-archivo" style="display: none;">
+                            <button onclick="document.getElementById('seleccionar-archivo').click()">
+                                <img class="img-fluid" src="/Recursos/Img/colocar miniatura.png" alt=""
+                                    id="imgSubirDetalle">
+                            </button>
+
                         </div>
 
                     </div>
 
+                    <div class="d-flex justify-content-start" id="guardarInformacionEvento">
+                        <button href="#" id="botonGuardarEvento">
+                            GUARDAR EVENTO
+                        </button>
+                    </div>
+
                 </div>
+            </div>
+        </div>
+
     </template>
 
     <!--Terminos y condiciones-->
@@ -800,145 +810,145 @@
         </div>
     </template>
 
-  <!---Calendario-->
-  <template id="calendario">
+    <!---Calendario-->
+    <template id="calendario">
 
-    <div class="container-calendario">
+        <div class="container-calendario">
 
-        <div class="calendario">
+            <div class="calendario">
 
-            <div class="mes">
-                <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
-                <div class="fecha">
-                    <h2 id = "mesCalendario"></h2>
-                    <p></p>
+                <div class="mes">
+                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
+                    <div class="fecha">
+                        <h2 id="mesCalendario"></h2>
+                        <p></p>
+                    </div>
+                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
                 </div>
-                <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
+                <div class="dias">
+                    <div>LUNES</div>
+                    <div>MARTES</div>
+                    <div>MIERCOLES</div>
+                    <div>JUEVES</div>
+                    <div>VIERNES</div>
+                    <div>SABADO</div>
+                    <div>DOMINGO</div>
+                </div>
+                <div class="numdias">
+
+                </div>
+
+
+
             </div>
-            <div class="dias">
-                <div>LUNES</div>
-                <div>MARTES</div>
-                <div>MIERCOLES</div>
-                <div>JUEVES</div>
-                <div>VIERNES</div>
-                <div>SABADO</div>
-                <div>DOMINGO</div>
-            </div>
-            <div class="numdias">
-
-            </div>
-
-
-
         </div>
-    </div>
-</template>
+    </template>
 
-<script>
-    //------------------card-Caledario--------------------
-    //crear un div de eventos
-    const nuevoDiv = document.createElement("div");
+    <script>
+        //------------------card-Caledario--------------------
+        //crear un div de eventos
+        const nuevoDiv = document.createElement("div");
 
-    // Asignar clase y ID al nuevo div
-    nuevoDiv.className = "cardCalendario";
-    nuevoDiv.id = "card-Calendario";
-
+        // Asignar clase y ID al nuevo div
+        nuevoDiv.className = "cardCalendario";
+        nuevoDiv.id = "card-Calendario";
 
 
 
 
-    let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
-    //let clone = document.importNode(template.content, true);
-    //document.body.appendChild(clone);
+
+        let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+        //let clone = document.importNode(template.content, true);
+        //document.body.appendChild(clone);
 
 
-    let fecha = new Date();
-    const renderizarCalendario = (mes, año) => {
-        const diasMes = document.querySelector(".numdias");
-        const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
-        const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
-        const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-        let indicePrimerDia = primerDiaMes.getDay();
-        const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
-        const diasSig = 7 - indiceUltimoDia - 1;
-        const meses = [
-            "enero",
-            "febrero",
-            "marzo",
-            "abril",
-            "mayo",
-            "junio",
-            "julio",
-            "agosto",
-            "septiembre",
-            "octubre",
-            "noviembre",
-            "diciembre"
-        ];
+        let fecha = new Date();
+        const renderizarCalendario = (mes, año) => {
+            const diasMes = document.querySelector(".numdias");
+            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+            const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+            let indicePrimerDia = primerDiaMes.getDay();
+            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+            const diasSig = 7 - indiceUltimoDia - 1;
+            const meses = [
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+            ];
 
 
 
 
-        let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
 
 
-        // Almacena la fecha actual cuando la página se carga por primera vez
-        let fechaActual = new Date();
-        document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-        document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
+            // Almacena la fecha actual cuando la página se carga por primera vez
+            let fechaActual = new Date();
+            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
 
 
-        //--------------------------------------------------------------------------------------
+            //--------------------------------------------------------------------------------------
 
-        const añoId = new Date().getFullYear();
-        let mesId = fecha.getMonth();
+            const añoId = new Date().getFullYear();
+            let mesId = fecha.getMonth();
 
-        let numdias = "";
-        let eventos = [{
+            let numdias = "";
+            let eventos = [{
 
-        }
-            // Agrega más eventos aquí
-        ];
-        let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
+            }
+                // Agrega más eventos aquí
+            ];
+            let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
 
-        // Ajustar el índice del primer día si el calendario comienza en Lunes
-        if (indicePrimerDia === 0) { // Si es Domingo
-            indicePrimerDia = 7; // Cambiar a 7
-        } else {
-            indicePrimerDia--; // Restar 1 a los otros días
-        }
+            // Ajustar el índice del primer día si el calendario comienza en Lunes
+            if (indicePrimerDia === 0) { // Si es Domingo
+                indicePrimerDia = 7; // Cambiar a 7
+            } else {
+                indicePrimerDia--; // Restar 1 a los otros días
+            }
 
-        for (let x = indicePrimerDia; x > 0; x--) {
-            numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
+            for (let x = indicePrimerDia; x > 0; x--) {
+                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
+            };
+
+
+
+            for (let i = 1; i <= ultimoDia; i++) {
+                if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
+                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
+                }
+                else {
+                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
+                    if (eventoHoy) {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId + 1}-${i}">${i}</div>${cardCalendario}</div>`;
+                    } else {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId + 1}-${i}">${i}</div></div>`;
+                    }
+                }
+            }
+
+            for (let y = 1; y <= diasSig; y++) {
+                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
+            }
+
+            diasMes.innerHTML = numdias;
         };
 
 
 
-        for (let i = 1; i <= ultimoDia; i++) {
-            if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
-            }
-            else {
-                let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
-                if (eventoHoy) {
-                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId+1}-${i}">${i}</div>${cardCalendario}</div>`;
-                } else {
-                    numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId+1}-${i}">${i}</div></div>`;
-                }
-            }
-        }
 
-        for (let y = 1; y <= diasSig; y++) {
-            numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
-        }
-
-        diasMes.innerHTML = numdias;
-    };
-
-
-
-
-</script>
+    </script>
 
 
     <!--Pagina Politicas de privacidad-->
@@ -1091,7 +1101,7 @@
                     <h1 class="modalTitle">TU NOMBRE</h1>
                 </div>
                 <p>Digite su nuevo nombre de usuario</p>
-                <form id = "formNombre">
+                <form id="formNombre">
                     <input type="text" placeholder="Nombre del evento" name="title" class="inputPerfil">
                 </form>
 
@@ -1114,8 +1124,9 @@
                     <h1>TU EMAIL</h1>
                 </div>
                 <p>Ingrese su nuevo email</p>
-                <form id = "formCorreo">
-                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil" onclick="cambiarEmail()">
+                <form id="formCorreo">
+                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil"
+                        onclick="cambiarEmail()">
                 </form>
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalEmail()">
@@ -1143,8 +1154,9 @@
                 <form id="formContrasenia">
                     <input type="password" placeholder="Escribre tu contraseña" name="title" class="inputPerfil">
                     <hr id="lineasHorizantal">
-                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title" class="inputPerfil" />
-                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil"/>
+                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title"
+                        class="inputPerfil" />
+                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil" />
                 </form>
 
                 <div class="d-flex justify-content-around">

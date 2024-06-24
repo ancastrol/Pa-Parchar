@@ -153,6 +153,7 @@ class Vista {
       body.classList.add("carousel-caption");
       body.classList.add("d-none");
       body.classList.add("d-md-block");
+      body.setAttribute("id", "bodyCarrusel");
 
       let nombre = document.createElement("h5");
       nombre.classList.add("text-left");

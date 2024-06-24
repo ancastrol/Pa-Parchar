@@ -196,6 +196,13 @@ function cambiarEstadoEvento() {
   }
 }
 
+//Redirigir al link de compra
+function redirigirLink(){
+  let linkCompra = eventoObj.link_compra;
+  window.location.href = linkCompra;
+}
+
+
 function mostrarPerfil() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPerfil", "contenido");

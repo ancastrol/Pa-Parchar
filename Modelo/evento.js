@@ -20,6 +20,7 @@ class Evento extends Connect {
     this.ruta_imagen = data.ruta_imagen;
     this.ruta_flayer = data.ruta_flayer;
     this.id_usuario = data.id_usuario;
+    this.link_compra = data.link_compra;
   }
   getData() {
     return {
