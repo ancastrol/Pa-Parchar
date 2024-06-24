@@ -219,7 +219,7 @@ class Vista {
     });
   }
 
-    //Mostrar eventos por dia,  '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>'
+    //Mostrar eventos por dia
     mostrarEventoDia(data){
       
       console.log(data)
@@ -229,6 +229,7 @@ class Vista {
 
         let botonDia = document.createElement("button");
         botonDia.classList.add("card-calendario");
+        botonDia.setAttribute("data-id", evento.id_evento);
   
         let eventoDia = document.createElement("p");
         eventoDia.innerHTML = `<strong>${evento.nombre}</strong>`;

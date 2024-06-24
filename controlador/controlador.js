@@ -315,8 +315,10 @@ renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 };
 
 function mostrarEventosCalendario(){
-  let data = fecha.getMonth() + 1;
-  eventoObj.consultarEventosCalendario(data,function (data) {
+  let mes = fecha.getMonth() + 1;
+  let usuario = document.getElementById("papa").attributes["user-id"].value;
+  let data = {id_usuario : usuario, month:mes};
+  eventoObj.consultarEventosCalendario(data, function (data) {
     vista.mostrarEventoDia(data.data);
   })
 };

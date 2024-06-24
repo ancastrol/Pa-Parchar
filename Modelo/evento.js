@@ -128,7 +128,7 @@ class Evento extends Connect {
 
   //Metodo para traer fecha y nombre de eventos por dia
   consultarEventosCalendario(dataReq, eventCallback) {
-    const endpoint = "calendario/" + dataReq;
+    const endpoint = "calendario/" + dataReq.month +"&"+ dataReq.id_usuario;
     const method = "get";
     this.connect(dataReq, endpoint, method, eventCallback);
   }

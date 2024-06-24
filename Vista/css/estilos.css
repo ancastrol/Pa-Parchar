@@ -1463,12 +1463,12 @@ footer.a {
 
 }
 
-.mes i {
+.mes span {
     font-size: 2rem;
     cursor: pointer;
 }
 
-.mes i:hover{
+.mes span:hover{
     transform: scale(1.3);
 }
 

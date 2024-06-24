@@ -818,12 +818,13 @@
             <div class="calendario">
 
                 <div class="mes">
-                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
+                    <span class="carousel-control-prev-icon" aria-hidden="true" onclick=" botonCalendarioPrevio(),mostrarEventosCalendario()"></span>
+              
                     <div class="fecha">
                         <h2 id="mesCalendario"></h2>
                         <p></p>
                     </div>
-                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
+                    <span class="carousel-control-next-icon" aria-hidden="true" onclick=" botonCalendarioProximo(), mostrarEventosCalendario()"></span>
                 </div>
                 <div class="dias">
                     <div>LUNES</div>
@@ -845,18 +846,6 @@
     </template>
 
     <script>
-        //------------------card-Caledario--------------------
-        //crear un div de eventos
-        const nuevoDiv = document.createElement("div");
-
-        // Asignar clase y ID al nuevo div
-        nuevoDiv.className = "cardCalendario";
-        nuevoDiv.id = "card-Calendario";
-
-
-
-
-
         let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
         //let clone = document.importNode(template.content, true);
         //document.body.appendChild(clone);
@@ -904,9 +893,7 @@
             let mesId = fecha.getMonth();
 
             let numdias = "";
-            let eventos = [{
-
-            }
+            let eventos = [{}
                 // Agrega más eventos aquí
             ];
             let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
@@ -944,10 +931,6 @@
 
             diasMes.innerHTML = numdias;
         };
-
-
-
-
     </script>
 
 
