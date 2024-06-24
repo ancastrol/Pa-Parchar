@@ -449,7 +449,7 @@
 
     </template>
 
-    <!--lista de eventos-->
+    <!-- lista de eventos
     <template id="eventosOrganizador">
 
         <div class="d-flex flex-column">
@@ -486,12 +486,35 @@
 
             </div>
 
+
+
+        </div> -->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--lista de eventos-->
+    <template id="eventosOrganizador">
+
+        <div class="d-flex flex-column" style="padding: 4%;">
+
+            <div id="encabezadoMisEventos">
+
+                <div class="d-flex me-auto p-2">
+                    <strong class="align-self-center" style="font-size: 1rem;">
+                        TUS EVENTOS
+                    </strong>
+                </div>
+
+                <div id="filtroEvento">
+
+                    <button type="text" id="filtroCategoriaEvento" onclick="mostrarEventosOrganizadorFiltro()">categoria</button>
+                    <button type="text" id="filtroOrdenEvento" onclick="mostrarEventosOrganizadorFiltro()">fecha</button>
+                </div>
+
+            </div>
             <div id="contenedorMisEventos">
 
             </div>
-
-
-        </div>
 
     </template>
 

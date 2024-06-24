@@ -82,13 +82,35 @@ function mostrarMasEventos() {
 function mostrarEventosOrganizador() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
   eventoObj.consultarEventosOrganizador(id_usuario, function (data) {
     listaEventos = data.data;
     vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
   });
+}
+
+//Mostrar mis eventos filtrados
+let filtro = 1;
+function mostrarEventosOrganizadorFiltro() {
+  vista.limpiarContenido("contenedorMisEventos");
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+
+  if(filtro == 0){
+    eventoObj.consultarEventosOrganizadorDateDESC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro = 1;
+  });
+  }
+  else{
+    eventoObj.consultarEventosOrganizadorDateASC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro = 0;
+  });
+  }
 }
 
 //Mostar eventos mis eventos fecha ASC (organizador)
@@ -346,7 +368,7 @@ function mostrarVerMisEventos() {
 }
 
 function cambiarColorSelect() {
-  var select = document.getElementById("seleccioneRol");
+  var select = document.getElementById("filtroCategoriaEvento");
   select.classList.add("seleccionado");
 }
 
