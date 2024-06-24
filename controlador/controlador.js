@@ -199,7 +199,7 @@ function cambiarEstadoEvento() {
 //Redirigir al link de compra
 function redirigirLink(){
   let linkCompra = eventoObj.link_compra;
-  window.location.href = linkCompra;
+  window.open(linkCompra, '_blank');
 }
 
 
