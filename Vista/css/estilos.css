@@ -345,18 +345,19 @@ header {
 /*Boton para ingresar dirección especifica*/
 
 #subirImagenes {
+    display: flex; /* Usamos flexbox para alinear las imágenes en una fila */
+    justify-content: space-around; /* Espaciamos las imágenes uniformemente */
     width: 100%; /* Ajustamos el ancho para escritorio */
 }
 
-#encabezadoSubirEvento{
+#encabezadoSubirEvento {
     width: 100%;
     margin-top: 2%;
 }
 
-#tituloSubirEvento{
+#tituloSubirEvento {
     width: 100%;
     font-size: 40px;
-
 }
 
 #guardarInformacionEvento {
@@ -386,8 +387,7 @@ header {
     color: #000000;
 }
 
-#imgSubirDetalle {
-    width: 100%;
+#imgSubirDetalle1, #imgSubirDetalle2 {
     height: auto;
     border-radius: 3%;
 }
@@ -424,13 +424,14 @@ hr {
         align-items: center;
     }
 
-    #subirImagenes{
+    #subirImagenes {
         width: 100%;
+        flex-direction: column; /* Alineamos verticalmente las imágenes en dispositivos móviles */
     }
 
     #subirInformacionTexto {
         width: 100%;
-        margin-bottom: 10%;
+        margin-bottom: 5%;
         margin-left: 5%;
     }
 
@@ -439,34 +440,44 @@ hr {
         height: 40px; /* Ajustamos la altura del botón */
         margin-bottom: 5%;
     }
+
+    #imgSubirDetalle1, #imgSubirDetalle2 {
+        width: 50%;
+        height: auto;
+        border-radius: 3%;
+    }
 }
 
 /* Para pantallas más grandes */
 @media (min-width: 769px) {
     .d-flex.align-content-center {
         flex-direction: row;
-        justify-content: flex-around;
+        justify-content: center; /* Centramos el contenido */
     }
 
-    #subirImagenes{
-        width: 100%;
-        margin-left: 20rem;
+    #subirImagenes {
+        width: 80%; /* Ajustamos el ancho para centrarlo */
+        margin: 0 auto; /* Centramos el div horizontalmente */
     }
 
-    #subirInformacionTexto{
+    #subirInformacionTexto {
         width: 100%;
         margin-left: 6rem;
         text-align: top;
     }
 
     #botonGuardarEvento {
-        font-size: 20px; /* Reducimos el tamaño de fuente para dispositivos móviles */
+        font-size: 20px; /* Tamaño de fuente para dispositivos grandes */
         height: 40px; /* Ajustamos la altura del botón */
+        margin-bottom: 8%;
+        margin-top: 8%;
     }
 
     #guardarInformacionEvento {
+        margin-bottom: 5%;
         margin-top: 2%;
-        margin-left: 50rem;
+        width: 10%; /* Ajustamos el ancho para centrarlo */
+        margin: 0 auto; /* Centramos el div horizontalmente */
     }
 }
 
@@ -979,10 +990,12 @@ hr {
 
 #tituloRecomendado {
     font-size: 10px;
+    background-color: #3d3d3da4;
 }
 
 #parrafoRecomendado {
     font-size: 9px;
+    background-color: #3d3d3da4;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
