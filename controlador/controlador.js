@@ -232,32 +232,34 @@ function formatDateString(inputString) {
 function crearEvento() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
-  let fechaStr = datos[2];
-  let fecha = formatDateString(fechaStr);
-  console.log(fecha);
-  let data = {
-    id_usuario: id_usuario,
-    nombre_evento: datos[0],
-    descripcion: datos[1],
-    fecha_hora: fecha,
-    id_categoria: datos[3],
-    lugar: datos[4],
-    direccion: datos[5],
-    disponibilidad: datos[6],
-    link_compra: datos[7],
-  };
-  eventoObj.crearEvento(data, function (data) {
-    vista.mostrarMensaje(data.success, data.msj);
-    mostrarEventosOrganizador();
-  });
+  
+    let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
+    let fechaStr = datos[2];
+    let fecha = formatDateString(fechaStr);
+    console.log(fecha);
+    let data = {
+      id_usuario: id_usuario,
+      nombre_evento: datos[0],
+      descripcion: datos[1],
+      fecha_hora: fecha,
+      id_categoria: datos[3],
+      lugar: datos[4],
+      direccion: datos[5],
+      disponibilidad: datos[6],
+      link_compra: datos[7],
+    };
+    eventoObj.crearEvento(data, function (data) {
+      vista.mostrarMensaje(true, "Evento Creado Correctamente");
+      mostrarEventosOrganizador();
+    });
 }
 
-//funcion para actualizar evento, vista.mostrarInfoEvento(data);
+//funcion para actualizar evento
 function actualizarEvento() {
+  let id_evento = document.getElementById("botonActualizarEvento").attributes["evento-id"].value
   mostrarIngresarEvento();
-  eventoObj.consultarDetalleEvento(eventoObj.id_evento, function (data) {
-    vista.mostrarInfoEvento(data);
+  eventoObj.consultarDetalleEvento(id_evento, function (data) {
+    vista.mostrarInfoEvento(data.data);
   });
 }
   
@@ -436,7 +438,7 @@ function registrarUsuario() {
             let id_usuario = data.data;
             document.getElementById("papa").setAttribute("user-id", id_usuario);
             vista.cerrarModal("modalCrearCuenta");
-            vista.mostrarMensaje(data.success, data.message);
+            vista.mostrarMensaje(true, "Usuario registrado exitosamente");
             volverInicio();
           });
         } else {

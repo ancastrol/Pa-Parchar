@@ -298,6 +298,7 @@ class Vista {
       botonActualizar.classList.add("W-50");
       botonActualizar.classList.add("align-self-center");
       botonActualizar.setAttribute("id", "botonActualizarEvento");
+      botonActualizar.setAttribute("evento-id", miEvento.id_evento)
       botonActualizar.innerHTML = "ACTUALIZAR";
 
       divMiEvento2_1.appendChild(imagenMiEvento);
@@ -311,7 +312,7 @@ class Vista {
       divMiEvento.appendChild(botonActualizar);
       divMiEvento.appendChild(hrLinea);
       contenedor.appendChild(divMiEvento);
-      botonMiEvento.addEventListener("click", mostrarPerfil);
+      botonActualizar.addEventListener("click", actualizarEvento);
       botonMiEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
@@ -325,15 +326,16 @@ class Vista {
     let fechaEvento = document.getElementById("actualizarFecha");
     let lugarEvento = document.getElementById("actualizarLugar");
     let direccionEvento = document.getElementById("actualizarDireccion");
-    let categoriaEvento = document.getElementById("categorySelect");
+    let categoriaEvento = document.getElementById("selectCategoria");
     let disponibilidadEvento = document.getElementById("actualizarDispo");
     let linkEvento = document.getElementById("actualizarLink");
 
     // Ahora, llenamos los elementos con los datos de la base de datos
-    evento = data[0];
+    let evento = data[0];
+    let fechita = evento.fecha + ' ' + evento.hora;
     nombreEvento.value = evento.nombre_evento;
     descripcionEvento.value = evento.descripcion;
-    fechaEvento.value = evento.fecha;
+    fechaEvento.value = fechita;
     direccionEvento.value = evento.direccion;
     lugarEvento.value = evento.lugar;
     categoriaEvento.value = evento.id_categoria;
