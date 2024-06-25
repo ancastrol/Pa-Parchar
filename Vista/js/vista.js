@@ -307,6 +307,31 @@ class Vista {
     });
   }
 
+  //Mostrar info de un evento para que el usuario pueda actualizarla
+  mostrarInfoEvento(data) {
+    console.log(data);
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let nombreEvento = document.getElementById("actualizarNombre");
+    let descripcionEvento = document.getElementById("actualizarDescripcion");
+    let fechaEvento = document.getElementById("actualizarFecha");
+    let lugarEvento = document.getElementById("actualizarLugar");
+    let direccionEvento = document.getElementById("actualizarDireccion");
+    let categoriaEvento = document.getElementById("categorySelect");
+    let disponibilidadEvento = document.getElementById("actualizarDispo");
+    let linkEvento = document.getElementById("actualizarLink");
+
+    // Ahora, llenamos los elementos con los datos de la base de datos
+    evento = data[0];
+    nombreEvento.value = evento.nombre_evento;
+    descripcionEvento.value = evento.descripcion;
+    fechaEvento.value = evento.fecha;
+    direccionEvento.value = evento.direccion;
+    lugarEvento.value = evento.lugar;
+    categoriaEvento.value = evento.id_categoria;
+    disponibilidadEvento.value = evento.disponibilidad;
+    linkEvento.value = evento.link_compra;
+  }
+
   //Mostrar detalle de evento
   mostrarDetalleEvento(contenido, data) {
     console.log(data);

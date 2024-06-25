@@ -252,6 +252,15 @@ function crearEvento() {
   });
 }
 
+//funcion para actualizar evento, vista.mostrarInfoEvento(data);
+function actualizarEvento() {
+  mostrarIngresarEvento();
+  eventoObj.consultarDetalleEvento(eventoObj.id_evento, function (data) {
+    vista.mostrarInfoEvento(data);
+  });
+}
+  
+
 
 /*----------------------------------PERFIL-----------------------------------*/
 
