@@ -293,6 +293,12 @@ class Vista {
       let descripcion = document.createElement("div");
       descripcion.classList.add("p-2", "align-self-center", "text-left");
       descripcion.innerHTML = `${miEvento.descripcion}`;
+      
+      let botonActualizar = document.createElement("button");
+      botonActualizar.classList.add("W-50");
+      botonActualizar.classList.add("align-self-center");
+      botonActualizar.setAttribute("id", "botonActualizarEvento");
+      botonActualizar.innerHTML = "ACTUALIZAR";
 
       divMiEvento2_1.appendChild(imagenMiEvento);
       divMiEvento2_2.appendChild(nombre);
@@ -302,8 +308,10 @@ class Vista {
       divMiEvento2.appendChild(descripcion);
       botonMiEvento.appendChild(divMiEvento2);
       divMiEvento.appendChild(botonMiEvento);
+      divMiEvento.appendChild(botonActualizar);
       divMiEvento.appendChild(hrLinea);
       contenedor.appendChild(divMiEvento);
+      botonMiEvento.addEventListener("click", mostrarPerfil);
       botonMiEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
