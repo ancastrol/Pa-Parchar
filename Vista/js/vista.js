@@ -312,7 +312,7 @@ class Vista {
       divMiEvento.appendChild(botonActualizar);
       divMiEvento.appendChild(hrLinea);
       contenedor.appendChild(divMiEvento);
-      botonActualizar.addEventListener("click", actualizarEvento);
+      botonActualizar.addEventListener("click", mostrarActualizarEvento);
       botonMiEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
@@ -320,7 +320,7 @@ class Vista {
   //Mostrar info de un evento para que el usuario pueda actualizarla
   mostrarInfoEvento(data) {
     console.log(data);
-    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    //Elementos HTML:
     let nombreEvento = document.getElementById("actualizarNombre");
     let descripcionEvento = document.getElementById("actualizarDescripcion");
     let fechaEvento = document.getElementById("actualizarFecha");

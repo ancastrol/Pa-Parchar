@@ -139,4 +139,12 @@ class Evento extends Connect {
     const method = "POST";
     this.connect(dataReq, endpoint, method, eventCallback);
   }
+
+  //Metodo para actualizar evento
+  actualizarEvento(dataReq, eventCallback) {
+    const endpoint = "organizer/actEvento";
+    const method = "PUT";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
+
 }

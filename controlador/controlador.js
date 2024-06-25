@@ -232,37 +232,101 @@ function formatDateString(inputString) {
 function crearEvento() {
   let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  
+  let formulario = vista.getForm("parrafoDetallado")
+  if (formulario.ok) {
     let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
-    let fechaStr = datos[2];
-    let fecha = formatDateString(fechaStr);
-    console.log(fecha);
-    let data = {
-      id_usuario: id_usuario,
-      nombre_evento: datos[0],
-      descripcion: datos[1],
-      fecha_hora: fecha,
-      id_categoria: datos[3],
-      lugar: datos[4],
-      direccion: datos[5],
-      disponibilidad: datos[6],
-      link_compra: datos[7],
-    };
-    eventoObj.crearEvento(data, function (data) {
-      vista.mostrarMensaje(true, "Evento Creado Correctamente");
-      mostrarEventosOrganizador();
-    });
+    let fechaStr = new Date(datos[2]);
+    if (isNaN(Date.parse(fechaStr))){
+      vista.mostrarMensaje(false, "La fecha no es valida");
+    }
+    else{
+      let fecha = formatDateString(fechaStr);
+      let data = {
+        id_usuario: id_usuario,
+        nombre_evento: datos[0],
+        descripcion: datos[1],
+        id_categoria: datos[3],
+        lugar: datos[4],
+        direccion: datos[5],
+        disponibilidad: datos[6],
+        link_compra: datos[7],
+        fecha_hora: fecha,
+      };
+      eventoObj.crearEvento(data, function (data) {
+        vista.mostrarMensaje(true, "Evento Creado Correctamente");
+        mostrarEventosOrganizador();
+      });
+    }
+  }
+  else{
+    vista.mostrarMensaje(formulario.ok, "Debe llenar todos los campos");
+  }
 }
 
 //funcion para actualizar evento
-function actualizarEvento() {
+function mostrarActualizarEvento() {
   let id_evento = document.getElementById("botonActualizarEvento").attributes["evento-id"].value
-  mostrarIngresarEvento();
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("actualizarEvento", "contenido");
+  document.getElementById("botonGuardarEvento").setAttribute("evento-id", id_evento)
   eventoObj.consultarDetalleEvento(id_evento, function (data) {
     vista.mostrarInfoEvento(data.data);
   });
 }
+
+//Funcion para actualizar un evento
+function actualizarEvento() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let formulario = vista.getForm("parrafoDetallado")
+  if (formulario.ok) {
+    let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
+    let fechaStr = datos[2];
+    if (isNaN(Date.parse(fechaStr))){
+      vista.mostrarMensaje(false, "La fecha no es valida");
+    }
+    else{
+      let fecha = formatDateString(fechaStr);
+      let id_evento = document.getElementById("botonGuardarEvento").attributes["evento-id"].value
+      let data = {
+        id_usuario: id_usuario,
+        id_evento: id_evento,
+        nombre_evento: datos[0],
+        descripcion: datos[1],
+        fecha_hora: fecha,
+        id_categoria: parseInt(datos[3]),
+        lugar: datos[4],
+        direccion: datos[5],
+        disponibilidad: datos[6],
+        link_compra: datos[7],
+      };
+      eventoObj.actualizarEvento(data, function (data) {
+        vista.mostrarMensaje(true, "Evento Actualizado Correctamente");
+        mostrarEventosOrganizador();
+      });
+    }
+  }
+  else{
+    vista.mostrarMensaje(formulario.ok, "Debe llenar todos los campos");
+  }
+}
   
+//Funcion para mostrar plantilla admin
+function mostrarAdmin() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("admin", "contenido");
+}
+
+//Funcion para traer eventos a plantilla admin
+function mostrarEventosAdmin() {
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("eventosAdmin", "contenido");
+  eventoObj.consultarMasEventos(function (data) {
+    listaEventos = data.data;
+    vista.mostrarEventoAdmin("contenidoEventosAdmin", listaEventos);
+  });
+}
+
 
 
 /*----------------------------------PERFIL-----------------------------------*/
