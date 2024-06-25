@@ -287,8 +287,8 @@ function cambiarNombre() {
     let data = { id_usuario: id_usuario, nombre: nombre };
     usuarioObj.changeName(data, function (data) {
     vista.cerrarModal("contModalNombre");
-    vista.mostrarMensaje(data.success, data.msj);
     mostrarPerfil();
+    vista.mostrarMensaje(true, "Se ha actualizado el nombre correctamente");
   });
   }
   else{
@@ -308,6 +308,7 @@ function cambiarCorreo() {
       vista.mostrarMensaje(data.success, data.msj);
       vista.cerrarModal("contModalNombre");
       mostrarPerfil();
+      vista.mostrarMensaje(true, "Se ha actualizado el correo correctamente");
     });
   }
   else{
@@ -332,7 +333,7 @@ function cambiarContrasenia() {
       let data = { id_usuario: id_usuario, contrasenia: contrasenia, newContrasenia: newContrasenia};
       console.log(data);
       usuarioObj.changePassword(data, function (data) {
-        vista.mostrarMensaje(data.success, "Se cambio la contraseña correctamente");
+        vista.mostrarMensaje(true, "Se ha actualizado la contraseña correctamente");
         vista.cerrarModal("contModalContraseña");
     });
   }
