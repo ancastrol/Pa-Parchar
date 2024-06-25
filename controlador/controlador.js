@@ -12,7 +12,7 @@ document.body.onload = function () {
 
 /*Funciones para mostrar las plantillas en el main*/
 function volverInicio() {
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
+  vista.mostrarPlantilla("pantallaNoHayEvento", "contenido");
   //consultar eventos en  BD
   if (sesion == false) {
     eventoObj.consultarEventosCarrusel({}, function (data) {
