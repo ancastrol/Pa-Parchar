@@ -189,7 +189,8 @@ function buscarEvento(event) {
         "No se encontraron similitudes con la busqueda"
       );
     } else {
-      vista.mostrarMiEvento("contenido", listaEventos);
+      vista.mostrarPlantilla("busquedaRelacionada", "contenido");
+      vista.mostrarMiEvento("contenidoBusqueda", listaEventos);
     }
   });
 }

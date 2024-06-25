@@ -410,6 +410,18 @@ header {
     padding-left: 0;
 }
 
+#selectCategoria{
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
+}
+
+#opcionesCatego{
+    margin-bottom: 5%;
+    width: 100%;
+    color: #000000;
+}
+
 hr {
     height: 85%;
     width: 100%;
@@ -439,6 +451,7 @@ hr {
         height: 40px; /* Ajustamos la altura del botón */
         margin-bottom: 5%;
     }
+
 }
 
 /* Para pantallas más grandes */
@@ -960,8 +973,9 @@ hr {
 }
 
 #bodyCarrusel{
-    background-color: #3f3f3fbe;
+    background-color: #00000073;
     border-radius: 5px;
+    margin-bottom: 2%;
 }
 
 #eventoRecomendado {
@@ -986,7 +1000,7 @@ hr {
 }
 
 #parrafoP {
-    font-size: 10px;
+    font-size: 20px;
 }
 
 #imgReco {
@@ -995,11 +1009,17 @@ hr {
 }
 
 #tituloRecomendado {
-    font-size: 10px;
+    font-size: 20px;
 }
 
 #parrafoRecomendado {
-    font-size: 9px;
+    font-size: 20px;
+}
+
+#descripcionRecomendado{
+    font-size: 120%;
+    margin: 1%;
+
 }
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -1625,12 +1645,14 @@ footer.a {
 #filtroCategoriaEvento,
 #filtroOrdenEvento {
     width: 100%;
+    font-size: large;
     background-color: #262626;
-    border-radius: 5%;
-    border-color: #ffffff;
+    border-radius: 5PX;
+    border: #ffffff;
+    border: 1px solid;
     text-align: left;
-    margin: 1%;
-    color: white;
+    margin: 2%;
+    color: #ffffff;
 }
 
 /*-------------------------------------------------------------------------------------------------------*/

@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--Crear cuenta-->
             <div class="d-flex justify-content-center" id="modalCrearCuenta">
@@ -99,7 +99,7 @@
                     <form id="formRegistro">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="cuadroNombreUsuario"
-                                placeholder="NOMBRE USUARIO" name = "nombre">
+                                placeholder="NOMBRE USUARIO" name="nombre">
                         </div>
 
 
@@ -108,25 +108,29 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO" name = "correo">
+                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
+                                name="correo">
                         </div>
 
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA" name="contrasenia">
+                            <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
+                                name="contrasenia">
                         </div>
 
                         <div class="mb-3 text-center">
                             <input type="password" class="form-control" id="cuadroContrasenia"
-                                placeholder=" CONFIRMAR CONTRASEÑA" name= "contrasenia">
+                                placeholder=" CONFIRMAR CONTRASEÑA" name="contrasenia">
                         </div>
                     </form>
 
-                        <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
-                            onclick="registrarUsuario()">
-                            <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
-                        </button>
+                    <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
+                        onclick="registrarUsuario()">
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
+                    </button>
                 </div>
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--Modal busqueda-->
             <div id="modalBusqueda">
@@ -148,6 +152,8 @@
                     </div>
                 </div>
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--Modal Login-->
             <div id="modalLogin">
@@ -207,6 +213,9 @@
                 </div>
             </div>
 
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
             <!--Barra lateral sesion iniciada-->
             <div class="d-flex justify-content-center" id="modalLateralSesionIniciada">
 
@@ -261,11 +270,14 @@
             </div>
         </header>
 
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--Main-->
 
         <main id="contenido">
-
         </main>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--Footer-->
 
@@ -359,7 +371,49 @@
 
     </div>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Plantillas-->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Busqueda Relacionada-->
+
+    <template id="busquedaRelacionada">
+
+        <div class="d-flex flex-column" style="padding: 4%;">
+
+            <div class="d-flex justify-content-center">
+
+                <p class="align-self-center" style="font-size: 0.8rem;">
+                    BUSQUEDA RELACIONADA:
+                    <strong style="font-size: 1rem;">
+                        EVENTO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                    </strong>
+                </p>
+                <div id="filtroEvento">
+
+                    <button type="text" id="filtroCategoriaEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">CATEGORIA
+                    </button>
+                    <button type="text" id="filtroOrdenEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">FECHA
+                    </button>
+
+                </div>
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+        </div>
+
+        <div id="contenidoBusqueda">
+
+        </div>
+
+    </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Pagina principal-->
     <template id="paginaPrincipal">
@@ -428,6 +482,8 @@
 
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Card eventos pequeños-->
     <template id="cardEvento">
 
@@ -449,47 +505,6 @@
 
     </template>
 
-    <!-- lista de eventos
-    <template id="eventosOrganizador">
-
-        <div class="d-flex flex-column">
-
-            <div class="d-flex mb-0">
-
-                <div class="d-flex me-auto p-2">
-                    <i class="material-icons align-self-start">
-                        format_list_bulleted
-                    </i>
-
-                    <strong class="align-self-center">
-                        TUS EVENTOS
-                    </strong>
-                </div>
-
-                <div class="p-2">
-                    <button onclick="mostrarEventosOrganizadorDateASC(), cerrarModalLateralSesionIniciada()">
-
-                        <i class="material-icons align-self-center">
-                            filter_list
-                        </i>
-                    </button>
-                </div>
-
-                <div class="p-2">
-                    <button onclick="mostrarEventosOrganizadorCatASC(), cerrarModalLateralSesionIniciada()">
-
-                        <i class="material-icons align-self-center">
-                            more_horiz
-                        </i>
-                    </button>
-                </div>
-
-            </div>
-
-
-
-        </div> -->
-
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--lista de eventos-->
@@ -505,18 +520,26 @@
                     </strong>
                 </div>
 
+
                 <div id="filtroEvento">
 
-                    <button type="text" id="filtroCategoriaEvento" onclick="mostrarEventosOrganizadorFiltro()">categoria</button>
-                    <button type="text" id="filtroOrdenEvento" onclick="mostrarEventosOrganizadorFiltro()">fecha</button>
+                    <button type="text" id="filtroCategoriaEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">CATEGORIA</button>
+                    <button type="text" id="filtroOrdenEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">FECHA</button>
                 </div>
 
             </div>
+
+            <hr size="8px" color="#ffffff" />
+
             <div id="contenedorMisEventos">
 
             </div>
 
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Evento Detallado-->
     <template id="eventoDetallado">
@@ -570,7 +593,8 @@
 
                             <select type="text" class="form-select" id="seleccionEstadoEvento"
                                 onchange="cambiarEstadoEvento()">
-                                <option value="0" selected id="estadoEvento" class="option" disabled>ESTADO EVENTO</option>
+                                <option value="0" selected id="estadoEvento" class="option" disabled>ESTADO EVENTO
+                                </option>
                                 <option value="1" id="opcionesRol">ASISTIDO</option>
                                 <option value="2" id="opcionesRol">ASISTIRÉ</option>
                                 <option value="3" id="opcionesRol">ME GUSTA</option>
@@ -610,7 +634,7 @@
 
     </template>
 
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!--Ingresar Evento-->
     <template id="ingresarEvento">
 
@@ -635,7 +659,8 @@
                         <form id="parrafoDetallado">
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg input" type="text" placeholder="Nombre" id="actualizarNombre">
+                                <input class="form-control form-control-lg input" type="text" placeholder="Nombre"
+                                    id="actualizarNombre">
                                 <label for="floatingTextarea">
                                     <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
@@ -643,34 +668,36 @@
 
                             <div class="form-floating" id="ingresoInformacionImput">
                                 <div class="input-group">
-                                    <span class="input-group-text"><h6 for="floatingTextarea">DESCRIPCIÓN DEL EVENTO</h6></span>
-                                    <textarea class="form-control input" aria-label="With textarea" id = "actualizarDescripcion"></textarea>
+                                    <span class="input-group-text">
+                                        <h6 for="floatingTextarea">DESCRIPCIÓN DEL EVENTO</h6>
+                                    </span>
+                                    <textarea class="form-control input" aria-label="With textarea"
+                                        id="actualizarDescripcion"></textarea>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg input" type="text" placeholder="AAAA-MM-DD HH:MM:SS" id = "actualizarFecha">
+                                    <input class="form-control form-control-lg input" type="text"
+                                        placeholder="AAAA-MM-DD HH:MM:SS" id="actualizarFecha">
                                     <label for="floatingTextarea">
                                         <h6>FECHA_HORA</h6>
                                     </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <select class="form-select form-select-lg input" id="categorySelect" aria-label="Category select">
-                                        <option value="" selected disabled>Elija una categoria</option>
-                                        <option value="1">Carnaval</option>
-                                        <option value="2">Concierto</option>
-                                        <option value="3">Fiesta</option>
+                                    <select class="form-select form-select-lg input" id="selectCategoria">
+                                        <option id="opcionesCatego" value="0">ELIJE CATEGORIA</option>
+                                        <option id="opcionesCatego" value="1">Carnaval</option>
+                                        <option id="opcionesCatego" value="2">Concierto</option>
+                                        <option id="opcionesCatego" value="3">Fiesta</option>
                                     </select>
-                                    <label for="categorySelect">
-                                        <h6>CATEGORIA</h6>
-                                    </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg input" type="text" placeholder="LUGAR" id = "actualizarLugar">
+                                    <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                        id="actualizarLugar">
                                     <label for="floatingTextarea">
                                         <h6>LUGAR</h6>
                                 </div>
@@ -678,21 +705,24 @@
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR" id = "actualizarDireccion">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarDireccion">
                                 <label for="floatingTextarea">
                                     <h6>DIRECCION</h6>
                                 </label>
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR" id = "actualizarDispo">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarDispo">
                                 <label for="floatingTextarea">
                                     <h6>DISPONIBILIDAD</h6>
                                 </label>
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR" id = "actualizarLink">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarLink">
                                 <label for="floatingTextarea">
                                     <h6>LINK DE COMPRA</h6>
                                 </label>
@@ -726,6 +756,8 @@
         </div>
 
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Terminos y condiciones-->
     <template id="pantallaTerminosYCondiciones">
@@ -837,6 +869,8 @@
         </div>
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!---Calendario-->
     <template id="calendario">
 
@@ -845,13 +879,15 @@
             <div class="calendario">
 
                 <div class="mes">
-                    <span class="carousel-control-prev-icon" aria-hidden="true" onclick=" botonCalendarioPrevio(),mostrarEventosCalendario()"></span>
-              
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        onclick=" botonCalendarioPrevio(),mostrarEventosCalendario()"></span>
+
                     <div class="fecha">
                         <h2 id="mesCalendario"></h2>
                         <p></p>
                     </div>
-                    <span class="carousel-control-next-icon" aria-hidden="true" onclick=" botonCalendarioProximo(), mostrarEventosCalendario()"></span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        onclick=" botonCalendarioProximo(), mostrarEventosCalendario()"></span>
                 </div>
                 <div class="dias">
                     <div>LUNES</div>
@@ -871,6 +907,8 @@
             </div>
         </div>
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <script>
         let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
@@ -960,9 +998,13 @@
         };
     </script>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Pagina Politicas de privacidad-->
     <template id="pantallaPoliticaPrivacidad">
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--Poilitica de Privacidad-->
         <div>
 
@@ -976,13 +1018,18 @@
             <div class="d-flex align-content-center" id="terminosYCondiciones">
                 <p>
                     Esta página le informa sobre nuestras políticas con respecto a la recopilación, el uso y la
-                    divulgación de datos personales cuando utiliza nuestro Servicio y las opciones que tiene asociadas a
+                    divulgación de datos personales cuando utiliza nuestro Servicio y las opciones que tiene
+                    asociadas a
                     esos datos.
 
-                    Utilizamos sus datos para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted acepta
-                    la recopilación y el uso de información de acuerdo con esta política. A menos que se defina de otro
-                    modo en esta Política de Privacidad, los términos utilizados en esta Política de Privacidad tienen
-                    los mismos significados que en nuestros Términos y Condiciones, disponibles en [URL de los términos
+                    Utilizamos sus datos para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted
+                    acepta
+                    la recopilación y el uso de información de acuerdo con esta política. A menos que se defina de
+                    otro
+                    modo en esta Política de Privacidad, los términos utilizados en esta Política de Privacidad
+                    tienen
+                    los mismos significados que en nuestros Términos y Condiciones, disponibles en [URL de los
+                    términos
                     y condiciones].
 
                     <br><br>
@@ -992,7 +1039,8 @@
                     <strong>Datos Personales:</strong>
                     <br><br>
 
-                    Mientras utiliza nuestro Servicio, es posible que le pidamos que nos proporcione cierta información
+                    Mientras utiliza nuestro Servicio, es posible que le pidamos que nos proporcione cierta
+                    información
                     personalmente identificable que pueda utilizarse para contactarlo o identificarlo ("Datos
                     personales"). La información personalmente identificable puede incluir, entre otras cosas:
 
@@ -1001,9 +1049,12 @@
                     <br><br>
 
                     También podemos recopilar información sobre cómo se accede y se utiliza el Servicio ("Datos de
-                    uso"). Estos Datos de uso pueden incluir información como la dirección del protocolo de Internet de
-                    su computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de
-                    nuestro Servicio que visita, la hora y la fecha de su visita, el tiempo que pasa en esas páginas,
+                    uso"). Estos Datos de uso pueden incluir información como la dirección del protocolo de Internet
+                    de
+                    su computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las
+                    páginas de
+                    nuestro Servicio que visita, la hora y la fecha de su visita, el tiempo que pasa en esas
+                    páginas,
                     identificadores de dispositivo y otros datos de diagnóstico.
 
                     <br><br>
@@ -1031,7 +1082,8 @@
                     <strong>Cambios a esta Política de Privacidad</strong>
                     <br><br>
 
-                    Le recomendamos que revise esta Política de Privacidad periódicamente para ver si hay cambios. Los
+                    Le recomendamos que revise esta Política de Privacidad periódicamente para ver si hay cambios.
+                    Los
                     cambios a esta Política de Privacidad son efectivos cuando se publican en esta página.
 
                     <br><br>
@@ -1055,8 +1107,12 @@
         </div>
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Pagina Perfil-->
     <template id="pantallaPerfil">
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--Pantalla Perfil-->
 
@@ -1067,6 +1123,8 @@
                     <input type="file">
                 </div>
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--seccion nombre perfil-->
 
@@ -1103,6 +1161,9 @@
                 <hr id="lineasHorizantal2">
             </div>
         </div>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--modal Nombre-->
 
         <div id="contModalNombre">
@@ -1125,6 +1186,8 @@
                 </div>
             </div>
         </div>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--Modal email -->
 
@@ -1149,8 +1212,7 @@
             </div>
         </div>
 
-
-
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--modal contraseña-->
 
@@ -1181,6 +1243,8 @@
 
         </div>
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <script src="./Vista/js/vista.js"></script>
     <script src="./Modelo/connect.js"></script>

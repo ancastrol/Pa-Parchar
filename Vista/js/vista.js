@@ -144,7 +144,7 @@ class Vista {
 
       let imagenCarrusel = document.createElement("img");
       imagenCarrusel.classList.add("d-block");
-      imagenCarrusel.classList.add("w-50");
+      imagenCarrusel.classList.add("w-100");
       imagenCarrusel.classList.add("mx-auto");
       imagenCarrusel.setAttribute("id", "imgReco");
       imagenCarrusel.src = evento.ruta_imagen;
@@ -156,12 +156,13 @@ class Vista {
       body.setAttribute("id", "bodyCarrusel");
 
       let nombre = document.createElement("h5");
-      nombre.classList.add("text-left");
+      nombre.classList.add("text-center");
       nombre.setAttribute("id", "tituloRecomendado");
       nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
 
       let descripcion = document.createElement("p");
-      descripcion.classList.add("text-left");
+      descripcion.classList.add("text-center");
+      descripcion.setAttribute("id", "descripcionRecomendado");
       descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
 
       botonCarrusel.appendChild(imagenCarrusel);
