@@ -144,7 +144,7 @@ class Vista {
 
       let imagenCarrusel = document.createElement("img");
       imagenCarrusel.classList.add("d-block");
-      imagenCarrusel.classList.add("w-50");
+      imagenCarrusel.classList.add("w-100");
       imagenCarrusel.classList.add("mx-auto");
       imagenCarrusel.setAttribute("id", "imgReco");
       imagenCarrusel.src = evento.ruta_imagen;
@@ -153,14 +153,16 @@ class Vista {
       body.classList.add("carousel-caption");
       body.classList.add("d-none");
       body.classList.add("d-md-block");
+      body.setAttribute("id", "bodyCarrusel");
 
       let nombre = document.createElement("h5");
-      nombre.classList.add("text-left");
+      nombre.classList.add("text-center");
       nombre.setAttribute("id", "tituloRecomendado");
       nombre.innerHTML = `<strong>${evento.nombre_evento}</strong>`;
 
       let descripcion = document.createElement("p");
-      descripcion.classList.add("text-left");
+      descripcion.classList.add("text-center");
+      descripcion.setAttribute("id", "descripcionRecomendado");
       descripcion.innerHTML = `${evento.descripcion}<br>${evento.fecha_hora}`;
 
       botonCarrusel.appendChild(imagenCarrusel);
@@ -217,6 +219,29 @@ class Vista {
       botonEvento.addEventListener("click", mostrarDetalleEvento);
     });
   }
+
+    //Mostrar eventos por dia
+    mostrarEventoDia(data){
+      
+      console.log(data)
+      data.forEach((evento)=> {
+
+        let contenedor = document.getElementById(`${evento.fecha}`);
+
+        let botonDia = document.createElement("button");
+        botonDia.classList.add("card-calendario");
+        botonDia.setAttribute("data-id", evento.id_evento);
+  
+        let eventoDia = document.createElement("p");
+        eventoDia.innerHTML = `<strong>${evento.nombre}</strong>`;
+  
+        botonDia.appendChild(eventoDia);
+        contenedor.appendChild(botonDia);
+        botonDia.addEventListener("click", mostrarDetalleEvento);
+      });
+    }
+
+
   //mostrar eventos organizados por el usuario
   mostrarMiEvento(content, data) {
     let contenedor = document.getElementById(content);
@@ -268,6 +293,12 @@ class Vista {
       let descripcion = document.createElement("div");
       descripcion.classList.add("p-2", "align-self-center", "text-left");
       descripcion.innerHTML = `${miEvento.descripcion}`;
+      
+      let botonActualizar = document.createElement("button");
+      botonActualizar.classList.add("W-50");
+      botonActualizar.classList.add("align-self-center");
+      botonActualizar.setAttribute("id", "botonActualizarEvento");
+      botonActualizar.innerHTML = "ACTUALIZAR";
 
       divMiEvento2_1.appendChild(imagenMiEvento);
       divMiEvento2_2.appendChild(nombre);
@@ -277,10 +308,37 @@ class Vista {
       divMiEvento2.appendChild(descripcion);
       botonMiEvento.appendChild(divMiEvento2);
       divMiEvento.appendChild(botonMiEvento);
+      divMiEvento.appendChild(botonActualizar);
       divMiEvento.appendChild(hrLinea);
       contenedor.appendChild(divMiEvento);
+      botonMiEvento.addEventListener("click", mostrarPerfil);
       botonMiEvento.addEventListener("click", mostrarDetalleEvento);
     });
+  }
+
+  //Mostrar info de un evento para que el usuario pueda actualizarla
+  mostrarInfoEvento(data) {
+    console.log(data);
+    // Suponiendo que los IDs de tus elementos HTML son los siguientes:
+    let nombreEvento = document.getElementById("actualizarNombre");
+    let descripcionEvento = document.getElementById("actualizarDescripcion");
+    let fechaEvento = document.getElementById("actualizarFecha");
+    let lugarEvento = document.getElementById("actualizarLugar");
+    let direccionEvento = document.getElementById("actualizarDireccion");
+    let categoriaEvento = document.getElementById("categorySelect");
+    let disponibilidadEvento = document.getElementById("actualizarDispo");
+    let linkEvento = document.getElementById("actualizarLink");
+
+    // Ahora, llenamos los elementos con los datos de la base de datos
+    evento = data[0];
+    nombreEvento.value = evento.nombre_evento;
+    descripcionEvento.value = evento.descripcion;
+    fechaEvento.value = evento.fecha;
+    direccionEvento.value = evento.direccion;
+    lugarEvento.value = evento.lugar;
+    categoriaEvento.value = evento.id_categoria;
+    disponibilidadEvento.value = evento.disponibilidad;
+    linkEvento.value = evento.link_compra;
   }
 
   //Mostrar detalle de evento
@@ -319,4 +377,3 @@ class Vista {
     correoPerfil.innerHTML = usuario.correo;
   }
 }
-

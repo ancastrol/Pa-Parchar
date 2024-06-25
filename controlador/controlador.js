@@ -70,7 +70,7 @@ function mostrarMasEventos() {
     console.log(listaEventos);
 
     //Desplegar tarjetas de eventos en id= "contenidoEventos"
-    vista.mostrarEvento("contenidoEventos", "listaEventos");
+    vista.mostrarEvento("contenidoEventos", listaEventos);
   });
 
   //cargar eventos en el pantalla
@@ -82,8 +82,7 @@ function mostrarMasEventos() {
 function mostrarEventosOrganizador() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
   eventoObj.consultarEventosOrganizador(id_usuario, function (data) {
     listaEventos = data.data;
@@ -91,30 +90,50 @@ function mostrarEventosOrganizador() {
   });
 }
 
-//Mostar eventos mis eventos fecha ASC (organizador)
-function mostrarEventosOrganizadorDateASC() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
+//Mostrar mis eventos organizados por fecha
+let filtro = 1;
+function mostrarEventosOrganizadorFiltro() {
+  vista.limpiarContenido("contenedorMisEventos");
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  eventoObj.consultarEventosOrganizadorDateASC(id_usuario, function (data) {
-    listaEventos = data.data;
-    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+
+  if(filtro == 0){
+    eventoObj.consultarEventosOrganizadorDateDESC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro = 1;
   });
+  }
+  else{
+    eventoObj.consultarEventosOrganizadorDateASC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro = 0;
+  });
+  }
 }
 
-//Mostar eventos mis eventos fecha DESC (organizador)
-function mostrarEventosOrganizadorDateDESC() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
+//Mostar eventos mis eventos organizados por categoria (organizador)
+let filtro2 = 1;
+function mostrarEventosOrganizadorCat() {
+  vista.limpiarContenido("contenedorMisEventos");
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  eventoObj.consultarEventosOrganizadorDateDESC(id_usuario, function (data) {
-    listaEventos = data.data;
-    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+
+  if(filtro2 == 0){
+    eventoObj.consultarEventosOrganizadorCatDESC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro2 = 1;
   });
+  }
+  else{
+    eventoObj.consultarEventosOrganizadorCatASC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro2 = 0;
+  });
+  }
 }
 
 //Mostar eventos mis eventos categoria ASC (organizador)
@@ -170,7 +189,8 @@ function buscarEvento(event) {
         "No se encontraron similitudes con la busqueda"
       );
     } else {
-      vista.mostrarMiEvento("contenido", listaEventos);
+      vista.mostrarPlantilla("busquedaRelacionada", "contenido");
+      vista.mostrarMiEvento("contenidoBusqueda", listaEventos);
     }
   });
 }
@@ -196,6 +216,55 @@ function cambiarEstadoEvento() {
   }
 }
 
+//Redirigir al link de compra
+function redirigirLink(){
+  let linkCompra = eventoObj.link_compra;
+  window.open(linkCompra, '_blank');
+}
+
+//Funcion para convertir la fecha en un formato legible
+function formatDateString(inputString) {
+  const date = new Date(inputString);
+  return date.toISOString().slice(0, 19).replace('T', ' ');
+}
+
+//Funcion para crear un evento
+function crearEvento() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
+  let fechaStr = datos[2];
+  let fecha = formatDateString(fechaStr);
+  console.log(fecha);
+  let data = {
+    id_usuario: id_usuario,
+    nombre_evento: datos[0],
+    descripcion: datos[1],
+    fecha_hora: fecha,
+    id_categoria: datos[3],
+    lugar: datos[4],
+    direccion: datos[5],
+    disponibilidad: datos[6],
+    link_compra: datos[7],
+  };
+  eventoObj.crearEvento(data, function (data) {
+    vista.mostrarMensaje(data.success, data.msj);
+    mostrarEventosOrganizador();
+  });
+}
+
+//funcion para actualizar evento, vista.mostrarInfoEvento(data);
+function actualizarEvento() {
+  mostrarIngresarEvento();
+  eventoObj.consultarDetalleEvento(eventoObj.id_evento, function (data) {
+    vista.mostrarInfoEvento(data);
+  });
+}
+  
+
+
+/*----------------------------------PERFIL-----------------------------------*/
+
 function mostrarPerfil() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("pantallaPerfil", "contenido");
@@ -218,8 +287,8 @@ function cambiarNombre() {
     let data = { id_usuario: id_usuario, nombre: nombre };
     usuarioObj.changeName(data, function (data) {
     vista.cerrarModal("contModalNombre");
-    vista.mostrarMensaje(data.success, data.msj);
     mostrarPerfil();
+    vista.mostrarMensaje(true, "Se ha actualizado el nombre correctamente");
   });
   }
   else{
@@ -239,6 +308,7 @@ function cambiarCorreo() {
       vista.mostrarMensaje(data.success, data.msj);
       vista.cerrarModal("contModalNombre");
       mostrarPerfil();
+      vista.mostrarMensaje(true, "Se ha actualizado el correo correctamente");
     });
   }
   else{
@@ -263,7 +333,7 @@ function cambiarContrasenia() {
       let data = { id_usuario: id_usuario, contrasenia: contrasenia, newContrasenia: newContrasenia};
       console.log(data);
       usuarioObj.changePassword(data, function (data) {
-        vista.mostrarMensaje(data.success, "Se cambio la contraseña correctamente");
+        vista.mostrarMensaje(true, "Se ha actualizado la contraseña correctamente");
         vista.cerrarModal("contModalContraseña");
     });
   }
@@ -288,25 +358,35 @@ function mostrarPantallaBusqueda() {
   vista.mostrarPlantilla("busqueda", "contenido");
 }
 
+//funciones calendario-------------------------------------------------------------------------------
+
 function mostrarCalendario() {
-    vista.limpiarContenido("contenido");
-    vista.mostrarPlantilla("calendario", "contenido");
-    renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+  vista.limpiarContenido("contenido");
+  vista.mostrarPlantilla("calendario", "contenido");
+  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 }
 
 
 function botonCalendarioPrevio () {
-  fecha.setMonth(fecha.getMonth() - 1);
-  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+fecha.setMonth(fecha.getMonth() - 1);
+renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
 };
 
 function botonCalendarioProximo () {
-  fecha.setMonth(fecha.getMonth() + 1);
-  renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
-}
+fecha.setMonth(fecha.getMonth() + 1);
+renderizarCalendario(fecha.getMonth(), fecha.getFullYear());
+};
 
+function mostrarEventosCalendario(){
+  let mes = fecha.getMonth() + 1;
+  let usuario = document.getElementById("papa").attributes["user-id"].value;
+  let data = {id_usuario : usuario, month:mes};
+  eventoObj.consultarEventosCalendario(data, function (data) {
+    vista.mostrarEventoDia(data.data);
+  })
+};
 
-
+//-------------------------------------------------------------------------------------------------
 
 function mostrarCrearEvento() {
   vista.limpiarContenido("contenido");
@@ -329,7 +409,7 @@ function mostrarVerMisEventos() {
 }
 
 function cambiarColorSelect() {
-  var select = document.getElementById("seleccioneRol");
+  var select = document.getElementById("filtroCategoriaEvento");
   select.classList.add("seleccionado");
 }
 

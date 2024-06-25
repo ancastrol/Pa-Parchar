@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="./Vista/css/estilos.css">
     <link rel="icon" type="image/x.icon" href="./Recursos/Img/logo.png">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -50,50 +47,46 @@
                 </div>
 
             </div>
-            <div id="modalLateral">
 
+            <div id="modalLateral">
                 <!--Menú Lateral Sesion No Inciada-->
                 <div class="z-3 d-flex flex-column" id="menuLateral">
-
                     <div class="d-flex justify-content-end" id="salirMenu">
                         <button class="d-flex justify-content-start" id="botonMenu" onclick="cerrarModalLateral()">
                             <i class="material-icons">close</i>
                         </button>
                     </div>
-
                     <div class="d-flex justify-content-center">
                         <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
                     </div>
-
                     <div class="row justify-content-center" id="parrafoRegistro">
                         <strong class="text-center">INICIA SESIÓN PARA ACCEDER A NUESTROS BENEFICIOS</strong>
                     </div>
-
                     <div class="row justify-content-center">
-                        <button id="botonCrearcuenta" onclick="cerrarModalLateral(), mostrarModalCrearCuenta()">
+                        <button id="botonCrearcuenta" onclick="mostrarModalCrearCuenta(),cerrarModalLateral()">
                             CREAR CUENTA
                         </button>
                     </div>
-
                     <div class="row justify-content-center">
-                        <button id="botonInciarSesion" onclick="cerrarModalLateral(), mostrarModalLogin()">
+                        <button id="botonInciarSesion" onclick="mostrarModalLogin(), cerrarModalLateral()">
                             INICIAR SESIÓN
                         </button>
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- Modal Crear cuenta-->
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+            <!--Crear cuenta-->
             <div class="d-flex justify-content-center" id="modalCrearCuenta">
 
                 <div class=" d-flex flex-column align-items-center" id="creacionPerfilUsuario">
 
-                    <button class="d-flex justify-content-end" id="cerrarCrearPerfilUsuario"
-                        onclick="cerrarModalCrearCuenta()">
-                        <i class="material-icons">close</i>
-                    </button>
+                    <div class="d-flex justify-content-end" id="salirMenu">
+                        <button class="d-flex justify-content-start" id="botonMenu" onclick="cerrarModalCrearCuenta()">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
 
                     <div class="d-flex justify-content-center">
                         <img src="/Recursos/Img/descarga1.png" alt="" id="logoCrearPerfilUsuario">
@@ -103,43 +96,41 @@
                         <strong class="text-center">DATOS DE CUENTA:</strong>
                     </div>
 
-                    <!--formulario de crear cuenta -->
                     <form id="formRegistro">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="cuadroNombreUsuario"
                                 placeholder="NOMBRE USUARIO" name="nombre">
                         </div>
 
-                        <select type="text" class="form-select" id="seleccioneRol" onchange="cambiarColorSelect()">
-                            <option value="0" selected id="tituloRol" class="roles-option">ROLES</option>
-                            <option value="1" id="opcionesRol">USUARIO</option>
-                            <option value="2" id="opcionesRol">ORGANIZADOR</option>
-                        </select>
+
+                        <div class="d-flex justify-content-center" id="SeparadorCrearPerfilUsuario">
+                            <img src="./Recursos/Img/separador.png" alt="" id="imgSeparador">
+                        </div>
 
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="cuadroCorreoCrearPerfil"
-                                placeholder="CORREO ELECTRONICO" name="correo">
+                            <input type="email" class="form-control" id="cuadroCorreo" placeholder="CORREO ELECTRONICO"
+                                name="correo">
                         </div>
 
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroContraseñaCrearPerfil"
-                                placeholder="CONTRASEÑA" name="contrasenia">
+                            <input type="password" class="form-control" id="cuadroContrasenia" placeholder="CONTRASEÑA"
+                                name="contrasenia">
                         </div>
 
                         <div class="mb-3 text-center">
-                            <input type="password" class="form-control" id="cuadroConfirmarContraseñaCrearPerfil"
+                            <input type="password" class="form-control" id="cuadroContrasenia"
                                 placeholder=" CONFIRMAR CONTRASEÑA" name="contrasenia">
                         </div>
                     </form>
 
                     <button class="d-flex justify-content-center" id="botonSiguienteCrearPerfilUsuario"
                         onclick="registrarUsuario()">
-                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR CUENTA</strong>
+                        <strong class="align-self-center text-btn-despl" id="opcionesMenu">CREAR</strong>
                     </button>
-
                 </div>
-
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--Modal busqueda-->
             <div id="modalBusqueda">
@@ -161,6 +152,8 @@
                     </div>
                 </div>
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--Modal Login-->
             <div id="modalLogin">
@@ -220,6 +213,9 @@
                 </div>
             </div>
 
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
             <!--Barra lateral sesion iniciada-->
             <div class="d-flex justify-content-center" id="modalLateralSesionIniciada">
 
@@ -245,7 +241,7 @@
                         </button>
 
                         <button class="d-flex justify-content-center" id="opcionMenu"
-                            onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada()">
+                            onclick="mostrarCalendario(), cerrarModalLateralSesionIniciada(), mostrarEventosCalendario()">
                             <i class="material-icons">event</i>
                             <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
                         </button>
@@ -274,13 +270,14 @@
             </div>
         </header>
 
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--Main-->
 
         <main id="contenido">
-
-
-
         </main>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--Footer-->
 
@@ -374,7 +371,49 @@
 
     </div>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Plantillas-->
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Busqueda Relacionada-->
+
+    <template id="busquedaRelacionada">
+
+        <div class="d-flex flex-column" style="padding: 4%;">
+
+            <div class="d-flex justify-content-center">
+
+                <p class="align-self-center" style="font-size: 0.8rem;">
+                    BUSQUEDA RELACIONADA:
+                    <strong style="font-size: 1rem;">
+                        EVENTO XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                    </strong>
+                </p>
+                <div id="filtroEvento">
+
+                    <button type="text" id="filtroCategoriaEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">CATEGORIA
+                    </button>
+                    <button type="text" id="filtroOrdenEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">FECHA
+                    </button>
+
+                </div>
+            </div>
+
+            <hr size="8px" color="#ffffff" />
+
+        </div>
+
+        <div id="contenidoBusqueda">
+
+        </div>
+
+    </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Pagina principal-->
     <template id="paginaPrincipal">
@@ -421,290 +460,6 @@
         </div>
     </template>
 
-    <!---Calendario-->
-    <template id="calendario">
-
-        <div class="container-calendario">
-
-            <div class="calendario">
-
-                <div class="mes">
-                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
-                    <div class="fecha">
-                        <h2></h2>
-                        <p></p>
-                    </div>
-                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
-                </div>
-                <div class="dias">
-                    <div>LUNES</div>
-                    <div>MARTES</div>
-                    <div>MIERCOLES</div>
-                    <div>JUEVES</div>
-                    <div>VIERNES</div>
-                    <div>SABADO</div>
-                    <div>DOMINGO</div>
-                </div>
-                <div class="numdias">
-
-                </div>
-
-
-
-            </div>
-        </div>
-    </template>
-
-    <script>
-        //------------------card-Caledario--------------------
-        //crear un div de eventos
-        const nuevoDiv = document.createElement("div");
-
-        // Asignar clase y ID al nuevo div
-        nuevoDiv.className = "cardCalendario";
-        nuevoDiv.id = "card-Calendario";
-
-
-
-
-
-        let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
-        //let clone = document.importNode(template.content, true);
-        //document.body.appendChild(clone);
-
-
-        let fecha = new Date();
-        const renderizarCalendario = (mes, año) => {
-            const diasMes = document.querySelector(".numdias");
-            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
-            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
-            const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-            let indicePrimerDia = primerDiaMes.getDay();
-            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
-            const diasSig = 7 - indiceUltimoDia - 1;
-            const meses = [
-                "enero",
-                "febrero",
-                "marzo",
-                "abril",
-                "mayo",
-                "junio",
-                "julio",
-                "agosto",
-                "septiembre",
-                "octubre",
-                "noviembre",
-                "diciembre"
-            ];
-
-
-
-
-            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-
-
-            // Almacena la fecha actual cuando la página se carga por primera vez
-            let fechaActual = new Date();
-            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
-
-
-            //--------------------------------------------------------------------------------------
-
-            const añoId = new Date().getFullYear();
-            let mesId = fecha.getMonth();
-
-            let numdias = "";
-            let eventos = [
-                { dia: 18, mes: 5, año: 2024 },
-                { dia: 20, mes: 5, año: 2024 },
-                { dia: 24, mes: 5, año: 2024 },
-                { dia: 28, mes: 5, año: 2024 },
-                // Agrega más eventos aquí
-            ];
-            let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
-
-            // Ajustar el índice del primer día si el calendario comienza en Lunes
-            if (indicePrimerDia === 0) { // Si es Domingo
-                indicePrimerDia = 7; // Cambiar a 7
-            } else {
-                indicePrimerDia--; // Restar 1 a los otros días
-            }
-
-            for (let x = indicePrimerDia; x > 0; x--) {
-                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
-            };
-
-
-
-            for (let i = 1; i <= ultimoDia; i++) {
-                if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
-                }
-                else {
-                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
-                    if (eventoHoy) {
-                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>${cardCalendario}</div>`;
-                    } else {
-                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
-                    }
-                }
-            }
-
-            for (let y = 1; y <= diasSig; y++) {
-                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
-            }
-
-            diasMes.innerHTML = numdias;
-        };
-
-
-
-
-    </script>
-
-    <!---Calendario-->
-    <template id="calendario">
-
-        <div class="container-calendario">
-
-            <div class="calendario">
-
-                <div class="mes">
-                    <i class="fa fa-angle-left previo" onclick=" botonCalendarioPrevio()"></i>
-                    <div class="fecha">
-                        <h2></h2>
-                        <p></p>
-                    </div>
-                    <i class="fa fa-angle-right proximo" onclick=" botonCalendarioProximo()"></i>
-                </div>
-                <div class="dias">
-                    <div>LUNES</div>
-                    <div>MARTES</div>
-                    <div>MIERCOLES</div>
-                    <div>JUEVES</div>
-                    <div>VIERNES</div>
-                    <div>SABADO</div>
-                    <div>DOMINGO</div>
-                </div>
-                <div class="numdias">
-
-                </div>
-
-
-
-            </div>
-        </div>
-    </template>
-
-    <script>
-        //------------------card-Caledario--------------------
-        //crear un div de eventos
-        const nuevoDiv = document.createElement("div");
-
-        // Asignar clase y ID al nuevo div
-        nuevoDiv.className = "cardCalendario";
-        nuevoDiv.id = "card-Calendario";
-
-
-
-
-
-        let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
-        //let clone = document.importNode(template.content, true);
-        //document.body.appendChild(clone);
-
-
-        let fecha = new Date();
-        const renderizarCalendario = (mes, año) => {
-            const diasMes = document.querySelector(".numdias");
-            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
-            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
-            const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
-            let indicePrimerDia = primerDiaMes.getDay();
-            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
-            const diasSig = 7 - indiceUltimoDia - 1;
-            const meses = [
-                "enero",
-                "febrero",
-                "marzo",
-                "abril",
-                "mayo",
-                "junio",
-                "julio",
-                "agosto",
-                "septiembre",
-                "octubre",
-                "noviembre",
-                "diciembre"
-            ];
-
-
-
-
-            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-
-
-            // Almacena la fecha actual cuando la página se carga por primera vez
-            let fechaActual = new Date();
-            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
-            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
-
-
-            //--------------------------------------------------------------------------------------
-
-            const añoId = new Date().getFullYear();
-            let mesId = fecha.getMonth();
-
-            let numdias = "";
-            let eventos = [
-                { dia: 18, mes: 5, año: 2024 },
-                { dia: 20, mes: 5, año: 2024 },
-                { dia: 24, mes: 5, año: 2024 },
-                { dia: 28, mes: 5, año: 2024 },
-                // Agrega más eventos aquí
-            ];
-            let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
-
-            // Ajustar el índice del primer día si el calendario comienza en Lunes
-            if (indicePrimerDia === 0) { // Si es Domingo
-                indicePrimerDia = 7; // Cambiar a 7
-            } else {
-                indicePrimerDia--; // Restar 1 a los otros días
-            }
-
-            for (let x = indicePrimerDia; x > 0; x--) {
-                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
-            };
-
-
-
-            for (let i = 1; i <= ultimoDia; i++) {
-                if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
-                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
-                }
-                else {
-                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
-                    if (eventoHoy) {
-                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div>${cardCalendario}</div>`;
-                    } else {
-                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${i}-${mesId}-${añoId}">${i}</div></div>`;
-                    }
-                }
-            }
-
-            for (let y = 1; y <= diasSig; y++) {
-                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
-            }
-
-            diasMes.innerHTML = numdias;
-        };
-
-
-
-
-    </script>
-
     <!--Ver Mas eventos-->
     <template id="MasEventos">
 
@@ -727,6 +482,8 @@
 
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Card eventos pequeños-->
     <template id="cardEvento">
 
@@ -748,51 +505,41 @@
 
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--lista de eventos-->
     <template id="eventosOrganizador">
 
-        <div class="d-flex flex-column">
+        <div class="d-flex flex-column" style="padding: 4%;">
 
-            <div class="d-flex mb-0">
+            <div id="encabezadoMisEventos">
 
                 <div class="d-flex me-auto p-2">
-                    <i class="material-icons align-self-start">
-                        format_list_bulleted
-                    </i>
-
-                    <strong class="align-self-center">
+                    <strong class="align-self-center" style="font-size: 1rem;">
                         TUS EVENTOS
                     </strong>
                 </div>
 
-                <div class="p-2">
-                    <button onclick="mostrarEventosOrganizadorDateASC(), cerrarModalLateralSesionIniciada()">
 
-                        <i class="material-icons align-self-center">
-                            filter_list
-                        </i>
-                    </button>
-                </div>
+                <div id="filtroEvento">
 
-                <div class="p-2">
-                    <button onclick="mostrarEventosOrganizadorCatASC(), cerrarModalLateralSesionIniciada()">
-
-                        <i class="material-icons align-self-center">
-                            more_horiz
-                        </i>
-                    </button>
+                    <button type="text" id="filtroCategoriaEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">CATEGORIA</button>
+                    <button type="text" id="filtroOrdenEvento"
+                        onclick="mostrarEventosOrganizadorFiltro()">FECHA</button>
                 </div>
 
             </div>
+
+            <hr size="8px" color="#ffffff" />
 
             <div id="contenedorMisEventos">
 
             </div>
 
-
-        </div>
-
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Evento Detallado-->
     <template id="eventoDetallado">
@@ -806,7 +553,7 @@
                     </div>
                     <div id="compraConjunto">
                         <p>Adquiere tu boleta aqui</p>
-                        <button id="compraBtn">
+                        <button id="compraBtn" onclick="redirigirLink()">
                             <p id="ACT">Compra</p>
                         </button>
                     </div>
@@ -846,7 +593,8 @@
 
                             <select type="text" class="form-select" id="seleccionEstadoEvento"
                                 onchange="cambiarEstadoEvento()">
-                                <option value="0" selected id="estadoEvento" class="option">ESTADO EVENTO</option>
+                                <option value="0" selected id="estadoEvento" class="option" disabled>ESTADO EVENTO
+                                </option>
                                 <option value="1" id="opcionesRol">ASISTIDO</option>
                                 <option value="2" id="opcionesRol">ASISTIRÉ</option>
                                 <option value="3" id="opcionesRol">ME GUSTA</option>
@@ -875,7 +623,6 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -886,98 +633,130 @@
 
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!--Ingresar Evento-->
     <template id="ingresarEvento">
 
         <!--Ventana emergente-->
-        <div class="z-3" id="modalUrl">
-            <div id="modal_container">
-                <h2 id="modal_title">Coloca la dirección de compra</h2>
-                <input type="text" id="agregarUrl">
-                <button id="modal_close" onclick="cerrarModal()">Enviar</button>
-                <button id="cerrarModal" onclick="cerrarModal()">X</button>
-            </div>
-        </div>
-
-        <!--Principal ingresar evento-->
-        <div class="d-flex flex-column" style="padding: 2% 10%;">
+        <div class="d-flex flex-column">
             <div>
-                <div class="d-flex align-content-center" style="padding-bottom: 5%;">
+                <div class="d-flex align-content-center flex-wrap" id="contenedorPrincipal">
 
-                    <div class="flex-shrink-0" id="subirImagenes">
-                        <input type="file" id="seleccionar-archivo" style="display: none;">
-                        <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/Colocar flayer.png" alt="" id="imgDetalle">
-                        </button>
-                        <input type="file" id="seleccionar-archivo" style="display: none;">
-                        <button onclick="document.getElementById('seleccionar-archivo').click()">
-                            <img class="img-fluid" src="./Recursos/Img/colocar miniatura.png" alt="" id="imgDetalle">
-                        </button>
-                        <div id="compraConjunto">
-                            <p>Adquiere tu boleta aqui</p>
-                            <button id="compraBtn" onclick="mostrarModal()">
-                                <p id="ACT">LINK DE COMPRA</p>
-                            </button>
+                    <div class="d-flex justify-content-around" id="encabezadoSubirEvento">
+
+                        <div class="d-flex justify-content-start">
+                            <strong id="tituloSubirEvento">
+                                INGRESE NUEVO EVENTO
+                            </strong>
                         </div>
+
                     </div>
 
-                    <div class="flex-grow-1 text-left" id="informacionTexto">
-                        <div id="parrafoDetallado">
+                    <hr size="8px" color="#ffffff" />
+
+                    <div class="flex-grow-1 text-left" id="subirInformacionTexto">
+                        <form id="parrafoDetallado">
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="Nombre"
+                                    id="actualizarNombre">
                                 <label for="floatingTextarea">
                                     <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
+                            </div>
 
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <h6 for="floatingTextarea">DESCRIPCIÓN DEL EVENTO</h6>
+                                    </span>
+                                    <textarea class="form-control input" aria-label="With textarea"
+                                        id="actualizarDescripcion"></textarea>
+                                </div>
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <input class="form-control form-control-lg input" type="text"
+                                        placeholder="AAAA-MM-DD HH:MM:SS" id="actualizarFecha">
                                     <label for="floatingTextarea">
-                                        <h6>FECHA</h6>
+                                        <h6>FECHA HORA (AAAA-MM-DD HH:MM:SS)</h6>
                                     </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="HORA"
-                                        aria-label=".form-control-lg example">
-                                    <label for="floatingTextarea">
-                                        <h6>HORA</h6>
-                                    </label>
+                                    <select class="form-select form-select-lg input" id="selectCategoria">
+                                        <option id="opcionesCatego" value="0">ELIJE CATEGORIA</option>
+                                        <option id="opcionesCatego" value="1">Carnaval</option>
+                                        <option id="opcionesCatego" value="2">Concierto</option>
+                                        <option id="opcionesCatego" value="3">Fiesta</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                        id="actualizarLugar">
                                     <label for="floatingTextarea">
                                         <h6>LUGAR</h6>
-                                    </label>
                                 </div>
 
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarDireccion">
                                 <label for="floatingTextarea">
                                     <h6>DIRECCION</h6>
                                 </label>
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarDispo">
                                 <label for="floatingTextarea">
                                     <h6>DISPONIBILIDAD</h6>
                                 </label>
                             </div>
 
+                            <div class="form-floating" id="ingresoInformacionImput">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR"
+                                    id="actualizarLink">
+                                <label for="floatingTextarea">
+                                    <h6>LINK DE COMPRA</h6>
+                                </label>
+                            </div>
+                        </form>
+
+                        <div class="flex-shrink-0" id="subirImagenes">
+                            <input type="file" id="seleccionar-archivo" style="display: none;">
+                            <button onclick="document.getElementById('seleccionar-archivo').click()">
+                                <img class="img-fluid" src="../Recursos/Img/Colocar flayer.png" alt=""
+                                    id="imgSubirDetalle">
+                            </button>
+                            <input type="file" id="seleccionar-archivo" style="display: none;">
+                            <button onclick="document.getElementById('seleccionar-archivo').click()">
+                                <img class="img-fluid" src="/Recursos/Img/colocar miniatura.png" alt=""
+                                    id="imgSubirDetalle">
+                            </button>
+
                         </div>
 
                     </div>
 
+                    <div class="d-flex justify-content-start" id="guardarInformacionEvento">
+                        <button href="#" id="botonGuardarEvento" onclick="crearEvento()">
+                            GUARDAR EVENTO
+                        </button>
+                    </div>
+
                 </div>
+            </div>
+        </div>
+
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Terminos y condiciones-->
     <template id="pantallaTerminosYCondiciones">
@@ -1089,563 +868,142 @@
         </div>
     </template>
 
-    <!--Calendario-->
-    <template id="calendarioTemplate">
-        <h1>Calendario</h1>
-        <div id="calendar"></div>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-        <script>
-            function crearCalendario(year, month) {
-                var diasSemana = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-                var fecha = new Date(year, month - 1, 1);
-                var diasEnMes = new Date(year, month, 0).getDate();
-                var primerDiaSemana = fecha.getDay();
+    <!---Calendario-->
+    <template id="calendario">
 
-                var table = '<table><tr>';
-                for (var i = 0; i < diasSemana.length; i++) {
-                    table += '<th>' + diasSemana[i] + '</th>';
-                }
-                table += '</tr><tr>';
+        <div class="container-calendario">
 
-                var dia = 1;
-                for (var j = 0; j < 42; j++) {
-                    if (j >= primerDiaSemana && dia <= diasEnMes) {
-                        table += '<td>' + dia + '</td>';
-                        dia++;
-                    } else {
-                        table += '<td></td>';
-                    }
+            <div class="calendario">
 
-                    if (j % 7 == 6) {
-                        table += '</tr><tr>';
-                    }
-                }
+                <div class="mes">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        onclick=" botonCalendarioPrevio(),mostrarEventosCalendario()"></span>
 
-                table += '</tr></table>';
-                document.getElementById('calendar').innerHTML = table;
+                    <div class="fecha">
+                        <h2 id="mesCalendario"></h2>
+                        <p></p>
+                    </div>
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        onclick=" botonCalendarioProximo(), mostrarEventosCalendario()"></span>
+                </div>
+                <div class="dias">
+                    <div>LUNES</div>
+                    <div>MARTES</div>
+                    <div>MIERCOLES</div>
+                    <div>JUEVES</div>
+                    <div>VIERNES</div>
+                    <div>SABADO</div>
+                    <div>DOMINGO</div>
+                </div>
+                <div class="numdias">
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <script>
+        let template = document.querySelector('#calendario'); // Asume que 'calendario' es un ID
+        //let clone = document.importNode(template.content, true);
+        //document.body.appendChild(clone);
+
+
+        let fecha = new Date();
+        const renderizarCalendario = (mes, año) => {
+            const diasMes = document.querySelector(".numdias");
+            const ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate();
+            const ultimoDiaPrev = new Date(fecha.getFullYear(), fecha.getMonth(), 0).getDate();
+            const primerDiaMes = new Date(fecha.getFullYear(), fecha.getMonth(), 1);
+            let indicePrimerDia = primerDiaMes.getDay();
+            const indiceUltimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDay();
+            const diasSig = 7 - indiceUltimoDia - 1;
+            const meses = [
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+            ];
+
+
+
+
+            let opciones = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+
+            // Almacena la fecha actual cuando la página se carga por primera vez
+            let fechaActual = new Date();
+            document.querySelector(".fecha h2").innerHTML = meses[fecha.getMonth()];
+            document.querySelector(".fecha p").innerHTML = fechaActual.toLocaleDateString('es-ES', opciones);
+
+
+            //--------------------------------------------------------------------------------------
+
+            const añoId = new Date().getFullYear();
+            let mesId = fecha.getMonth();
+
+            let numdias = "";
+            let eventos = [{}
+                // Agrega más eventos aquí
+            ];
+            let cardCalendario = '<button class="card-calendario" onclick="mostrarDetalleEvento()"><p>EVENTO</p></button>';
+
+            // Ajustar el índice del primer día si el calendario comienza en Lunes
+            if (indicePrimerDia === 0) { // Si es Domingo
+                indicePrimerDia = 7; // Cambiar a 7
+            } else {
+                indicePrimerDia--; // Restar 1 a los otros días
             }
 
-            // Ejemplo: Mostrar el calendario del mes actual
-            var fechaActual = new Date();
-            crearCalendario(fechaActual.getFullYear(), fechaActual.getMonth() + 1);
-        </script>
-    </template>
+            for (let x = indicePrimerDia; x > 0; x--) {
+                numdias += `<div class="contenedorCalendario"><div class ="dias-prev">${ultimoDiaPrev - x + 1}</div></div>`;
+            };
 
-    <!--Pagina Principal Sesion Iniciada-->
-    <template id="paginaSesionIniciada">
-        <!--Menú Lateral Sesion Inciada-->
-        <div class="d-flex justify-content-center" id="modalUrl">
 
-            <div class="d-flex flex-column" id="menuLateral">
 
-                <div class="d-flex justify-content-start" id="salirMenu">
-                    <button class="d-flex justify-content-start" id="botonMenu" href="#">
-                        <i class="material-icons">close</i>
-                    </button>
-                </div>
+            for (let i = 1; i <= ultimoDia; i++) {
+                if (i === new Date().getDate() && fecha.getMonth() === new Date().getMonth()) {
+                    numdias += `<div class="contenedorCalendarioHoy"><div class="hoy" id="diaHoy">${i}</div></div>`;
+                }
+                else {
+                    let eventoHoy = eventos.find(evento => evento.dia === i && evento.mes === mesId && evento.año === añoId);
+                    if (eventoHoy) {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId + 1}-${i}">${i}</div>${cardCalendario}</div>`;
+                    } else {
+                        numdias += `<div class="contenedorCalendario"><div class="diasMes" id="${añoId}-${mesId + 1}-${i}">${i}</div></div>`;
+                    }
+                }
+            }
 
-                <div class="d-flex justify-content-center">
-                    <img src="/Recursos/Img/descarga1.png" alt="" id="logoBarraLateral">
-                </div>
+            for (let y = 1; y <= diasSig; y++) {
+                numdias += `<div class="contenedorCalendario"><div class="dias-sig">${y}</div></div>`;
+            }
 
-                <hr size="2px" color="#4F4F4F" />
+            diasMes.innerHTML = numdias;
+        };
+    </script>
 
-                <div class="d-flex justify-content-center flex-column" id="opcionesMenu">
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">account_box</i>
-                        <strong class="align-self-center text-btn-despl">PERFIL</strong>
-                    </button>
-
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">event</i>
-                        <strong class="align-self-center text-btn-despl">CALENDARIO</strong>
-                    </button>
-
-                    <button class="d-flex justify-content-center" id="opcionMenu" href="#">
-                        <i class="material-icons">label_outline</i>
-                        <strong class="align-self-center text-btn-despl">CATEGORIAS</strong>
-                    </button>
-
-                </div>
-
-                <hr size="2px" color="#4F4F4F" />
-
-                <div class="row justify-content-center">
-                    <button href="#" id="botonCerrarSesion">
-                        CERRAR SESIÓN
-                    </button>
-                </div>
-            </div>
-
-        </div>
-        <!--Evento recomendado-->
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="z-1 carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./Recursos/Img/recomendation.png" class="d-block w-100" alt="" id="imgReco">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left" id="tituloRecomendado">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left" id="parrafoRecomendado">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/Recursos/Img/recomendationa.png" class="d-block w-100" alt="" id="imgReco">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left ">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                        </p>
-                        <p class="text-left">
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="/Recursos/Img/recomendationb.jpg" class="d-block w-100" alt="" id="imgReco">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-left ">
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p class="text-left">
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                        </p>
-                        <p class="text-left">
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
-        <hr size="8px" color="#4F4F4F" />
-
-        <div class="d-flex align-content-between flex-wrap justify-content-around">
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento" onclick="mostrarDetalleEvento()">
-                    <img src="./Recursos/Img/eventoa.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventob.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoc.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card " id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventod.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoe.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventof.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventog.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoh.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoi.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoj.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventok.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventol.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventom.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventon.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoo.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventop.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventoq.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventor.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventos.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventot.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventou.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventov.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventow.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-            <div class="card" id="cardEvento">
-                <button id="botonEvento">
-                    <img src="./Recursos/Img/eventox.png" alt="" id="eventoA">
-                    <div class="card-body">
-                        <h5 id=tituloE>
-                            <strong>TITULO DEL EVENTO</strong>
-                        </h5>
-                        <p id=parrafoE>
-                            LOREM IPSUM DOLOR SIT AMET /LOREM IPSUM DOLOR. /LOREM IPSUM DOLOR SIT AMET.(DESCRIPCIóN)
-                            <br>
-                            XX/XX/XXXX
-                        </p>
-                    </div>
-                </button>
-            </div>
-
-        </div>
-
-        <hr size="8px" color="#4F4F4F" />
-
-        <!--Ver más eventos-->
-        <div class="row justify-content-center">
-            <button id="botonSig" onclick="mostrarMasEventos()">
-                VER MÁS EVENTOS
-            </button>
-        </div>
-    </template>
-
-    <!--Pagina Politica-->
+    <!--Pagina Politicas de privacidad-->
     <template id="pantallaPoliticaPrivacidad">
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--Poilitica de Privacidad-->
         <div>
 
@@ -1659,13 +1017,18 @@
             <div class="d-flex align-content-center" id="terminosYCondiciones">
                 <p>
                     Esta página le informa sobre nuestras políticas con respecto a la recopilación, el uso y la
-                    divulgación de datos personales cuando utiliza nuestro Servicio y las opciones que tiene asociadas a
+                    divulgación de datos personales cuando utiliza nuestro Servicio y las opciones que tiene
+                    asociadas a
                     esos datos.
 
-                    Utilizamos sus datos para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted acepta
-                    la recopilación y el uso de información de acuerdo con esta política. A menos que se defina de otro
-                    modo en esta Política de Privacidad, los términos utilizados en esta Política de Privacidad tienen
-                    los mismos significados que en nuestros Términos y Condiciones, disponibles en [URL de los términos
+                    Utilizamos sus datos para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted
+                    acepta
+                    la recopilación y el uso de información de acuerdo con esta política. A menos que se defina de
+                    otro
+                    modo en esta Política de Privacidad, los términos utilizados en esta Política de Privacidad
+                    tienen
+                    los mismos significados que en nuestros Términos y Condiciones, disponibles en [URL de los
+                    términos
                     y condiciones].
 
                     <br><br>
@@ -1675,7 +1038,8 @@
                     <strong>Datos Personales:</strong>
                     <br><br>
 
-                    Mientras utiliza nuestro Servicio, es posible que le pidamos que nos proporcione cierta información
+                    Mientras utiliza nuestro Servicio, es posible que le pidamos que nos proporcione cierta
+                    información
                     personalmente identificable que pueda utilizarse para contactarlo o identificarlo ("Datos
                     personales"). La información personalmente identificable puede incluir, entre otras cosas:
 
@@ -1684,9 +1048,12 @@
                     <br><br>
 
                     También podemos recopilar información sobre cómo se accede y se utiliza el Servicio ("Datos de
-                    uso"). Estos Datos de uso pueden incluir información como la dirección del protocolo de Internet de
-                    su computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las páginas de
-                    nuestro Servicio que visita, la hora y la fecha de su visita, el tiempo que pasa en esas páginas,
+                    uso"). Estos Datos de uso pueden incluir información como la dirección del protocolo de Internet
+                    de
+                    su computadora (por ejemplo, dirección IP), tipo de navegador, versión del navegador, las
+                    páginas de
+                    nuestro Servicio que visita, la hora y la fecha de su visita, el tiempo que pasa en esas
+                    páginas,
                     identificadores de dispositivo y otros datos de diagnóstico.
 
                     <br><br>
@@ -1714,7 +1081,8 @@
                     <strong>Cambios a esta Política de Privacidad</strong>
                     <br><br>
 
-                    Le recomendamos que revise esta Política de Privacidad periódicamente para ver si hay cambios. Los
+                    Le recomendamos que revise esta Política de Privacidad periódicamente para ver si hay cambios.
+                    Los
                     cambios a esta Política de Privacidad son efectivos cuando se publican en esta página.
 
                     <br><br>
@@ -1738,8 +1106,12 @@
         </div>
     </template>
 
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
     <!--Pagina Perfil-->
     <template id="pantallaPerfil">
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--Pantalla Perfil-->
 
@@ -1750,6 +1122,8 @@
                     <input type="file">
                 </div>
             </div>
+
+            <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <!--seccion nombre perfil-->
 
@@ -1786,6 +1160,9 @@
                 <hr id="lineasHorizantal2">
             </div>
         </div>
+
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--modal Nombre-->
 
         <div id="contModalNombre">
@@ -1794,7 +1171,7 @@
                     <h1 class="modalTitle">TU NOMBRE</h1>
                 </div>
                 <p>Digite su nuevo nombre de usuario</p>
-                <form id = "formNombre">
+                <form id="formNombre">
                     <input type="text" placeholder="Nombre del evento" name="title" class="inputPerfil">
                 </form>
 
@@ -1809,6 +1186,8 @@
             </div>
         </div>
 
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
         <!--Modal email -->
 
         <div id="contModalEmail">
@@ -1817,8 +1196,9 @@
                     <h1>TU EMAIL</h1>
                 </div>
                 <p>Ingrese su nuevo email</p>
-                <form id = "formCorreo">
-                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil" onclick="cambiarEmail()">
+                <form id="formCorreo">
+                    <input type="text" placeholder="Escribe tu email" name="title" class="inputPerfil"
+                        onclick="cambiarEmail()">
                 </form>
                 <div class="d-flex justify-content-around">
                     <button id="btnPerfilModal" onclick="cerrarModalEmail()">
@@ -1831,8 +1211,7 @@
             </div>
         </div>
 
-
-
+        <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
         <!--modal contraseña-->
 
@@ -1846,8 +1225,9 @@
                 <form id="formContrasenia">
                     <input type="password" placeholder="Escribre tu contraseña" name="title" class="inputPerfil">
                     <hr id="lineasHorizantal">
-                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title" class="inputPerfil" />
-                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil"/>
+                    <input type="password" placeholder="Escribre tu nueva contraseña" name="title"
+                        class="inputPerfil" />
+                    <input type="password" placeholder="Confirma tu contraseña" name="title" class="inputPerfil" />
                 </form>
 
                 <div class="d-flex justify-content-around">
@@ -1862,6 +1242,8 @@
 
         </div>
     </template>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <script src="./Vista/js/vista.js"></script>
     <script src="./Modelo/connect.js"></script>

@@ -20,6 +20,7 @@ class Evento extends Connect {
     this.ruta_imagen = data.ruta_imagen;
     this.ruta_flayer = data.ruta_flayer;
     this.id_usuario = data.id_usuario;
+    this.link_compra = data.link_compra;
   }
   getData() {
     return {
@@ -122,6 +123,20 @@ class Evento extends Connect {
   cambiarEstadoEvento(dataReq, eventCallback) {
     const endpoint = "estadoEvento";
     const method = "post";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
+
+  //Metodo para traer fecha y nombre de eventos por dia
+  consultarEventosCalendario(dataReq, eventCallback) {
+    const endpoint = "calendario/" + dataReq.month +"&"+ dataReq.id_usuario;
+    const method = "get";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
+
+  //Metodo para crear evento
+  crearEvento(dataReq, eventCallback) {
+    const endpoint = "organizer/evento";
+    const method = "POST";
     this.connect(dataReq, endpoint, method, eventCallback);
   }
 }
