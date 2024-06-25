@@ -632,10 +632,10 @@
                     <hr size="8px" color="#ffffff" />
 
                     <div class="flex-grow-1 text-left" id="subirInformacionTexto">
-                        <div id="parrafoDetallado">
+                        <form id="parrafoDetallado">
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
                                     <h6 for="floatingTextarea">NOMBRE DEL EVENTO</h6>
                                 </label>
@@ -644,29 +644,33 @@
                             <div class="form-floating" id="ingresoInformacionImput">
                                 <div class="input-group">
                                     <span class="input-group-text"><h6 for="floatingTextarea">DESCRIPCIÓN DEL EVENTO</h6></span>
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                                    <textarea class="form-control input" aria-label="With textarea"></textarea>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-around mb-3" id="ingresoInformacionImput">
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <input class="form-control form-control-lg input" type="text" placeholder="AAAA-MM-DD HH:MM:SS">
                                     <label for="floatingTextarea">
-                                        <h6>FECHA</h6>
+                                        <h6>FECHA_HORA</h6>
                                     </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="HORA"
-                                        aria-label=".form-control-lg example">
-                                    <label for="floatingTextarea">
-                                        <h6>HORA</h6>
+                                    <select class="form-select form-select-lg input" id="categorySelect" aria-label="Category select">
+                                        <option value="" selected disabled>Elija una categoria</option>
+                                        <option value="1">Carnaval</option>
+                                        <option value="2">Concierto</option>
+                                        <option value="3">Fiesta</option>
+                                    </select>
+                                    <label for="categorySelect">
+                                        <h6>CATEGORIA</h6>
                                     </label>
                                 </div>
 
                                 <div class="form-floating" id="ingresoInformacionImput">
-                                    <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                    <input class="form-control form-control-lg input" type="text" placeholder="LUGAR">
                                     <label for="floatingTextarea">
                                         <h6>LUGAR</h6>
                                 </div>
@@ -674,26 +678,26 @@
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
                                     <h6>DIRECCION</h6>
                                 </label>
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
                                     <h6>DISPONIBILIDAD</h6>
                                 </label>
                             </div>
 
                             <div class="form-floating" id="ingresoInformacionImput">
-                                <input class="form-control form-control-lg" type="text" placeholder="LUGAR">
+                                <input class="form-control form-control-lg input" type="text" placeholder="LUGAR">
                                 <label for="floatingTextarea">
                                     <h6>LINK DE COMPRA</h6>
                                 </label>
                             </div>
-                        </div>
+                        </form>
 
                         <div class="flex-shrink-0" id="subirImagenes">
                             <input type="file" id="seleccionar-archivo" style="display: none;">
@@ -712,7 +716,7 @@
                     </div>
 
                     <div class="d-flex justify-content-start" id="guardarInformacionEvento">
-                        <button href="#" id="botonGuardarEvento">
+                        <button href="#" id="botonGuardarEvento" onclick="crearEvento()">
                             GUARDAR EVENTO
                         </button>
                     </div>

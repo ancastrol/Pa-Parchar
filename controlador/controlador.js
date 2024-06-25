@@ -90,7 +90,7 @@ function mostrarEventosOrganizador() {
   });
 }
 
-//Mostrar mis eventos filtrados
+//Mostrar mis eventos organizados por fecha
 let filtro = 1;
 function mostrarEventosOrganizadorFiltro() {
   vista.limpiarContenido("contenedorMisEventos");
@@ -113,30 +113,27 @@ function mostrarEventosOrganizadorFiltro() {
   }
 }
 
-//Mostar eventos mis eventos fecha ASC (organizador)
-function mostrarEventosOrganizadorDateASC() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
+//Mostar eventos mis eventos organizados por categoria (organizador)
+let filtro2 = 1;
+function mostrarEventosOrganizadorCat() {
+  vista.limpiarContenido("contenedorMisEventos");
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
   let id_usuario = parseInt(id_usuarioStr);
-  eventoObj.consultarEventosOrganizadorDateASC(id_usuario, function (data) {
-    listaEventos = data.data;
-    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
-  });
-}
 
-//Mostar eventos mis eventos fecha DESC (organizador)
-function mostrarEventosOrganizadorDateDESC() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventosOrganizador", "contenido");
-  let id_usuarioStr =
-    document.getElementById("papa").attributes["user-id"].value;
-  let id_usuario = parseInt(id_usuarioStr);
-  eventoObj.consultarEventosOrganizadorDateDESC(id_usuario, function (data) {
-    listaEventos = data.data;
-    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+  if(filtro2 == 0){
+    eventoObj.consultarEventosOrganizadorCatDESC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro2 = 1;
   });
+  }
+  else{
+    eventoObj.consultarEventosOrganizadorCatASC(id_usuario, function (data) {
+      listaEventos = data.data;
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+      filtro2 = 0;
+  });
+  }
 }
 
 //Mostar eventos mis eventos categoria ASC (organizador)
@@ -224,6 +221,39 @@ function redirigirLink(){
   window.open(linkCompra, '_blank');
 }
 
+//Funcion para convertir la fecha en un formato legible
+function formatDateString(inputString) {
+  const date = new Date(inputString);
+  return date.toISOString().slice(0, 19).replace('T', ' ');
+}
+
+//Funcion para crear un evento
+function crearEvento() {
+  let id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+  let id_usuario = parseInt(id_usuarioStr);
+  let datos = vista.obtenerValoresFormulario("parrafoDetallado", "input");
+  let fechaStr = datos[2];
+  let fecha = formatDateString(fechaStr);
+  console.log(fecha);
+  let data = {
+    id_usuario: id_usuario,
+    nombre_evento: datos[0],
+    descripcion: datos[1],
+    fecha_hora: fecha,
+    id_categoria: datos[3],
+    lugar: datos[4],
+    direccion: datos[5],
+    disponibilidad: datos[6],
+    link_compra: datos[7],
+  };
+  eventoObj.crearEvento(data, function (data) {
+    vista.mostrarMensaje(data.success, data.msj);
+    mostrarEventosOrganizador();
+  });
+}
+
+
+/*----------------------------------PERFIL-----------------------------------*/
 
 function mostrarPerfil() {
   vista.limpiarContenido("contenido");
