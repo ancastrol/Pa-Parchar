@@ -317,6 +317,138 @@ class Vista {
     });
   }
 
+  //Mostrar eventos al administrador
+  mostrarEventoAdmin(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
+
+    //construir tarjeta evento
+    data.forEach((miEvento) => {
+      let divMiEvento = document.createElement("div");
+      divMiEvento.setAttribute("id", "contenedorMiEvento");
+
+      let hrLinea = document.createElement("hr");
+      hrLinea.setAttribute("id", "lineaMiEvento");
+
+      let botonMiEvento = document.createElement("button");
+      botonMiEvento.classList.add("p-2");
+      botonMiEvento.setAttribute("id", "botonEvento");
+      botonMiEvento.setAttribute("data-id", miEvento.id_evento);
+
+      let divMiEvento2 = document.createElement("div");
+      divMiEvento2.classList.add("d-flex");
+
+      let divMiEvento2_1 = document.createElement("div");
+      divMiEvento2_1.classList.add("p-2", "flex-grow-1", "align-self-center");
+
+      let imagenMiEvento = document.createElement("img");
+      imagenMiEvento.setAttribute("id", "eventoOrganizador");
+      imagenMiEvento.src = miEvento.ruta_imagen;
+
+      let divMiEvento2_2 = document.createElement("div");
+      divMiEvento2_2.classList.add("p-2", "d-flex", "flex-column", "mb-0", "align-self-center", "text-left");
+      divMiEvento2_2.setAttribute("id", "divMiEvento2_2");
+
+      let nombre = document.createElement("h6");
+      nombre.setAttribute("id", "tituloOrganizador");
+      nombre.innerHTML = `<strong>${miEvento.nombre_evento}</strong>`;
+
+      let informacion = document.createElement("p");
+      informacion.setAttribute("id", "parrafoOrganizador");
+      informacion.innerHTML = `<strong>FECHA</strong><br>${miEvento.fecha_hora}<br><strong>CATEGORIA</strong><br>${miEvento.id_categoria}<br><strong>DISPONIBILIDAD</strong><br>${miEvento.disponibilidad}<br><strong>LUGAR</strong><br>${miEvento.lugar}`;
+
+      let descripcion = document.createElement("div");
+      descripcion.classList.add("p-2", "align-self-center", "text-left");
+      descripcion.innerHTML = `${miEvento.descripcion}`;
+      
+      let botonEliminar = document.createElement("button");
+      botonEliminar.classList.add("W-50");
+      botonEliminar.classList.add("align-self-center");
+      botonEliminar.setAttribute("id", "botonEliminarEvento");
+      botonEliminar.setAttribute("evento-id", miEvento.id_evento)
+      botonEliminar.innerHTML = "ELIMINAR";
+
+      divMiEvento2_1.appendChild(imagenMiEvento);
+      divMiEvento2_2.appendChild(nombre);
+      divMiEvento2_2.appendChild(informacion);
+      divMiEvento2.appendChild(divMiEvento2_1);
+      divMiEvento2.appendChild(divMiEvento2_2);
+      divMiEvento2.appendChild(descripcion);
+      botonMiEvento.appendChild(divMiEvento2);
+      divMiEvento.appendChild(botonMiEvento);
+      divMiEvento.appendChild(botonEliminar);
+      divMiEvento.appendChild(hrLinea);
+      contenedor.appendChild(divMiEvento);
+      botonEliminar.addEventListener("click", eliminarEvento);
+      botonMiEvento.addEventListener("click", mostrarDetalleEvento);
+    });
+  }
+
+  //Mostrar usuarios al administrador
+  mostrarUsuariosAdmin(content, data) {
+    let contenedor = document.getElementById(content);
+    contenedor.innerHTML = "";
+
+    //construir tarjeta usuario
+    data.forEach((usuario) => {
+      let divUsuario = document.createElement("div");
+      divUsuario.setAttribute("id", "contenedorMiEvento");
+
+      let hrLinea = document.createElement("hr");
+      hrLinea.setAttribute("id", "lineaMiEvento");
+
+      let botonUsuario = document.createElement("button");
+      botonUsuario.classList.add("p-2");
+      botonUsuario.setAttribute("id", "botonEvento");
+      botonUsuario.setAttribute("data-id", usuario.id_usuario);
+
+      let divUsuario2 = document.createElement("div");
+      divUsuario2.classList.add("d-flex");
+
+      let divUsuario2_1 = document.createElement("div");
+      divUsuario2_1.classList.add("p-2", "flex-grow-1", "align-self-center");
+
+      let divUsuario2_2 = document.createElement("div");
+      divUsuario2_2.classList.add("p-2", "d-flex", "flex-column", "mb-0", "align-self-center", "text-left");
+      divUsuario2_2.setAttribute("id", "divMiEvento2_2");
+
+      let nombre = document.createElement("h6");
+      nombre.setAttribute("id", "tituloOrganizador");
+      nombre.innerHTML = `<strong>${usuario.nombre}</strong>`;
+
+      let informacion = document.createElement("p");
+      informacion.setAttribute("id", "parrafoOrganizador");
+      informacion.innerHTML = `<strong>CORREO</strong><br>${usuario.correo}<br><strong>CONTRASEÑA</strong><br>${usuario.contrasenia}<br><strong>ESTATUS</strong><br>${usuario.estatus}<br><strong>ID</strong><br>${usuario.id_usuario}`;
+      
+      let botonEliminar = document.createElement("button");
+      botonEliminar.classList.add("W-50");
+      botonEliminar.classList.add("align-self-center");
+      botonEliminar.setAttribute("id", "botonEliminarEvento");
+      botonEliminar.setAttribute("user-id", usuario.id_usuario)
+      botonEliminar.innerHTML = "ELIMINAR";
+
+      let botonBloquear = document.createElement("button");
+      botonBloquear.classList.add("W-50");
+      botonBloquear.classList.add("align-self-center");
+      botonBloquear.setAttribute("id", "botonEliminarEvento");
+      botonBloquear.setAttribute("user-id", usuario.id_usuario)
+      botonBloquear.innerHTML = "DES/BLOQUEAR";
+
+      divUsuario2_2.appendChild(nombre);
+      divUsuario2_2.appendChild(informacion);
+      divUsuario2.appendChild(divUsuario2_1);
+      divUsuario2.appendChild(divUsuario2_2);
+      botonUsuario.appendChild(divUsuario2);
+      divUsuario.appendChild(botonUsuario);
+      divUsuario.appendChild(botonEliminar);
+      divUsuario.appendChild(botonBloquear);
+      divUsuario.appendChild(hrLinea);
+      contenedor.appendChild(divUsuario);
+      botonBloquear.addEventListener("click", bloquearUsuario);
+      botonEliminar.addEventListener("click", eliminarUsuario);
+    });
+  }
+
   //Mostrar info de un evento para que el usuario pueda actualizarla
   mostrarInfoEvento(data) {
     console.log(data);

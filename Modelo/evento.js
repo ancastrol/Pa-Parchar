@@ -147,4 +147,20 @@ class Evento extends Connect {
     this.connect(dataReq, endpoint, method, eventCallback);
   }
 
+  //Metodo para traer todos los eventos
+  consultarEventosAdmin(eventCallback) {
+    const endpoint = "admin/events";
+    const method = "GET";
+    this.connect({}, endpoint, method, eventCallback);
+  }
+
+  //Metodo para eliminar evento
+  eliminarEvento(dataReq, eventCallback) {
+    const endpoint = "admin/eliminarEvento"
+    const method = "DELETE";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
+
+
+
 }

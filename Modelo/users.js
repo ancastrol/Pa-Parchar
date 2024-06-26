@@ -66,4 +66,25 @@ class Usuario extends Connect {
     const method = "PUT";
     this.connect(dataReq, endpoint, method, changePasswordCallback);
   }
+
+  //Metodo para traer usuarios
+  consultarUsuariosAdmin(eventCallback) {
+    const endpoint = "admin/users";
+    const method = "GET";
+    this.connect({}, endpoint, method, eventCallback);
+  }
+
+  //Metodo para bloquear usuario
+  bloquearUsuario(dataReq, eventCallback) {
+    const endpoint = "admin/bloquearUsuario";
+    const method = "PUT";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
+
+  //Metodo para eliminar usuario
+  eliminarUsuario(dataReq, eventCallback) {
+    const endpoint = "admin/eliminarUsuario";
+    const method = "DELETE";
+    this.connect(dataReq, endpoint, method, eventCallback);
+  }
 }

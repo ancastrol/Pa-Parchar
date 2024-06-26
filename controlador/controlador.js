@@ -4,51 +4,57 @@ let usuarioObj = new Usuario();
 let listaEventos = [];
 /*variable que representa si el usuario inicio sesion con TRUE o no con FALSE*/
 let sesion = false;
+let admin = false
 /*Funcion que muestra la oantalla principal apenas carga la pagina*/
 
 document.body.onload = function () {
-  volverInicio();
+    volverInicio();
 };
 
 /*Funciones para mostrar las plantillas en el main*/
 function volverInicio() {
-  vista.mostrarPlantilla("paginaPrincipal", "contenido");
-  //consultar eventos en  BD
-  if (sesion == false) {
-    eventoObj.consultarEventosCarrusel({}, function (data) {
-      listaEventosCarrusel = data.data;
-      vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
-    });
-    eventoObj.consultarEventos({}, function (data) {
-      listaEventos = data.data;
-      //Desplegar tarjetas de eventos en id= "contenidoEventos"
-      vista.mostrarEvento("contenidoEventos", listaEventos);
-    });
-  } else {
-    id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
-    id_usuario = parseInt(id_usuarioStr);
-    eventoObj.consultarEventosCarruselUsuario(id_usuario, function (data) {
-      if (data.data.length > 0) {
+  if(admin == false){
+    vista.mostrarPlantilla("paginaPrincipal", "contenido");
+    //consultar eventos en  BD
+    if (sesion == false) {
+      eventoObj.consultarEventosCarrusel({}, function (data) {
         listaEventosCarrusel = data.data;
         vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
-      } else {
-        eventoObj.consultarEventosCarrusel({}, function (data) {
+      });
+      eventoObj.consultarEventos({}, function (data) {
+        listaEventos = data.data;
+        //Desplegar tarjetas de eventos en id= "contenidoEventos"
+        vista.mostrarEvento("contenidoEventos", listaEventos);
+      });
+    } else {
+      id_usuarioStr = document.getElementById("papa").attributes["user-id"].value;
+      id_usuario = parseInt(id_usuarioStr);
+      eventoObj.consultarEventosCarruselUsuario(id_usuario, function (data) {
+        if (data.data.length > 0) {
           listaEventosCarrusel = data.data;
           vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
-        });
-      }
-    });
-    eventoObj.consultarEventosUsuario(id_usuario, function (data) {
-      if (data.data.length > 0) {
-        listaEventos = data.data;
-        vista.mostrarEvento("contenidoEventos", listaEventos);
-      } else {
-        eventoObj.consultarEventos({}, function (data) {
+        } else {
+          eventoObj.consultarEventosCarrusel({}, function (data) {
+            listaEventosCarrusel = data.data;
+            vista.mostrarCarrusel("contenidoCarrusel", listaEventosCarrusel);
+          });
+        }
+      });
+      eventoObj.consultarEventosUsuario(id_usuario, function (data) {
+        if (data.data.length > 0) {
           listaEventos = data.data;
           vista.mostrarEvento("contenidoEventos", listaEventos);
-        });
-      }
-    });
+        } else {
+          eventoObj.consultarEventos({}, function (data) {
+            listaEventos = data.data;
+            vista.mostrarEvento("contenidoEventos", listaEventos);
+          });
+        }
+      });
+    }
+  }
+  else{
+    mostrarAdmin();
   }
 }
 
@@ -86,7 +92,12 @@ function mostrarEventosOrganizador() {
   let id_usuario = parseInt(id_usuarioStr);
   eventoObj.consultarEventosOrganizador(id_usuario, function (data) {
     listaEventos = data.data;
-    vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+    if (listaEventos.length == 0) {
+      vista.mostrarPlantilla("pantallaNoHayEvento", "contenido");
+    }
+    else{
+      vista.mostrarMiEvento("contenedorMisEventos", listaEventos);
+    }
   });
 }
 
@@ -311,22 +322,67 @@ function actualizarEvento() {
   }
 }
   
-//Funcion para mostrar plantilla admin
+//Funcion para mostrar plantilla admin y traer eventos
 function mostrarAdmin() {
   vista.limpiarContenido("contenido");
   vista.mostrarPlantilla("admin", "contenido");
+  eventoObj.consultarEventosAdmin(function (data) {
+    listaEventos = data.data;
+    vista.mostrarEventoAdmin("contenedorAdministrarEvento", listaEventos);
+  });
 }
 
 //Funcion para traer eventos a plantilla admin
 function mostrarEventosAdmin() {
-  vista.limpiarContenido("contenido");
-  vista.mostrarPlantilla("eventosAdmin", "contenido");
-  eventoObj.consultarMasEventos(function (data) {
+  eventoObj.consultarEventosAdmin(function (data) {
     listaEventos = data.data;
-    vista.mostrarEventoAdmin("contenidoEventosAdmin", listaEventos);
+    vista.mostrarEventoAdmin("contenedorAdministrarEvento", listaEventos);
   });
 }
 
+//Funcion para traer usuarios a plantilla admin
+function mostrarUsuariosAdmin() {
+  usuarioObj.consultarUsuariosAdmin(function (data) {
+    listaUsuarios = data.data;
+    vista.mostrarUsuariosAdmin("contenedorAdministrarEvento", listaUsuarios);
+  });
+}
+
+//Funcion para eliminar evento
+function eliminarEvento() {
+  let id_eventoStr = this.attributes["evento-id"].value;
+  let data = { id_evento:parseInt(id_eventoStr)};
+  eventoObj.eliminarEvento(data, function (data) {
+    vista.mostrarMensaje(true, "Evento Eliminado Correctamente");
+    mostrarAdmin();
+  });
+}
+
+//Funcion para bloquear usuario
+function bloquearUsuario() {
+  let id_usuarioStr = this.attributes["user-id"].value;
+  let data = { id_usuario:parseInt(id_usuarioStr)};
+  usuarioObj.bloquearUsuario(data, function (data) {
+    vista.mostrarMensaje(data.success, data.message);
+    mostrarUsuariosAdmin();
+  });
+}
+
+//Funcion para eliminar usuario
+function eliminarUsuario() {
+  let id_usuarioStr = this.attributes["user-id"].value;
+  let data = { id_usuario:parseInt(id_usuarioStr)};
+  usuarioObj.eliminarUsuario(data, function (data) {
+    if(id_usuarioStr == "1"){
+      vista.mostrarMensaje(false, "No se puede eliminar al administrador");
+      mostrarUsuariosAdmin();
+    }
+    else{
+      vista.mostrarMensaje(data.success, data.message);
+      mostrarUsuariosAdmin();
+    }
+  });
+}
 
 
 /*----------------------------------PERFIL-----------------------------------*/
@@ -522,16 +578,28 @@ function iniciarSesion() {
     usuarioObj.login(data, function (data) {
       if (data.success) {
         if (data.data.length > 0) {
-          sesion = !sesion;
-          vista.cerrarModal("modalLogin");
-          vista.mostrarMensaje(data.success, data.msj);
-          //Se guarda los datos del usuario en el objeto usuario
-          usuarioObj.setData(data.data[0]);
-          //Se guarda el id del usuario en la variable id_usuario, para luego usarla en a funcion consultarEventosUsuario
-          let id_usuario = usuarioObj.id;
-          document.getElementById("papa").setAttribute("user-id", id_usuario);
-          volverInicio();
-        } else {
+          if(data.data[0].estatus == "1"){
+            sesion = !sesion;
+            vista.cerrarModal("modalLogin");
+            vista.mostrarMensaje(data.success, data.msj);
+            //Se guarda los datos del usuario en el objeto usuario
+            usuarioObj.setData(data.data[0]);
+            //Se guarda el id del usuario en la variable id_usuario, para luego usarla en a funcion consultarEventosUsuario
+            let id_usuario = usuarioObj.id;
+            document.getElementById("papa").setAttribute("user-id", id_usuario);
+            volverInicio();
+          }
+          else if(data.data[0].estatus == "3"){
+            vista.cerrarModal("modalLogin");
+            vista.mostrarMensaje(data.success, data.msj);
+            admin = true;
+            volverInicio();
+          }
+          else{
+            vista.mostrarMensaje(false, "Usuario bloqueado");
+          }
+        } 
+        else {
           vista.mostrarMensaje(false, "Usuario no encontrado");
         }
       } else {
@@ -546,6 +614,7 @@ function iniciarSesion() {
 //funcion para cerrar sesion de usuario
 function cerrarSesion() {
   sesion = !sesion;
+  admin = false;
   document.getElementById("papa").setAttribute("user-id", "");
   vista.cerrarModal("modalLateralSesionIniciada");
   vista.mostrarMensaje(true, "Sesion cerrada");

@@ -900,15 +900,10 @@
                 <div id="filtroEvento">
 
                     <button type="text" id="filtroCategoriaEvento"
-                        onclick="mostrarEventosOrganizadorFiltro()">EVENTOS</button>
+                        onclick="mostrarEventosAdmin()">EVENTOS</button>
                     <button type="text" id="filtroOrdenEvento"
-                        onclick="mostrarEventosOrganizadorFiltro()">USUARIOS</button>
+                        onclick="mostrarUsuariosAdmin()">USUARIOS</button>
                 </div>
-
-                <div id="contenedorEventosUsuarios">
-
-                </div>
-
             </div>
 
             <hr size="8px" color="#ffffff" />
@@ -922,6 +917,24 @@
 
 
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Pagina no hay evento-->
+    <template id="pantallaNoHayEvento">
+
+        <div class="containerNoEvento">
+            <div class="noEvento">
+                <img src="Recursos\Img\no hay evento.png" alt="">
+            </div>
+
+                <button class="botonNoEvento"onclick="mostrarIngresarEvento()">
+                            <strong class="align-self-center text-btn-despl">AQUI</strong>
+                        </button>
+
+
+        </div>
+    </template>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
     <!--Terminos y condiciones-->
     <template id="pantallaTerminosYCondiciones">

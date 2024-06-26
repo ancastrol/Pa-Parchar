@@ -1678,4 +1678,72 @@ footer.a {
     color: #000000;
 }
 
+
+#botonEliminarEvento {
+    width: 10%;
+    height: 50px;
+    text-align: center; /* Centramos el texto horizontalmente */
+    background-color: #ffffff;
+    color: black;
+    font-size: 20px;
+    border: 1px solid #4F4F4F;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 10px;
+    display: flex; /* Convertimos el botón en un contenedor flex */
+    justify-content: center; /* Centramos horizontalmente dentro del botón */
+    align-items: center; /* Centramos verticalmente dentro del botón */
+    margin: 20px;
+    margin-left: 90%;
+}
+
+#botonEliminarEvento:hover {
+    background-color: rgb(187, 187, 187); 
+    color: #000000;
+}
+
 /*-------------------------------------------------------------------------------------------------------*/
+
+/*no hay eventos*/
+
+
+.containerNoEvento {
+    position: relative;
+    width: 100%; /* Asegura que el contenedor ocupe el ancho disponible */
+    height: 100%; /* Ejemplo de altura completa, ajusta según necesidad */
+    overflow: hidden; /* Evita que la imagen desborde el contenedor */
+}
+
+.containerNoEvento img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+}
+
+.containerNoEvento button {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 15px 40px; /* Aumentado para más espacio alrededor del texto */
+    background-color: #ffffff;
+    color: #262626;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'inter', sans-serif;
+    letter-spacing: normal; /* Ajustado para evitar superposición de texto */
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5em; /* Aumentado para mejorar la legibilidad */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(221, 221, 221, 0.2);
+    align-items: center;
+}
+
+.containerNoEvento button:hover {
+    background-color: #494f57; /* Color de fondo más oscuro al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más grande al pasar el mouse */
+}
